@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIS_PR", "HIS_PR\HIS_PR.csproj", "{3586E4AF-28CB-4925-ACEF-98B8C2B361DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HeThong", "HeThong", "{EA271B17-D5FE-4F33-951C-51ECA0D81570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeThong", "HeThong\HeThong.csproj", "{98E3852B-C098-4E49-97AC-A04B69E71132}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{3586E4AF-28CB-4925-ACEF-98B8C2B361DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3586E4AF-28CB-4925-ACEF-98B8C2B361DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3586E4AF-28CB-4925-ACEF-98B8C2B361DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E3852B-C098-4E49-97AC-A04B69E71132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E3852B-C098-4E49-97AC-A04B69E71132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E3852B-C098-4E49-97AC-A04B69E71132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E3852B-C098-4E49-97AC-A04B69E71132}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98E3852B-C098-4E49-97AC-A04B69E71132} = {EA271B17-D5FE-4F33-951C-51ECA0D81570}
 	EndGlobalSection
 EndGlobal
