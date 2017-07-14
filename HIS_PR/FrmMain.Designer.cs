@@ -28,59 +28,110 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            this.ribbonControlMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barLinkSkin = new DevExpress.XtraBars.BarLinkContainerItem();
+            this.barQuanTriHeThong = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonPageDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barDanhMucNhanVien = new DevExpress.XtraBars.BarButtonItem();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonControl1
+            // ribbonControlMain
             // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(607, 143);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControlMain.ExpandCollapseItem.Id = 0;
+            this.ribbonControlMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControlMain.ExpandCollapseItem,
+            this.barLinkSkin,
+            this.barQuanTriHeThong,
+            this.barDanhMucNhanVien});
+            this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControlMain.MaxItemId = 4;
+            this.ribbonControlMain.Name = "ribbonControlMain";
+            this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
+            this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPageHeThong,
+            this.ribbonPageDanhMuc});
+            this.ribbonControlMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
+            this.ribbonControlMain.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControlMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonControlMain.Size = new System.Drawing.Size(1290, 143);
+            this.ribbonControlMain.StatusBar = this.ribbonStatusBarMain;
             // 
-            // ribbonPage1
+            // barLinkSkin
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.barLinkSkin.Caption = "Giao diện";
+            this.barLinkSkin.Id = 8;
+            this.barLinkSkin.Name = "barLinkSkin";
             // 
-            // ribbonPageGroup1
+            // barQuanTriHeThong
             // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.barQuanTriHeThong.Caption = "Quản trị hệ thống";
+            this.barQuanTriHeThong.Id = 1;
+            this.barQuanTriHeThong.Name = "barQuanTriHeThong";
+            this.barQuanTriHeThong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barQuanTriHeThong_ItemClick);
             // 
-            // ribbonStatusBar1
+            // ribbonPageHeThong
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 230);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(607, 31);
+            this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupHeThong});
+            this.ribbonPageHeThong.Name = "ribbonPageHeThong";
+            this.ribbonPageHeThong.Text = "Hệ thống";
+            // 
+            // ribbonPageGroupHeThong
+            // 
+            this.ribbonPageGroupHeThong.ItemLinks.Add(this.barQuanTriHeThong);
+            this.ribbonPageGroupHeThong.Name = "ribbonPageGroupHeThong";
+            this.ribbonPageGroupHeThong.ShowCaptionButton = false;
+            // 
+            // ribbonStatusBarMain
+            // 
+            this.ribbonStatusBarMain.Location = new System.Drawing.Point(0, 668);
+            this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
+            this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
+            this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
+            // 
+            // ribbonPageDanhMuc
+            // 
+            this.ribbonPageDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupDanhMuc});
+            this.ribbonPageDanhMuc.Name = "ribbonPageDanhMuc";
+            this.ribbonPageDanhMuc.Text = "Danh mục";
+            // 
+            // ribbonPageGroupDanhMuc
+            // 
+            this.ribbonPageGroupDanhMuc.ItemLinks.Add(this.barDanhMucNhanVien);
+            this.ribbonPageGroupDanhMuc.Name = "ribbonPageGroupDanhMuc";
+            this.ribbonPageGroupDanhMuc.ShowCaptionButton = false;
+            // 
+            // barDanhMucNhanVien
+            // 
+            this.barDanhMucNhanVien.Caption = "Danh mục nhân viên";
+            this.barDanhMucNhanVien.Id = 3;
+            this.barDanhMucNhanVien.Name = "barDanhMucNhanVien";
+            this.barDanhMucNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDanhMucNhanVien_ItemClick);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 261);
-            this.Controls.Add(this.ribbonStatusBar1);
-            this.Controls.Add(this.ribbonControl1);
+            this.ClientSize = new System.Drawing.Size(1290, 699);
+            this.Controls.Add(this.ribbonStatusBarMain);
+            this.Controls.Add(this.ribbonControlMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.Name = "FrmMain";
-            this.Ribbon = this.ribbonControl1;
+            this.Ribbon = this.ribbonControlMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "FrmMain";
+            this.StatusBar = this.ribbonStatusBarMain;
+            this.Text = "Hệ thống quản lý bệnh viện";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,9 +139,14 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControlMain;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBarMain;   
+        private DevExpress.XtraBars.BarLinkContainerItem barLinkSkin;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageHeThong;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupHeThong;
+        private DevExpress.XtraBars.BarButtonItem barQuanTriHeThong;
+        private DevExpress.XtraBars.BarButtonItem barDanhMucNhanVien;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageDanhMuc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupDanhMuc;
     }
 }

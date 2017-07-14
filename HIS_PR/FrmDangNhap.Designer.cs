@@ -1,4 +1,4 @@
-﻿namespace HeThong.GUI
+﻿namespace HIS_PR
 {
     partial class FrmDangNhap
     {

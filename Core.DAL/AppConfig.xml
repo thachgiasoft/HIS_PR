@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppConfig>
+  <ThemeConfig>
+    <Theme>Valentine</Theme>
+  </ThemeConfig>
+  <Connection>
+    <ServerName>DANGCAM</ServerName>
+    <Database>HIS_PR</Database>
+    <UserName>dangcam.pr</UserName>
+    <Password>123456</Password>
+  </Connection>
+</AppConfig>

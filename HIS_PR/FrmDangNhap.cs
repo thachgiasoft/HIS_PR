@@ -1,14 +1,19 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using Core.DAL;
+using DevExpress.XtraBars.Ribbon;
 using System;
 
 
-namespace HeThong.GUI
+namespace HIS_PR
 {
     public partial class FrmDangNhap : RibbonForm
     {
+        FrmMain frmMain;
+        AppConfig appConfig = new AppConfig ();
         public FrmDangNhap ()
         {
             InitializeComponent ();
+            appConfig.Read ();
+            frmMain = new FrmMain (this);
         }
 
         private void FrmDangNhap_Load (object sender, EventArgs e)
@@ -18,7 +23,8 @@ namespace HeThong.GUI
 
         private void btnOK_Click (object sender, EventArgs e)
         {
-
+            this.Hide ();
+            frmMain.Show ();
         }
 
         private void btnThoat_Click (object sender, EventArgs e)
