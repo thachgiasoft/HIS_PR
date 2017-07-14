@@ -75,6 +75,12 @@
     <Compile Include="UC_ChucNang.Designer.cs">
       <DependentUpon>UC_ChucNang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Menu.Designer.cs">
+      <DependentUpon>UC_Menu.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmQuanTriHeThong.resx">
@@ -87,6 +93,19 @@
     <EmbeddedResource Include="UC_ChucNang.resx">
       <DependentUpon>UC_ChucNang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_Menu.resx">
+      <DependentUpon>UC_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.DAL\Core.DAL.csproj">
+      <Project>{C6E86929-31E5-41E4-99DE-E25F3FADB210}</Project>
+      <Name>Core.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeThong.DAL\HeThong.DAL.csproj">
+      <Project>{E8A75724-F20A-4710-BCB7-CB7E1E0B5BE2}</Project>
+      <Name>HeThong.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

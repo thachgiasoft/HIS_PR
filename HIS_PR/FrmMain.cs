@@ -51,7 +51,6 @@ namespace HIS_PR
 
         private void barQuanTriHeThong_ItemClick (object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //
             foreach(Form frm in this.MdiChildren)
             {
                 if(frm.GetType()==typeof(FrmQuanTriHeThong))

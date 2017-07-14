@@ -29,8 +29,8 @@
         private void InitializeComponent ()
         {
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -41,10 +41,10 @@
             this.checkTinhTrang = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MoTa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.checkChoPhep = new DevExpress.XtraEditors.CheckEdit();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.txtLop = new DevExpress.XtraEditors.TextEdit();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroupMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -63,10 +63,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkChoPhep.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -83,15 +83,15 @@
             // 
             // layoutControlMain
             // 
-            this.layoutControlMain.Controls.Add(this.simpleButton2);
-            this.layoutControlMain.Controls.Add(this.simpleButton1);
+            this.layoutControlMain.Controls.Add(this.btnThem);
+            this.layoutControlMain.Controls.Add(this.btnLuu);
             this.layoutControlMain.Controls.Add(this.btnXoa);
             this.layoutControlMain.Controls.Add(this.gridControl);
             this.layoutControlMain.Controls.Add(this.checkChoPhep);
-            this.layoutControlMain.Controls.Add(this.memoEdit1);
-            this.layoutControlMain.Controls.Add(this.textEdit3);
-            this.layoutControlMain.Controls.Add(this.textEdit2);
-            this.layoutControlMain.Controls.Add(this.textEdit1);
+            this.layoutControlMain.Controls.Add(this.txtMoTa);
+            this.layoutControlMain.Controls.Add(this.txtLop);
+            this.layoutControlMain.Controls.Add(this.txtTen);
+            this.layoutControlMain.Controls.Add(this.txtMa);
             this.layoutControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControlMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlMain.Name = "layoutControlMain";
@@ -100,27 +100,31 @@
             this.layoutControlMain.TabIndex = 0;
             this.layoutControlMain.Text = "layoutControl1";
             // 
-            // simpleButton2
+            // btnThem
             // 
-            this.simpleButton2.ImageUri.Uri = "Add;Size16x16";
-            this.simpleButton2.Location = new System.Drawing.Point(597, 64);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(60, 23);
-            this.simpleButton2.StyleController = this.layoutControlMain;
-            this.simpleButton2.TabIndex = 14;
-            this.simpleButton2.Text = "Thêm";
+            this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Appearance.Options.UseFont = true;
+            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.Location = new System.Drawing.Point(597, 64);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(60, 23);
+            this.btnThem.StyleController = this.layoutControlMain;
+            this.btnThem.TabIndex = 5;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // simpleButton1
+            // btnLuu
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageUri.Uri = "Save;Size16x16";
-            this.simpleButton1.Location = new System.Drawing.Point(661, 64);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(57, 23);
-            this.simpleButton1.StyleController = this.layoutControlMain;
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "Lưu";
+            this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Appearance.Options.UseFont = true;
+            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.Location = new System.Drawing.Point(661, 64);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(57, 23);
+            this.btnLuu.StyleController = this.layoutControlMain;
+            this.btnLuu.TabIndex = 6;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -131,8 +135,9 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(66, 22);
             this.btnXoa.StyleController = this.layoutControlMain;
-            this.btnXoa.TabIndex = 12;
+            this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // gridControl
             // 
@@ -142,7 +147,7 @@
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.checkTinhTrang});
             this.gridControl.Size = new System.Drawing.Size(776, 384);
-            this.gridControl.TabIndex = 9;
+            this.gridControl.TabIndex = 8;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
@@ -157,6 +162,7 @@
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.OptionsView.ShowGroupPanel = false;
+            this.gridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_RowClick);
             // 
             // Ma
             // 
@@ -216,54 +222,54 @@
             // 
             // checkChoPhep
             // 
-            this.checkChoPhep.Location = new System.Drawing.Point(383, 64);
+            this.checkChoPhep.Location = new System.Drawing.Point(368, 64);
             this.checkChoPhep.Name = "checkChoPhep";
             this.checkChoPhep.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkChoPhep.Properties.Appearance.Options.UseFont = true;
             this.checkChoPhep.Properties.Caption = "";
-            this.checkChoPhep.Size = new System.Drawing.Size(115, 19);
+            this.checkChoPhep.Size = new System.Drawing.Size(130, 19);
             this.checkChoPhep.StyleController = this.layoutControlMain;
-            this.checkChoPhep.TabIndex = 8;
+            this.checkChoPhep.TabIndex = 4;
             // 
-            // memoEdit1
+            // txtMoTa
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(383, 12);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoEdit1.Properties.Appearance.Options.UseFont = true;
-            this.memoEdit1.Size = new System.Drawing.Size(405, 48);
-            this.memoEdit1.StyleController = this.layoutControlMain;
-            this.memoEdit1.TabIndex = 7;
+            this.txtMoTa.Location = new System.Drawing.Point(368, 12);
+            this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMoTa.Properties.Appearance.Options.UseFont = true;
+            this.txtMoTa.Size = new System.Drawing.Size(420, 48);
+            this.txtMoTa.StyleController = this.layoutControlMain;
+            this.txtMoTa.TabIndex = 3;
             // 
-            // textEdit3
+            // txtLop
             // 
-            this.textEdit3.Location = new System.Drawing.Point(61, 64);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Size = new System.Drawing.Size(269, 22);
-            this.textEdit3.StyleController = this.layoutControlMain;
-            this.textEdit3.TabIndex = 6;
+            this.txtLop.Location = new System.Drawing.Point(46, 64);
+            this.txtLop.Name = "txtLop";
+            this.txtLop.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLop.Properties.Appearance.Options.UseFont = true;
+            this.txtLop.Size = new System.Drawing.Size(284, 22);
+            this.txtLop.StyleController = this.layoutControlMain;
+            this.txtLop.TabIndex = 2;
             // 
-            // textEdit2
+            // txtTen
             // 
-            this.textEdit2.Location = new System.Drawing.Point(61, 38);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(269, 22);
-            this.textEdit2.StyleController = this.layoutControlMain;
-            this.textEdit2.TabIndex = 5;
+            this.txtTen.Location = new System.Drawing.Point(46, 38);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTen.Properties.Appearance.Options.UseFont = true;
+            this.txtTen.Size = new System.Drawing.Size(284, 22);
+            this.txtTen.StyleController = this.layoutControlMain;
+            this.txtTen.TabIndex = 1;
             // 
-            // textEdit1
+            // txtMa
             // 
-            this.textEdit1.Location = new System.Drawing.Point(61, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(269, 22);
-            this.textEdit1.StyleController = this.layoutControlMain;
-            this.textEdit1.TabIndex = 4;
+            this.txtMa.Location = new System.Drawing.Point(46, 12);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMa.Properties.Appearance.Options.UseFont = true;
+            this.txtMa.Size = new System.Drawing.Size(284, 22);
+            this.txtMa.StyleController = this.layoutControlMain;
+            this.txtMa.TabIndex = 0;
             // 
             // layoutControlGroupMain
             // 
@@ -288,12 +294,12 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
+            this.layoutControlItem1.Control = this.txtMa;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(322, 26);
             this.layoutControlItem1.Text = "Mã:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(31, 13);
             // 
             // emptySpaceItem1
             // 
@@ -308,30 +314,30 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit2;
+            this.layoutControlItem2.Control = this.txtTen;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(322, 26);
             this.layoutControlItem2.Text = "Tên:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(31, 13);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit3;
+            this.layoutControlItem3.Control = this.txtLop;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(322, 27);
             this.layoutControlItem3.Text = "Lớp:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(31, 13);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.memoEdit1;
+            this.layoutControlItem4.Control = this.txtMoTa;
             this.layoutControlItem4.Location = new System.Drawing.Point(322, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(458, 52);
             this.layoutControlItem4.Text = "Mô tả:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(31, 13);
             // 
             // layoutControlItem5
             // 
@@ -339,9 +345,9 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(322, 52);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(168, 27);
-            this.layoutControlItem5.Text = "Cho phép";
+            this.layoutControlItem5.Text = "Bật:";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(31, 13);
             // 
             // layoutControlItem6
             // 
@@ -374,7 +380,7 @@
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.Control = this.simpleButton1;
+            this.layoutControlItem7.Control = this.btnLuu;
             this.layoutControlItem7.Location = new System.Drawing.Point(649, 52);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(61, 27);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(61, 27);
@@ -386,7 +392,7 @@
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.Control = this.simpleButton2;
+            this.layoutControlItem8.Control = this.btnThem;
             this.layoutControlItem8.Location = new System.Drawing.Point(585, 52);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(64, 27);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(64, 27);
@@ -410,10 +416,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkChoPhep.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -434,16 +440,16 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControlMain;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupMain;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnThem;
+        private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraEditors.CheckEdit checkChoPhep;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.MemoEdit txtMoTa;
+        private DevExpress.XtraEditors.TextEdit txtLop;
+        private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;

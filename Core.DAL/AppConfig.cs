@@ -18,6 +18,7 @@ namespace Core.DAL
         public AppConfig()
         {
             xmlfile = new XmlDocument ();
+            xmlfile.Load ("AppConfig.xml");
         }
         public static string Theme
         {
@@ -86,7 +87,7 @@ namespace Core.DAL
 
         public void Read ()
         {
-            xmlfile.Load ("AppConfig.xml");
+            
             AppConfig.Theme = xmlfile.SelectSingleNode ("AppConfig/ThemeConfig/Theme").InnerText.ToString ();
             AppConfig.ServerName = xmlfile.SelectSingleNode ("AppConfig/Connection/ServerName").InnerText.ToString ();
             AppConfig.Database = xmlfile.SelectSingleNode ("AppConfig/Connection/Database").InnerText.ToString ();

@@ -7,6 +7,7 @@ namespace HeThong.GUI
     public partial class FrmQuanTriHeThong : RibbonForm
     {
         UC_ChucNang ucChucNang;
+        UC_Menu ucMenu;
         public FrmQuanTriHeThong ()
         {
             InitializeComponent ();
@@ -30,6 +31,18 @@ namespace HeThong.GUI
                 ucChucNang.Dock = DockStyle.Fill;
                 panelControl.Controls.Add (ucChucNang);
             }
+            ucChucNang.BringToFront ();
+        }
+
+        private void navBarMenu_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucMenu))
+            {
+                ucMenu = new UC_Menu ();
+                ucMenu.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucMenu);
+            }
+            ucMenu.BringToFront ();
         }
     }
 }
