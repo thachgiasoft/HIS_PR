@@ -26,7 +26,7 @@ namespace HeThong.DAL
             get;
             set;
         }
-        public string CapDo
+        public int CapDo
         {
             get;
             set;
@@ -51,6 +51,16 @@ namespace HeThong.DAL
             return db.ExcuteQuery ("Select * From Menu",
                 CommandType.Text, null);
         }
+        public DataTable DSMenu (int cap)
+        {
+            return db.ExcuteQuery ("Select * From Menu Where CapDo = "+cap,
+                CommandType.Text, null);
+        }
+        public DataTable DSChucNang ()
+        {
+            return db.ExcuteQuery ("Select Ma_CN,Ten_CN From ChucNang",
+                CommandType.Text, null);
+        }
         public DataTable DSCayMenu ()
         {
             return db.ExcuteQuery ("Select Ma_Menu,Ten_Menu,MenuCha From Menu",
@@ -66,6 +76,23 @@ namespace HeThong.DAL
                 new SqlParameter ("@MenuCha", MenuCha),
                 new SqlParameter ("@Ma_CN", MaCN),
                 new SqlParameter ("@TinhTrang", TinhTrang));
+        }
+        public bool SuaMenu (ref string err)
+        {
+            return db.MyExecuteNonQuery ("SpSuaMenu",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter ("@Ma_Menu", MaMenu),
+                new SqlParameter ("@Ten_Menu", TenMenu),
+                new SqlParameter ("@CapDo", CapDo),
+                new SqlParameter ("@MenuCha", MenuCha),
+                new SqlParameter ("@Ma_CN", MaCN),
+                new SqlParameter ("@TinhTrang", TinhTrang));
+        }
+        public bool XoaMenu (ref string err)
+        {
+            return db.MyExecuteNonQuery ("SpXoaMenu",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter ("@Ma_Menu", MaMenu));
         }
     }
 }

@@ -222,52 +222,52 @@
             // 
             // checkChoPhep
             // 
-            this.checkChoPhep.Location = new System.Drawing.Point(368, 64);
+            this.checkChoPhep.Location = new System.Drawing.Point(379, 64);
             this.checkChoPhep.Name = "checkChoPhep";
             this.checkChoPhep.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkChoPhep.Properties.Appearance.Options.UseFont = true;
             this.checkChoPhep.Properties.Caption = "";
-            this.checkChoPhep.Size = new System.Drawing.Size(130, 19);
+            this.checkChoPhep.Size = new System.Drawing.Size(119, 19);
             this.checkChoPhep.StyleController = this.layoutControlMain;
             this.checkChoPhep.TabIndex = 4;
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(368, 12);
+            this.txtMoTa.Location = new System.Drawing.Point(379, 12);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoTa.Properties.Appearance.Options.UseFont = true;
-            this.txtMoTa.Size = new System.Drawing.Size(420, 48);
+            this.txtMoTa.Size = new System.Drawing.Size(409, 48);
             this.txtMoTa.StyleController = this.layoutControlMain;
             this.txtMoTa.TabIndex = 3;
             // 
             // txtLop
             // 
-            this.txtLop.Location = new System.Drawing.Point(46, 64);
+            this.txtLop.Location = new System.Drawing.Point(57, 64);
             this.txtLop.Name = "txtLop";
             this.txtLop.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLop.Properties.Appearance.Options.UseFont = true;
-            this.txtLop.Size = new System.Drawing.Size(284, 22);
+            this.txtLop.Size = new System.Drawing.Size(273, 22);
             this.txtLop.StyleController = this.layoutControlMain;
             this.txtLop.TabIndex = 2;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(46, 38);
+            this.txtTen.Location = new System.Drawing.Point(57, 38);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
-            this.txtTen.Size = new System.Drawing.Size(284, 22);
+            this.txtTen.Size = new System.Drawing.Size(273, 22);
             this.txtTen.StyleController = this.layoutControlMain;
             this.txtTen.TabIndex = 1;
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(46, 12);
+            this.txtMa.Location = new System.Drawing.Point(57, 12);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMa.Properties.Appearance.Options.UseFont = true;
-            this.txtMa.Size = new System.Drawing.Size(284, 22);
+            this.txtMa.Size = new System.Drawing.Size(273, 22);
             this.txtMa.StyleController = this.layoutControlMain;
             this.txtMa.TabIndex = 0;
             // 
@@ -299,7 +299,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(322, 26);
             this.layoutControlItem1.Text = "Mã:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(31, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(42, 13);
             // 
             // emptySpaceItem1
             // 
@@ -319,7 +319,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(322, 26);
             this.layoutControlItem2.Text = "Tên:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(31, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem3
             // 
@@ -328,7 +328,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(322, 27);
             this.layoutControlItem3.Text = "Lớp:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(31, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem4
             // 
@@ -337,7 +337,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(458, 52);
             this.layoutControlItem4.Text = "Mô tả:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(31, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem5
             // 
@@ -345,9 +345,9 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(322, 52);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(168, 27);
-            this.layoutControlItem5.Text = "Bật:";
+            this.layoutControlItem5.Text = "Enabled:";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(31, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem6
             // 

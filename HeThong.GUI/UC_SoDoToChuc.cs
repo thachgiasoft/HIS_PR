@@ -11,17 +11,17 @@ using HeThong.DAL;
 
 namespace HeThong.GUI
 {
-    public partial class UC_Menu : UserControl
+    public partial class UC_SoDoToChuc : UserControl
     {
-        MenuEntity menu = new MenuEntity ();
-        bool them = false;
+        SoDoToChucEntity sodo = new SoDoToChucEntity ();
         DataRowView selectNodeDataRow = null;
         DataRow dr = null;
-        public UC_Menu ()
+        bool them = false;
+        public UC_SoDoToChuc ()
         {
             InitializeComponent ();
         }
-        private void checkButton()
+        private void checkButton ()
         {
             Enabled_Them ();
             btnXoa.Enabled = false;
@@ -39,12 +39,21 @@ namespace HeThong.GUI
         {
             btnThem.Enabled = true;
         }
-        private void LoadData()
+        private void LoadData ()
         {
-            treeList.DataSource = menu.DSCayMenu ();
+            treeList.DataSource = sodo.DSCayKhoaBan();
             treeList.ExpandAll ();
-            gridControl.DataSource = menu.DSMenu ();
+            gridControl.DataSource = sodo.DSKhoaBan();
         }
+        private void UC_SoDoToChuc_Load (object sender, EventArgs e)
+        {
+            lookUpMaCha.Properties.DataSource = sodo.DSKhoaBan (0);
+            lookUpMaCha.Properties.DisplayMember = "TenKhoa";
+            lookUpMaCha.Properties.ValueMember = "MaKhoa";
+            LoadData ();
+            checkButton ();
+        }
+
         private void btnThem_Click (object sender, EventArgs e)
         {
             them = true;
@@ -57,31 +66,26 @@ namespace HeThong.GUI
 
         private void btnLuu_Click (object sender, EventArgs e)
         {
-            menu.MaMenu = txtMa.Text;
-            menu.TenMenu = txtTen.Text;
-            menu.MenuCha = "";
-            menu.MaCN = "";
-            if (lookUpDMCha.GetSelectedDataRow () != null)
+            sodo.MaKhoa = txtMa.Text;
+            sodo.TenKhoa = txtTen.Text;
+            sodo.KhoaCha = "";
+            if (lookUpMaCha.GetSelectedDataRow () != null)
             {
-                menu.MenuCha = (lookUpDMCha.GetSelectedDataRow () as DataRowView)[0].ToString ();
+                sodo.KhoaCha = (lookUpMaCha.GetSelectedDataRow () as DataRowView)[0].ToString ();
             }
-            if (lookUpChucNang.GetSelectedDataRow () != null)
-            {
-                menu.MaCN = (lookUpChucNang.GetSelectedDataRow () as DataRowView)[0].ToString ();
-            }
-            menu.CapDo = cbCap.SelectedIndex + 1;
-            menu.TinhTrang = checkTinhTrang.Checked;
+            sodo.CapDo = cbCap.SelectedIndex + 1;
+            sodo.TinhTrang = checkTinhTrang.Checked;
             string err = "";
             if (them)
             {
-                if (menu.ThemMenu (ref err))
+                if (sodo.ThemKhoaBan (ref err))
                 {
                     LoadData ();
                 }
             }
             else
             {
-                if (menu.SuaMenu (ref err))
+                if (sodo.SuaKhoaBan (ref err))
                 {
                     LoadData ();
                 }
@@ -92,9 +96,9 @@ namespace HeThong.GUI
             }
         }
 
-        private void btnLoad_Click (object sender, EventArgs e)
+        private void btnLamMoi_Click (object sender, EventArgs e)
         {
-            UC_Menu_Load (null, null);
+            UC_SoDoToChuc_Load (null, null);
         }
 
         private void btnXoa_Click (object sender, EventArgs e)
@@ -105,7 +109,7 @@ namespace HeThong.GUI
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
-                if (!menu.XoaMenu (ref err))
+                if (!sodo.XoaKhoaBan (ref err))
                 {
                     MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -114,39 +118,27 @@ namespace HeThong.GUI
             }
         }
 
-        private void UC_Menu_Load (object sender, EventArgs e)
+        private void treeList_FocusedNodeChanged (object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            lookUpChucNang.Properties.DataSource = menu.DSChucNang ();
-            lookUpChucNang.Properties.ValueMember = "Ma_CN";
-            lookUpChucNang.Properties.DisplayMember = "Ten_CN";
-            lookUpDMCha.Properties.DataSource = menu.DSMenu (0);
-            lookUpDMCha.Properties.DisplayMember = "Ten_Menu";
-            lookUpDMCha.Properties.ValueMember = "Ma_Menu";
-            LoadData ();
-            checkButton ();
-        }
-
-        private void cbCap_SelectedIndexChanged (object sender, EventArgs e)
-        {
-            lookUpDMCha.Properties.DataSource = menu.DSMenu (cbCap.SelectedIndex);
+            selectNodeDataRow = treeList.GetDataRecordByNode (e.Node) as DataRowView;
+            if (selectNodeDataRow != null)
+            {
+                int rowHandle = gridView.LocateByValue ("MaKhoa", selectNodeDataRow["MaKhoa"]);
+                gridView.FocusedRowHandle = rowHandle;
+            }
         }
 
         private void treeList_NodeCellStyle (object sender, DevExpress.XtraTreeList.GetCustomNodeCellStyleEventArgs e)
         {
-            if(e.Node.Focused)
+            if (e.Node.Focused)
             {
                 e.Appearance.BackColor = System.Drawing.Color.Gray;
             }
         }
 
-        private void treeList_FocusedNodeChanged (object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        private void cbCap_SelectedIndexChanged (object sender, EventArgs e)
         {
-            selectNodeDataRow = treeList.GetDataRecordByNode (e.Node) as DataRowView;
-            if(selectNodeDataRow!=null)
-            {
-                int rowHandle = gridView.LocateByValue ("Ma_Menu", selectNodeDataRow["Ma_Menu"]);
-                gridView.FocusedRowHandle = rowHandle;
-            }
+            lookUpMaCha.Properties.DataSource =sodo.DSKhoaBan (cbCap.SelectedIndex);
         }
 
         private void gridView_FocusedRowChanged (object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -155,12 +147,11 @@ namespace HeThong.GUI
             if (dr != null)
             {
 
-                txtMa.Text = dr["Ma_Menu"].ToString ();
-                menu.MaMenu = txtMa.Text;
-                txtTen.Text = dr["Ten_Menu"].ToString ();
+                txtMa.Text = dr["MaKhoa"].ToString ();
+                sodo.MaKhoa = txtMa.Text;
+                txtTen.Text = dr["TenKhoa"].ToString ();
                 cbCap.EditValue = dr["CapDo"].ToString ();
-                lookUpChucNang.EditValue = dr["Ma_CN"].ToString ();
-                lookUpDMCha.EditValue = dr["MenuCha"].ToString ();
+                lookUpMaCha.EditValue = dr["KhoaCha"].ToString ();
                 checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
                 txtMa.ReadOnly = true;
                 them = false;

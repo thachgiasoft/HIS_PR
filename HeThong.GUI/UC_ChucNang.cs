@@ -96,6 +96,7 @@ namespace HeThong.GUI
                     MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                LoadData ();
             }
         }
 
@@ -105,6 +106,7 @@ namespace HeThong.GUI
             if(dr != null)
             {
                 txtMa.Text = dr["Ma_CN"].ToString ();
+                chucnang.Ma = txtMa.Text;
                 txtTen.Text = dr["Ten_CN"].ToString ();
                 txtLop.Text = dr["Lop_CN"].ToString ();
                 txtMoTa.Text = dr["MoTa"].ToString ();

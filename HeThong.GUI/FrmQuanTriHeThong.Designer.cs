@@ -35,8 +35,9 @@
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarHeThong = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarChucNang = new DevExpress.XtraNavBar.NavBarItem();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarMenu = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.navBarSoDoToChuc = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -88,7 +89,8 @@
             this.navBarHeThong});
             this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarChucNang,
-            this.navBarMenu});
+            this.navBarMenu,
+            this.navBarSoDoToChuc});
             this.navBarControl2.Location = new System.Drawing.Point(0, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 169;
@@ -102,7 +104,8 @@
             this.navBarHeThong.Expanded = true;
             this.navBarHeThong.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarChucNang),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarMenu)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarMenu),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSoDoToChuc)});
             this.navBarHeThong.Name = "navBarHeThong";
             this.navBarHeThong.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarHeThong.SmallImage")));
             // 
@@ -113,6 +116,13 @@
             this.navBarChucNang.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarChucNang.SmallImage")));
             this.navBarChucNang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarChucNang_LinkClicked);
             // 
+            // navBarMenu
+            // 
+            this.navBarMenu.Caption = "Menu";
+            this.navBarMenu.Name = "navBarMenu";
+            this.navBarMenu.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarMenu.SmallImage")));
+            this.navBarMenu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarMenu_LinkClicked);
+            // 
             // panelControl
             // 
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -121,12 +131,12 @@
             this.panelControl.Size = new System.Drawing.Size(716, 468);
             this.panelControl.TabIndex = 0;
             // 
-            // navBarMenu
+            // navBarSoDoToChuc
             // 
-            this.navBarMenu.Caption = "Menu";
-            this.navBarMenu.Name = "navBarMenu";
-            this.navBarMenu.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarMenu.SmallImage")));
-            this.navBarMenu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarMenu_LinkClicked);
+            this.navBarSoDoToChuc.Caption = "Sơ đồ tổ chức";
+            this.navBarSoDoToChuc.Name = "navBarSoDoToChuc";
+            this.navBarSoDoToChuc.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarSoDoToChuc.SmallImage")));
+            this.navBarSoDoToChuc.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarSoDoToChuc_LinkClicked);
             // 
             // FrmQuanTriHeThong
             // 
@@ -162,5 +172,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarChucNang;
         private DevExpress.XtraEditors.PanelControl panelControl;
         private DevExpress.XtraNavBar.NavBarItem navBarMenu;
+        private DevExpress.XtraNavBar.NavBarItem navBarSoDoToChuc;
     }
 }
