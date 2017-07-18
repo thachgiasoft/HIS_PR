@@ -15,6 +15,9 @@ namespace Core.DAL
         private static string database = "";
         private static string userName = "";
         private static string password = "";
+        private static string coSoKCB = "70013";
+        private static string maNV = "";
+        private static string matKhau = "";
         public AppConfig()
         {
             xmlfile = new XmlDocument ();
@@ -82,6 +85,45 @@ namespace Core.DAL
             set
             {
                 password = value;
+            }
+        }
+
+        public static string CoSoKCB
+        {
+            get
+            {
+                return coSoKCB;
+            }
+
+            set
+            {
+                coSoKCB = value;
+            }
+        }
+
+        public static string MaNV
+        {
+            get
+            {
+                return maNV;
+            }
+
+            set
+            {
+                maNV = value;
+            }
+        }
+
+        public static string MatKhau
+        {
+            get
+            {
+                return matKhau;
+            }
+
+            set
+            {
+                matKhau = value;
             }
         }
 

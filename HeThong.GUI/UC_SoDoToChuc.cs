@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeThong.DAL;
+using DevExpress.XtraEditors;
 
 namespace HeThong.GUI
 {
@@ -105,7 +106,7 @@ namespace HeThong.GUI
         {
             DialogResult traloi;
             string err = "";
-            traloi = MessageBox.Show ("Chắc chắn bạn muốn xóa mục này?", "Trả lời",
+            traloi = XtraMessageBox.Show ("Chắc chắn bạn muốn xóa mục này?", "Trả lời",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
@@ -141,7 +142,8 @@ namespace HeThong.GUI
             lookUpMaCha.Properties.DataSource =sodo.DSKhoaBan (cbCap.SelectedIndex);
         }
 
-        private void gridView_FocusedRowChanged (object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+       
+        private void gridView_RowClick (object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             dr = gridView.GetFocusedDataRow ();
             if (dr != null)

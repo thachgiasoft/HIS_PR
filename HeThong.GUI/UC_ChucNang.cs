@@ -1,4 +1,5 @@
-﻿using HeThong.DAL;
+﻿using DevExpress.XtraEditors;
+using HeThong.DAL;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -87,7 +88,7 @@ namespace HeThong.GUI
         {
             DialogResult traloi;
             string err = "";
-            traloi = MessageBox.Show ("Chắc chắn bạn muốn xóa mục này?", "Trả lời",
+            traloi = XtraMessageBox.Show ("Chắc chắn bạn muốn xóa mục này?", "Trả lời",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
