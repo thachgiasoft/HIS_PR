@@ -43,17 +43,11 @@ namespace Core.DAL
             AppConfig.MatKhau = data.Rows[0]["MatKhau"].ToString ();
             AppConfig.CoSoKCB = data.Rows[0]["CoSoKCB"].ToString ();
 
+            
+            Utils.ThemHoatDong (Library.DANGNHAP);
+
             return true;
         }
-        public bool CheckMenu(string MaCN)
-        {
-            DataTable data = db.ExcuteQuery ("Select * From DanhSachQuyen Where Ma_NV = '" + AppConfig.MaNV + "' And Ma_CN = '" + MaCN + "'",
-                CommandType.Text, null);
-            if (data == null || data.Rows.Count == 0)
-            {
-                return false;
-            }
-            return true;
-        }
+       
     }
 }

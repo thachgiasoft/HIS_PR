@@ -32,17 +32,18 @@
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
-            this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarHeThong = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarChucNang = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarMenu = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarSoDoToChuc = new DevExpress.XtraNavBar.NavBarItem();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarPhanQuyen = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarNhatKy = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,30 +76,31 @@
             this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl.Location = new System.Drawing.Point(0, 27);
             this.splitContainerControl.Name = "splitContainerControl";
-            this.splitContainerControl.Panel1.Controls.Add(this.navBarControl2);
+            this.splitContainerControl.Panel1.Controls.Add(this.navBarControl);
             this.splitContainerControl.Panel1.Text = "PanelLeft";
             this.splitContainerControl.Panel2.Controls.Add(this.panelControl);
             this.splitContainerControl.Size = new System.Drawing.Size(890, 468);
             this.splitContainerControl.SplitterPosition = 169;
             this.splitContainerControl.TabIndex = 1;
             // 
-            // navBarControl2
+            // navBarControl
             // 
-            this.navBarControl2.ActiveGroup = this.navBarHeThong;
-            this.navBarControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navBarControl2.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarControl.ActiveGroup = this.navBarHeThong;
+            this.navBarControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarHeThong});
-            this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarChucNang,
             this.navBarMenu,
             this.navBarSoDoToChuc,
-            this.navBarPhanQuyen});
-            this.navBarControl2.Location = new System.Drawing.Point(0, 0);
-            this.navBarControl2.Name = "navBarControl2";
-            this.navBarControl2.OptionsNavPane.ExpandedWidth = 169;
-            this.navBarControl2.Size = new System.Drawing.Size(169, 468);
-            this.navBarControl2.TabIndex = 0;
-            this.navBarControl2.Text = "navBarControl2";
+            this.navBarPhanQuyen,
+            this.navBarNhatKy});
+            this.navBarControl.Location = new System.Drawing.Point(0, 0);
+            this.navBarControl.Name = "navBarControl";
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 169;
+            this.navBarControl.Size = new System.Drawing.Size(169, 468);
+            this.navBarControl.TabIndex = 0;
+            this.navBarControl.Text = "Quản trị";
             // 
             // navBarHeThong
             // 
@@ -108,7 +110,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarChucNang),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarMenu),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSoDoToChuc),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarPhanQuyen)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarPhanQuyen),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarNhatKy)});
             this.navBarHeThong.Name = "navBarHeThong";
             this.navBarHeThong.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarHeThong.SmallImage")));
             // 
@@ -133,6 +136,20 @@
             this.navBarSoDoToChuc.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarSoDoToChuc.SmallImage")));
             this.navBarSoDoToChuc.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarSoDoToChuc_LinkClicked);
             // 
+            // navBarPhanQuyen
+            // 
+            this.navBarPhanQuyen.Caption = "Phân quyền";
+            this.navBarPhanQuyen.Name = "navBarPhanQuyen";
+            this.navBarPhanQuyen.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarPhanQuyen.SmallImage")));
+            this.navBarPhanQuyen.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarPhanQuyen_LinkClicked);
+            // 
+            // navBarNhatKy
+            // 
+            this.navBarNhatKy.Caption = "Nhật ký";
+            this.navBarNhatKy.Name = "navBarNhatKy";
+            this.navBarNhatKy.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarNhatKy.SmallImage")));
+            this.navBarNhatKy.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarNhatKy_LinkClicked);
+            // 
             // panelControl
             // 
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,13 +157,6 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(716, 468);
             this.panelControl.TabIndex = 0;
-            // 
-            // navBarPhanQuyen
-            // 
-            this.navBarPhanQuyen.Caption = "Phân quyền";
-            this.navBarPhanQuyen.Name = "navBarPhanQuyen";
-            this.navBarPhanQuyen.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarPhanQuyen.SmallImage")));
-            this.navBarPhanQuyen.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarPhanQuyen_LinkClicked);
             // 
             // FrmQuanTriHeThong
             // 
@@ -165,7 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,12 +187,13 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
-        private DevExpress.XtraNavBar.NavBarControl navBarControl2;
+        private DevExpress.XtraNavBar.NavBarControl navBarControl;
         private DevExpress.XtraNavBar.NavBarGroup navBarHeThong;
         private DevExpress.XtraNavBar.NavBarItem navBarChucNang;
         private DevExpress.XtraEditors.PanelControl panelControl;
         private DevExpress.XtraNavBar.NavBarItem navBarMenu;
         private DevExpress.XtraNavBar.NavBarItem navBarSoDoToChuc;
         private DevExpress.XtraNavBar.NavBarItem navBarPhanQuyen;
+        private DevExpress.XtraNavBar.NavBarItem navBarNhatKy;
     }
 }

@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using Core.DAL;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraNavBar;
 using System;
 using System.Windows.Forms;
 
@@ -10,6 +12,7 @@ namespace HeThong.GUI
         UC_Menu ucMenu;
         UC_SoDoToChuc ucSoDoToChuc;
         UC_PhanQuyen ucPhanQuyen;
+        UC_NhatKy ucNhatKy;
         public FrmQuanTriHeThong ()
         {
             InitializeComponent ();
@@ -19,10 +22,23 @@ namespace HeThong.GUI
             base.OnLoad (e);
             this.WindowState = FormWindowState.Maximized;
         }
+        private void LoadMenu ()
+        {
+            foreach(NavBarItem navBarItem in navBarControl.Items)
+            {
+                if (Utils.CheckMenu (navBarItem.Name))
+                {
+                    navBarItem.Enabled = true;
+                }
+                else
+                {
+                    navBarItem.Enabled = false;
+                }
+            }
+        }
         private void FrmQuanTriHeThong_Load (object sender, EventArgs e)
         {
-            
-            
+            LoadMenu ();
         }
 
         private void navBarChucNang_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -67,6 +83,17 @@ namespace HeThong.GUI
                 panelControl.Controls.Add (ucPhanQuyen);
             }
             ucPhanQuyen.BringToFront ();
+        }
+
+        private void navBarNhatKy_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucNhatKy))
+            {
+                ucNhatKy = new UC_NhatKy ();
+                ucNhatKy.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucNhatKy);
+            }
+            ucNhatKy.BringToFront ();
         }
     }
 }

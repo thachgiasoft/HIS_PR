@@ -1,25 +1,27 @@
-﻿using DevExpress.XtraEditors;
-using HeThong.DAL;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using DanhMuc.DAL;
+using DevExpress.XtraEditors;
 
-namespace HeThong.GUI
+namespace DanhMuc.GUI
 {
-    public partial class UC_ChucNang : UserControl
+    public partial class UC_DonViTinh : UserControl
     {
-        ChucNangEntity chucnang = new ChucNangEntity ();
-        bool them = false;
+        DonViTinhEntity donvitinh;
+        DataRow dr;
         string quyen = "";
-        public UC_ChucNang ()
+        bool them = false;
+        public UC_DonViTinh ()
         {
             InitializeComponent ();
+            donvitinh = new DonViTinhEntity ();
         }
-        private void LoadData()
+        private void LoadData ()
         {
-            gridControl.DataSource = chucnang.DSChucnang ();
+            gridControl.DataSource = donvitinh.DSDonViTinh ();
         }
-        private void CheckButton()
+        private void CheckButton ()
         {
             quyen = Core.DAL.Utils.GetQuyen (this.Name);
             Enabled_Them ();
@@ -59,7 +61,7 @@ namespace HeThong.GUI
                 btnThem.Enabled = false;
             }
         }
-        private void UC_ChucNang_Load (object sender, EventArgs e)
+        private void UC_DonViTinh_Load (object sender, EventArgs e)
         {
             LoadData ();
             CheckButton ();
@@ -67,13 +69,8 @@ namespace HeThong.GUI
 
         private void btnThem_Click (object sender, EventArgs e)
         {
-            txtMa.Text = "";
-            txtLop.Text = "";
-            txtMoTa.Text = "";
             txtTen.Text = "";
-            checkChoPhep.Checked = true;
             them = true;
-            txtMa.ReadOnly = false;
 
             Enabled_Luu ();
             btnXoa.Enabled = false;
@@ -81,29 +78,25 @@ namespace HeThong.GUI
 
         private void btnLuu_Click (object sender, EventArgs e)
         {
-            chucnang.Ma = txtMa.Text;
-            chucnang.Ten = txtTen.Text;
-            chucnang.Lop = txtLop.Text;
-            chucnang.MoTa = txtMoTa.Text;
-            chucnang.TinhTrang = checkChoPhep.Checked;
+            donvitinh.Ten = txtTen.Text;
             string err = "";
-            if(them)
-            {               
-                if(chucnang.ThemCN(ref err))
+            if (them)
+            {
+                if (donvitinh.ThemDonViTinh (ref err))
                 {
                     LoadData ();
                 }
             }
             else
             {
-                if (chucnang.SuaCN (ref err))
+                if (donvitinh.SuaDonViTinh(ref err))
                 {
                     LoadData ();
                 }
             }
-            if(!string.IsNullOrEmpty(err))
+            if (!string.IsNullOrEmpty (err))
             {
-                MessageBox.Show (err,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -115,7 +108,7 @@ namespace HeThong.GUI
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
-                if (!chucnang.XoaCN (ref err))
+                if (!donvitinh.XoaDonViTinh(ref err))
                 {
                     MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -126,16 +119,12 @@ namespace HeThong.GUI
 
         private void gridView_RowClick (object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            DataRow dr = gridView.GetFocusedDataRow ();
-            if(dr != null)
+            dr = gridView.GetFocusedDataRow ();
+            if (dr != null)
             {
-                txtMa.Text = dr["Ma_CN"].ToString ();
-                chucnang.Ma = txtMa.Text;
-                txtTen.Text = dr["Ten_CN"].ToString ();
-                txtLop.Text = dr["Lop_CN"].ToString ();
-                txtMoTa.Text = dr["MoTa"].ToString ();
-                checkChoPhep.Checked = bool.Parse (dr["TinhTrang"].ToString ());
-                txtMa.ReadOnly = true;
+                donvitinh.ID = dr["ID"].ToString ();
+                txtTen.Text = dr["Ten"].ToString ();
+
                 them = false;
 
                 Enabled_Xoa ();

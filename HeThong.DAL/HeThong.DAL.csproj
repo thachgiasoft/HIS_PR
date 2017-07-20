@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ChucNangEntity.cs" />
     <Compile Include="MenuEntity.cs" />
+    <Compile Include="NhatKyEntity.cs" />
     <Compile Include="PhanQuyenEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoDoToChucEntity.cs" />

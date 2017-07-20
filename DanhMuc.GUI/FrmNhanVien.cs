@@ -60,7 +60,7 @@ namespace DanhMuc.GUI
         }
         private void checkButton ()
         {
-            quyen = nhanvien.GetQuyen (this.Name);
+            quyen = Core.DAL.Utils.GetQuyen (this.Name);
             Enabled_Them ();
             btnXoa.Enabled = false;
             btnLuu.Enabled = false;

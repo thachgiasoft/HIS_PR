@@ -81,17 +81,6 @@ namespace DanhMuc.DAL
             get;
             set;
         }
-        public string GetQuyen(string MaCN)
-        {
-            DataTable data = db.ExcuteQuery ("Select * From DanhSachQuyen,ChucNang Where Ma_NV = '" + AppConfig.MaNV +
-                "' And Lop_CN = '" + MaCN + "' And DanhSachQuyen.Ma_CN = ChucNang.Ma_CN",
-               CommandType.Text, null);
-            if (data == null || data.Rows.Count == 0)
-            {
-                return "";
-            }
-            return data.Rows[0]["MaQuyen"].ToString();
-        }
         public DataTable DSChucVu ()
         {
             return db.ExcuteQuery ("Select * From ChucVu",

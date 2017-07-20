@@ -44,7 +44,7 @@ namespace HIS_PR
                 {
                     foreach(BarButtonItemLink barButton in pageGroup.ItemLinks)
                     {
-                        if(dangnhap.CheckMenu(barButton.Item.Name))
+                        if(Utils.CheckMenu(barButton.Item.Name))
                         {
                             barButton.Item.Enabled = true;
                         }
@@ -67,7 +67,6 @@ namespace HIS_PR
             if (!dangxuat)
             {
                 DialogResult traloi;
-                string err = "";
                 traloi = XtraMessageBox.Show ("Thoát ứng dụng?", "Trả lời",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (traloi == DialogResult.Yes)
@@ -75,8 +74,9 @@ namespace HIS_PR
                     if (AppConfig.Theme != DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName)
                     {
                         AppConfig.Theme = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName;
-                        appConfig.WriteTheme ();
+                        appConfig.WriteTheme ();       
                     }
+                    Utils.ThemHoatDong (Library.DANGXUAT);
                     frm.Close ();
                 }
                 else
@@ -120,6 +120,8 @@ namespace HIS_PR
 
         private void barbtnLogout_ItemClick (object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Utils.ThemHoatDong (Library.DANGXUAT);
+
             AppConfig.MaNV = "";
             AppConfig.MatKhau = "";
             AppConfig.CoSoKCB = "";       
@@ -129,6 +131,22 @@ namespace HIS_PR
             this.Close ();
             frm.Show ();
 
+        }
+
+        private void barDanhMucKhac_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmDanhMucKhac))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmDanhMucKhac frmDMKhac = new FrmDanhMucKhac ();
+            frmDMKhac.MdiParent = this;
+            frmDMKhac.Show ();
         }
     }
 }

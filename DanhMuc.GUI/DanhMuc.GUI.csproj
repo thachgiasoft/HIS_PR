@@ -41,7 +41,11 @@
     <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="HeThong.GUI">
+      <HintPath>..\HeThong.GUI\obj\Debug\HeThong.GUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -54,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDanhMucKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDanhMucKhac.Designer.cs">
+      <DependentUpon>FrmDanhMucKhac.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,12 +71,42 @@
       <DependentUpon>FrmNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_BenhICDX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_BenhICDX.Designer.cs">
+      <DependentUpon>UC_BenhICDX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CoSoKCB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CoSoKCB.Designer.cs">
+      <DependentUpon>UC_CoSoKCB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DonViTinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DonViTinh.Designer.cs">
+      <DependentUpon>UC_DonViTinh.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmDanhMucKhac.resx">
+      <DependentUpon>FrmDanhMucKhac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNhanVien.resx">
       <DependentUpon>FrmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UC_BenhICDX.resx">
+      <DependentUpon>UC_BenhICDX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CoSoKCB.resx">
+      <DependentUpon>UC_CoSoKCB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DonViTinh.resx">
+      <DependentUpon>UC_DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.DAL\Core.DAL.csproj">

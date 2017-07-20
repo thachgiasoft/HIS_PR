@@ -18,6 +18,7 @@ namespace HeThong.GUI
         PhanQuyenEntity phanquyen;
         bool them = false;
         DataRow dr;
+        string quyen = "";
         public UC_PhanQuyen ()
         {
             InitializeComponent ();
@@ -25,21 +26,43 @@ namespace HeThong.GUI
         }
         private void CheckButton ()
         {
+            quyen = Core.DAL.Utils.GetQuyen (this.Name);
             Enabled_Them ();
             btnLuu.Enabled = false;
             btnXoa.Enabled = false;
         }
         private void Enabled_Luu ()
         {
-            btnLuu.Enabled = true;
+            if (quyen.IndexOf ('2') >= 0 || them)
+            {
+                btnLuu.Enabled = true;
+            }
+            else
+            {
+                btnLuu.Enabled = false;
+            }
         }
         private void Enabled_Xoa ()
         {
-            btnXoa.Enabled = true;
+            if (quyen.IndexOf ('3') >= 0)
+            {
+                btnXoa.Enabled = true;
+            }
+            else
+            {
+                btnXoa.Enabled = false;
+            }
         }
         private void Enabled_Them ()
         {
-            btnThem.Enabled = true;
+            if (quyen.IndexOf ('1') >= 0)
+            {
+                btnThem.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+            }
         }
         private void LoadData()
         {
