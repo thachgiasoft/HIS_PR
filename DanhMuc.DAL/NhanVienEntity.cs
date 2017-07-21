@@ -99,7 +99,7 @@ namespace DanhMuc.DAL
         }
         public DataTable DSKhoaBoPhan ()
         {
-            return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan",
+            return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1",
                 CommandType.Text, null);
         }
         public DataTable DSChuyenMon ()

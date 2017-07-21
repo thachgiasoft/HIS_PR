@@ -89,6 +89,24 @@
     <Compile Include="UC_DonViTinh.Designer.cs">
       <DependentUpon>UC_DonViTinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_DuongDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DuongDung.Designer.cs">
+      <DependentUpon>UC_DuongDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LuongCoSo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LuongCoSo.Designer.cs">
+      <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NuocSX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NuocSX.Designer.cs">
+      <DependentUpon>UC_NuocSX.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmDanhMucKhac.resx">
@@ -106,6 +124,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_DonViTinh.resx">
       <DependentUpon>UC_DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DuongDung.resx">
+      <DependentUpon>UC_DuongDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LuongCoSo.resx">
+      <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NuocSX.resx">
+      <DependentUpon>UC_NuocSX.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

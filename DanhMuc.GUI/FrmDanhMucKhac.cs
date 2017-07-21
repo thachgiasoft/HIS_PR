@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using Core.DAL;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraNavBar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,9 @@ namespace DanhMuc.GUI
         UC_BenhICDX ucBenhICDX;
         UC_CoSoKCB ucCoSoKCB;
         UC_DonViTinh ucDonViTinh;
+        UC_DuongDung ucDuongDung;
+        UC_LuongCoSo ucLuongCoSo;
+        UC_NuocSX ucNuocSX;
         public FrmDanhMucKhac ()
         {
             InitializeComponent ();
@@ -25,10 +30,23 @@ namespace DanhMuc.GUI
             base.OnLoad (e);
             this.WindowState = FormWindowState.Maximized;
         }
-
+        private void LoadMenu()
+        {
+            foreach (NavBarItem navBarItem in navBarControl.Items)
+            {
+                if (Utils.CheckMenu (navBarItem.Name))
+                {
+                    navBarItem.Enabled = true;
+                }
+                else
+                {
+                    navBarItem.Enabled = false;
+                }
+            }
+        }
         private void FrmDanhMucKhac_Load (object sender, EventArgs e)
         {
-
+            LoadMenu ();
         }
 
         private void navBarDMBenhICDX_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -62,6 +80,39 @@ namespace DanhMuc.GUI
                 panelControl.Controls.Add (ucDonViTinh);
             }
             ucDonViTinh.BringToFront ();
+        }
+
+        private void navBarDMDuongDung_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucDuongDung))
+            {
+                ucDuongDung = new UC_DuongDung ();
+                ucDuongDung.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucDuongDung);
+            }
+            ucDuongDung.BringToFront ();
+        }
+
+        private void navBarDMLuongCoSo_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucLuongCoSo))
+            {
+                ucLuongCoSo = new UC_LuongCoSo ();
+                ucLuongCoSo.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucLuongCoSo);
+            }
+            ucLuongCoSo.BringToFront ();
+        }
+
+        private void navBarDMNuocSX_LinkClicked (object sender, NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucNuocSX))
+            {
+                ucNuocSX = new UC_NuocSX ();
+                ucNuocSX.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucNuocSX);
+            }
+            ucNuocSX.BringToFront ();
         }
     }
 }

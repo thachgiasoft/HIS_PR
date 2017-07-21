@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace DanhMuc.DAL
 {
-    public class DonViTinhEntity
+    public class DuongDungEntity
     {
         Connection db;
-        public DonViTinhEntity()
+        public DuongDungEntity()
         {
             db = new Connection ();
         }
-        public string ID
+        public string Ma
         {
             get;
             set;
@@ -26,29 +26,30 @@ namespace DanhMuc.DAL
             get;
             set;
         }
-        public DataTable DSDonViTinh ()
+        public DataTable DSDuongDung ()
         {
-            return db.ExcuteQuery ("Select * From DonViTinh",
+            return db.ExcuteQuery ("Select * From DuongDung",
                 CommandType.Text, null);
         }
         public bool ThemDonViTinh (ref string err)
         {
-            return db.MyExecuteNonQuery ("SpThemDonViTinh",
+            return db.MyExecuteNonQuery ("SpThemDuongDung",
                 CommandType.StoredProcedure, ref err,
+                new SqlParameter ("@Ma", Ma),
                 new SqlParameter ("@Ten", Ten));
         }
         public bool SuaDonViTinh (ref string err)
         {
-            return db.MyExecuteNonQuery ("SpSuaDonViTinh",
+            return db.MyExecuteNonQuery ("SpSuaDuongDung",
                 CommandType.StoredProcedure, ref err,
-                new SqlParameter ("@ID", ID),
+                new SqlParameter ("@Ma", Ma),
                 new SqlParameter ("@Ten", Ten));
         }
         public bool XoaDonViTinh (ref string err)
         {
-            return db.MyExecuteNonQuery ("SpXoaDonViTinh",
+            return db.MyExecuteNonQuery ("SpXoaDuongDung",
                 CommandType.StoredProcedure, ref err,
-                new SqlParameter ("@ID", ID));
+                new SqlParameter ("@Ma", Ma));
         }
     }
 }

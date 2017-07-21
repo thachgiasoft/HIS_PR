@@ -38,7 +38,7 @@ namespace HeThong.DAL
         }
         public DataTable GetDSChucNang ()
         {
-            return db.ExcuteQuery ("Select * From getDSChucNang('"+MaNV+"')",
+            return db.ExcuteQuery ("Select * From getDSChucNang('"+MaNV+"') Where TinhTrang = 1",
                 CommandType.Text, null);
         }
         public DataTable DSQuyen ()

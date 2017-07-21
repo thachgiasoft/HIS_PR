@@ -110,9 +110,26 @@ namespace DanhMuc.GUI
             checkTinhTrang.Checked = true;
             Enabled_Luu ();
         }
-        
+        private bool checkInput()
+        {
+            if(string.IsNullOrEmpty(txtMa.Text))
+            {
+                txtMa.Focus ();
+                return false;
+            }
+            if(string.IsNullOrEmpty(txtTen.Text))
+            {
+                txtTen.Focus ();
+                return false;
+            }
+            return true;
+        }
         private void btnLuu_Click (object sender, EventArgs e)
         {
+            if(!checkInput())
+            {
+                return;
+            }
             nhanvien.MaNV = txtMa.Text;
             nhanvien.TenNV = txtTen.Text;
             nhanvien.GioiTinh = cbGioiTinh.SelectedIndex;

@@ -43,7 +43,10 @@
     <Compile Include="BenhICDXEntity.cs" />
     <Compile Include="CoSoKCBEntity.cs" />
     <Compile Include="DonViTinhEntity.cs" />
+    <Compile Include="DuongDungEntity.cs" />
+    <Compile Include="LuongCoSoEntity.cs" />
     <Compile Include="NhanVienEntity.cs" />
+    <Compile Include="NuocSXEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

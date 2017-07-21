@@ -31,7 +31,7 @@ namespace Core.DAL
         }
         public bool CheckLogin ()
         {
-            DataTable data = db.ExcuteQuery ("Select * From NhanVien Where Ma_NV = '"+MaNV+"' And MatKhau = '"+MatKhau+"'",
+            DataTable data = db.ExcuteQuery ("Select * From NhanVien Where Ma_NV = '"+MaNV+"' And MatKhau = '"+MatKhau+"' And TinhTrang = 1",
                 CommandType.Text, null);
 
             if(data == null || data.Rows.Count == 0)

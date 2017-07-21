@@ -40,6 +40,8 @@
             this.navBarDMDuongDung = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarDMLuongCoSo = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.navBarDMNuocSX = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarDMNhaSX = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -89,7 +91,9 @@
             this.navBarDMCSKCB,
             this.navBarDMDonViTinh,
             this.navBarDMDuongDung,
-            this.navBarDMLuongCoSo});
+            this.navBarDMLuongCoSo,
+            this.navBarDMNuocSX,
+            this.navBarDMNhaSX});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 173;
@@ -127,7 +131,9 @@
             this.navBarGroupKhac.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMDonViTinh),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMDuongDung),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMLuongCoSo)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMLuongCoSo),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNuocSX),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNhaSX)});
             this.navBarGroupKhac.Name = "navBarGroupKhac";
             this.navBarGroupKhac.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupKhac.SmallImage")));
             // 
@@ -143,12 +149,14 @@
             this.navBarDMDuongDung.Caption = "Danh mục Đường dùng";
             this.navBarDMDuongDung.Name = "navBarDMDuongDung";
             this.navBarDMDuongDung.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMDuongDung.SmallImage")));
+            this.navBarDMDuongDung.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMDuongDung_LinkClicked);
             // 
             // navBarDMLuongCoSo
             // 
             this.navBarDMLuongCoSo.Caption = "Danh mục Lương cơ sở";
             this.navBarDMLuongCoSo.Name = "navBarDMLuongCoSo";
             this.navBarDMLuongCoSo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMLuongCoSo.SmallImage")));
+            this.navBarDMLuongCoSo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMLuongCoSo_LinkClicked);
             // 
             // panelControl
             // 
@@ -157,6 +165,19 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(710, 487);
             this.panelControl.TabIndex = 0;
+            // 
+            // navBarDMNuocSX
+            // 
+            this.navBarDMNuocSX.Caption = "Danh mục Nước sản xuất";
+            this.navBarDMNuocSX.Name = "navBarDMNuocSX";
+            this.navBarDMNuocSX.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNuocSX.SmallImage")));
+            this.navBarDMNuocSX.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMNuocSX_LinkClicked);
+            // 
+            // navBarDMNhaSX
+            // 
+            this.navBarDMNhaSX.Caption = "Danh mục Nhà sản xuất";
+            this.navBarDMNhaSX.Name = "navBarDMNhaSX";
+            this.navBarDMNhaSX.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNhaSX.SmallImage")));
             // 
             // FrmDanhMucKhac
             // 
@@ -193,5 +214,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarDMDonViTinh;
         private DevExpress.XtraNavBar.NavBarItem navBarDMDuongDung;
         private DevExpress.XtraNavBar.NavBarItem navBarDMLuongCoSo;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMNuocSX;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMNhaSX;
     }
 }

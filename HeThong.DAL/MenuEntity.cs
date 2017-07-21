@@ -58,7 +58,7 @@ namespace HeThong.DAL
         }
         public DataTable DSChucNang ()
         {
-            return db.ExcuteQuery ("Select Ma_CN,Ten_CN From ChucNang",
+            return db.ExcuteQuery ("Select Ma_CN,Ten_CN From ChucNang Where TinhTrang = 1",
                 CommandType.Text, null);
         }
         public DataTable DSCayMenu ()
