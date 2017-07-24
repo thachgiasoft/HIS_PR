@@ -12,16 +12,16 @@ using DevExpress.XtraEditors;
 
 namespace DanhMuc.GUI
 {
-    public partial class UC_NuocSX : UserControl
+    public partial class UC_NhomVatTu : UserControl
     {
-        NuocSXEntity nuoc;
+        NhomVatTuEntity nhomvattu;
         DataRow dr;
         string quyen = "";
         bool them = false;
-        public UC_NuocSX ()
+        public UC_NhomVatTu ()
         {
             InitializeComponent ();
-            nuoc = new NuocSXEntity ();
+            nhomvattu = new NhomVatTuEntity ();
         }
         private void CheckButton ()
         {
@@ -65,41 +65,44 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
-            gridControl.DataSource = nuoc.DSNuocSX ();
+            gridControl.DataSource = nhomvattu.DSNhomVatTu ();
         }
-        private void UC_NuocSX_Load (object sender, EventArgs e)
+
+        private void UC_NhomVatTu_Load (object sender, EventArgs e)
         {
+            lookUpLoaiVT.Properties.DataSource = nhomvattu.DSLoaiVatTu ();
+            lookUpLoaiVT.Properties.DisplayMember = "Ten";
             LoadData ();
             CheckButton ();
         }
 
         private void btnThem_Click (object sender, EventArgs e)
         {
-            txtMa.Text = "";
-            txtTen.Text = "";
+            txtMaNhom.Text = "";
+            txtTenNhom.Text = "";
             them = true;
-            txtMa.ReadOnly = false;
-            checkTinhTrang.Checked = true;
+            txtMaNhom.ReadOnly = false;
+
             Enabled_Luu ();
             btnXoa.Enabled = false;
         }
 
         private void btnLuu_Click (object sender, EventArgs e)
         {
-            nuoc.Ma = txtMa.Text;
-            nuoc.Ten = txtTen.Text;
-            nuoc.TinhTrang = checkTinhTrang.Checked;
+            nhomvattu.Ma = txtMaNhom.Text;
+            nhomvattu.Ten = txtTenNhom.Text;
+            nhomvattu.TinhTrang = checkTinhTrang.Checked;
             string err = "";
             if (them)
             {
-                if (nuoc.ThemNuocSX (ref err))
+                if (nhomvattu.ThemNhomVatTu (ref err))
                 {
                     LoadData ();
                 }
             }
             else
             {
-                if (nuoc.SuaNuocSX (ref err))
+                if (nhomvattu.SuaNhomVatTu (ref err))
                 {
                     LoadData ();
                 }
@@ -118,7 +121,7 @@ namespace DanhMuc.GUI
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
-                if (!nuoc.XoaNuocSX (ref err))
+                if (!nhomvattu.XoaNhomVatTu (ref err))
                 {
                     MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -127,23 +130,27 @@ namespace DanhMuc.GUI
             }
         }
 
+        private void lookUpLoaiVT_EditValueChanged (object sender, EventArgs e)
+        {
+            nhomvattu.MaLoai = (lookUpLoaiVT.GetSelectedDataRow () as DataRowView)[0].ToString();
+            LoadData ();
+        }
+
         private void gridView_RowClick (object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             dr = gridView.GetFocusedDataRow ();
             if (dr != null)
             {
-                txtMa.Text = dr["Ma"].ToString ();
-                nuoc.Ma = txtMa.Text;
-                txtTen.Text = dr["Ten"].ToString ();
-                checkTinhTrang.Checked =bool.Parse( dr["TinhTrang"].ToString());
-                txtMa.ReadOnly = true;
+                txtMaNhom.Text = dr["Ma"].ToString ();
+                nhomvattu.Ma = txtMaNhom.Text;
+                txtTenNhom.Text = dr["Ten"].ToString ();
+                txtMaNhom.ReadOnly = true;
+                checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
                 them = false;
 
                 Enabled_Xoa ();
                 Enabled_Luu ();
             }
         }
-
-      
     }
 }

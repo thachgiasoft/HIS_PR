@@ -45,7 +45,7 @@ namespace Core.DAL
                 db = new Connection ();
             }
             DataTable data = db.ExcuteQuery ("Select * From DanhSachQuyen,ChucNang Where Ma_NV = '" + AppConfig.MaNV +
-                "' And Lop_CN = '" + MaCN + "' And DanhSachQuyen.Ma_CN = ChucNang.Ma_CN",
+                "' And Lop_CN = '" + MaCN + "' And DanhSachQuyen.Ma_CN = ChucNang.Ma_CN And ChucNang.TinhTrang = 1",
                CommandType.Text, null);
             if (data == null || data.Rows.Count == 0)
             {

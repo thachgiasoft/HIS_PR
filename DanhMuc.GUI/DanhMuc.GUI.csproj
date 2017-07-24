@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
@@ -47,8 +48,16 @@
       <HintPath>..\HeThong.GUI\obj\Debug\HeThong.GUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,11 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDanhMucKhac.cs">
+    <Compile Include="FrmDanhMucDungChung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDanhMucKhac.Designer.cs">
-      <DependentUpon>FrmDanhMucKhac.cs</DependentUpon>
+    <Compile Include="FrmDanhMucDungChung.Designer.cs">
+      <DependentUpon>FrmDanhMucDungChung.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNhanVien.cs">
       <SubType>Form</SubType>
@@ -95,11 +104,29 @@
     <Compile Include="UC_DuongDung.Designer.cs">
       <DependentUpon>UC_DuongDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_LoaiVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LoaiVatTu.Designer.cs">
+      <DependentUpon>UC_LoaiVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_LuongCoSo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_LuongCoSo.Designer.cs">
       <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhaCungCap.Designer.cs">
+      <DependentUpon>UC_NhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhomVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhomVatTu.Designer.cs">
+      <DependentUpon>UC_NhomVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_NuocSX.cs">
       <SubType>UserControl</SubType>
@@ -107,10 +134,16 @@
     <Compile Include="UC_NuocSX.Designer.cs">
       <DependentUpon>UC_NuocSX.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_VatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_VatTu.Designer.cs">
+      <DependentUpon>UC_VatTu.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmDanhMucKhac.resx">
-      <DependentUpon>FrmDanhMucKhac.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDanhMucDungChung.resx">
+      <DependentUpon>FrmDanhMucDungChung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNhanVien.resx">
       <DependentUpon>FrmNhanVien.cs</DependentUpon>
@@ -128,11 +161,23 @@
     <EmbeddedResource Include="UC_DuongDung.resx">
       <DependentUpon>UC_DuongDung.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_LoaiVatTu.resx">
+      <DependentUpon>UC_LoaiVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_LuongCoSo.resx">
       <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhaCungCap.resx">
+      <DependentUpon>UC_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhomVatTu.resx">
+      <DependentUpon>UC_NhomVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_NuocSX.resx">
       <DependentUpon>UC_NuocSX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_VatTu.resx">
+      <DependentUpon>UC_VatTu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace DanhMuc.GUI
 {
-    public partial class FrmDanhMucKhac : RibbonForm
+    public partial class FrmDanhMucDungChung : RibbonForm
     {
         UC_BenhICDX ucBenhICDX;
         UC_CoSoKCB ucCoSoKCB;
@@ -21,7 +21,11 @@ namespace DanhMuc.GUI
         UC_DuongDung ucDuongDung;
         UC_LuongCoSo ucLuongCoSo;
         UC_NuocSX ucNuocSX;
-        public FrmDanhMucKhac ()
+        UC_LoaiVatTu ucLoaiVatTu;
+        UC_NhomVatTu ucNhomVatTu;
+        UC_NhaCungCap ucNhaCungCap;
+        UC_VatTu ucVatTu;
+        public FrmDanhMucDungChung ()
         {
             InitializeComponent ();
         }
@@ -113,6 +117,50 @@ namespace DanhMuc.GUI
                 panelControl.Controls.Add (ucNuocSX);
             }
             ucNuocSX.BringToFront ();
+        }
+
+        private void navBarDMLoaiVatTu_LinkClicked (object sender, NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucLoaiVatTu))
+            {
+                ucLoaiVatTu = new UC_LoaiVatTu ();
+                ucLoaiVatTu.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucLoaiVatTu);
+            }
+            ucLoaiVatTu.BringToFront ();
+        }
+
+        private void navBarDMNhomVatTu_LinkClicked (object sender, NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucNhomVatTu))
+            {
+                ucNhomVatTu = new UC_NhomVatTu ();
+                ucNhomVatTu.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucNhomVatTu);
+            }
+            ucNhomVatTu.BringToFront ();
+        }
+
+        private void navBarDMNhaCC_LinkClicked (object sender, NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucNhaCungCap))
+            {
+                ucNhaCungCap = new UC_NhaCungCap ();
+                ucNhaCungCap.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucNhaCungCap);
+            }
+            ucNhaCungCap.BringToFront ();
+        }
+
+        private void navBarDMVatTu_LinkClicked (object sender, NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucVatTu))
+            {
+                ucVatTu = new UC_VatTu ();
+                ucVatTu.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucVatTu);
+            }
+            ucVatTu.BringToFront ();
         }
     }
 }

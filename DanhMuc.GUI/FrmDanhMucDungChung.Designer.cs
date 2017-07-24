@@ -1,6 +1,6 @@
 ﻿namespace DanhMuc.GUI
 {
-    partial class FrmDanhMucKhac
+    partial class FrmDanhMucDungChung
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDanhMucKhac));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDanhMucDungChung));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroupDC = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupDungChung = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarDMBenhICDX = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarDMCSKCB = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroupKhac = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarDMDonViTinh = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarDMDuongDung = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarDMLuongCoSo = new DevExpress.XtraNavBar.NavBarItem();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarDMNuocSX = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarDMNhaSX = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarDMNhaCC = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroupDuoc = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarDMLoaiVatTu = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarDMNhomVatTu = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.navBarDMVatTu = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -80,12 +84,13 @@
             // 
             // navBarControl
             // 
-            this.navBarControl.ActiveGroup = this.navBarGroupDC;
+            this.navBarControl.ActiveGroup = this.navBarGroupDungChung;
             this.navBarControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroupDC,
-            this.navBarGroupKhac});
+            this.navBarGroupDungChung,
+            this.navBarGroupKhac,
+            this.navBarGroupDuoc});
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarDMBenhICDX,
             this.navBarDMCSKCB,
@@ -93,22 +98,25 @@
             this.navBarDMDuongDung,
             this.navBarDMLuongCoSo,
             this.navBarDMNuocSX,
-            this.navBarDMNhaSX});
+            this.navBarDMNhaCC,
+            this.navBarDMLoaiVatTu,
+            this.navBarDMNhomVatTu,
+            this.navBarDMVatTu});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 173;
             this.navBarControl.Size = new System.Drawing.Size(173, 487);
             this.navBarControl.TabIndex = 0;
             // 
-            // navBarGroupDC
+            // navBarGroupDungChung
             // 
-            this.navBarGroupDC.Caption = "Danh mục dùng chung";
-            this.navBarGroupDC.Expanded = true;
-            this.navBarGroupDC.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            this.navBarGroupDungChung.Caption = "Danh mục dùng chung";
+            this.navBarGroupDungChung.Expanded = true;
+            this.navBarGroupDungChung.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMBenhICDX),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMCSKCB)});
-            this.navBarGroupDC.Name = "navBarGroupDC";
-            this.navBarGroupDC.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDC.SmallImage")));
+            this.navBarGroupDungChung.Name = "navBarGroupDungChung";
+            this.navBarGroupDungChung.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDungChung.SmallImage")));
             // 
             // navBarDMBenhICDX
             // 
@@ -133,7 +141,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMDuongDung),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMLuongCoSo),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNuocSX),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNhaSX)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNhaCC)});
             this.navBarGroupKhac.Name = "navBarGroupKhac";
             this.navBarGroupKhac.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupKhac.SmallImage")));
             // 
@@ -158,6 +166,45 @@
             this.navBarDMLuongCoSo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMLuongCoSo.SmallImage")));
             this.navBarDMLuongCoSo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMLuongCoSo_LinkClicked);
             // 
+            // navBarDMNuocSX
+            // 
+            this.navBarDMNuocSX.Caption = "Danh mục Nước sản xuất";
+            this.navBarDMNuocSX.Name = "navBarDMNuocSX";
+            this.navBarDMNuocSX.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNuocSX.SmallImage")));
+            this.navBarDMNuocSX.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMNuocSX_LinkClicked);
+            // 
+            // navBarDMNhaCC
+            // 
+            this.navBarDMNhaCC.Caption = "Danh mục Nhà cung cấp";
+            this.navBarDMNhaCC.Name = "navBarDMNhaCC";
+            this.navBarDMNhaCC.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNhaCC.SmallImage")));
+            this.navBarDMNhaCC.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMNhaCC_LinkClicked);
+            // 
+            // navBarGroupDuoc
+            // 
+            this.navBarGroupDuoc.Caption = "Danh mục dược";
+            this.navBarGroupDuoc.Expanded = true;
+            this.navBarGroupDuoc.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMLoaiVatTu),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMNhomVatTu),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDMVatTu)});
+            this.navBarGroupDuoc.Name = "navBarGroupDuoc";
+            this.navBarGroupDuoc.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDuoc.SmallImage")));
+            // 
+            // navBarDMLoaiVatTu
+            // 
+            this.navBarDMLoaiVatTu.Caption = "Danh mục Loại vật tư";
+            this.navBarDMLoaiVatTu.Name = "navBarDMLoaiVatTu";
+            this.navBarDMLoaiVatTu.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMLoaiVatTu.SmallImage")));
+            this.navBarDMLoaiVatTu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMLoaiVatTu_LinkClicked);
+            // 
+            // navBarDMNhomVatTu
+            // 
+            this.navBarDMNhomVatTu.Caption = "Danh mục Nhóm vật tư";
+            this.navBarDMNhomVatTu.Name = "navBarDMNhomVatTu";
+            this.navBarDMNhomVatTu.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNhomVatTu.SmallImage")));
+            this.navBarDMNhomVatTu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMNhomVatTu_LinkClicked);
+            // 
             // panelControl
             // 
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -166,20 +213,14 @@
             this.panelControl.Size = new System.Drawing.Size(710, 487);
             this.panelControl.TabIndex = 0;
             // 
-            // navBarDMNuocSX
+            // navBarDMVatTu
             // 
-            this.navBarDMNuocSX.Caption = "Danh mục Nước sản xuất";
-            this.navBarDMNuocSX.Name = "navBarDMNuocSX";
-            this.navBarDMNuocSX.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNuocSX.SmallImage")));
-            this.navBarDMNuocSX.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMNuocSX_LinkClicked);
+            this.navBarDMVatTu.Caption = "Danh mục Vật tư";
+            this.navBarDMVatTu.Name = "navBarDMVatTu";
+            this.navBarDMVatTu.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMVatTu.SmallImage")));
+            this.navBarDMVatTu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDMVatTu_LinkClicked);
             // 
-            // navBarDMNhaSX
-            // 
-            this.navBarDMNhaSX.Caption = "Danh mục Nhà sản xuất";
-            this.navBarDMNhaSX.Name = "navBarDMNhaSX";
-            this.navBarDMNhaSX.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDMNhaSX.SmallImage")));
-            // 
-            // FrmDanhMucKhac
+            // FrmDanhMucDungChung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +228,7 @@
             this.Controls.Add(this.splitContainerControl);
             this.Controls.Add(this.ribbonControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmDanhMucKhac";
+            this.Name = "FrmDanhMucDungChung";
             this.Ribbon = this.ribbonControl;
             this.Text = "Danh mục dùng chung";
             this.Load += new System.EventHandler(this.FrmDanhMucKhac_Load);
@@ -207,7 +248,7 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
         private DevExpress.XtraEditors.PanelControl panelControl;
         private DevExpress.XtraNavBar.NavBarControl navBarControl;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroupDC;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupDungChung;
         private DevExpress.XtraNavBar.NavBarItem navBarDMBenhICDX;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupKhac;
         private DevExpress.XtraNavBar.NavBarItem navBarDMCSKCB;
@@ -215,6 +256,10 @@
         private DevExpress.XtraNavBar.NavBarItem navBarDMDuongDung;
         private DevExpress.XtraNavBar.NavBarItem navBarDMLuongCoSo;
         private DevExpress.XtraNavBar.NavBarItem navBarDMNuocSX;
-        private DevExpress.XtraNavBar.NavBarItem navBarDMNhaSX;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupDuoc;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMLoaiVatTu;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMNhomVatTu;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMNhaCC;
+        private DevExpress.XtraNavBar.NavBarItem navBarDMVatTu;
     }
 }

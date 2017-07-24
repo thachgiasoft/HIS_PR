@@ -1,5 +1,6 @@
 ﻿using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
 
@@ -45,7 +46,7 @@ namespace HIS_PR
             }
             else
             {
-                MessageBox.Show("Sai thông tin đăng nhập", "Thông tin",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Sai thông tin đăng nhập", "Thông tin",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

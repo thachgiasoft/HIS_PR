@@ -137,14 +137,14 @@ namespace HIS_PR
         {
             foreach (Form frm in this.MdiChildren)
             {
-                if (frm.GetType () == typeof (FrmDanhMucKhac))
+                if (frm.GetType () == typeof (FrmDanhMucDungChung))
                 {
                     frm.Activate ();
                     frm.WindowState = FormWindowState.Maximized;
                     return;
                 }
             }
-            FrmDanhMucKhac frmDMKhac = new FrmDanhMucKhac ();
+            FrmDanhMucDungChung frmDMKhac = new FrmDanhMucDungChung ();
             frmDMKhac.MdiParent = this;
             frmDMKhac.Show ();
         }

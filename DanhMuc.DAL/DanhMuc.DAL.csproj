@@ -44,10 +44,14 @@
     <Compile Include="CoSoKCBEntity.cs" />
     <Compile Include="DonViTinhEntity.cs" />
     <Compile Include="DuongDungEntity.cs" />
+    <Compile Include="LoaiVatTuEntity.cs" />
     <Compile Include="LuongCoSoEntity.cs" />
+    <Compile Include="NhaCungCapEntity.cs" />
     <Compile Include="NhanVienEntity.cs" />
+    <Compile Include="NhomVatTuEntity.cs" />
     <Compile Include="NuocSXEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VatTuEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.DAL\Core.DAL.csproj">
