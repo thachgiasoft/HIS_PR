@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIS_PR", "HIS_PR\HIS_PR.csproj", "{3586E4AF-28CB-4925-ACEF-98B8C2B361DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E8A75724-F20A-4710-BCB7-CB7E1E0B5BE2} = {E8A75724-F20A-4710-BCB7-CB7E1E0B5BE2}
+		{559E5DFE-9BE4-42A8-BAA9-902EA4715DA5} = {559E5DFE-9BE4-42A8-BAA9-902EA4715DA5}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HeThong", "HeThong", "{EA271B17-D5FE-4F33-951C-51ECA0D81570}"
 EndProject
