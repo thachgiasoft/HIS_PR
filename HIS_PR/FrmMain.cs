@@ -3,15 +3,9 @@ using DanhMuc.GUI;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DuocPham.GUI;
 using HeThong.GUI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HIS_PR
@@ -147,6 +141,22 @@ namespace HIS_PR
             FrmDanhMucDungChung frmDMKhac = new FrmDanhMucDungChung ();
             frmDMKhac.MdiParent = this;
             frmDMKhac.Show ();
+        }
+
+        private void barButtonNhapKho_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmNhapKho))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmNhapKho frmNhapKho = new FrmNhapKho ();
+            frmNhapKho.MdiParent = this;
+            frmNhapKho.Show ();
         }
     }
 }

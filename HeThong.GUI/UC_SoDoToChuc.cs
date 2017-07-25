@@ -85,6 +85,7 @@ namespace HeThong.GUI
             txtMa.Text = "";
             txtTen.Text = "";
             checkTinhTrang.Checked = true;
+            checkKhoVatTu.Checked = true;
             Enabled_Luu ();
         }
 
@@ -99,6 +100,7 @@ namespace HeThong.GUI
             }
             sodo.CapDo = cbCap.SelectedIndex + 1;
             sodo.TinhTrang = checkTinhTrang.Checked;
+            sodo.KhoVatTu = checkKhoVatTu.Checked;
             string err = "";
             if (them)
             {
@@ -178,6 +180,7 @@ namespace HeThong.GUI
                 cbCap.EditValue = dr["CapDo"].ToString ();
                 lookUpMaCha.EditValue = dr["KhoaCha"].ToString ();
                 checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
+                checkKhoVatTu.Checked = bool.Parse (dr["KhoVatTu"].ToString ());
                 txtMa.ReadOnly = true;
                 them = false;
 

@@ -145,6 +145,7 @@
             this.barButtonNhapKho.Id = 15;
             this.barButtonNhapKho.ImageOptions.Image = global::HIS_PR.Properties.Resources.store_icon;
             this.barButtonNhapKho.Name = "barButtonNhapKho";
+            this.barButtonNhapKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNhapKho_ItemClick);
             // 
             // barButtonXuatKho
             // 

@@ -41,6 +41,11 @@ namespace HeThong.DAL
             get;
             set;
         }
+        public bool KhoVatTu
+        {
+            get;
+            set;
+        }
         public DataTable DSKhoaBan ()
         {
             return db.ExcuteQuery ("Select * From KhoaBan",
@@ -64,7 +69,8 @@ namespace HeThong.DAL
                 new SqlParameter ("@TenKhoa", TenKhoa),
                 new SqlParameter ("@CapDo", CapDo),
                 new SqlParameter ("@KhoaCha", KhoaCha),
-                new SqlParameter ("@TinhTrang", TinhTrang));
+                new SqlParameter ("@TinhTrang", TinhTrang),
+                new SqlParameter ("@KhoVatTu", KhoVatTu));
         }
         public bool SuaKhoaBan (ref string err)
         {
@@ -74,7 +80,8 @@ namespace HeThong.DAL
                 new SqlParameter ("@TenKhoa", TenKhoa),
                 new SqlParameter ("@CapDo", CapDo),
                 new SqlParameter ("@KhoaCha", KhoaCha),
-                new SqlParameter ("@TinhTrang", TinhTrang));
+                new SqlParameter ("@TinhTrang", TinhTrang),
+                new SqlParameter ("@KhoVatTu", KhoVatTu));
         }
         public bool XoaKhoaBan (ref string err)
         {

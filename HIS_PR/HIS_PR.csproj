@@ -159,6 +159,10 @@
       <Project>{36D3E6D8-2501-44D6-B815-B93610699F99}</Project>
       <Name>DanhMuc.GUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DuocPham.GUI\DuocPham.GUI.csproj">
+      <Project>{07602941-C638-4756-AE0C-10EBC9ACF3B5}</Project>
+      <Name>DuocPham.GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HeThong.GUI\HeThong.GUI.csproj">
       <Project>{2E3951DB-34F2-45C4-8C21-69F88B2633F7}</Project>
       <Name>HeThong.GUI</Name>
