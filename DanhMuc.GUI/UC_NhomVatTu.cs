@@ -65,6 +65,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             gridControl.DataSource = nhomvattu.DSNhomVatTu ();
         }
 

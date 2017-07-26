@@ -51,6 +51,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             dt = vattu.DSVatTu ();
             gridControl.DataSource = dt;
             lblSoLuong.Text = dt.Rows.Count.ToString();

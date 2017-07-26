@@ -19,6 +19,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             gridControl.DataSource = donvitinh.DSDonViTinh ();
         }
         private void CheckButton ()

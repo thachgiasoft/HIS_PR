@@ -63,6 +63,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             gridControl.DataSource = loaivattu.DSLoaiVatTu ();
         }
         private void UC_LoaiVatTu_Load (object sender, EventArgs e)

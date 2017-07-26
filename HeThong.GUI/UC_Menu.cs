@@ -65,6 +65,7 @@ namespace HeThong.GUI
         }
         private void LoadData()
         {
+            them = false;
             treeList.DataSource = menu.DSCayMenu ();
             treeList.ExpandAll ();
             gridControl.DataSource = menu.DSMenu ();

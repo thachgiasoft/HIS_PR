@@ -66,6 +66,7 @@ namespace HeThong.GUI
         }
         private void LoadData()
         {
+            them = false;
             gridControlQuyen.DataSource = phanquyen.DSQuyen ();
         }
         private void UC_PhanQuyen_Load (object sender, EventArgs e)

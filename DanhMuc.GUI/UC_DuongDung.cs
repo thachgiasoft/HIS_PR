@@ -66,6 +66,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             gridControl.DataSource = duongdung.DSDuongDung ();
         }
         private void UC_DuongDung_Load (object sender, EventArgs e)

@@ -65,6 +65,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData ()
         {
+            them = false;
             gridControl.DataSource = nuoc.DSNuocSX ();
         }
         private void UC_NuocSX_Load (object sender, EventArgs e)

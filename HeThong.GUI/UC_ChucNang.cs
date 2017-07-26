@@ -17,6 +17,7 @@ namespace HeThong.GUI
         }
         private void LoadData()
         {
+            them = false;
             gridControl.DataSource = chucnang.DSChucnang ();
         }
         private void CheckButton()

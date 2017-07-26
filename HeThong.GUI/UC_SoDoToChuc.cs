@@ -65,6 +65,7 @@ namespace HeThong.GUI
         }
         private void LoadData ()
         {
+            them = false;
             treeList.DataSource = sodo.DSCayKhoaBan();
             treeList.ExpandAll ();
             gridControl.DataSource = sodo.DSKhoaBan();
@@ -101,6 +102,7 @@ namespace HeThong.GUI
             sodo.CapDo = cbCap.SelectedIndex + 1;
             sodo.TinhTrang = checkTinhTrang.Checked;
             sodo.KhoVatTu = checkKhoVatTu.Checked;
+            sodo.LoaiKho = cbKhoChanLe.SelectedIndex;
             string err = "";
             if (them)
             {
@@ -181,11 +183,26 @@ namespace HeThong.GUI
                 lookUpMaCha.EditValue = dr["KhoaCha"].ToString ();
                 checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
                 checkKhoVatTu.Checked = bool.Parse (dr["KhoVatTu"].ToString ());
+                cbKhoChanLe.SelectedIndex = int.Parse (dr["LoaiKho"].ToString ());
                 txtMa.ReadOnly = true;
                 them = false;
 
                 Enabled_Xoa ();
                 Enabled_Luu ();
+            }
+        }
+
+        private void checkKhoVatTu_CheckedChanged (object sender, EventArgs e)
+        {
+            if(checkKhoVatTu.Checked)
+            {
+                cbKhoChanLe.ReadOnly = false;
+                cbKhoChanLe.SelectedIndex = 2;
+            }
+            else
+            {
+                cbKhoChanLe.ReadOnly = true;
+                cbKhoChanLe.SelectedIndex = 0;
             }
         }
     }

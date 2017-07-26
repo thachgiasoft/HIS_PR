@@ -56,6 +56,7 @@ namespace DanhMuc.GUI
         }
         private void LoadData()
         {
+            them = false;
             gridControl.DataSource = nhanvien.DSNhanVien ();
         }
         private void checkButton ()
