@@ -158,5 +158,21 @@ namespace HIS_PR
             frmNhapKho.MdiParent = this;
             frmNhapKho.Show ();
         }
+
+        private void barButtonXuatKho_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmXuatKho))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmXuatKho frmXuatKho = new FrmXuatKho ();
+            frmXuatKho.MdiParent = this;
+            frmXuatKho.Show ();
+        }
     }
 }

@@ -47,6 +47,9 @@
             this.ribbonPageDuocPham = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNhapChuyenKho = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.barButtonPhieuLinhDuoc = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroupQuanLyDuoc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonYeuCauLinhThuoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,9 +67,11 @@
             this.barButtonItem1,
             this.barDanhMucDungChung,
             this.barButtonNhapKho,
-            this.barButtonXuatKho});
+            this.barButtonXuatKho,
+            this.barButtonPhieuLinhDuoc,
+            this.barButtonYeuCauLinhThuoc});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 17;
+            this.ribbonControlMain.MaxItemId = 19;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -153,6 +158,7 @@
             this.barButtonXuatKho.Id = 16;
             this.barButtonXuatKho.ImageOptions.Image = global::HIS_PR.Properties.Resources.store_label_icon;
             this.barButtonXuatKho.Name = "barButtonXuatKho";
+            this.barButtonXuatKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXuatKho_ItemClick);
             // 
             // ribbonPageHeThong
             // 
@@ -184,7 +190,8 @@
             // ribbonPageDuocPham
             // 
             this.ribbonPageDuocPham.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupNhapChuyenKho});
+            this.ribbonPageGroupNhapChuyenKho,
+            this.ribbonPageGroupQuanLyDuoc});
             this.ribbonPageDuocPham.Name = "ribbonPageDuocPham";
             this.ribbonPageDuocPham.Text = "Dược phẩm";
             // 
@@ -192,8 +199,8 @@
             // 
             this.ribbonPageGroupNhapChuyenKho.ItemLinks.Add(this.barButtonNhapKho);
             this.ribbonPageGroupNhapChuyenKho.ItemLinks.Add(this.barButtonXuatKho);
+            this.ribbonPageGroupNhapChuyenKho.ItemLinks.Add(this.barButtonPhieuLinhDuoc);
             this.ribbonPageGroupNhapChuyenKho.Name = "ribbonPageGroupNhapChuyenKho";
-            this.ribbonPageGroupNhapChuyenKho.Text = "Nhập/Chuyển Kho";
             // 
             // ribbonStatusBarMain
             // 
@@ -203,6 +210,25 @@
             this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
+            // 
+            // barButtonPhieuLinhDuoc
+            // 
+            this.barButtonPhieuLinhDuoc.Caption = "Phiếu lĩnh dược";
+            this.barButtonPhieuLinhDuoc.Id = 17;
+            this.barButtonPhieuLinhDuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonPhieuLinhDuoc.ImageOptions.Image")));
+            this.barButtonPhieuLinhDuoc.Name = "barButtonPhieuLinhDuoc";
+            // 
+            // ribbonPageGroupQuanLyDuoc
+            // 
+            this.ribbonPageGroupQuanLyDuoc.ItemLinks.Add(this.barButtonYeuCauLinhThuoc);
+            this.ribbonPageGroupQuanLyDuoc.Name = "ribbonPageGroupQuanLyDuoc";
+            // 
+            // barButtonYeuCauLinhThuoc
+            // 
+            this.barButtonYeuCauLinhThuoc.Caption = "Yêu cầu lĩnh thuốc";
+            this.barButtonYeuCauLinhThuoc.Id = 18;
+            this.barButtonYeuCauLinhThuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonYeuCauLinhThuoc.ImageOptions.Image")));
+            this.barButtonYeuCauLinhThuoc.Name = "barButtonYeuCauLinhThuoc";
             // 
             // FrmMain
             // 
@@ -246,5 +272,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageDuocPham;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupNhapChuyenKho;
         private DevExpress.XtraBars.BarButtonItem barButtonXuatKho;
+        private DevExpress.XtraBars.BarButtonItem barButtonPhieuLinhDuoc;
+        private DevExpress.XtraBars.BarButtonItem barButtonYeuCauLinhThuoc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupQuanLyDuoc;
     }
 }

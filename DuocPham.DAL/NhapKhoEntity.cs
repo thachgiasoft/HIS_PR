@@ -36,12 +36,13 @@ namespace DuocPham.DAL
         public string QuyCach { get; set; }
         public int SoLuong { get; set; }
         public int SoLuongQuyDoi { get; set; }
-        public int SoLuongTon { get; set; }
+        public int SoLuongDung { get; set; }
         public decimal DonGiaBHYT { get; set; }
         public decimal DonGiaBV { get; set; }
         public string SoLo { get; set; }
         public DateTime HetHan { get; set; }
         public decimal ThanhTien { get; set; }
+        public string LoaiVatTu { get; set; }
         public DataTable DSKho ()
         {
             return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1 And KhoVatTu = 1 And LoaiKho = 1",
@@ -59,12 +60,17 @@ namespace DuocPham.DAL
         }
         public DataTable DSPhieuVatTu ()
         {
-            return db.ExcuteQuery ("Select * From PhieuNhapChiTiet Where SoPhieu = "+this.SoPhieu,
+            return db.ExcuteQuery ("Select *,'' as TenVatTu From PhieuNhapChiTiet Where SoPhieu = " + this.SoPhieu,
+                CommandType.Text, null);
+        }
+        public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
+        {
+            return db.ExcuteQuery ("Select * From PhieuNhap Where NgayNhap BETWEEN CAST('" +tuNgay + "' as DATE) AND CAST('" +denNgay + "' as DATE)",
                 CommandType.Text, null);
         }
         public DataTable DSVatTu (string LoaiVatTu)
         {
-            return db.ExcuteQuery ("Select MaBV,TenVatTu From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + LoaiVatTu + "'",
+            return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + LoaiVatTu + "'",
                 CommandType.Text, null);
         }
         public bool SpPhieuNhap (ref string err, string Action)
@@ -94,9 +100,22 @@ namespace DuocPham.DAL
                 this.SoPhieu = int.Parse (outSoPhieu.Value.ToString ());
             return f;
         }
+        public bool SpPhieuNhapXoa (ref string err)
+        {
+            SqlParameter outSoPhieu = new SqlParameter ();
+            outSoPhieu.SqlDbType = System.Data.SqlDbType.Int;
+            outSoPhieu.ParameterName = "@SoPhieu";
+            outSoPhieu.Value = SoPhieu;
+            outSoPhieu.Direction = ParameterDirection.InputOutput;
+            bool f = db.MyExecuteNonQuery ("SpPhieuNhap",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter ("@Action", "DELETE"),
+                outSoPhieu);
+            return f;
+        }
         public bool SpPhieuNhapChiTiet (ref string err, string Action)
         {
-            return db.MyExecuteNonQuery ("SpPhieuNhap",
+            return db.MyExecuteNonQuery ("SpPhieuNhapChiTiet",
                 CommandType.StoredProcedure, ref err,
                 new SqlParameter ("@Action", Action),
                 new SqlParameter ("@MaVatTu", MaVatTu),
@@ -105,7 +124,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@QuyCach", QuyCach),
                 new SqlParameter ("@SoLuong", SoLuong),
                 new SqlParameter ("@SoLuongQuyDoi", SoLuongQuyDoi),
-                new SqlParameter ("@SoLuongTon", SoLuongTon),
+                new SqlParameter ("@SoLuongDung", SoLuongDung),
                 new SqlParameter ("@DonGiaBHYT", DonGiaBHYT),
                 new SqlParameter ("@DonGiaBV", DonGiaBV),
                 new SqlParameter ("@SoLo", SoLo),

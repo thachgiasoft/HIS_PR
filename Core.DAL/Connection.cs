@@ -35,9 +35,9 @@ namespace Core.DAL
                 da.Fill (ds);
                 dt = ds.Tables[0];
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show ("Lỗi kết nối!");
+                MessageBox.Show (ex.Message,"Lỗi - Thực thi SQL");
                 return null;
             }
             return dt;
