@@ -20,6 +20,7 @@ namespace DuocPham.GUI
         DataView data;
         DataTable dtPhieu;
         Dictionary<string, bool> dsVatTu = new Dictionary<string, bool> ();
+        SortedSet<string> dsLoaiVatTu = new SortedSet<string> ();
         decimal thanhTien = 0;
         CultureInfo elGR = CultureInfo.CreateSpecificCulture ("el-GR");
         System.Drawing.Font fontB = new System.Drawing.Font ("Times New Roman", 11, System.Drawing.FontStyle.Bold);
@@ -473,6 +474,7 @@ namespace DuocPham.GUI
             rpt.lblNgayIn.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
 
             this.thanhTien = 0;
+            dsLoaiVatTu.Clear ();
             XRTableRow row;
             XRTableCell cell;
             int stt = 0;
@@ -532,6 +534,7 @@ namespace DuocPham.GUI
 
                 stt++;
                 rpt.xrTable.Rows.Add (row);
+                dsLoaiVatTu.Add (drview["LoaiVatTu"].ToString ());
             }
             row = new XRTableRow ();
             cell = new XRTableCell ();
@@ -550,6 +553,11 @@ namespace DuocPham.GUI
             rpt.xrTable.Rows.Add (row);
 
             rpt.lblTongTien.Text = Utils.ChuyenSo (this.thanhTien.ToString ());
+            rpt.lblTKNo.Text = "";
+            foreach(string loai in dsLoaiVatTu)
+            {
+                rpt.lblTKNo.Text += "156" + loai +" ";
+            }
 
             rpt.CreateDocument ();
             rpt.ShowPreviewDialog ();

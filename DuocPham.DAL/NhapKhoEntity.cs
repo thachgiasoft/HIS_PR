@@ -129,7 +129,8 @@ namespace DuocPham.DAL
                 new SqlParameter ("@DonGiaBV", DonGiaBV),
                 new SqlParameter ("@SoLo", SoLo),
                 new SqlParameter ("@HetHan", HetHan),
-                new SqlParameter ("@ThanhTien", ThanhTien));
+                new SqlParameter ("@ThanhTien", ThanhTien),
+                new SqlParameter ("@LoaiVatTu", LoaiVatTu));
         }
     }
 }
