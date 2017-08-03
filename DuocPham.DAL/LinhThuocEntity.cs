@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace DuocPham.DAL
 {
-    public class XuatKhoEntity
+    public class LinhThuocEntity
     {
         Connection db;
-        public XuatKhoEntity()
+        private DataTable data;
+        public LinhThuocEntity()
         {
             db = new Connection ();
         }
         // phiếu xuất
-        public int SoPhieu  { get;set;}
-        public string TKCo { get;set;  }
+        public int SoPhieu { get; set; }
+        public string TKCo { get; set; }
         public DateTime NgayXuat { get; set; }
         public string KhoXuat { get; set; }
         public string KhoNhan { get; set; }
@@ -39,24 +40,66 @@ namespace DuocPham.DAL
         public DateTime HetHan { get; set; }
         public decimal ThanhTien { get; set; }
         public string LoaiVatTu { get; set; }
-        public DataTable DSKhoXuat ()
+        // Thông tin
+        public string TenKhoNhan { get; set; }
+        public string TenKhoXuat { get; set; }
+        public bool LayKhoXuat ()
         {
-            return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1 And KhoVatTu = 1 And LoaiKho = 1",
+            data = db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1 And KhoVatTu = 1 And LoaiKho = 1",
+                CommandType.Text, null);
+            if(data!=null && data.Rows.Count !=0)
+            {
+                KhoXuat = data.Rows[0][0].ToString ();
+                TenKhoXuat = data.Rows[0][1].ToString ();
+                return true;
+            }
+            return false;
+        }
+        public string LayNguoiNhan ()
+        {
+            data = db.ExcuteQuery ("Select Ten_NV From NhanVien Where Ma_NV = '"+AppConfig.MaNV+"'",
+                CommandType.Text, null);
+            if (data != null && data.Rows.Count != 0)
+            {
+               return data.Rows[0][0].ToString ();
+            }
+            return "";
+        }
+        public bool LayKhoNhan ()
+        {
+            data = db.ExcuteQuery ("Select KhoaBan.MaKhoa,TenKhoa From KhoaBan,NhanVien Where KhoaBan.TinhTrang = 1 And KhoVatTu = 1 And LoaiKho = 2 And NhanVien.MaKhoa = KhoaBan.MaKhoa And NhanVien.Ma_NV = '"+AppConfig.MaNV+"'",
+                CommandType.Text, null);
+            if (data != null && data.Rows.Count != 0)
+            {
+                KhoNhan = data.Rows[0][0].ToString ();
+                TenKhoNhan = data.Rows[0][1].ToString ();
+                return true;
+            }
+            return false;
+        }
+        public DataTable DSKhoaBan ()
+        {
+            return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1 and KhoVatTu = 1",
                 CommandType.Text, null);
         }
-        public DataTable DSKhoNhan ()
+        public DataTable DSLoaiVatTu ()
         {
-            return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1 And KhoVatTu = 1 And LoaiKho = 2",
+            return db.ExcuteQuery ("Select * From LoaiVatTu Where TinhTrang = 1",
                 CommandType.Text, null);
         }
         public DataTable DSVatTu (string loaiVatTu)
         {
-            return db.ExcuteQuery ("Select * From DSVatTu('"+loaiVatTu+"','"+KhoXuat+ "') ORDER BY HetHan ASC",
+            return db.ExcuteQuery ("Select * From DSVatTu('" + loaiVatTu + "','" + KhoXuat + "') ORDER BY HetHan ASC",
                 CommandType.Text, null);
         }
         public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
         {
             return db.ExcuteQuery ("Select * From PhieuXuat Where NgayXuat BETWEEN CAST('" + tuNgay + "' as DATE) AND CAST('" + denNgay + "' as DATE)",
+                CommandType.Text, null);
+        }
+        public DataTable DSPhieu ()
+        {
+            return db.ExcuteQuery ("Select * From PhieuXuat Where KhoNhan ='"+KhoNhan+"' and PheDuyet = 0",
                 CommandType.Text, null);
         }
         public DataTable DSPhieuVatTu ()
@@ -90,7 +133,7 @@ namespace DuocPham.DAL
         public bool SpThemPhieuNhapChiTiet (ref string err)
         {
             return db.MyExecuteNonQuery ("SpThemPhieuXuatChiTiet",
-                CommandType.StoredProcedure, ref err,              
+                CommandType.StoredProcedure, ref err,
                 new SqlParameter ("@SoPhieu", SoPhieu),
                 new SqlParameter ("@SoPhieuNhap", SoPhieuNhap),
                 new SqlParameter ("@MaVatTu", MaVatTu),
@@ -103,6 +146,12 @@ namespace DuocPham.DAL
                 new SqlParameter ("@HetHan", HetHan),
                 new SqlParameter ("@ThanhTien", ThanhTien),
                 new SqlParameter ("@LoaiVatTu", LoaiVatTu));
+        }
+        public bool SpSuaPheDuyet (ref string err)
+        {
+            return db.MyExecuteNonQuery ("SpSuaPheDuyet",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter ("@SoPhieu", SoPhieu));
         }
     }
 }

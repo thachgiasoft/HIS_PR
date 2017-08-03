@@ -311,7 +311,7 @@ namespace DuocPham.GUI
                     lookUpMaVatTu.Focus ();
                     return;
                 }
-                if (txtSoLuongQD.Text.Length == 0)
+                if (txtSoLuongQD.Text.Length == 0 || txtSoLuongQD.Text == "0")
                 {
                     XtraMessageBox.Show ("Nhập số lượng!");
                     txtSoLuongQD.Focus ();
@@ -355,7 +355,7 @@ namespace DuocPham.GUI
                     dr["ThanhTien"] = txtThanhTien.Text;
                     dr["LoaiVatTu"] = txtTKNo.Text.Substring (3, 1);
 
-                    lookUpMaVatTu.EditValue = null;
+                    //lookUpMaVatTu.EditValue = null;
                     txtTenVatTu.Text = "";
                     txtQuyCach.Text = "";
                     txtSoLuong.Text = "0";
@@ -463,7 +463,7 @@ namespace DuocPham.GUI
         {
             RptPhieuNhapKho rpt = new RptPhieuNhapKho ();
             rpt.lblSoPhieu.Text = txtSoPhieu.Text;
-            rpt.lblTKNo.Text = txtTKNo.Text;
+            rpt.lblTKNo.Text = "";
             rpt.lblTKCo.Text = "331";
             rpt.lblNgayNhap.Text = "Ngày "+dateNgayNhap.DateTime.Day+" tháng "
                 +dateNgayNhap.DateTime.Month+" năm "+dateNgayNhap.DateTime.Year;

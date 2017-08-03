@@ -174,5 +174,37 @@ namespace HIS_PR
             frmXuatKho.MdiParent = this;
             frmXuatKho.Show ();
         }
+
+        private void barButtonYCLinhThuoc_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmYeuCauLinhThuoc))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmYeuCauLinhThuoc frmYCLinhThuoc = new FrmYeuCauLinhThuoc ();
+            frmYCLinhThuoc.MdiParent = this;
+            frmYCLinhThuoc.Show ();
+        }
+
+        private void barButtonPLinhThuoc_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmPhieuLinhThuoc))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmPhieuLinhThuoc frmPhieuLinhDuoc = new FrmPhieuLinhThuoc ();
+            frmPhieuLinhDuoc.MdiParent = this;
+            frmPhieuLinhDuoc.Show ();
+        }
     }
 }

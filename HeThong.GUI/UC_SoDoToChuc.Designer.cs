@@ -32,6 +32,7 @@
             this.treeList = new DevExpress.XtraTreeList.TreeList();
             this.tlcSoDo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.cbKhoChanLe = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkKhoVatTu = new DevExpress.XtraEditors.CheckEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -42,6 +43,7 @@
             this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.KhoVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LoaiKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamMoi = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
@@ -64,14 +66,13 @@
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbKhoChanLe = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.LoaiKho = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkKhoVatTu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -94,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,6 +158,22 @@
             this.layoutControl.Root = this.layoutControlGroup;
             this.layoutControl.Size = new System.Drawing.Size(659, 550);
             this.layoutControl.TabIndex = 0;
+            // 
+            // cbKhoChanLe
+            // 
+            this.cbKhoChanLe.Location = new System.Drawing.Point(533, 38);
+            this.cbKhoChanLe.Name = "cbKhoChanLe";
+            this.cbKhoChanLe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoChanLe.Properties.Appearance.Options.UseFont = true;
+            this.cbKhoChanLe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbKhoChanLe.Properties.Items.AddRange(new object[] {
+            "",
+            "1. Chẵn",
+            "2. Lẻ"});
+            this.cbKhoChanLe.Size = new System.Drawing.Size(114, 22);
+            this.cbKhoChanLe.StyleController = this.layoutControl;
+            this.cbKhoChanLe.TabIndex = 16;
             // 
             // checkKhoVatTu
             // 
@@ -265,6 +281,16 @@
             this.KhoVatTu.Visible = true;
             this.KhoVatTu.VisibleIndex = 5;
             this.KhoVatTu.Width = 48;
+            // 
+            // LoaiKho
+            // 
+            this.LoaiKho.Caption = "Loại kho";
+            this.LoaiKho.FieldName = "LoaiKho";
+            this.LoaiKho.Name = "LoaiKho";
+            this.LoaiKho.OptionsColumn.AllowEdit = false;
+            this.LoaiKho.Visible = true;
+            this.LoaiKho.VisibleIndex = 6;
+            this.LoaiKho.Width = 50;
             // 
             // btnLuu
             // 
@@ -529,22 +555,6 @@
             this.layoutControlItem11.Text = "Kho vật tư:";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(67, 13);
             // 
-            // cbKhoChanLe
-            // 
-            this.cbKhoChanLe.Location = new System.Drawing.Point(533, 38);
-            this.cbKhoChanLe.Name = "cbKhoChanLe";
-            this.cbKhoChanLe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbKhoChanLe.Properties.Appearance.Options.UseFont = true;
-            this.cbKhoChanLe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbKhoChanLe.Properties.Items.AddRange(new object[] {
-            "",
-            "1. Chẵn",
-            "2. Lẽ"});
-            this.cbKhoChanLe.Size = new System.Drawing.Size(114, 22);
-            this.cbKhoChanLe.StyleController = this.layoutControl;
-            this.cbKhoChanLe.TabIndex = 16;
-            // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.cbKhoChanLe;
@@ -553,16 +563,6 @@
             this.layoutControlItem12.Size = new System.Drawing.Size(188, 26);
             this.layoutControlItem12.Text = "Kho chẵn/lẻ:";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(67, 13);
-            // 
-            // LoaiKho
-            // 
-            this.LoaiKho.Caption = "Loại kho";
-            this.LoaiKho.FieldName = "LoaiKho";
-            this.LoaiKho.Name = "LoaiKho";
-            this.LoaiKho.OptionsColumn.AllowEdit = false;
-            this.LoaiKho.Visible = true;
-            this.LoaiKho.VisibleIndex = 6;
-            this.LoaiKho.Width = 50;
             // 
             // UC_SoDoToChuc
             // 
@@ -577,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkKhoVatTu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -599,7 +600,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
 

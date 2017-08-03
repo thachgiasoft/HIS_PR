@@ -39,10 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenDN = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.checkLuu = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             this.panelControl.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkLuu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl
@@ -50,7 +52,7 @@
             this.panelControl.Controls.Add(this.btnThoat);
             this.panelControl.Controls.Add(this.btnOK);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl.Location = new System.Drawing.Point(0, 164);
+            this.panelControl.Location = new System.Drawing.Point(0, 179);
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(317, 40);
             this.panelControl.TabIndex = 1;
@@ -160,13 +162,25 @@
             this.txtMatKhau.UseSystemPasswordChar = true;
             this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
             // 
+            // checkLuu
+            // 
+            this.checkLuu.Location = new System.Drawing.Point(117, 153);
+            this.checkLuu.MenuManager = this.ribbonControl;
+            this.checkLuu.Name = "checkLuu";
+            this.checkLuu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkLuu.Properties.Appearance.Options.UseFont = true;
+            this.checkLuu.Properties.Caption = "Nhớ thông tin";
+            this.checkLuu.Size = new System.Drawing.Size(115, 20);
+            this.checkLuu.TabIndex = 6;
+            // 
             // FrmDangNhap
             // 
             this.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 204);
+            this.ClientSize = new System.Drawing.Size(317, 219);
+            this.Controls.Add(this.checkLuu);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTenDN);
             this.Controls.Add(this.label2);
@@ -188,6 +202,7 @@
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkLuu.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +219,6 @@
         private System.Windows.Forms.TextBox txtMatKhau;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.CheckEdit checkLuu;
     }
 }

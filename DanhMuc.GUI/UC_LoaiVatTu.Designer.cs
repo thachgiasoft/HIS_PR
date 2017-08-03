@@ -208,6 +208,8 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMa.Properties.Appearance.Options.UseFont = true;
+            this.txtMa.Properties.Mask.EditMask = "[0-9A-W]";
+            this.txtMa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtMa.Size = new System.Drawing.Size(171, 22);
             this.txtMa.StyleController = this.layoutControl;
             this.txtMa.TabIndex = 4;

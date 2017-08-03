@@ -9,4 +9,9 @@
     <UserName>dangcam.pr</UserName>
     <Password>123456</Password>
   </Connection>
+  <Config>
+    <LoginMaNV>admin</LoginMaNV>
+    <LoginPass>123456</LoginPass>
+    <NhoTT>true</NhoTT>
+  </Config>
 </AppConfig>

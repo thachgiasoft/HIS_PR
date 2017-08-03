@@ -20,8 +20,9 @@ namespace HIS_PR
 
         private void FrmDangNhap_Load (object sender, EventArgs e)
         {
-            txtTenDN.Text = "admin";
-            txtMatKhau.Text = "123456";
+            txtTenDN.Text = AppConfig.LoginMaNV;
+            txtMatKhau.Text = AppConfig.LoginPass;
+            checkLuu.Checked = AppConfig.NhoTT;
         }
 
         private void btnOK_Click (object sender, EventArgs e)
@@ -38,6 +39,16 @@ namespace HIS_PR
             }
             dangnhap.MaNV = txtTenDN.Text;
             dangnhap.MatKhau = Utils.toMD5 (txtMatKhau.Text);
+            AppConfig.LoginMaNV = "";
+            AppConfig.LoginPass = "";
+            AppConfig.NhoTT = false;
+            if(checkLuu.Checked == true)
+            {
+                AppConfig.LoginMaNV = txtTenDN.Text;
+                AppConfig.LoginPass = txtMatKhau.Text;
+                AppConfig.NhoTT = true;
+            }
+            appConfig.WriteLogin ();
             if (dangnhap.CheckLogin ())
             {
                 this.Hide ();

@@ -68,9 +68,9 @@ namespace DuocPham.DAL
             return db.ExcuteQuery ("Select * From PhieuNhap Where NgayNhap BETWEEN CAST('" +tuNgay + "' as DATE) AND CAST('" +denNgay + "' as DATE)",
                 CommandType.Text, null);
         }
-        public DataTable DSVatTu (string LoaiVatTu)
+        public DataTable DSVatTu (string loaiVatTu)
         {
-            return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + LoaiVatTu + "'",
+            return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + loaiVatTu + "'",
                 CommandType.Text, null);
         }
         public bool SpPhieuNhap (ref string err, string Action)

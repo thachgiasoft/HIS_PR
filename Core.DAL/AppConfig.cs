@@ -18,6 +18,9 @@ namespace Core.DAL
         private static string coSoKCB = "70013";
         private static string maNV = "";
         private static string matKhau = "";
+        private static string loginMaNV = "";
+        private static string loginPass = "";
+        private static bool nhoTT = false;
         public AppConfig()
         {
             xmlfile = new XmlDocument ();
@@ -127,6 +130,45 @@ namespace Core.DAL
             }
         }
 
+        public static string LoginMaNV
+        {
+            get
+            {
+                return loginMaNV;
+            }
+
+            set
+            {
+                loginMaNV = value;
+            }
+        }
+
+        public static string LoginPass
+        {
+            get
+            {
+                return loginPass;
+            }
+
+            set
+            {
+                loginPass = value;
+            }
+        }
+
+        public static bool NhoTT
+        {
+            get
+            {
+                return nhoTT;
+            }
+
+            set
+            {
+                nhoTT = value;
+            }
+        }
+
         public void Read ()
         {
             
@@ -135,10 +177,20 @@ namespace Core.DAL
             AppConfig.Database = xmlfile.SelectSingleNode ("AppConfig/Connection/Database").InnerText.ToString ();
             AppConfig.UserName = xmlfile.SelectSingleNode ("AppConfig/Connection/UserName").InnerText.ToString ();
             AppConfig.Password = xmlfile.SelectSingleNode ("AppConfig/Connection/Password").InnerText.ToString ();
+            AppConfig.LoginMaNV = xmlfile.SelectSingleNode ("AppConfig/Config/LoginMaNV").InnerText.ToString ();
+            AppConfig.LoginPass = xmlfile.SelectSingleNode ("AppConfig/Config/LoginPass").InnerText.ToString ();
+            AppConfig.NhoTT = bool.Parse(xmlfile.SelectSingleNode ("AppConfig/Config/NhoTT").InnerText.ToString ());
         }
         public void WriteTheme()
         {
             xmlfile.SelectSingleNode ("AppConfig/ThemeConfig/Theme").InnerText = AppConfig.Theme;
+            xmlfile.Save ("AppConfig.xml");
+        }
+        public void WriteLogin ()
+        {
+            xmlfile.SelectSingleNode ("AppConfig/Config/LoginMaNV").InnerText = AppConfig.LoginMaNV;
+            xmlfile.SelectSingleNode ("AppConfig/Config/LoginPass").InnerText = AppConfig.LoginPass;
+            xmlfile.SelectSingleNode ("AppConfig/Config/NhoTT").InnerText = AppConfig.NhoTT.ToString();
             xmlfile.Save ("AppConfig.xml");
         }
     }
