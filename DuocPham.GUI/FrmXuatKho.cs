@@ -433,5 +433,10 @@ namespace DuocPham.GUI
                 (gridControlDS.DataSource as DataView).Delete (gridViewDS.GetFocusedDataSourceRowIndex ());
             }
         }
+
+        private void txtNguoiNhan_Leave (object sender, EventArgs e)
+        {
+            txtNguoiNhan.Text = Utils.VietHoa (txtNguoiNhan.Text);
+        }
     }
 }

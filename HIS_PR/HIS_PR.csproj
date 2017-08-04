@@ -151,6 +151,10 @@
     <None Include="Resources\store-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaoCao.GUI\BaoCao.GUI.csproj">
+      <Project>{EC5BF0F4-A414-45D2-A4C6-7C698F26324A}</Project>
+      <Name>BaoCao.GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.DAL\Core.DAL.csproj">
       <Project>{C6E86929-31E5-41E4-99DE-E25F3FADB210}</Project>
       <Name>Core.DAL</Name>

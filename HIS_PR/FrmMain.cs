@@ -1,4 +1,5 @@
-﻿using Core.DAL;
+﻿using BaoCao.GUI;
+using Core.DAL;
 using DanhMuc.GUI;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
@@ -205,6 +206,22 @@ namespace HIS_PR
             FrmPhieuLinhThuoc frmPhieuLinhDuoc = new FrmPhieuLinhThuoc ();
             frmPhieuLinhDuoc.MdiParent = this;
             frmPhieuLinhDuoc.Show ();
+        }
+
+        private void barBaoCaoNhapXuat_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmBCNhapXuat))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmBCNhapXuat frmBCNhapXuat = new FrmBCNhapXuat ();
+            frmBCNhapXuat.MdiParent = this;
+            frmBCNhapXuat.Show ();
         }
     }
 }

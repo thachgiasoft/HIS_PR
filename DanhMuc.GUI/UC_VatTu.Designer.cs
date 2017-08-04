@@ -29,6 +29,7 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.lblSoLuong = new DevExpress.XtraEditors.LabelControl();
             this.btnNhapExcel = new DevExpress.XtraEditors.SimpleButton();
             this.txtHoatChat = new DevExpress.XtraEditors.TextEdit();
             this.lookUpDonViTinh = new DevExpress.XtraEditors.LookUpEdit();
@@ -95,7 +96,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblSoLuong = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -179,6 +179,17 @@
             this.layoutControl.Size = new System.Drawing.Size(850, 500);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
+            // 
+            // lblSoLuong
+            // 
+            this.lblSoLuong.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLuong.Appearance.Options.UseFont = true;
+            this.lblSoLuong.Location = new System.Drawing.Point(89, 220);
+            this.lblSoLuong.Name = "lblSoLuong";
+            this.lblSoLuong.Size = new System.Drawing.Size(14, 16);
+            this.lblSoLuong.StyleController = this.layoutControl;
+            this.lblSoLuong.TabIndex = 22;
+            this.lblSoLuong.Text = "00";
             // 
             // btnNhapExcel
             // 
@@ -817,8 +828,11 @@
             // 
             this.layoutControlItem19.Control = this.btnXoa;
             this.layoutControlItem19.Location = new System.Drawing.Point(448, 208);
+            this.layoutControlItem19.MaxSize = new System.Drawing.Size(114, 27);
+            this.layoutControlItem19.MinSize = new System.Drawing.Size(114, 27);
             this.layoutControlItem19.Name = "layoutControlItem19";
             this.layoutControlItem19.Size = new System.Drawing.Size(114, 27);
+            this.layoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextVisible = false;
             // 
@@ -826,8 +840,11 @@
             // 
             this.layoutControlItem20.Control = this.btnThem;
             this.layoutControlItem20.Location = new System.Drawing.Point(234, 208);
+            this.layoutControlItem20.MaxSize = new System.Drawing.Size(109, 27);
+            this.layoutControlItem20.MinSize = new System.Drawing.Size(109, 27);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(109, 27);
+            this.layoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem20.TextVisible = false;
             // 
@@ -843,8 +860,11 @@
             // 
             this.layoutControlItem14.Control = this.btnLuu;
             this.layoutControlItem14.Location = new System.Drawing.Point(343, 208);
+            this.layoutControlItem14.MaxSize = new System.Drawing.Size(105, 27);
+            this.layoutControlItem14.MinSize = new System.Drawing.Size(105, 27);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(105, 27);
+            this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -912,17 +932,6 @@
             this.layoutControlItem22.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem22.TextVisible = false;
-            // 
-            // lblSoLuong
-            // 
-            this.lblSoLuong.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoLuong.Appearance.Options.UseFont = true;
-            this.lblSoLuong.Location = new System.Drawing.Point(89, 220);
-            this.lblSoLuong.Name = "lblSoLuong";
-            this.lblSoLuong.Size = new System.Drawing.Size(14, 16);
-            this.lblSoLuong.StyleController = this.layoutControl;
-            this.lblSoLuong.TabIndex = 22;
-            this.lblSoLuong.Text = "00";
             // 
             // layoutControlItem23
             // 

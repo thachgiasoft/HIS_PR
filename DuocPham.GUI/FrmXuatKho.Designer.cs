@@ -117,6 +117,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.SP = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
@@ -768,6 +769,7 @@
             this.txtNguoiNhan.Size = new System.Drawing.Size(199, 22);
             this.txtNguoiNhan.StyleController = this.layoutControl1;
             this.txtNguoiNhan.TabIndex = 9;
+            this.txtNguoiNhan.Leave += new System.EventHandler(this.txtNguoiNhan_Leave);
             // 
             // dateNgayXuat
             // 
@@ -925,6 +927,7 @@
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.SP,
             this.MaVatTu,
             this.TenVatTu,
             this.SoLuongTon,
@@ -944,8 +947,8 @@
             this.MaVatTu.Name = "MaVatTu";
             this.MaVatTu.OptionsColumn.AllowEdit = false;
             this.MaVatTu.Visible = true;
-            this.MaVatTu.VisibleIndex = 0;
-            this.MaVatTu.Width = 43;
+            this.MaVatTu.VisibleIndex = 1;
+            this.MaVatTu.Width = 44;
             // 
             // TenVatTu
             // 
@@ -954,8 +957,8 @@
             this.TenVatTu.Name = "TenVatTu";
             this.TenVatTu.OptionsColumn.AllowEdit = false;
             this.TenVatTu.Visible = true;
-            this.TenVatTu.VisibleIndex = 1;
-            this.TenVatTu.Width = 104;
+            this.TenVatTu.VisibleIndex = 2;
+            this.TenVatTu.Width = 108;
             // 
             // SoLuongTon
             // 
@@ -964,8 +967,8 @@
             this.SoLuongTon.Name = "SoLuongTon";
             this.SoLuongTon.OptionsColumn.AllowEdit = false;
             this.SoLuongTon.Visible = true;
-            this.SoLuongTon.VisibleIndex = 2;
-            this.SoLuongTon.Width = 52;
+            this.SoLuongTon.VisibleIndex = 3;
+            this.SoLuongTon.Width = 54;
             // 
             // DonGiaBHYT
             // 
@@ -976,8 +979,8 @@
             this.DonGiaBHYT.Name = "DonGiaBHYT";
             this.DonGiaBHYT.OptionsColumn.AllowEdit = false;
             this.DonGiaBHYT.Visible = true;
-            this.DonGiaBHYT.VisibleIndex = 3;
-            this.DonGiaBHYT.Width = 56;
+            this.DonGiaBHYT.VisibleIndex = 4;
+            this.DonGiaBHYT.Width = 58;
             // 
             // HetHan
             // 
@@ -988,8 +991,8 @@
             this.HetHan.Name = "HetHan";
             this.HetHan.OptionsColumn.AllowEdit = false;
             this.HetHan.Visible = true;
-            this.HetHan.VisibleIndex = 4;
-            this.HetHan.Width = 61;
+            this.HetHan.VisibleIndex = 5;
+            this.HetHan.Width = 63;
             // 
             // SoLo
             // 
@@ -998,8 +1001,8 @@
             this.SoLo.Name = "SoLo";
             this.SoLo.OptionsColumn.AllowEdit = false;
             this.SoLo.Visible = true;
-            this.SoLo.VisibleIndex = 5;
-            this.SoLo.Width = 30;
+            this.SoLo.VisibleIndex = 6;
+            this.SoLo.Width = 37;
             // 
             // layoutControlGroup1
             // 
@@ -1211,6 +1214,16 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // SP
+            // 
+            this.SP.Caption = "SP";
+            this.SP.FieldName = "SoPhieu";
+            this.SP.Name = "SP";
+            this.SP.OptionsColumn.AllowEdit = false;
+            this.SP.Visible = true;
+            this.SP.VisibleIndex = 0;
+            this.SP.Width = 20;
+            // 
             // FrmXuatKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1382,5 +1395,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn btnXoaDS;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit;
         private DevExpress.XtraGrid.Columns.GridColumn SoLo;
+        private DevExpress.XtraGrid.Columns.GridColumn SP;
     }
 }

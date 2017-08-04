@@ -223,7 +223,7 @@
             this.MaKhoa.OptionsColumn.AllowEdit = false;
             this.MaKhoa.Visible = true;
             this.MaKhoa.VisibleIndex = 0;
-            this.MaKhoa.Width = 113;
+            this.MaKhoa.Width = 81;
             // 
             // TenKhoa
             // 
@@ -233,7 +233,7 @@
             this.TenKhoa.OptionsColumn.AllowEdit = false;
             this.TenKhoa.Visible = true;
             this.TenKhoa.VisibleIndex = 1;
-            this.TenKhoa.Width = 113;
+            this.TenKhoa.Width = 209;
             // 
             // CapDo
             // 
@@ -243,7 +243,7 @@
             this.CapDo.OptionsColumn.AllowEdit = false;
             this.CapDo.Visible = true;
             this.CapDo.VisibleIndex = 2;
-            this.CapDo.Width = 113;
+            this.CapDo.Width = 102;
             // 
             // KhoaCha
             // 
@@ -253,7 +253,7 @@
             this.KhoaCha.OptionsColumn.AllowEdit = false;
             this.KhoaCha.Visible = true;
             this.KhoaCha.VisibleIndex = 3;
-            this.KhoaCha.Width = 127;
+            this.KhoaCha.Width = 72;
             // 
             // TinhTrang
             // 
@@ -264,7 +264,7 @@
             this.TinhTrang.OptionsColumn.AllowEdit = false;
             this.TinhTrang.Visible = true;
             this.TinhTrang.VisibleIndex = 4;
-            this.TinhTrang.Width = 53;
+            this.TinhTrang.Width = 52;
             // 
             // repositoryItemCheckEdit
             // 
@@ -280,7 +280,7 @@
             this.KhoVatTu.OptionsColumn.AllowEdit = false;
             this.KhoVatTu.Visible = true;
             this.KhoVatTu.VisibleIndex = 5;
-            this.KhoVatTu.Width = 48;
+            this.KhoVatTu.Width = 53;
             // 
             // LoaiKho
             // 
@@ -290,7 +290,7 @@
             this.LoaiKho.OptionsColumn.AllowEdit = false;
             this.LoaiKho.Visible = true;
             this.LoaiKho.VisibleIndex = 6;
-            this.LoaiKho.Width = 50;
+            this.LoaiKho.Width = 48;
             // 
             // btnLuu
             // 

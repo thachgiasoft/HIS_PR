@@ -51,7 +51,7 @@ namespace DuocPham.DAL
         }
         public DataTable DSVatTu (string loaiVatTu)
         {
-            return db.ExcuteQuery ("Select * From DSVatTu('"+loaiVatTu+"','"+KhoXuat+ "') ORDER BY HetHan ASC",
+            return db.ExcuteQuery ("Select * From DSVatTu('"+loaiVatTu+"','"+KhoXuat+ "') ORDER BY SoPhieu ASC",
                 CommandType.Text, null);
         }
         public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
