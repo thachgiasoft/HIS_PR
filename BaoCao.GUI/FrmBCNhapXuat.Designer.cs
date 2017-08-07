@@ -68,6 +68,7 @@
             this.layctrlDenNgay = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.DonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -138,7 +139,7 @@
             // 
             // checkTatCa
             // 
-            this.checkTatCa.Location = new System.Drawing.Point(-245, 12);
+            this.checkTatCa.Location = new System.Drawing.Point(-252, 12);
             this.checkTatCa.MenuManager = this.ribbonControl;
             this.checkTatCa.Name = "checkTatCa";
             this.checkTatCa.Properties.Caption = "";
@@ -148,7 +149,7 @@
             // 
             // gridControl
             // 
-            this.gridControl.Location = new System.Drawing.Point(-304, 39);
+            this.gridControl.Location = new System.Drawing.Point(-311, 39);
             this.gridControl.MainView = this.gridView;
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
@@ -164,6 +165,7 @@
             this.MaBV,
             this.TenVatTu,
             this.DonViTinh,
+            this.DonGia,
             this.SLTonDK,
             this.GiaTriTonDK,
             this.SoLuongNhap,
@@ -193,7 +195,7 @@
             this.MaBV.OptionsColumn.AllowEdit = false;
             this.MaBV.Visible = true;
             this.MaBV.VisibleIndex = 0;
-            this.MaBV.Width = 64;
+            this.MaBV.Width = 60;
             // 
             // TenVatTu
             // 
@@ -203,7 +205,7 @@
             this.TenVatTu.OptionsColumn.AllowEdit = false;
             this.TenVatTu.Visible = true;
             this.TenVatTu.VisibleIndex = 1;
-            this.TenVatTu.Width = 264;
+            this.TenVatTu.Width = 248;
             // 
             // DonViTinh
             // 
@@ -213,7 +215,7 @@
             this.DonViTinh.OptionsColumn.AllowEdit = false;
             this.DonViTinh.Visible = true;
             this.DonViTinh.VisibleIndex = 2;
-            this.DonViTinh.Width = 50;
+            this.DonViTinh.Width = 47;
             // 
             // SLTonDK
             // 
@@ -224,8 +226,8 @@
             this.SLTonDK.Name = "SLTonDK";
             this.SLTonDK.OptionsColumn.AllowEdit = false;
             this.SLTonDK.Visible = true;
-            this.SLTonDK.VisibleIndex = 3;
-            this.SLTonDK.Width = 100;
+            this.SLTonDK.VisibleIndex = 4;
+            this.SLTonDK.Width = 89;
             // 
             // GiaTriTonDK
             // 
@@ -236,8 +238,8 @@
             this.GiaTriTonDK.Name = "GiaTriTonDK";
             this.GiaTriTonDK.OptionsColumn.AllowEdit = false;
             this.GiaTriTonDK.Visible = true;
-            this.GiaTriTonDK.VisibleIndex = 4;
-            this.GiaTriTonDK.Width = 100;
+            this.GiaTriTonDK.VisibleIndex = 5;
+            this.GiaTriTonDK.Width = 98;
             // 
             // SoLuongNhap
             // 
@@ -248,8 +250,8 @@
             this.SoLuongNhap.Name = "SoLuongNhap";
             this.SoLuongNhap.OptionsColumn.AllowEdit = false;
             this.SoLuongNhap.Visible = true;
-            this.SoLuongNhap.VisibleIndex = 5;
-            this.SoLuongNhap.Width = 100;
+            this.SoLuongNhap.VisibleIndex = 6;
+            this.SoLuongNhap.Width = 93;
             // 
             // GiaTriNhap
             // 
@@ -260,7 +262,7 @@
             this.GiaTriNhap.Name = "GiaTriNhap";
             this.GiaTriNhap.OptionsColumn.AllowEdit = false;
             this.GiaTriNhap.Visible = true;
-            this.GiaTriNhap.VisibleIndex = 6;
+            this.GiaTriNhap.VisibleIndex = 7;
             this.GiaTriNhap.Width = 100;
             // 
             // SoLuongXuat
@@ -272,8 +274,8 @@
             this.SoLuongXuat.Name = "SoLuongXuat";
             this.SoLuongXuat.OptionsColumn.AllowEdit = false;
             this.SoLuongXuat.Visible = true;
-            this.SoLuongXuat.VisibleIndex = 7;
-            this.SoLuongXuat.Width = 114;
+            this.SoLuongXuat.VisibleIndex = 8;
+            this.SoLuongXuat.Width = 104;
             // 
             // GiaTriXuat
             // 
@@ -284,8 +286,8 @@
             this.GiaTriXuat.Name = "GiaTriXuat";
             this.GiaTriXuat.OptionsColumn.AllowEdit = false;
             this.GiaTriXuat.Visible = true;
-            this.GiaTriXuat.VisibleIndex = 8;
-            this.GiaTriXuat.Width = 104;
+            this.GiaTriXuat.VisibleIndex = 9;
+            this.GiaTriXuat.Width = 101;
             // 
             // SoLuongTon
             // 
@@ -296,8 +298,8 @@
             this.SoLuongTon.Name = "SoLuongTon";
             this.SoLuongTon.OptionsColumn.AllowEdit = false;
             this.SoLuongTon.Visible = true;
-            this.SoLuongTon.VisibleIndex = 9;
-            this.SoLuongTon.Width = 99;
+            this.SoLuongTon.VisibleIndex = 10;
+            this.SoLuongTon.Width = 83;
             // 
             // GiaTriTon
             // 
@@ -308,13 +310,13 @@
             this.GiaTriTon.Name = "GiaTriTon";
             this.GiaTriTon.OptionsColumn.AllowEdit = false;
             this.GiaTriTon.Visible = true;
-            this.GiaTriTon.VisibleIndex = 10;
-            this.GiaTriTon.Width = 118;
+            this.GiaTriTon.VisibleIndex = 11;
+            this.GiaTriTon.Width = 120;
             // 
             // dateDenNgay
             // 
             this.dateDenNgay.EditValue = null;
-            this.dateDenNgay.Location = new System.Drawing.Point(310, 12);
+            this.dateDenNgay.Location = new System.Drawing.Point(303, 12);
             this.dateDenNgay.MenuManager = this.ribbonControl;
             this.dateDenNgay.Name = "dateDenNgay";
             this.dateDenNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -335,7 +337,7 @@
             // dateTuNgay
             // 
             this.dateTuNgay.EditValue = null;
-            this.dateTuNgay.Location = new System.Drawing.Point(150, 12);
+            this.dateTuNgay.Location = new System.Drawing.Point(143, 12);
             this.dateTuNgay.MenuManager = this.ribbonControl;
             this.dateTuNgay.Name = "dateTuNgay";
             this.dateTuNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,7 +357,7 @@
             // 
             // cbQuy
             // 
-            this.cbQuy.Location = new System.Drawing.Point(476, 12);
+            this.cbQuy.Location = new System.Drawing.Point(469, 12);
             this.cbQuy.MenuManager = this.ribbonControl;
             this.cbQuy.Name = "cbQuy";
             this.cbQuy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -373,7 +375,7 @@
             // 
             // cbThoiGian
             // 
-            this.cbThoiGian.Location = new System.Drawing.Point(-39, 12);
+            this.cbThoiGian.Location = new System.Drawing.Point(-46, 12);
             this.cbThoiGian.MenuManager = this.ribbonControl;
             this.cbThoiGian.Name = "cbThoiGian";
             this.cbThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -395,7 +397,7 @@
             this.btnIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseFont = true;
             this.btnIn.ImageUri.Uri = "Print;Size16x16";
-            this.btnIn.Location = new System.Drawing.Point(874, 12);
+            this.btnIn.Location = new System.Drawing.Point(867, 12);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(53, 23);
             this.btnIn.StyleController = this.layoutControl;
@@ -408,7 +410,7 @@
             this.btnXem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXem.Appearance.Options.UseFont = true;
             this.btnXem.ImageUri.Uri = "Zoom;Size16x16";
-            this.btnXem.Location = new System.Drawing.Point(816, 12);
+            this.btnXem.Location = new System.Drawing.Point(809, 12);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(54, 23);
             this.btnXem.StyleController = this.layoutControl;
@@ -418,7 +420,7 @@
             // 
             // cbNam
             // 
-            this.cbNam.Location = new System.Drawing.Point(738, 12);
+            this.cbNam.Location = new System.Drawing.Point(731, 12);
             this.cbNam.MenuManager = this.ribbonControl;
             this.cbNam.Name = "cbNam";
             this.cbNam.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,7 +433,7 @@
             // 
             // cbThang
             // 
-            this.cbThang.Location = new System.Drawing.Point(620, 12);
+            this.cbThang.Location = new System.Drawing.Point(613, 12);
             this.cbThang.MenuManager = this.ribbonControl;
             this.cbThang.Name = "cbThang";
             this.cbThang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -439,15 +441,15 @@
             this.cbThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbThang.Properties.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12"});
@@ -457,7 +459,7 @@
             // 
             // lookUpLoaiVatTu
             // 
-            this.lookUpLoaiVatTu.Location = new System.Drawing.Point(-162, 12);
+            this.lookUpLoaiVatTu.Location = new System.Drawing.Point(-169, 12);
             this.lookUpLoaiVatTu.MenuManager = this.ribbonControl;
             this.lookUpLoaiVatTu.Name = "lookUpLoaiVatTu";
             this.lookUpLoaiVatTu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -491,7 +493,7 @@
             this.layctrlDenNgay,
             this.layoutControlItem3,
             this.layoutControlItem6});
-            this.layoutControlGroup.Location = new System.Drawing.Point(-316, 0);
+            this.layoutControlGroup.Location = new System.Drawing.Point(-323, 0);
             this.layoutControlGroup.Name = "Root";
             this.layoutControlGroup.Size = new System.Drawing.Size(1255, 456);
             this.layoutControlGroup.TextVisible = false;
@@ -633,6 +635,17 @@
             this.layoutControlItem6.Text = "Tất cả:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(56, 13);
             // 
+            // DonGia
+            // 
+            this.DonGia.Caption = "Đơn giá";
+            this.DonGia.DisplayFormat.FormatString = "#,###";
+            this.DonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.DonGia.FieldName = "DonGia";
+            this.DonGia.Name = "DonGia";
+            this.DonGia.Visible = true;
+            this.DonGia.VisibleIndex = 3;
+            this.DonGia.Width = 70;
+            // 
             // FrmBCNhapXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,5 +733,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn GiaTriXuat;
         private DevExpress.XtraGrid.Columns.GridColumn SoLuongTon;
         private DevExpress.XtraGrid.Columns.GridColumn GiaTriTon;
+        private DevExpress.XtraGrid.Columns.GridColumn DonGia;
     }
 }

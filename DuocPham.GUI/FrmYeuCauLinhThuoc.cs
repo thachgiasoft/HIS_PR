@@ -303,7 +303,7 @@ namespace DuocPham.GUI
                 cell.WidthF = 50;
                 row.Cells.Add (cell);
 
-                decimal sl = decimal.Parse (drview["SoLuong"].ToString ());
+                decimal sl = Utils.ToDecimal (drview["SoLuong"].ToString ());
                 soluong += sl;
                 cell = new XRTableCell ();
                 cell.Text = sl.ToString ("0,0", elGR);

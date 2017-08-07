@@ -8,6 +8,7 @@ namespace Core.DAL
 {
     public class Utils
     {
+        private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture ("el-GR");
         public static Connection db = new Connection ();
         public static string toMD5 (string matKhau)
         {
@@ -92,7 +93,28 @@ namespace Core.DAL
             }
             return result.Trim ();
         }
-
+        public static decimal ToDecimal(string value)
+        {
+            try
+            {
+                return Convert.ToDecimal (value);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public static string ToString(string value)
+        {
+            try
+            {
+                return Convert.ToDecimal (value).ToString ("0,0", elGR);
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public static string ChuyenSo (string number)
         {
             string[] dv = { "", "mươi", "trăm", "nghìn", "triệu", "tỉ" };
