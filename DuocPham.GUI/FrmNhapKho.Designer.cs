@@ -29,7 +29,7 @@
         private void InitializeComponent ()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhapKho));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.panelControlPhieu = new DevExpress.XtraEditors.PanelControl();
@@ -594,15 +594,16 @@
             this.buttonXoaVatu.Caption = "#";
             this.buttonXoaVatu.ColumnEdit = this.btnXoaVatu;
             this.buttonXoaVatu.Name = "buttonXoaVatu";
+            this.buttonXoaVatu.OptionsColumn.FixedWidth = true;
             this.buttonXoaVatu.Visible = true;
             this.buttonXoaVatu.VisibleIndex = 0;
-            this.buttonXoaVatu.Width = 22;
+            this.buttonXoaVatu.Width = 20;
             // 
             // btnXoaVatu
             // 
             this.btnXoaVatu.AutoHeight = false;
             this.btnXoaVatu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoaVatu.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoaVatu.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnXoaVatu.Name = "btnXoaVatu";
             this.btnXoaVatu.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnXoaVatu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnXoaVatu_ButtonClick);
@@ -1394,7 +1395,7 @@
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(186, 26);
-            this.layoutControlItem6.Text = "TK nợ:";
+            this.layoutControlItem6.Text = "TK Nợ:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(69, 13);
             // 
             // layoutControlItem8

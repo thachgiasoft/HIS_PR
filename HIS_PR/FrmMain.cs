@@ -223,5 +223,37 @@ namespace HIS_PR
             frmBCNhapXuat.MdiParent = this;
             frmBCNhapXuat.Show ();
         }
+
+        private void barDanhMucCSKCB_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmDanhMucCSKCB))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmDanhMucCSKCB frmCSKCB = new FrmDanhMucCSKCB ();
+            frmCSKCB.MdiParent = this;
+            frmCSKCB.Show ();
+        }
+
+        private void barButtonNhapKhaTra_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmNhapKhoaTra))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmNhapKhoaTra frmNhapKhoa = new FrmNhapKhoaTra ();
+            frmNhapKhoa.MdiParent = this;
+            frmNhapKhoa.Show ();
+        }
     }
 }

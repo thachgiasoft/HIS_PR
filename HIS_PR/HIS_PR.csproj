@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Hospital-blue.ico" />
+    <None Include="Resources\store-arrow-icon.png" />
     <None Include="Resources\user-settings-icon.png" />
     <None Include="Resources\category-icon.png" />
     <None Include="Resources\system-icon.png" />

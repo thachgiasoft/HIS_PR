@@ -57,6 +57,7 @@ namespace DuocPham.GUI
         {
             gridControlPhieu.DataSource = linhthuoc.DSPhieu ();
             them = false;
+            btnLuu.Enabled = false;
         }
         private void checkButton ()
         {
@@ -204,7 +205,7 @@ namespace DuocPham.GUI
                         XtraMessageBox.Show ("Vật tư đã được chọn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (Convert.ToInt32 (txtSoLuong.Text) > Convert.ToInt32 (drview["SoLuongTon"].ToString ()))
+                    if (Utils.ToInt (txtSoLuong.Text) > Utils.ToInt (drview["SoLuongTon"].ToString ()))
                     {
                         XtraMessageBox.Show ("Số lượng tồn kho không đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -214,7 +215,7 @@ namespace DuocPham.GUI
                     dr["MaVatTu"] = drview["MaVatTu"].ToString ();
                     dr["TenVatTu"] = drview["TenVatTu"].ToString ();
                     dr["QuyCach"] = drview["QuyCach"].ToString ();
-                    dr["SoLuong"] = txtSoLuong.Text;
+                    dr["SoLuong"] = Utils.ToInt(txtSoLuong.Text);
                     dr["SoLuongDung"] = 0;
                     dr["DonGiaBHYT"] = drview["DonGiaBHYT"].ToString ();
                     dr["DonGiaBV"] = drview["DonGiaBV"].ToString ();

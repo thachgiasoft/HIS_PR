@@ -7,7 +7,6 @@ using DevExpress.XtraEditors;
 using System.Data;
 using System.Collections.Generic;
 using DevExpress.XtraReports.UI;
-using System.Globalization;
 
 namespace DuocPham.GUI
 {
@@ -22,7 +21,6 @@ namespace DuocPham.GUI
         Dictionary<string, bool> dsVatTu = new Dictionary<string, bool> ();
         SortedSet<string> dsLoaiVatTu = new SortedSet<string> ();
         decimal thanhTien = 0;
-        CultureInfo elGR = CultureInfo.CreateSpecificCulture ("el-GR");
         System.Drawing.Font fontB = new System.Drawing.Font ("Times New Roman", 11, System.Drawing.FontStyle.Bold);
         System.Drawing.Font font = new System.Drawing.Font ("Times New Roman", 11);
         public FrmNhapKho ()
@@ -204,14 +202,15 @@ namespace DuocPham.GUI
                 err = "";
                 nhapkho.MaVatTu = dr["MaVatTu"].ToString ();
                 nhapkho.QuyCach = dr["QuyCach"].ToString ();
-                nhapkho.SoLuong = int.Parse(dr["SoLuong"].ToString ());
-                nhapkho.SoLuongQuyDoi = int.Parse (dr["SoLuongQuyDoi"].ToString ());
-                nhapkho.SoLuongDung = int.Parse (dr["SoLuongDung"].ToString ());
-                nhapkho.DonGiaBHYT = decimal.Parse (dr["DonGiaBHYT"].ToString ());
-                nhapkho.DonGiaBV = decimal.Parse (dr["DonGiaBV"].ToString ());
+                nhapkho.SoLuong = Utils.ToInt (dr["SoLuong"].ToString ());
+                nhapkho.SoLuongQuyDoi = Utils.ToInt (dr["SoLuongQuyDoi"].ToString ());
+                nhapkho.SoLuongDung = Utils.ToInt (dr["SoLuongDung"].ToString ());
+                nhapkho.DonGiaBHYT = Utils.ToDecimal (dr["DonGiaBHYT"].ToString ());
+                nhapkho.DonGiaBV = Utils.ToDecimal (dr["DonGiaBV"].ToString ());
                 nhapkho.SoLo = dr["SoLo"].ToString ();
                 nhapkho.HetHan = DateTime.Parse (dr["HetHan"].ToString ());
-                nhapkho.ThanhTien = decimal.Parse (dr["ThanhTien"].ToString ());
+                nhapkho.ThanhTien = Utils.ToDecimal (dr["ThanhTien"].ToString ());
+                nhapkho.LoaiVatTu = dr["LoaiVatTu"].ToString ();
                 if(them)
                 {
                     dsVatTu.Add (nhapkho.MaVatTu, false);
@@ -418,7 +417,7 @@ namespace DuocPham.GUI
                 txtSoHoaDon.Text = dr["SoHoaDon"].ToString ();
                 cbLoaiThau.SelectedIndex = int.Parse (dr["LoaiThau"].ToString ());
                 txtNhomThau.Text = dr["NhomThau"].ToString ();
-                dateNgayNhap.EditValue = DateTime.Parse(dr["NgayNhap"].ToString ()).ToShortDateString();
+                dateNgayNhap.DateTime = DateTime.Parse (dr["NgayNhap"].ToString ());
                 lookUpNhaCungCap.EditValue = dr["NhaCungCap"].ToString ();
                 txtNguoiGiaoHang.Text = dr["NguoiGiaoHang"].ToString ();
                 lookUpKhoNhap.EditValue = dr["KhoNhap"].ToString ();
@@ -511,22 +510,22 @@ namespace DuocPham.GUI
                 row.Cells.Add (cell);
 
                 cell = new XRTableCell ();
-                cell.Text = decimal.Parse (drview["SoLuongQuyDoi"].ToString ()).ToString ("0,0", elGR);
+                cell.Text = Utils.ToString (drview["SoLuongQuyDoi"].ToString ());
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 80;
                 row.Cells.Add (cell);
 
                 cell = new XRTableCell ();
-                cell.Text = decimal.Parse( drview["DonGiaBHYT"].ToString ()).ToString("0,0",elGR);
+                cell.Text = Utils.ToString (drview["DonGiaBHYT"].ToString ());
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 80;
                 row.Cells.Add (cell);
 
-                this.thanhTien += decimal.Parse (drview["ThanhTien"].ToString ());
+                this.thanhTien += Utils.ToDecimal (drview["ThanhTien"].ToString ());
                 cell = new XRTableCell ();
-                cell.Text = decimal.Parse (drview["ThanhTien"].ToString ()).ToString ("0,0",elGR);
+                cell.Text = Utils.ToString (drview["ThanhTien"].ToString ());
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 96;
@@ -545,7 +544,7 @@ namespace DuocPham.GUI
             row.Cells.Add (cell);
 
             cell = new XRTableCell ();
-            cell.Text = this.thanhTien.ToString ("0,0", elGR);
+            cell.Text = Utils.ToString (this.thanhTien);
             cell.Font = fontB;
             cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             cell.WidthF = 96;

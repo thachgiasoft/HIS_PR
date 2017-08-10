@@ -144,7 +144,7 @@ namespace DanhMuc.GUI
             nhanvien.MaBS = txtMaBS.Text;
             if (txtMatKhau.Text.Length > 0)
             {
-                nhanvien.MatKhau = Core.DAL.Utils.toMD5 (txtMatKhau.Text);
+                nhanvien.MatKhau = Core.DAL.Utils.ToMD5 (txtMatKhau.Text);
             }
             else
             if(string.IsNullOrEmpty(nhanvien.MatKhau))

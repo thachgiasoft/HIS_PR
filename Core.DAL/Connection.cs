@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,6 +30,7 @@ namespace Core.DAL
                 if (conn.State == ConnectionState.Open)
                     conn.Close ();
                 conn.Open ();
+                comm.Parameters.Clear ();
                 comm.CommandType = ct;
                 comm.CommandText = strSQL;
                 da = new SqlDataAdapter (comm);
@@ -37,7 +39,7 @@ namespace Core.DAL
             }
             catch (SqlException ex)
             {
-                MessageBox.Show (ex.Message,"Lỗi - Thực thi SQL");
+                XtraMessageBox.Show (ex.Message,"Lỗi - Thực thi SQL");
                 return null;
             }
             return dt;

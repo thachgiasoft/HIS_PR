@@ -38,7 +38,7 @@ namespace HIS_PR
                 return;
             }
             dangnhap.MaNV = txtTenDN.Text;
-            dangnhap.MatKhau = Utils.toMD5 (txtMatKhau.Text);
+            dangnhap.MatKhau = Utils.ToMD5 (txtMatKhau.Text);
             AppConfig.LoginMaNV = "";
             AppConfig.LoginPass = "";
             AppConfig.NhoTT = false;

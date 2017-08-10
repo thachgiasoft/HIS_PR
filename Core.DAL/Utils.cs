@@ -10,7 +10,7 @@ namespace Core.DAL
     {
         private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture ("el-GR");
         public static Connection db = new Connection ();
-        public static string toMD5 (string matKhau)
+        public static string ToMD5 (string matKhau)
         {
             MD5 mh = MD5.Create ();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes (matKhau);
@@ -93,27 +93,57 @@ namespace Core.DAL
             }
             return result.Trim ();
         }
-        public static decimal ToDecimal(string value)
+        public static decimal ToDecimal(string value, int defaultvalue = 0)
         {
             try
             {
+                value = value.Replace (",", "");
                 return Convert.ToDecimal (value);
             }
             catch
             {
-                return 0;
+                return defaultvalue;
             }
         }
-        public static string ToString(string value)
+        public static string ToString(string value, string defaultvalue = null)
         {
             try
             {
-                return Convert.ToDecimal (value).ToString ("0,0", elGR);
+                decimal t = ToDecimal (value);
+                if(defaultvalue == null && t == 0)
+                {
+                    return null;
+                }
+                return t.ToString ("0,0", elGR);
             }
             catch
             {
-                return null;
+                return defaultvalue;
             }
+        }
+        public static string ToString (decimal value, decimal defaultvalue = 0)
+        {
+            try
+            {
+                return value.ToString ("0,0", elGR);
+            }
+            catch
+            {
+                return defaultvalue.ToString();
+            }
+        }
+        public static int ToInt (string value, int defaultvalue = 0)
+        {
+            try
+            {
+                value = value.Replace (",", "");
+                return int.Parse (value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+
         }
         public static string ChuyenSo (string number)
         {

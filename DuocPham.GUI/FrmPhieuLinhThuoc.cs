@@ -70,7 +70,7 @@ namespace DuocPham.GUI
         {
             dr = gridViewDS.GetDataRow (e.RowHandle);
             txtNoiDung.Text = dr["NoiDung"].ToString ();
-            dateNgayXuat.EditValue = dr["NgayXuat"].ToString ();
+            dateNgayXuat.DateTime = DateTime.Parse(dr["NgayXuat"].ToString ());
             checkPheDuyet.Checked = bool.Parse (dr["PheDuyet"].ToString ());
             if(!checkPheDuyet.Checked)
             {

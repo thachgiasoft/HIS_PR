@@ -33,6 +33,21 @@
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.groupControlChiTiet = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.gridControlCT = new DevExpress.XtraGrid.GridControl();
+            this.gridViewCT = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.SoPhieuDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoPhieuNhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.KhoNhanDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QuyCach = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DonViTinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DonGiaBHYT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DonGiaBV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.HanDung = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LoaiVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnPheDuyet = new DevExpress.XtraEditors.SimpleButton();
             this.btnXuatKho = new DevExpress.XtraEditors.SimpleButton();
             this.btnPhieuLinh = new DevExpress.XtraEditors.SimpleButton();
@@ -49,6 +64,7 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControlDSPhieu = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
@@ -76,22 +92,6 @@
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridControlCT = new DevExpress.XtraGrid.GridControl();
-            this.gridViewCT = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.SoPhieuDS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SoPhieuNhap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.KhoNhanDS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QuyCach = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DonViTinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DonGiaBHYT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DonGiaBV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.HanDung = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LoaiVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -99,6 +99,8 @@
             this.groupControlChiTiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPheDuyet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayXuat.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayXuat.Properties)).BeginInit();
@@ -113,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDSPhieu)).BeginInit();
             this.groupControlDSPhieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -132,9 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -190,6 +190,166 @@
             this.layoutControl2.Size = new System.Drawing.Size(412, 408);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // gridControlCT
+            // 
+            this.gridControlCT.Location = new System.Drawing.Point(12, 91);
+            this.gridControlCT.MainView = this.gridViewCT;
+            this.gridControlCT.MenuManager = this.ribbonControl;
+            this.gridControlCT.Name = "gridControlCT";
+            this.gridControlCT.Size = new System.Drawing.Size(388, 305);
+            this.gridControlCT.TabIndex = 11;
+            this.gridControlCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewCT});
+            // 
+            // gridViewCT
+            // 
+            this.gridViewCT.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.SoPhieuDS,
+            this.SoPhieuNhap,
+            this.MaVatTuDS,
+            this.TenVatTuDS,
+            this.KhoNhanDS,
+            this.QuyCach,
+            this.DonViTinh,
+            this.SoLuong,
+            this.DonGiaBHYT,
+            this.DonGiaBV,
+            this.HanDung,
+            this.ThanhTien,
+            this.LoaiVatTu});
+            this.gridViewCT.GridControl = this.gridControlCT;
+            this.gridViewCT.Name = "gridViewCT";
+            this.gridViewCT.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewCT.OptionsView.ShowGroupPanel = false;
+            // 
+            // SoPhieuDS
+            // 
+            this.SoPhieuDS.Caption = "SoPhieu";
+            this.SoPhieuDS.FieldName = "SoPhieu";
+            this.SoPhieuDS.Name = "SoPhieuDS";
+            // 
+            // SoPhieuNhap
+            // 
+            this.SoPhieuNhap.Caption = "SoPhieuNhap";
+            this.SoPhieuNhap.FieldName = "SoPhieuNhap";
+            this.SoPhieuNhap.Name = "SoPhieuNhap";
+            // 
+            // MaVatTuDS
+            // 
+            this.MaVatTuDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaVatTuDS.AppearanceCell.Options.UseFont = true;
+            this.MaVatTuDS.Caption = "Mã vật tư";
+            this.MaVatTuDS.FieldName = "MaVatTu";
+            this.MaVatTuDS.Name = "MaVatTuDS";
+            this.MaVatTuDS.OptionsColumn.AllowEdit = false;
+            this.MaVatTuDS.Visible = true;
+            this.MaVatTuDS.VisibleIndex = 0;
+            this.MaVatTuDS.Width = 56;
+            // 
+            // TenVatTuDS
+            // 
+            this.TenVatTuDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenVatTuDS.AppearanceCell.Options.UseFont = true;
+            this.TenVatTuDS.Caption = "Tên vật tư";
+            this.TenVatTuDS.FieldName = "TenVatTu";
+            this.TenVatTuDS.Name = "TenVatTuDS";
+            this.TenVatTuDS.OptionsColumn.AllowEdit = false;
+            this.TenVatTuDS.Visible = true;
+            this.TenVatTuDS.VisibleIndex = 1;
+            this.TenVatTuDS.Width = 151;
+            // 
+            // KhoNhanDS
+            // 
+            this.KhoNhanDS.Caption = "KhoNhan";
+            this.KhoNhanDS.FieldName = "KhoNhan";
+            this.KhoNhanDS.Name = "KhoNhanDS";
+            // 
+            // QuyCach
+            // 
+            this.QuyCach.Caption = "QuyCach";
+            this.QuyCach.FieldName = "QuyCach";
+            this.QuyCach.Name = "QuyCach";
+            // 
+            // DonViTinh
+            // 
+            this.DonViTinh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonViTinh.AppearanceCell.Options.UseFont = true;
+            this.DonViTinh.Caption = "Đơn vị";
+            this.DonViTinh.FieldName = "DonViTinh";
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.OptionsColumn.AllowEdit = false;
+            this.DonViTinh.Visible = true;
+            this.DonViTinh.VisibleIndex = 2;
+            this.DonViTinh.Width = 54;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLuong.AppearanceCell.Options.UseFont = true;
+            this.SoLuong.Caption = "Số lượng";
+            this.SoLuong.DisplayFormat.FormatString = "#,####";
+            this.SoLuong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.SoLuong.FieldName = "SoLuong";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.OptionsColumn.AllowEdit = false;
+            this.SoLuong.Visible = true;
+            this.SoLuong.VisibleIndex = 3;
+            this.SoLuong.Width = 60;
+            // 
+            // DonGiaBHYT
+            // 
+            this.DonGiaBHYT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonGiaBHYT.AppearanceCell.Options.UseFont = true;
+            this.DonGiaBHYT.Caption = "Giá BHYT";
+            this.DonGiaBHYT.DisplayFormat.FormatString = "#,###";
+            this.DonGiaBHYT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.DonGiaBHYT.FieldName = "DonGiaBHYT";
+            this.DonGiaBHYT.Name = "DonGiaBHYT";
+            this.DonGiaBHYT.OptionsColumn.AllowEdit = false;
+            this.DonGiaBHYT.Visible = true;
+            this.DonGiaBHYT.VisibleIndex = 4;
+            this.DonGiaBHYT.Width = 56;
+            // 
+            // DonGiaBV
+            // 
+            this.DonGiaBV.Caption = "DonGiaBV";
+            this.DonGiaBV.FieldName = "DonGiaBV";
+            this.DonGiaBV.Name = "DonGiaBV";
+            // 
+            // HanDung
+            // 
+            this.HanDung.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HanDung.AppearanceCell.Options.UseFont = true;
+            this.HanDung.Caption = "Hạn SD";
+            this.HanDung.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.HanDung.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.HanDung.FieldName = "HetHan";
+            this.HanDung.Name = "HanDung";
+            this.HanDung.OptionsColumn.AllowEdit = false;
+            this.HanDung.Visible = true;
+            this.HanDung.VisibleIndex = 5;
+            this.HanDung.Width = 55;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThanhTien.AppearanceCell.Options.UseFont = true;
+            this.ThanhTien.Caption = "Thành tiền";
+            this.ThanhTien.DisplayFormat.FormatString = "#,###";
+            this.ThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.ThanhTien.FieldName = "ThanhTien";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.OptionsColumn.AllowEdit = false;
+            this.ThanhTien.Visible = true;
+            this.ThanhTien.VisibleIndex = 6;
+            this.ThanhTien.Width = 74;
+            // 
+            // LoaiVatTu
+            // 
+            this.LoaiVatTu.Caption = "LoaiVatTu";
+            this.LoaiVatTu.FieldName = "LoaiVatTu";
+            this.LoaiVatTu.Name = "LoaiVatTu";
             // 
             // btnPheDuyet
             // 
@@ -388,6 +548,15 @@
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(101, 27);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.gridControlCT;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 79);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(392, 309);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
             // 
             // groupControlDSPhieu
             // 
@@ -699,175 +868,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // gridControlCT
-            // 
-            this.gridControlCT.Location = new System.Drawing.Point(12, 91);
-            this.gridControlCT.MainView = this.gridViewCT;
-            this.gridControlCT.MenuManager = this.ribbonControl;
-            this.gridControlCT.Name = "gridControlCT";
-            this.gridControlCT.Size = new System.Drawing.Size(388, 305);
-            this.gridControlCT.TabIndex = 11;
-            this.gridControlCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewCT});
-            // 
-            // gridViewCT
-            // 
-            this.gridViewCT.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.SoPhieuDS,
-            this.SoPhieuNhap,
-            this.MaVatTuDS,
-            this.TenVatTuDS,
-            this.KhoNhanDS,
-            this.QuyCach,
-            this.DonViTinh,
-            this.SoLuong,
-            this.DonGiaBHYT,
-            this.DonGiaBV,
-            this.HanDung,
-            this.ThanhTien,
-            this.LoaiVatTu});
-            this.gridViewCT.GridControl = this.gridControlCT;
-            this.gridViewCT.Name = "gridViewCT";
-            this.gridViewCT.OptionsView.ShowAutoFilterRow = true;
-            this.gridViewCT.OptionsView.ShowGroupPanel = false;
-            // 
-            // SoPhieuDS
-            // 
-            this.SoPhieuDS.Caption = "SoPhieu";
-            this.SoPhieuDS.FieldName = "SoPhieu";
-            this.SoPhieuDS.Name = "SoPhieuDS";
-            // 
-            // SoPhieuNhap
-            // 
-            this.SoPhieuNhap.Caption = "SoPhieuNhap";
-            this.SoPhieuNhap.FieldName = "SoPhieuNhap";
-            this.SoPhieuNhap.Name = "SoPhieuNhap";
-            // 
-            // MaVatTuDS
-            // 
-            this.MaVatTuDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaVatTuDS.AppearanceCell.Options.UseFont = true;
-            this.MaVatTuDS.Caption = "Mã vật tư";
-            this.MaVatTuDS.FieldName = "MaVatTu";
-            this.MaVatTuDS.Name = "MaVatTuDS";
-            this.MaVatTuDS.OptionsColumn.AllowEdit = false;
-            this.MaVatTuDS.Visible = true;
-            this.MaVatTuDS.VisibleIndex = 0;
-            this.MaVatTuDS.Width = 56;
-            // 
-            // TenVatTuDS
-            // 
-            this.TenVatTuDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenVatTuDS.AppearanceCell.Options.UseFont = true;
-            this.TenVatTuDS.Caption = "Tên vật tư";
-            this.TenVatTuDS.FieldName = "TenVatTu";
-            this.TenVatTuDS.Name = "TenVatTuDS";
-            this.TenVatTuDS.OptionsColumn.AllowEdit = false;
-            this.TenVatTuDS.Visible = true;
-            this.TenVatTuDS.VisibleIndex = 1;
-            this.TenVatTuDS.Width = 151;
-            // 
-            // KhoNhanDS
-            // 
-            this.KhoNhanDS.Caption = "KhoNhan";
-            this.KhoNhanDS.FieldName = "KhoNhan";
-            this.KhoNhanDS.Name = "KhoNhanDS";
-            // 
-            // QuyCach
-            // 
-            this.QuyCach.Caption = "QuyCach";
-            this.QuyCach.FieldName = "QuyCach";
-            this.QuyCach.Name = "QuyCach";
-            // 
-            // DonViTinh
-            // 
-            this.DonViTinh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonViTinh.AppearanceCell.Options.UseFont = true;
-            this.DonViTinh.Caption = "Đơn vị";
-            this.DonViTinh.FieldName = "DonViTinh";
-            this.DonViTinh.Name = "DonViTinh";
-            this.DonViTinh.OptionsColumn.AllowEdit = false;
-            this.DonViTinh.Visible = true;
-            this.DonViTinh.VisibleIndex = 2;
-            this.DonViTinh.Width = 54;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SoLuong.AppearanceCell.Options.UseFont = true;
-            this.SoLuong.Caption = "Số lượng";
-            this.SoLuong.DisplayFormat.FormatString = "#,####";
-            this.SoLuong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.SoLuong.FieldName = "SoLuong";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.OptionsColumn.AllowEdit = false;
-            this.SoLuong.Visible = true;
-            this.SoLuong.VisibleIndex = 3;
-            this.SoLuong.Width = 60;
-            // 
-            // DonGiaBHYT
-            // 
-            this.DonGiaBHYT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonGiaBHYT.AppearanceCell.Options.UseFont = true;
-            this.DonGiaBHYT.Caption = "Giá BHYT";
-            this.DonGiaBHYT.DisplayFormat.FormatString = "#,###";
-            this.DonGiaBHYT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.DonGiaBHYT.FieldName = "DonGiaBHYT";
-            this.DonGiaBHYT.Name = "DonGiaBHYT";
-            this.DonGiaBHYT.OptionsColumn.AllowEdit = false;
-            this.DonGiaBHYT.Visible = true;
-            this.DonGiaBHYT.VisibleIndex = 4;
-            this.DonGiaBHYT.Width = 56;
-            // 
-            // DonGiaBV
-            // 
-            this.DonGiaBV.Caption = "DonGiaBV";
-            this.DonGiaBV.FieldName = "DonGiaBV";
-            this.DonGiaBV.Name = "DonGiaBV";
-            // 
-            // HanDung
-            // 
-            this.HanDung.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HanDung.AppearanceCell.Options.UseFont = true;
-            this.HanDung.Caption = "Hạn SD";
-            this.HanDung.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.HanDung.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.HanDung.FieldName = "HetHan";
-            this.HanDung.Name = "HanDung";
-            this.HanDung.OptionsColumn.AllowEdit = false;
-            this.HanDung.Visible = true;
-            this.HanDung.VisibleIndex = 5;
-            this.HanDung.Width = 55;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThanhTien.AppearanceCell.Options.UseFont = true;
-            this.ThanhTien.Caption = "Thành tiền";
-            this.ThanhTien.DisplayFormat.FormatString = "#,###";
-            this.ThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.ThanhTien.FieldName = "ThanhTien";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.OptionsColumn.AllowEdit = false;
-            this.ThanhTien.Visible = true;
-            this.ThanhTien.VisibleIndex = 6;
-            this.ThanhTien.Width = 74;
-            // 
-            // LoaiVatTu
-            // 
-            this.LoaiVatTu.Caption = "LoaiVatTu";
-            this.LoaiVatTu.FieldName = "LoaiVatTu";
-            this.LoaiVatTu.Name = "LoaiVatTu";
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.gridControlCT;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 79);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(392, 309);
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem13.TextVisible = false;
-            // 
             // FrmPhieuLinhThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -888,6 +888,8 @@
             this.groupControlChiTiet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkPheDuyet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayXuat.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayXuat.Properties)).EndInit();
@@ -902,6 +904,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDSPhieu)).EndInit();
             this.groupControlDSPhieu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -921,9 +924,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
