@@ -138,7 +138,7 @@ namespace DuocPham.GUI
                         DataRowView dr = (gridControlDS.DataSource as DataView).AddNew ();
                         dr["MaVatTu"] = drview["MaVatTu"].ToString ();
                         dr["TenVatTu"] = drview["TenVatTu"].ToString ();
-                        dr["QuyCach"] = drview["QuyCach"].ToString ();
+                        dr["SoDangKy"] = drview["SoDangKy"].ToString ();
                         dr["SoLuong"] = 0;
                         dr["SoLuongQuyDoi"] = txtSoLuong.Text;
                         dr["SoLuongDung"] = 0;
@@ -222,7 +222,7 @@ namespace DuocPham.GUI
             {
                 err = "";
                 nhapkho.MaVatTu = dr["MaVatTu"].ToString ();
-                nhapkho.QuyCach = dr["QuyCach"].ToString ();
+                nhapkho.SoDangKy = dr["SoDangKy"].ToString ();
                 nhapkho.SoLuong = Utils.ToInt (dr["SoLuong"].ToString ());
                 nhapkho.SoLuongQuyDoi = Utils.ToInt (dr["SoLuongQuyDoi"].ToString ());
                 nhapkho.SoLuongDung = Utils.ToInt (dr["SoLuongDung"].ToString ());

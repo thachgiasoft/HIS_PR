@@ -33,7 +33,7 @@ namespace DuocPham.DAL
         public string NguoiCapNhat { get; set; }
         // Table PhieuNhapChiTiet
         public string MaVatTu { get; set; }
-        public string QuyCach { get; set; }
+        public string SoDangKy { get; set; }
         public int SoLuong { get; set; }
         public int SoLuongQuyDoi { get; set; }
         public int SoLuongDung { get; set; }
@@ -91,7 +91,7 @@ namespace DuocPham.DAL
         }
         public DataTable DSVatTu (string loaiVatTu)
         {
-            return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + loaiVatTu + "'",
+            return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh,SoDK,GiaBHYT From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + loaiVatTu + "'",
                 CommandType.Text, null);
         }
         public DataTable DSVatTu (string loaiVatTu, string khoTra)
@@ -141,7 +141,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@MaVatTu", MaVatTu),
                 new SqlParameter ("@SoPhieu", SoPhieu),
                 new SqlParameter ("@KhoNhap", KhoNhap),
-                new SqlParameter ("@QuyCach", QuyCach),
+                new SqlParameter ("@SoDangKy", SoDangKy),
                 new SqlParameter ("@SoLuong", SoLuong),
                 new SqlParameter ("@SoLuongQuyDoi", SoLuongQuyDoi),
                 new SqlParameter ("@SoLuongDung", SoLuongDung),
@@ -160,7 +160,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@MaVatTu", MaVatTu),
                 new SqlParameter ("@SoPhieu", SoPhieu),
                 new SqlParameter ("@KhoNhap", KhoNhap),
-                new SqlParameter ("@QuyCach", QuyCach),
+                new SqlParameter ("@SoDangKy", SoDangKy),
                 new SqlParameter ("@SoLuong", SoLuong),
                 new SqlParameter ("@SoLuongQuyDoi", SoLuongQuyDoi),
                 new SqlParameter ("@SoLuongDung", SoLuongDung),

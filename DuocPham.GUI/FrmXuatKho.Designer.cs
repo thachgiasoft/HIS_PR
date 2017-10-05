@@ -29,7 +29,7 @@
         private void InitializeComponent ()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmXuatKho));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.panelControlDanhSach = new DevExpress.XtraEditors.PanelControl();
@@ -43,7 +43,7 @@
             this.MaVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenVatTuDS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KhoNhan = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QuyCach = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoDangKy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DonViTinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SoLuongDung = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -251,7 +251,7 @@
             this.MaVatTuDS,
             this.TenVatTuDS,
             this.KhoNhan,
-            this.QuyCach,
+            this.SoDangKy,
             this.DonViTinh,
             this.SoLuong,
             this.SoLuongDung,
@@ -278,7 +278,7 @@
             // 
             this.repositoryItemButtonEdit.AutoHeight = false;
             this.repositoryItemButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonEdit.Name = "repositoryItemButtonEdit";
             this.repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit_ButtonClick);
@@ -335,17 +335,17 @@
             this.KhoNhan.FieldName = "KhoNhan";
             this.KhoNhan.Name = "KhoNhan";
             // 
-            // QuyCach
+            // SoDangKy
             // 
-            this.QuyCach.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuyCach.AppearanceCell.Options.UseFont = true;
-            this.QuyCach.Caption = "Quy cách";
-            this.QuyCach.FieldName = "QuyCach";
-            this.QuyCach.Name = "QuyCach";
-            this.QuyCach.OptionsColumn.AllowEdit = false;
-            this.QuyCach.Visible = true;
-            this.QuyCach.VisibleIndex = 4;
-            this.QuyCach.Width = 171;
+            this.SoDangKy.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoDangKy.AppearanceCell.Options.UseFont = true;
+            this.SoDangKy.Caption = "Số ĐK";
+            this.SoDangKy.FieldName = "SoDangKy";
+            this.SoDangKy.Name = "SoDangKy";
+            this.SoDangKy.OptionsColumn.AllowEdit = false;
+            this.SoDangKy.Visible = true;
+            this.SoDangKy.VisibleIndex = 4;
+            this.SoDangKy.Width = 132;
             // 
             // DonViTinh
             // 
@@ -355,7 +355,7 @@
             this.DonViTinh.OptionsColumn.AllowEdit = false;
             this.DonViTinh.Visible = true;
             this.DonViTinh.VisibleIndex = 5;
-            this.DonViTinh.Width = 58;
+            this.DonViTinh.Width = 63;
             // 
             // SoLuong
             // 
@@ -369,7 +369,7 @@
             this.SoLuong.OptionsColumn.AllowEdit = false;
             this.SoLuong.Visible = true;
             this.SoLuong.VisibleIndex = 6;
-            this.SoLuong.Width = 55;
+            this.SoLuong.Width = 60;
             // 
             // SoLuongDung
             // 
@@ -391,7 +391,7 @@
             this.DonGiaBHYTDS.OptionsColumn.AllowEdit = false;
             this.DonGiaBHYTDS.Visible = true;
             this.DonGiaBHYTDS.VisibleIndex = 7;
-            this.DonGiaBHYTDS.Width = 64;
+            this.DonGiaBHYTDS.Width = 69;
             // 
             // DonGiaBV
             // 
@@ -405,7 +405,7 @@
             this.DonGiaBV.OptionsColumn.AllowEdit = false;
             this.DonGiaBV.Visible = true;
             this.DonGiaBV.VisibleIndex = 8;
-            this.DonGiaBV.Width = 61;
+            this.DonGiaBV.Width = 66;
             // 
             // HetHanDS
             // 
@@ -419,7 +419,7 @@
             this.HetHanDS.OptionsColumn.AllowEdit = false;
             this.HetHanDS.Visible = true;
             this.HetHanDS.VisibleIndex = 9;
-            this.HetHanDS.Width = 57;
+            this.HetHanDS.Width = 62;
             // 
             // ThanhTien
             // 
@@ -433,7 +433,7 @@
             this.ThanhTien.OptionsColumn.AllowEdit = false;
             this.ThanhTien.Visible = true;
             this.ThanhTien.VisibleIndex = 10;
-            this.ThanhTien.Width = 74;
+            this.ThanhTien.Width = 80;
             // 
             // LoaiVatTu
             // 
@@ -445,7 +445,7 @@
             this.LoaiVatTu.OptionsColumn.AllowEdit = false;
             this.LoaiVatTu.Visible = true;
             this.LoaiVatTu.VisibleIndex = 11;
-            this.LoaiVatTu.Width = 59;
+            this.LoaiVatTu.Width = 67;
             // 
             // layoutControlGroup2
             // 
@@ -949,6 +949,7 @@
             this.TenVatTu.FieldName = "TenVatTu";
             this.TenVatTu.Name = "TenVatTu";
             this.TenVatTu.OptionsColumn.AllowEdit = false;
+            this.TenVatTu.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.TenVatTu.Visible = true;
             this.TenVatTu.VisibleIndex = 2;
             this.TenVatTu.Width = 105;
@@ -1350,7 +1351,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn MaVatTuDS;
         private DevExpress.XtraGrid.Columns.GridColumn TenVatTuDS;
         private DevExpress.XtraGrid.Columns.GridColumn KhoNhan;
-        private DevExpress.XtraGrid.Columns.GridColumn QuyCach;
+        private DevExpress.XtraGrid.Columns.GridColumn SoDangKy;
         private DevExpress.XtraGrid.Columns.GridColumn SoLuong;
         private DevExpress.XtraGrid.Columns.GridColumn SoLuongDung;
         private DevExpress.XtraGrid.Columns.GridColumn DonGiaBHYTDS;

@@ -29,7 +29,7 @@
         private void InitializeComponent ()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYeuCauLinhThuoc));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
@@ -55,6 +55,8 @@
             this.txtSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.gridControlPhieu = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhieu = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.SoPhieuP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayYC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lookUpLoaiVatTu = new DevExpress.XtraEditors.LookUpEdit();
             this.txtKhoNhan = new DevExpress.XtraEditors.TextEdit();
             this.txtKhoXuat = new DevExpress.XtraEditors.TextEdit();
@@ -78,8 +80,6 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.SoPhieuP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NgayYC = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -232,7 +232,7 @@
             // 
             this.btnXoa.AutoHeight = false;
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnXoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnXoa_ButtonClick);
@@ -400,6 +400,32 @@
             this.gridViewPhieu.OptionsView.ShowGroupPanel = false;
             this.gridViewPhieu.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewPhieu_RowClick);
             // 
+            // SoPhieuP
+            // 
+            this.SoPhieuP.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoPhieuP.AppearanceCell.Options.UseFont = true;
+            this.SoPhieuP.Caption = "Số phiếu";
+            this.SoPhieuP.FieldName = "SoPhieu";
+            this.SoPhieuP.Name = "SoPhieuP";
+            this.SoPhieuP.OptionsColumn.AllowEdit = false;
+            this.SoPhieuP.Visible = true;
+            this.SoPhieuP.VisibleIndex = 0;
+            this.SoPhieuP.Width = 74;
+            // 
+            // NgayYC
+            // 
+            this.NgayYC.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayYC.AppearanceCell.Options.UseFont = true;
+            this.NgayYC.Caption = "Ngày yêu cầu";
+            this.NgayYC.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgayYC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NgayYC.FieldName = "NgayXuat";
+            this.NgayYC.Name = "NgayYC";
+            this.NgayYC.OptionsColumn.AllowEdit = false;
+            this.NgayYC.Visible = true;
+            this.NgayYC.VisibleIndex = 1;
+            this.NgayYC.Width = 104;
+            // 
             // lookUpLoaiVatTu
             // 
             this.lookUpLoaiVatTu.Location = new System.Drawing.Point(271, 12);
@@ -491,6 +517,7 @@
             this.TenVatTu.FieldName = "TenVatTu";
             this.TenVatTu.Name = "TenVatTu";
             this.TenVatTu.OptionsColumn.AllowEdit = false;
+            this.TenVatTu.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.TenVatTu.Visible = true;
             this.TenVatTu.VisibleIndex = 1;
             this.TenVatTu.Width = 120;
@@ -667,32 +694,6 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(322, 27);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // SoPhieuP
-            // 
-            this.SoPhieuP.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SoPhieuP.AppearanceCell.Options.UseFont = true;
-            this.SoPhieuP.Caption = "Số phiếu";
-            this.SoPhieuP.FieldName = "SoPhieu";
-            this.SoPhieuP.Name = "SoPhieuP";
-            this.SoPhieuP.OptionsColumn.AllowEdit = false;
-            this.SoPhieuP.Visible = true;
-            this.SoPhieuP.VisibleIndex = 0;
-            this.SoPhieuP.Width = 74;
-            // 
-            // NgayYC
-            // 
-            this.NgayYC.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgayYC.AppearanceCell.Options.UseFont = true;
-            this.NgayYC.Caption = "Ngày yêu cầu";
-            this.NgayYC.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.NgayYC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.NgayYC.FieldName = "NgayXuat";
-            this.NgayYC.Name = "NgayYC";
-            this.NgayYC.OptionsColumn.AllowEdit = false;
-            this.NgayYC.Visible = true;
-            this.NgayYC.VisibleIndex = 1;
-            this.NgayYC.Width = 104;
             // 
             // FrmYeuCauLinhThuoc
             // 

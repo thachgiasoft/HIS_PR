@@ -13,6 +13,7 @@ namespace DanhMuc.GUI
 {
     public partial class FrmDanhMucCSKCB : RibbonForm
     {
+        UC_GiuongBenh ucTienKham;
         public FrmDanhMucCSKCB ()
         {
             InitializeComponent ();
@@ -25,6 +26,17 @@ namespace DanhMuc.GUI
         private void FrmDanhMucCSKCB_Load (object sender, EventArgs e)
         {
 
+        }
+
+        private void navBarGiuongBenh_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains (ucTienKham))
+            {
+                ucTienKham = new UC_GiuongBenh ();
+                ucTienKham.Dock = DockStyle.Fill;
+                panelControl.Controls.Add (ucTienKham);
+            }
+            ucTienKham.BringToFront ();
         }
     }
 }

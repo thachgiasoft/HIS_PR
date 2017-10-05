@@ -8,25 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DanhMuc.DAL;
+using Core.DAL;
 using DevExpress.XtraEditors;
 
 namespace DanhMuc.GUI
 {
-    public partial class UC_NhaCungCap : UserControl
+    public partial class UC_GiuongBenh : UserControl
     {
-        NhaCungCapEntity nhacungcap;
-        string quyen = "";
+        GiuongBenhEntity giuongbenh;
         bool them = false;
-        DataRow dr;
-        public UC_NhaCungCap ()
+        string quyen = "";
+        public UC_GiuongBenh ()
         {
             InitializeComponent ();
-            nhacungcap = new NhaCungCapEntity ();
-        }
-        private void LoadData ()
-        {
-            them = false;
-            gridControl.DataSource = nhacungcap.DSNhaCungCap();
+            giuongbenh = new GiuongBenhEntity ();
         }
         private void CheckButton ()
         {
@@ -68,46 +63,72 @@ namespace DanhMuc.GUI
                 btnThem.Enabled = false;
             }
         }
-        private void UC_NhaCungCap_Load (object sender, EventArgs e)
+        private void LoadData ()
         {
+            them = false;
+            gridControl.DataSource = giuongbenh.DSGiuong ();
+        }
+        private void UC_TienKham_Load (object sender, EventArgs e)
+        {
+            DataTable dt = giuongbenh.DSCoSo ();
+            lookUpCoSoKCB.Properties.DataSource = dt;
+            lookUpCoSoKCB.Properties.ValueMember = "Ma_CS";
+            lookUpCoSoKCB.Properties.DisplayMember = "Ten_CS";
+            repItemLookUpCoSo.DataSource = dt;
+            repItemLookUpCoSo.ValueMember = "Ma_CS";
+            repItemLookUpCoSo.DisplayMember = "Ten_CS";
+
+            dt= giuongbenh.DSKhoa ();
+            lookUpKhoaPhong.Properties.DataSource = dt;
+            lookUpKhoaPhong.Properties.ValueMember = "MaKhoa";
+            lookUpKhoaPhong.Properties.DisplayMember = "TenKhoa";
+            repItemLookUpKhoa.DataSource = dt;
+            repItemLookUpKhoa.ValueMember = "MaKhoa";
+            repItemLookUpKhoa.DisplayMember = "TenKhoa";
+
             LoadData ();
             CheckButton ();
         }
 
         private void btnThem_Click (object sender, EventArgs e)
         {
+            them = true;
+            txtDonGia.Text = "";
+            txtMa.Text = "";
             txtTen.Text = "";
             txtMa.ReadOnly = false;
-            txtMa.Text = "";
-            them = true;
-
+            checkTinhTrang.Checked = true;
             Enabled_Luu ();
-            btnXoa.Enabled = false;
+            btnXoa.Enabled = false;     
         }
 
         private void btnLuu_Click (object sender, EventArgs e)
         {
-            nhacungcap.Ten = txtTen.Text;
-            nhacungcap.TinhTrang = checkTinhTrang.Checked;
+            giuongbenh.Ma = txtMa.Text;
+            giuongbenh.Ten = txtTen.Text;
+            giuongbenh.Ma_CS = lookUpCoSoKCB.EditValue.ToString ();
+            giuongbenh.DonGia = Utils.ToDecimal (txtDonGia.Text);
+            giuongbenh.TinhTrang = checkTinhTrang.Checked;
+            giuongbenh.MaKhoa = lookUpKhoaPhong.EditValue.ToString ();
+            giuongbenh.MaNhom = 15;
             string err = "";
             if (them)
             {
-                nhacungcap.ID = txtMa.Text;
-                if (nhacungcap.ThemNhaCungCap (ref err))
+                if (giuongbenh.SpGiuongBenh (ref err,"INSERT"))
                 {
                     LoadData ();
                 }
             }
             else
             {
-                if (nhacungcap.SuaNhaCungCap (ref err))
+                if (giuongbenh.SpGiuongBenh(ref err,"UPDATE"))
                 {
                     LoadData ();
                 }
             }
             if (!string.IsNullOrEmpty (err))
             {
-                MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,26 +140,34 @@ namespace DanhMuc.GUI
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
-                if (!nhacungcap.XoaNhaCungCap (ref err))
+                if (!giuongbenh.SpGiuongBenh(ref err,"DELETE"))
                 {
-                    MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 LoadData ();
             }
         }
 
+        private void lookUpCoSoKCB_EditValueChanged (object sender, EventArgs e)
+        {
+            giuongbenh.Ma_CS = lookUpCoSoKCB.EditValue.ToString ();
+            gridControl.DataSource = giuongbenh.DSGiuong ();
+        }
+
         private void gridView_RowClick (object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            dr = gridView.GetFocusedDataRow ();
-            if (dr != null)
+            DataRow dr = gridView.GetDataRow (e.RowHandle);
+            if(dr!=null)
             {
-                nhacungcap.ID = dr["ID"].ToString ();
+                txtMa.Text = dr["Ma"].ToString ();
                 txtTen.Text = dr["Ten"].ToString ();
-                txtMa.Text = nhacungcap.ID;
-                checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
-                them = false;
+                txtDonGia.Text = dr["DonGia"].ToString ();
+                checkTinhTrang.Checked = Utils.ToBoolean (dr["TinhTrang"].ToString ());
+                lookUpKhoaPhong.EditValue = dr["MaKhoa"];
+
                 txtMa.ReadOnly = true;
+                them = false;
 
                 Enabled_Xoa ();
                 Enabled_Luu ();

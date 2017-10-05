@@ -56,6 +56,7 @@
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.barTonKho = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,9 +79,10 @@
             this.barButtonYCLinhThuoc,
             this.barDanhMucCSKCB,
             this.barBaoCaoNhapXuat,
-            this.barButtonNhapKhaTra});
+            this.barButtonNhapKhaTra,
+            this.barTonKho});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 22;
+            this.ribbonControlMain.MaxItemId = 23;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -275,8 +277,10 @@
             // ribbonPageGroupBaoCao
             // 
             this.ribbonPageGroupBaoCao.ItemLinks.Add(this.barBaoCaoNhapXuat);
+            this.ribbonPageGroupBaoCao.ItemLinks.Add(this.barTonKho);
             this.ribbonPageGroupBaoCao.Name = "ribbonPageGroupBaoCao";
             this.ribbonPageGroupBaoCao.ShowCaptionButton = false;
+            this.ribbonPageGroupBaoCao.Text = "Dược";
             // 
             // ribbonStatusBarMain
             // 
@@ -286,6 +290,14 @@
             this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
+            // 
+            // barTonKho
+            // 
+            this.barTonKho.Caption = "Tồn kho theo ngày";
+            this.barTonKho.Id = 22;
+            this.barTonKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barTonKho.ImageOptions.Image")));
+            this.barTonKho.Name = "barTonKho";
+            this.barTonKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barTonKho_ItemClick);
             // 
             // FrmMain
             // 
@@ -338,5 +350,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupBaoCao;
         private DevExpress.XtraBars.BarButtonItem barButtonNhapKhaTra;
+        private DevExpress.XtraBars.BarButtonItem barTonKho;
     }
 }

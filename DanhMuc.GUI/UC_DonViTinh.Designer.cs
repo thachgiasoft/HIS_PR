@@ -100,6 +100,7 @@
             this.ID.OptionsColumn.AllowEdit = false;
             this.ID.Visible = true;
             this.ID.VisibleIndex = 0;
+            this.ID.Width = 150;
             // 
             // Ten
             // 
@@ -109,6 +110,7 @@
             this.Ten.OptionsColumn.AllowEdit = false;
             this.Ten.Visible = true;
             this.Ten.VisibleIndex = 1;
+            this.Ten.Width = 398;
             // 
             // btnThem
             // 

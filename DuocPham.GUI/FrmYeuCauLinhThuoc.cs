@@ -166,7 +166,7 @@ namespace DuocPham.GUI
                 err = "";
                 linhthuoc.SoPhieuNhap = int.Parse (drv["SoPhieuNhap"].ToString ());
                 linhthuoc.MaVatTu = drv["MaVatTu"].ToString ();
-                linhthuoc.QuyCach = drv["QuyCach"].ToString ();
+                linhthuoc.SoDangKy = drv["SoDangKy"].ToString ();
                 linhthuoc.SoLuong = int.Parse (drv["SoLuong"].ToString ());
                 linhthuoc.SoLuongDung = 0;
                 linhthuoc.DonGiaBHYT = decimal.Parse (drv["DonGiaBHYT"].ToString ());
@@ -214,7 +214,7 @@ namespace DuocPham.GUI
                     dr["SoPhieuNhap"] = drview["SoPhieu"].ToString ();
                     dr["MaVatTu"] = drview["MaVatTu"].ToString ();
                     dr["TenVatTu"] = drview["TenVatTu"].ToString ();
-                    dr["QuyCach"] = drview["QuyCach"].ToString ();
+                    dr["SoDangKy"] = drview["SoDangKy"].ToString ();
                     dr["SoLuong"] = Utils.ToInt(txtSoLuong.Text);
                     dr["SoLuongDung"] = 0;
                     dr["DonGiaBHYT"] = drview["DonGiaBHYT"].ToString ();

@@ -134,12 +134,12 @@ namespace DanhMuc.GUI
             nhanvien.MaNV = txtMa.Text;
             nhanvien.TenNV = txtTen.Text;
             nhanvien.GioiTinh = cbGioiTinh.SelectedIndex;
-            nhanvien.NamSinh = DateTime.Parse (dateNgaySinh.Text);
+            nhanvien.NamSinh = dateNgaySinh.DateTime;
             nhanvien.MaKhoa = (lookUpKhoaBoPhan.GetSelectedDataRow () as DataRowView)[0].ToString ();
             nhanvien.MaCV = (lookUpChucVu.GetSelectedDataRow () as DataRowView)[0].ToString ();
             nhanvien.HocHamHocVi = (lookUpHocHamHocVi.GetSelectedDataRow () as DataRowView)[0].ToString ();
             nhanvien.ChuyenMon = (lookUpChuyenMon.GetSelectedDataRow () as DataRowView)[0].ToString ();
-            nhanvien.NgayVao = DateTime.Parse (dateNgayVao.Text);
+            nhanvien.NgayVao = dateNgayVao.DateTime;
             nhanvien.TinhTrang = checkTinhTrang.Checked;
             nhanvien.MaBS = txtMaBS.Text;
             if (txtMatKhau.Text.Length > 0)
@@ -199,12 +199,12 @@ namespace DanhMuc.GUI
                 txtMa.Text = dr["Ma_NV"].ToString ();
                 txtTen.Text = dr["Ten_NV"].ToString ();
                 cbGioiTinh.SelectedIndex = int.Parse (dr["GioiTinh"].ToString ());
-                dateNgaySinh.Text = dr["NamSinh"].ToString ();
+                dateNgaySinh.DateTime = DateTime.Parse(dr["NamSinh"].ToString ());
                 lookUpKhoaBoPhan.EditValue = dr["MaKhoa"].ToString ();
                 lookUpChucVu.EditValue = dr["Ma_CV"].ToString ();
                 lookUpHocHamHocVi.EditValue = dr["HocHamHocVi"].ToString ();
                 lookUpChuyenMon.EditValue = dr["ChuyenMon"].ToString ();
-                dateNgayVao.Text = dr["NgayVao"].ToString ();
+                dateNgayVao.DateTime = DateTime.Parse(dr["NgayVao"].ToString ());
                 checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
                 txtMaBS.Text = dr["Ma_BS"].ToString ();
                 lookUpCoSoKCB.EditValue = dr["CoSoKCB"].ToString ();

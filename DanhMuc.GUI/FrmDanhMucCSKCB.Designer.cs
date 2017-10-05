@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDanhMucCSKCB));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupDMCSKCB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupDVKT = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarTienKham = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGiuongBenh = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -69,17 +69,9 @@
             this.splitContainerControl.Panel2.Controls.Add(this.panelControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
             this.splitContainerControl.Size = new System.Drawing.Size(864, 456);
-            this.splitContainerControl.SplitterPosition = 158;
+            this.splitContainerControl.SplitterPosition = 178;
             this.splitContainerControl.TabIndex = 1;
             this.splitContainerControl.Text = "splitContainerControl1";
-            // 
-            // panelControl
-            // 
-            this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl.Location = new System.Drawing.Point(0, 0);
-            this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(701, 456);
-            this.panelControl.TabIndex = 0;
             // 
             // navBarControl
             // 
@@ -89,10 +81,11 @@
             this.navBarGroupDMCSKCB,
             this.navBarGroupDVKT});
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarTienKham});
+            this.navBarGiuongBenh});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
-            this.navBarControl.Size = new System.Drawing.Size(158, 456);
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 178;
+            this.navBarControl.Size = new System.Drawing.Size(178, 456);
             this.navBarControl.TabIndex = 0;
             this.navBarControl.Text = "navBarControl1";
             // 
@@ -100,6 +93,8 @@
             // 
             this.navBarGroupDMCSKCB.Caption = "Danh mục tại CSKCB";
             this.navBarGroupDMCSKCB.Expanded = true;
+            this.navBarGroupDMCSKCB.ItemLinks.AddRange (new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarGiuongBenh)});
             this.navBarGroupDMCSKCB.Name = "navBarGroupDMCSKCB";
             this.navBarGroupDMCSKCB.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDMCSKCB.SmallImage")));
             // 
@@ -107,16 +102,24 @@
             // 
             this.navBarGroupDVKT.Caption = "Danh mục DVKT";
             this.navBarGroupDVKT.Expanded = true;
-            this.navBarGroupDVKT.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarTienKham)});
+
             this.navBarGroupDVKT.Name = "navBarGroupDVKT";
             this.navBarGroupDVKT.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDVKT.SmallImage")));
             // 
-            // navBarTienKham
+            // navBarGiuongBenh
             // 
-            this.navBarTienKham.Caption = "Danh mục Tiền khám";
-            this.navBarTienKham.Name = "navBarTienKham";
-            this.navBarTienKham.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarTienKham.SmallImage")));
+            this.navBarGiuongBenh.Caption = "Danh mục Giường bệnh";
+            this.navBarGiuongBenh.Name = "navBarGiuongBenh";
+            this.navBarGiuongBenh.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGiuongBenh.SmallImage")));
+            this.navBarGiuongBenh.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarGiuongBenh_LinkClicked);
+            // 
+            // panelControl
+            // 
+            this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl.Location = new System.Drawing.Point(0, 0);
+            this.panelControl.Name = "panelControl";
+            this.panelControl.Size = new System.Drawing.Size(681, 456);
+            this.panelControl.TabIndex = 0;
             // 
             // FrmDanhMucCSKCB
             // 
@@ -134,8 +137,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +152,6 @@
         private DevExpress.XtraNavBar.NavBarControl navBarControl;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupDMCSKCB;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupDVKT;
-        private DevExpress.XtraNavBar.NavBarItem navBarTienKham;
+        private DevExpress.XtraNavBar.NavBarItem navBarGiuongBenh;
     }
 }

@@ -93,7 +93,30 @@ namespace Core.DAL
             }
             return result.Trim ();
         }
-        public static decimal ToDecimal(string value, int defaultvalue = 0)
+        public static bool ToBoolean(string value, bool defaultvalue = false)
+        {
+            try
+            {
+                return Convert.ToBoolean (value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+        }
+        public static double ToDouble(string value, double defaultvalue = 0)
+        {
+            try
+            {
+                value = value.Replace (",", "");
+                return Convert.ToDouble (value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+        }
+        public static decimal ToDecimal(string value, decimal defaultvalue = 0)
         {
             try
             {

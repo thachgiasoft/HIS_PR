@@ -80,6 +80,7 @@
     <Compile Include="CoSoKCBEntity.cs" />
     <Compile Include="DonViTinhEntity.cs" />
     <Compile Include="DuongDungEntity.cs" />
+    <Compile Include="GiuongBenhEntity.cs" />
     <Compile Include="LoaiVatTuEntity.cs" />
     <Compile Include="LuongCoSoEntity.cs" />
     <Compile Include="NhaCungCapEntity.cs" />

@@ -115,12 +115,6 @@
     <Compile Include="RptPhieuXuatKho.Designer.cs">
       <DependentUpon>RptPhieuXuatKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_TienKham.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_TienKham.Designer.cs">
-      <DependentUpon>UC_TienKham.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmNhapKho.resx">
@@ -147,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RptPhieuXuatKho.resx">
       <DependentUpon>RptPhieuXuatKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_TienKham.resx">
-      <DependentUpon>UC_TienKham.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

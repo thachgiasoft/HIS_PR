@@ -148,6 +148,7 @@
             // 
             // xrTable
             // 
+            this.xrTable.BorderColor = System.Drawing.Color.Gray;
             this.xrTable.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
@@ -158,6 +159,7 @@
             this.xrTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
             this.xrTable.SizeF = new System.Drawing.SizeF(766F, 25F);
+            this.xrTable.StylePriority.UseBorderColor = false;
             this.xrTable.StylePriority.UseBorders = false;
             this.xrTable.StylePriority.UseFont = false;
             this.xrTable.StylePriority.UseTextAlignment = false;
@@ -230,10 +232,10 @@
             // 
             this.lblNgayXuat.Dpi = 100F;
             this.lblNgayXuat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayXuat.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 33.00001F);
+            this.lblNgayXuat.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 32.99999F);
             this.lblNgayXuat.Name = "lblNgayXuat";
             this.lblNgayXuat.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNgayXuat.SizeF = new System.Drawing.SizeF(302.4165F, 23F);
+            this.lblNgayXuat.SizeF = new System.Drawing.SizeF(365.9582F, 23F);
             this.lblNgayXuat.StylePriority.UseFont = false;
             this.lblNgayXuat.StylePriority.UseTextAlignment = false;
             this.lblNgayXuat.Text = "Ngày 01 tháng 08 năm 2017";
@@ -246,10 +248,10 @@
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 10.00001F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(302.4166F, 23F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(365.9582F, 23F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "PHIẾU LĨNH THUỐC";
+            this.xrLabel6.Text = "PHIẾU LĨNH VẬT TƯ";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lblSoPhieu

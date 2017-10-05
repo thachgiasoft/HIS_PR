@@ -206,23 +206,27 @@
             // 
             // Ma_NV
             // 
+            this.Ma_NV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma_NV.AppearanceCell.Options.UseFont = true;
             this.Ma_NV.Caption = "Mã";
             this.Ma_NV.FieldName = "Ma_NV";
             this.Ma_NV.Name = "Ma_NV";
             this.Ma_NV.OptionsColumn.AllowEdit = false;
             this.Ma_NV.Visible = true;
             this.Ma_NV.VisibleIndex = 0;
-            this.Ma_NV.Width = 76;
+            this.Ma_NV.Width = 72;
             // 
             // TenNV
             // 
+            this.TenNV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenNV.AppearanceCell.Options.UseFont = true;
             this.TenNV.Caption = "Tên";
             this.TenNV.FieldName = "Ten_NV";
             this.TenNV.Name = "TenNV";
             this.TenNV.OptionsColumn.AllowEdit = false;
             this.TenNV.Visible = true;
             this.TenNV.VisibleIndex = 1;
-            this.TenNV.Width = 76;
+            this.TenNV.Width = 108;
             // 
             // GioiTinh
             // 
@@ -232,67 +236,83 @@
             this.GioiTinh.OptionsColumn.AllowEdit = false;
             this.GioiTinh.Visible = true;
             this.GioiTinh.VisibleIndex = 2;
-            this.GioiTinh.Width = 50;
+            this.GioiTinh.Width = 53;
             // 
             // NamSinh
             // 
+            this.NamSinh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NamSinh.AppearanceCell.Options.UseFont = true;
             this.NamSinh.Caption = "Năm Sinh";
+            this.NamSinh.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NamSinh.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.NamSinh.FieldName = "NamSinh";
             this.NamSinh.Name = "NamSinh";
             this.NamSinh.OptionsColumn.AllowEdit = false;
             this.NamSinh.Visible = true;
             this.NamSinh.VisibleIndex = 3;
-            this.NamSinh.Width = 79;
+            this.NamSinh.Width = 73;
             // 
             // MaKhoa
             // 
+            this.MaKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaKhoa.AppearanceCell.Options.UseFont = true;
             this.MaKhoa.Caption = "Mã Khoa";
             this.MaKhoa.FieldName = "MaKhoa";
             this.MaKhoa.Name = "MaKhoa";
             this.MaKhoa.OptionsColumn.AllowEdit = false;
             this.MaKhoa.Visible = true;
             this.MaKhoa.VisibleIndex = 4;
-            this.MaKhoa.Width = 79;
+            this.MaKhoa.Width = 73;
             // 
             // MaCV
             // 
+            this.MaCV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaCV.AppearanceCell.Options.UseFont = true;
             this.MaCV.Caption = "Mã CV";
             this.MaCV.FieldName = "Ma_CV";
             this.MaCV.Name = "MaCV";
             this.MaCV.OptionsColumn.AllowEdit = false;
             this.MaCV.Visible = true;
             this.MaCV.VisibleIndex = 5;
-            this.MaCV.Width = 79;
+            this.MaCV.Width = 73;
             // 
             // HocHamHocVi
             // 
+            this.HocHamHocVi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HocHamHocVi.AppearanceCell.Options.UseFont = true;
             this.HocHamHocVi.Caption = "Học Hàm/Học Vị";
             this.HocHamHocVi.FieldName = "HocHamHocVi";
             this.HocHamHocVi.Name = "HocHamHocVi";
             this.HocHamHocVi.OptionsColumn.AllowEdit = false;
             this.HocHamHocVi.Visible = true;
             this.HocHamHocVi.VisibleIndex = 6;
-            this.HocHamHocVi.Width = 79;
+            this.HocHamHocVi.Width = 73;
             // 
             // ChuyenMon
             // 
+            this.ChuyenMon.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChuyenMon.AppearanceCell.Options.UseFont = true;
             this.ChuyenMon.Caption = "Chuyên Môn";
             this.ChuyenMon.FieldName = "ChuyenMon";
             this.ChuyenMon.Name = "ChuyenMon";
             this.ChuyenMon.OptionsColumn.AllowEdit = false;
             this.ChuyenMon.Visible = true;
             this.ChuyenMon.VisibleIndex = 7;
-            this.ChuyenMon.Width = 79;
+            this.ChuyenMon.Width = 73;
             // 
             // NgayVao
             // 
+            this.NgayVao.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayVao.AppearanceCell.Options.UseFont = true;
             this.NgayVao.Caption = "Ngày Vào";
+            this.NgayVao.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgayVao.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.NgayVao.FieldName = "NgayVao";
             this.NgayVao.Name = "NgayVao";
             this.NgayVao.OptionsColumn.AllowEdit = false;
             this.NgayVao.Visible = true;
             this.NgayVao.VisibleIndex = 8;
-            this.NgayVao.Width = 79;
+            this.NgayVao.Width = 73;
             // 
             // TinhTrang
             // 
@@ -301,9 +321,10 @@
             this.TinhTrang.FieldName = "TinhTrang";
             this.TinhTrang.Name = "TinhTrang";
             this.TinhTrang.OptionsColumn.AllowEdit = false;
+            this.TinhTrang.OptionsColumn.FixedWidth = true;
             this.TinhTrang.Visible = true;
             this.TinhTrang.VisibleIndex = 9;
-            this.TinhTrang.Width = 28;
+            this.TinhTrang.Width = 25;
             // 
             // repositoryItemCheck
             // 
@@ -312,13 +333,15 @@
             // 
             // MaBS
             // 
+            this.MaBS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaBS.AppearanceCell.Options.UseFont = true;
             this.MaBS.Caption = "Mã Bác Sĩ";
             this.MaBS.FieldName = "MaBS";
             this.MaBS.Name = "MaBS";
             this.MaBS.OptionsColumn.AllowEdit = false;
             this.MaBS.Visible = true;
             this.MaBS.VisibleIndex = 10;
-            this.MaBS.Width = 69;
+            this.MaBS.Width = 64;
             // 
             // MatKhau
             // 
@@ -329,13 +352,15 @@
             // 
             // CoSoKCB
             // 
+            this.CoSoKCB.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoSoKCB.AppearanceCell.Options.UseFont = true;
             this.CoSoKCB.Caption = "Cơ Sở KCB";
             this.CoSoKCB.FieldName = "CoSoKCB";
             this.CoSoKCB.Name = "CoSoKCB";
             this.CoSoKCB.OptionsColumn.AllowEdit = false;
             this.CoSoKCB.Visible = true;
             this.CoSoKCB.VisibleIndex = 11;
-            this.CoSoKCB.Width = 81;
+            this.CoSoKCB.Width = 94;
             // 
             // btnThem
             // 

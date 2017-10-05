@@ -40,6 +40,7 @@ namespace DanhMuc.DAL
         {
             return db.MyExecuteNonQuery ("SpThemNhaCungCap",
                 CommandType.StoredProcedure, ref err,
+                new SqlParameter("@ID", ID),
                 new SqlParameter ("@Ten", Ten),
                 new SqlParameter ("@TinhTrang", TinhTrang));
         }

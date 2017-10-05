@@ -145,7 +145,7 @@ namespace DuocPham.GUI
                     dr["SoPhieuNhap"] = drview["SoPhieu"].ToString ();
                     dr["MaVatTu"] = drview["MaVatTu"].ToString ();
                     dr["TenVatTu"] = drview["TenVatTu"].ToString();
-                    dr["QuyCach"] = drview["QuyCach"].ToString ();
+                    dr["SoDangKy"] = drview["SoDangKy"].ToString ();
                     dr["SoLuong"] = Utils.ToInt(txtSoLuong.Text);
                     dr["SoLuongDung"] = 0;
                     dr["DonGiaBHYT"] = drview["DonGiaBHYT"].ToString ();
@@ -258,7 +258,7 @@ namespace DuocPham.GUI
                 err = "";
                 xuatkho.SoPhieuNhap = Utils.ToInt(drv["SoPhieuNhap"].ToString ());
                 xuatkho.MaVatTu = drv["MaVatTu"].ToString ();
-                xuatkho.QuyCach = drv["QuyCach"].ToString ();
+                xuatkho.SoDangKy = drv["SoDangKy"].ToString ();
                 xuatkho.SoLuong = Utils.ToInt (drv["SoLuong"].ToString ());
                 xuatkho.SoLuongDung = 0;
                 xuatkho.DonGiaBHYT = Utils.ToDecimal (drv["DonGiaBHYT"].ToString ());

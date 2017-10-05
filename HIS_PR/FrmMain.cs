@@ -255,5 +255,21 @@ namespace HIS_PR
             frmNhapKhoa.MdiParent = this;
             frmNhapKhoa.Show ();
         }
+
+        private void barTonKho_ItemClick (object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType () == typeof (FrmBCTonKho))
+                {
+                    frm.Activate ();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmBCTonKho frmTonKho = new FrmBCTonKho ();
+            frmTonKho.MdiParent = this;
+            frmTonKho.Show ();
+        }
     }
 }

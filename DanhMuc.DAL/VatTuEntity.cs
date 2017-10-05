@@ -26,12 +26,13 @@ namespace DanhMuc.DAL
         public string TenVatTu { get; set; }
         public string SoDK { get; set; }
         public string DonViTinh { get; set; }
+        public string QuyCach { get; set; }
         public string HangSX { get; set; }
         public string NuocSX { get; set; }
         public string QuyetDinh { get; set; }
         public string CongBo { get; set; }
         public string LoaiThuoc { get; set; }
-        public bool BHYT { get; set; }
+        public decimal GiaBHYT { get; set; }
         public bool TinhTrang { get; set; }
         public DataTable DSLoaiVatTu ()
         {
@@ -78,12 +79,13 @@ namespace DanhMuc.DAL
                 new SqlParameter ("@TenVatTu", TenVatTu),
                 new SqlParameter ("@SoDK", SoDK),
                 new SqlParameter ("@DonViTinh", DonViTinh),
+                new SqlParameter ("@QuyCach", QuyCach),
                 new SqlParameter ("@HangSX", HangSX),
                 new SqlParameter ("@NuocSX", NuocSX),
                 new SqlParameter ("@QuyetDinh", QuyetDinh),
                 new SqlParameter ("@CongBo", CongBo),
                 new SqlParameter ("@LoaiThuoc", LoaiThuoc),
-                new SqlParameter ("@BHYT", BHYT),
+                new SqlParameter ("@GiaBHYT", GiaBHYT),
                 new SqlParameter ("@TinhTrang", TinhTrang));
         }
     }

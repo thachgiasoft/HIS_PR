@@ -31,7 +31,7 @@ namespace DuocPham.DAL
         // phiếu xuất chi tiết
         public int SoPhieuNhap { get; set; }
         public string MaVatTu { get; set; }
-        public string QuyCach { get; set; }
+        public string SoDangKy { get; set; }
         public int SoLuong { get; set; }
         public int SoLuongDung { get; set; }
         public decimal DonGiaBHYT { get; set; }
@@ -95,7 +95,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@SoPhieuNhap", SoPhieuNhap),
                 new SqlParameter ("@MaVatTu", MaVatTu),
                 new SqlParameter ("@KhoNhan", KhoNhan),
-                new SqlParameter ("@QuyCach", QuyCach),
+                new SqlParameter ("@SoDangKy", SoDangKy),
                 new SqlParameter ("@SoLuong", SoLuong),
                 new SqlParameter ("@SoLuongDung", SoLuongDung),
                 new SqlParameter ("@DonGiaBHYT", DonGiaBHYT),

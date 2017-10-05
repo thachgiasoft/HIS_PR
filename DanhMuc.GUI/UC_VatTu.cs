@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Core.DAL;
@@ -133,7 +127,7 @@ namespace DanhMuc.GUI
             txtQuyetDinh.Text = "";
             txtCongBo.Text = "";
             cbLoaiThuoc.SelectedIndex = 0;
-            checkBHYT.Checked = true;
+            txtGiaBHYT.Text = "";
             checkHieuLuc.Checked = true;
 
             Enabled_Luu ();
@@ -186,7 +180,7 @@ namespace DanhMuc.GUI
             vattu.QuyetDinh = txtQuyetDinh.Text;
             vattu.CongBo = txtCongBo.Text;
             vattu.LoaiThuoc = cbLoaiThuoc.SelectedIndex.ToString();
-            vattu.BHYT = checkBHYT.Checked;
+            vattu.GiaBHYT = Utils.ToDecimal(txtGiaBHYT.Text);
             vattu.TinhTrang = checkHieuLuc.Checked;
 
             string err = "";
@@ -249,12 +243,13 @@ namespace DanhMuc.GUI
                 txtTenVatTu.Text = dr["TenVatTu"].ToString();
                 txtSoDK.Text = dr["SoDK"].ToString();
                 lookUpDonViTinh.EditValue = dr["DonViTinh"].ToString();
+                txtQuyCach.Text = dr["QuyCach"].ToString ();
                 txtHangSX.Text = dr["HangSX"].ToString();
                 lookUpNuocSX.EditValue = dr["NuocSX"].ToString();
                 txtQuyetDinh.Text = dr["QuyetDinh"].ToString();
                 txtCongBo.Text = dr["CongBo"].ToString();
                 cbLoaiThuoc.SelectedIndex = int.Parse (dr["LoaiThuoc"].ToString ());
-                checkBHYT.Checked = bool.Parse(dr["BHYT"].ToString());
+                txtGiaBHYT.Text = dr["GiaBHYT"].ToString();
                 checkHieuLuc.Checked = bool.Parse(dr["TinhTrang"].ToString());
 
                 them = false;
@@ -286,15 +281,20 @@ namespace DanhMuc.GUI
                         vattu.TenVatTu = dtRow[8].ToString ();
                         vattu.SoDK = dtRow[9].ToString ();
                         vattu.DonViTinh = dtRow[11].ToString ();
+                        vattu.QuyCach = dtRow[10].ToString ();
                         vattu.HangSX = dtRow[16].ToString ();
                         vattu.NuocSX = dtRow[17].ToString ();
                         vattu.QuyetDinh = dtRow[19].ToString ();
                         vattu.CongBo = dtRow[20].ToString ();
                         vattu.LoaiThuoc = dtRow[22].ToString ();
-                        vattu.BHYT = true;
+                        vattu.GiaBHYT = Utils.ToDecimal( dtRow[12].ToString ());
                         vattu.TinhTrang = true;
 
-                        vattu.SpVatTu(ref err, "INSERT");
+                        if(!vattu.SpVatTu(ref err, "INSERT"))
+                        {
+                            vattu.SpVatTu (ref err, "UPDATE");
+                        }
+
                         if (!string.IsNullOrEmpty (err))
                         {
                             XtraMessageBox.Show (err);

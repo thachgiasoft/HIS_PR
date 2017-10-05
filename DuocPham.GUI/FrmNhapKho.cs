@@ -116,7 +116,7 @@ namespace DuocPham.GUI
             txtNhomThau.Text = "";
             dateNgayNhap.EditValue = DateTime.Now;
             lookUpNhaCungCap.EditValue = "";
-            txtNguoiGiaoHang.Text = "";
+            txtNguoiGiaoHang.Text = "Lý Văn Thép";
             lookUpKhoNhap.EditValue = "";
             lookUpNguoiNhan.EditValue = "";
             txtNoiDung.Text = "";
@@ -125,7 +125,7 @@ namespace DuocPham.GUI
             dtPhieu = nhapkho.DSPhieuVatTu ();
             gridControlDS.DataSource = dtPhieu.AsDataView();
             dsVatTu.Clear ();
-
+            txtTongTien.Text = "0";
             txtTKNo.Focus ();
             Enabled_Luu ();
             btnIn.Enabled = false;
@@ -201,7 +201,7 @@ namespace DuocPham.GUI
             {
                 err = "";
                 nhapkho.MaVatTu = dr["MaVatTu"].ToString ();
-                nhapkho.QuyCach = dr["QuyCach"].ToString ();
+                nhapkho.SoDangKy = dr["SoDangKy"].ToString ();
                 nhapkho.SoLuong = Utils.ToInt (dr["SoLuong"].ToString ());
                 nhapkho.SoLuongQuyDoi = Utils.ToInt (dr["SoLuongQuyDoi"].ToString ());
                 nhapkho.SoLuongDung = Utils.ToInt (dr["SoLuongDung"].ToString ());
@@ -279,7 +279,10 @@ namespace DuocPham.GUI
         {
             if(lookUpMaVatTu.EditValue!=null && lookUpMaVatTu.Properties.GetRowByKeyValue(lookUpMaVatTu.EditValue) is DataRowView)
             {
-                txtTenVatTu.Text = (lookUpMaVatTu.Properties.GetRowByKeyValue (lookUpMaVatTu.EditValue)  as DataRowView)[1].ToString ();
+                DataRowView drv = (lookUpMaVatTu.Properties.GetRowByKeyValue (lookUpMaVatTu.EditValue) as DataRowView);
+                txtTenVatTu.Text = drv[1].ToString ();
+                txtSoDangKy.Text = drv[3].ToString ();
+                txtGiaBHYT.Text = drv[4].ToString ();
             }
         }
 
@@ -288,15 +291,6 @@ namespace DuocPham.GUI
             if(txtSoLuong.Text.Length > 0 && txtTyLe.Text.Length >0)
             {
                 txtSoLuongQD.Text = int.Parse (txtSoLuong.Text.Replace (",", "")) * int.Parse (txtTyLe.Text.Replace(",","")) + "";
-            }
-        }
-
-        private void txtGiaBHYT_Leave (object sender, EventArgs e)
-        {
-            txtGiaBV.Text = txtGiaBHYT.Text.Replace(",","");
-            if(txtGiaBHYT.Text.Length>0&&txtSoLuongQD.Text.Length>0)
-            {
-                txtThanhTien.Text = int.Parse (txtGiaBHYT.Text.Replace (",", "")) * int.Parse (txtSoLuongQD.Text.Replace (",", "")) + "";
             }
         }
 
@@ -314,12 +308,6 @@ namespace DuocPham.GUI
                 {
                     XtraMessageBox.Show ("Nhập số lượng!");
                     txtSoLuongQD.Focus ();
-                    return;
-                }
-                if (txtGiaBHYT.Text.Length == 0)
-                {
-                    XtraMessageBox.Show ("Nhập đơn giá!");
-                    txtGiaBHYT.Focus ();
                     return;
                 }
                 if (dateHetHan.DateTime < DateTime.Now)
@@ -343,7 +331,7 @@ namespace DuocPham.GUI
                     DataRowView dr = (gridControlDS.DataSource as DataView).AddNew ();
                     dr["MaVatTu"] = lookUpMaVatTu.EditValue;
                     dr["TenVatTu"] = txtTenVatTu.Text;
-                    dr["QuyCach"] = txtQuyCach.Text;
+                    dr["SoDangKy"] = txtSoDangKy.Text;
                     dr["SoLuong"] = txtSoLuong.Text;
                     dr["SoLuongQuyDoi"] = txtSoLuongQD.Text;
                     dr["SoLuongDung"] = 0;
@@ -356,7 +344,7 @@ namespace DuocPham.GUI
 
                     //lookUpMaVatTu.EditValue = null;
                     txtTenVatTu.Text = "";
-                    txtQuyCach.Text = "";
+                    txtSoDangKy.Text = "";
                     txtSoLuong.Text = "0";
                     txtSoLuongQD.Text = "0";
                     txtGiaBHYT.Text = "0";
@@ -364,6 +352,9 @@ namespace DuocPham.GUI
                     txtSoLo.Text = "0";
                     dateHetHan.EditValue = null;
                     txtThanhTien.Text = "0";
+                    txtVAT.Text = "0";
+                    
+                    lookUpMaVatTu.Focus();
                 }
             }
         }
@@ -441,6 +432,7 @@ namespace DuocPham.GUI
                     drow["TenVatTu"] = (lookUpMaVatTu.Properties.GetRowByKeyValue (drow["MaVatTu"].ToString ()) as DataRowView)[1];
                 }
                 gridControlDS.DataSource = dtPhieu.AsDataView ();
+                txtTongTien.Text = (dtPhieu.Compute("SUM(ThanhTien)", "").ToString());
                 btnIn.Enabled = true;
             }
 
@@ -560,6 +552,48 @@ namespace DuocPham.GUI
 
             rpt.CreateDocument ();
             rpt.ShowPreviewDialog ();
+        }
+
+        private void txtThanhTien_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Utils.ToInt(txtSoLuongQD.Text) > 0 && Utils.ToDouble(txtThanhTien.Text) > 0)
+            {
+                txtGiaBV.Text = (Utils.ToDouble(txtThanhTien.Text) / Utils.ToDouble(txtSoLuongQD.Text)).ToString();
+            }
+        }
+
+        private void txtVAT_KeyPress (object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
+            {
+                if (Utils.ToInt(txtVAT.Text) > 0)
+                {
+                    this.txtThanhTien.EditValueChanged -= new System.EventHandler(this.txtThanhTien_EditValueChanged);
+                    txtThanhTien.Text = (Utils.ToDouble(txtThanhTien.Text) * (1 + Utils.ToDouble(txtVAT.Text) / 100)).ToString();
+                    txtThanhTien_EditValueChanged(null,null);
+                    this.txtThanhTien.EditValueChanged += new System.EventHandler(this.txtThanhTien_EditValueChanged);
+                }
+                txtThanhTien_KeyPress (null, e);
+            }
+        }
+
+
+        private void txtGiaBV_Leave(object sender, EventArgs e)
+        {
+            if (txtGiaBV.Text.Length > 0 && txtSoLuongQD.Text.Length > 0)
+            {
+                this.txtThanhTien.EditValueChanged -= new System.EventHandler(this.txtThanhTien_EditValueChanged);
+                txtThanhTien.Text = Utils.ToInt(txtGiaBV.Text.Replace(",", "")) * Utils.ToInt(txtSoLuongQD.Text.Replace(",", "")) + "";
+                this.txtThanhTien.EditValueChanged += new System.EventHandler(this.txtThanhTien_EditValueChanged);
+            }
+        }
+
+        private void gridControlDS_Leave(object sender, EventArgs e)
+        {
+            if (dtPhieu != null)
+            {
+                txtTongTien.Text = (dtPhieu.Compute("SUM(ThanhTien)", "").ToString());
+            }
         }
     }
 }

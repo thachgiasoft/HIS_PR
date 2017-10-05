@@ -46,7 +46,7 @@ namespace Core.DAL
                 }
                 catch
                 {
-                    connectionString = string.Format ("Provider= Microsoft.ACE.OLEDB.12.0; data source={0}; Extended Properties=Excel 8.0 Xml;", filePath);
+                    connectionString = string.Format ("Provider= Microsoft.ACE.OLEDB.14.0; data source={0}; Extended Properties=Excel 14.0 Xml;", filePath);
                     using (OleDbConnection con = new OleDbConnection (connectionString))
                     {
                         con.Open ();
