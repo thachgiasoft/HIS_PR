@@ -173,5 +173,10 @@ namespace DanhMuc.GUI
                 Enabled_Luu ();
             }
         }
+
+        private void gridControl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

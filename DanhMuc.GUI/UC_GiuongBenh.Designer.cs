@@ -118,6 +118,7 @@
             this.gridControl.TabIndex = 13;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
+            this.gridControl.Click += new System.EventHandler(this.gridControl_Click);
             // 
             // gridView
             // 
@@ -281,7 +282,7 @@
             this.btnThem.Size = new System.Drawing.Size(76, 23);
             this.btnThem.StyleController = this.layoutControl;
             this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Mới";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // checkTinhTrang
@@ -339,6 +340,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_CS", "Mã"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_CS", 60, "Tên")});
             this.lookUpCoSoKCB.Properties.NullText = "";
+            this.lookUpCoSoKCB.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookUpCoSoKCB.Size = new System.Drawing.Size(215, 22);
             this.lookUpCoSoKCB.StyleController = this.layoutControl;
             this.lookUpCoSoKCB.TabIndex = 4;

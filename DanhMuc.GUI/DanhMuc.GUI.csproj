@@ -128,6 +128,12 @@
     <Compile Include="UC_BenhICDX.Designer.cs">
       <DependentUpon>UC_BenhICDX.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_CongKham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CongKham.Designer.cs">
+      <DependentUpon>UC_CongKham.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_CoSoKCB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UC_BenhICDX.resx">
       <DependentUpon>UC_BenhICDX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CongKham.resx">
+      <DependentUpon>UC_CongKham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_CoSoKCB.resx">
       <DependentUpon>UC_CoSoKCB.cs</DependentUpon>
