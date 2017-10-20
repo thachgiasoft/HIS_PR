@@ -86,6 +86,8 @@ namespace DanhMuc.GUI
             repItemLookUpKhoa.ValueMember = "MaKhoa";
             repItemLookUpKhoa.DisplayMember = "TenKhoa";
 
+            cbNhom.SelectedIndex = 1;
+
             LoadData ();
             CheckButton ();
         }
@@ -106,11 +108,14 @@ namespace DanhMuc.GUI
         {
             giuongbenh.Ma = txtMa.Text;
             giuongbenh.Ten = txtTen.Text;
-            giuongbenh.Ma_CS = lookUpCoSoKCB.EditValue.ToString ();
+            giuongbenh.Ma_CS =Utils.ToString( lookUpCoSoKCB.EditValue);
             giuongbenh.DonGia = Utils.ToDecimal (txtDonGia.Text);
             giuongbenh.TinhTrang = checkTinhTrang.Checked;
-            giuongbenh.MaKhoa = lookUpKhoaPhong.EditValue.ToString ();
-            giuongbenh.MaNhom = 15;
+            giuongbenh.MaKhoa =Utils.ToString( lookUpKhoaPhong.EditValue);
+            if(cbNhom.SelectedIndex == 0)
+                giuongbenh.MaNhom = 14;
+            else
+                giuongbenh.MaNhom = 15;
             string err = "";
             if (them)
             {
@@ -165,18 +170,16 @@ namespace DanhMuc.GUI
                 txtDonGia.Text = dr["DonGia"].ToString ();
                 checkTinhTrang.Checked = Utils.ToBoolean (dr["TinhTrang"].ToString ());
                 lookUpKhoaPhong.EditValue = dr["MaKhoa"];
-
+                if (Utils.ToInt(dr["MaNhom"].ToString()) == 14)
+                    cbNhom.SelectedIndex = 0;
+                else
+                    cbNhom.SelectedIndex = 1;
                 txtMa.ReadOnly = true;
                 them = false;
 
                 Enabled_Xoa ();
                 Enabled_Luu ();
             }
-        }
-
-        private void gridControl_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -267,7 +267,12 @@ namespace DuocPham.GUI
                 + linhthuoc.NgayXuat.Month + " năm " + linhthuoc.NgayXuat.Year;
             rpt.lblKhoaNhan.Text = linhthuoc.TenKhoNhan;
            rpt.lblNgayIn.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
-
+            DataRow drow = linhthuoc.MauPhieu();
+            if (drow != null)
+            {
+                rpt.lblPhieuLinh.Text = "PHIẾU LĨNH " + drow["Ten"].ToString().ToUpper();
+                rpt.lblMauSo.Text = "MS: " + drow["Mau"] + "/BV01";
+            }
             XRTableRow row;
             XRTableCell cell;
             int stt = 0;

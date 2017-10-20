@@ -108,11 +108,11 @@ namespace DuocPham.GUI
         }
         private void txtTKCo_EditValueChanged (object sender, EventArgs e)
         {
-            if(txtTKCo.Text.Length==4)
+            if(txtTKCo.Text.Length>3)
             {
                 //xuatkho.TKCo = txtTKCo.Text;
                 xuatkho.KhoXuat = lookUpKhoXuat.EditValue.ToString ();
-                lookUpMaVatTu.Properties.DataSource = xuatkho.DSVatTu (txtTKCo.Text.Substring (3, 1));
+                lookUpMaVatTu.Properties.DataSource = xuatkho.DSVatTu (txtTKCo.Text.Substring (3, txtTKCo.Text.Length-3));
             }
         }
 

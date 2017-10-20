@@ -34,9 +34,9 @@
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupDMCSKCB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGiuongBenh = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroupDVKT = new DevExpress.XtraNavBar.NavBarGroup();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarCongKham = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.navBarDVKT = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -79,11 +79,11 @@
             this.navBarControl.ActiveGroup = this.navBarGroupDMCSKCB;
             this.navBarControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroupDMCSKCB,
-            this.navBarGroupDVKT});
+            this.navBarGroupDMCSKCB});
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarGiuongBenh,
-            this.navBarCongKham});
+            this.navBarCongKham,
+            this.navBarDVKT});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 178;
@@ -97,7 +97,8 @@
             this.navBarGroupDMCSKCB.Expanded = true;
             this.navBarGroupDMCSKCB.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarGiuongBenh),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCongKham)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCongKham),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDVKT)});
             this.navBarGroupDMCSKCB.Name = "navBarGroupDMCSKCB";
             this.navBarGroupDMCSKCB.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDMCSKCB.SmallImage")));
             // 
@@ -108,12 +109,12 @@
             this.navBarGiuongBenh.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGiuongBenh.SmallImage")));
             this.navBarGiuongBenh.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarGiuongBenh_LinkClicked);
             // 
-            // navBarGroupDVKT
+            // navBarCongKham
             // 
-            this.navBarGroupDVKT.Caption = "Danh mục DVKT";
-            this.navBarGroupDVKT.Expanded = true;
-            this.navBarGroupDVKT.Name = "navBarGroupDVKT";
-            this.navBarGroupDVKT.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDVKT.SmallImage")));
+            this.navBarCongKham.Caption = "Danh mục Công khám";
+            this.navBarCongKham.Name = "navBarCongKham";
+            this.navBarCongKham.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCongKham.SmallImage")));
+            this.navBarCongKham.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarCongKham_LinkClicked);
             // 
             // panelControl
             // 
@@ -123,11 +124,12 @@
             this.panelControl.Size = new System.Drawing.Size(681, 456);
             this.panelControl.TabIndex = 0;
             // 
-            // navBarCongKham
+            // navBarDVKT
             // 
-            this.navBarCongKham.Caption = "Danh mục Công khám";
-            this.navBarCongKham.Name = "navBarCongKham";
-            this.navBarCongKham.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCongKham.SmallImage")));
+            this.navBarDVKT.Caption = "Danh mục DVKT";
+            this.navBarDVKT.Name = "navBarDVKT";
+            this.navBarDVKT.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDVKT.SmallImage")));
+            this.navBarDVKT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDVKT_LinkClicked);
             // 
             // FrmDanhMucCSKCB
             // 
@@ -159,8 +161,8 @@
         private DevExpress.XtraEditors.PanelControl panelControl;
         private DevExpress.XtraNavBar.NavBarControl navBarControl;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupDMCSKCB;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroupDVKT;
         private DevExpress.XtraNavBar.NavBarItem navBarGiuongBenh;
         private DevExpress.XtraNavBar.NavBarItem navBarCongKham;
+        private DevExpress.XtraNavBar.NavBarItem navBarDVKT;
     }
 }

@@ -265,7 +265,7 @@
             this.btnThem.Size = new System.Drawing.Size(65, 23);
             this.btnThem.StyleController = this.layoutControl;
             this.btnThem.TabIndex = 13;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Mới";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnLoad

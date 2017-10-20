@@ -93,7 +93,7 @@ namespace Core.DAL
             }
             return result.Trim ();
         }
-        public static bool ToBoolean(string value, bool defaultvalue = false)
+        public static bool ToBoolean(object value, bool defaultvalue = false)
         {
             try
             {
@@ -155,12 +155,35 @@ namespace Core.DAL
                 return defaultvalue.ToString();
             }
         }
+        public static string ToString(object value, string defaultvalue = null)
+        {
+            try
+            {
+                return Convert.ToString(value);
+            }
+            catch
+            {
+                return defaultvalue.ToString();
+            }
+        }
+        public static int ToInt(object value, int defaultvalue = 0)
+        {
+            try
+            {
+                return Convert.ToInt32(value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+
+        }
         public static int ToInt (string value, int defaultvalue = 0)
         {
             try
             {
                 value = value.Replace (",", "");
-                return int.Parse (value);
+                return Convert.ToInt32 (value);
             }
             catch
             {

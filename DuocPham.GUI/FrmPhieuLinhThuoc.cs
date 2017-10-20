@@ -83,6 +83,7 @@ namespace DuocPham.GUI
             btnPhieuLinh.Enabled = true;
             btnXuatKho.Enabled = true;
             linhthuoc.SoPhieu = int.Parse (dr["SoPhieu"].ToString ());
+            linhthuoc.TKCo = dr["TKCo"].ToString();
             gridControlCT.DataSource = linhthuoc.DSPhieuVatTu ();
         }
 
@@ -103,7 +104,12 @@ namespace DuocPham.GUI
                 + dateNgayXuat.DateTime.Month + " năm " + dateNgayXuat.DateTime.Year;
             rpt.lblKhoaNhan.Text = lookUpKhoaBan.GetDisplayValueByKeyValue (dr["KhoNhan"]).ToString ();
             rpt.lblNgayIn.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
-
+            DataRow drow = linhthuoc.MauPhieu();
+            if(drow!=null)
+            {
+                rpt.lblPhieuLinh.Text = "PHIẾU LĨNH "+drow["Ten"].ToString().ToUpper();
+                rpt.lblMauSo.Text = "MS: "+ drow["Mau"] +"/BV01";
+            }
             XRTableRow row;
             XRTableCell cell;
             int stt = 0;

@@ -795,7 +795,7 @@
             this.txtTKCo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTKCo.Properties.Appearance.Options.UseFont = true;
             this.txtTKCo.Properties.Mask.BeepOnError = true;
-            this.txtTKCo.Properties.Mask.EditMask = "156[0-9A-W]";
+            this.txtTKCo.Properties.Mask.EditMask = "156([1-9A-W]|[1-9A-W][A-W])";
             this.txtTKCo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtTKCo.Size = new System.Drawing.Size(104, 22);
             this.txtTKCo.StyleController = this.layoutControl1;

@@ -31,6 +31,11 @@ namespace DanhMuc.DAL
             get;
             set;
         }
+        public string MauBC
+        {
+            get;
+            set;
+        }
         public DataTable DSLoaiVatTu ()
         {
             return db.ExcuteQuery ("Select * From LoaiVatTu",
@@ -42,6 +47,7 @@ namespace DanhMuc.DAL
                 CommandType.StoredProcedure, ref err,
                 new SqlParameter ("@Ma", Ma),
                 new SqlParameter ("@Ten", Ten),
+                new SqlParameter("@Mau", MauBC),
                 new SqlParameter ("@TinhTrang", TinhTrang));
         }
         public bool SuaLoaiVatTu (ref string err)
@@ -50,6 +56,7 @@ namespace DanhMuc.DAL
                 CommandType.StoredProcedure, ref err,
                 new SqlParameter ("@Ma", Ma),
                 new SqlParameter ("@Ten", Ten),
+                new SqlParameter("@Mau", MauBC),
                 new SqlParameter ("@TinhTrang", TinhTrang));
         }
         public bool XoaLoaiVatTu (ref string err)

@@ -152,6 +152,12 @@
     <Compile Include="UC_DuongDung.Designer.cs">
       <DependentUpon>UC_DuongDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_DVKT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DVKT.Designer.cs">
+      <DependentUpon>UC_DVKT.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_LoaiVatTu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_DuongDung.resx">
       <DependentUpon>UC_DuongDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DVKT.resx">
+      <DependentUpon>UC_DVKT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_LoaiVatTu.resx">
       <DependentUpon>UC_LoaiVatTu.cs</DependentUpon>

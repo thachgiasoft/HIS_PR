@@ -44,10 +44,10 @@
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.lblNgayXuat = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblPhieuLinh = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSoPhieu = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblMauSo = new DevExpress.XtraReports.UI.XRLabel();
             this.lblKhoaNhan = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -67,10 +67,10 @@
             this.lblNgayIn,
             this.xrTable,
             this.lblNgayXuat,
-            this.xrLabel6,
+            this.lblPhieuLinh,
             this.lblSoPhieu,
             this.xrLabel5,
-            this.xrLabel4,
+            this.lblMauSo,
             this.lblKhoaNhan,
             this.xrLabel3,
             this.xrLabel2,
@@ -232,7 +232,7 @@
             // 
             this.lblNgayXuat.Dpi = 100F;
             this.lblNgayXuat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayXuat.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 32.99999F);
+            this.lblNgayXuat.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 23F);
             this.lblNgayXuat.Name = "lblNgayXuat";
             this.lblNgayXuat.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblNgayXuat.SizeF = new System.Drawing.SizeF(365.9582F, 23F);
@@ -241,18 +241,18 @@
             this.lblNgayXuat.Text = "Ngày 01 tháng 08 năm 2017";
             this.lblNgayXuat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel6
+            // lblPhieuLinh
             // 
-            this.xrLabel6.Dpi = 100F;
-            this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(260.4167F, 10.00001F);
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(365.9582F, 23F);
-            this.xrLabel6.StylePriority.UseFont = false;
-            this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "PHIẾU LĨNH VẬT TƯ";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblPhieuLinh.Dpi = 100F;
+            this.lblPhieuLinh.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhieuLinh.LocationFloat = new DevExpress.Utils.PointFloat(261F, 0F);
+            this.lblPhieuLinh.Name = "lblPhieuLinh";
+            this.lblPhieuLinh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblPhieuLinh.SizeF = new System.Drawing.SizeF(365F, 23F);
+            this.lblPhieuLinh.StylePriority.UseFont = false;
+            this.lblPhieuLinh.StylePriority.UseTextAlignment = false;
+            this.lblPhieuLinh.Text = "PHIẾU LĨNH VẬT TƯ";
+            this.lblPhieuLinh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lblSoPhieu
             // 
@@ -280,18 +280,18 @@
             this.xrLabel5.Text = "Số:";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // xrLabel4
+            // lblMauSo
             // 
-            this.xrLabel4.Dpi = 100F;
-            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(626.375F, 0F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(140.625F, 23F);
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "MS: 01D/BV01";
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.lblMauSo.Dpi = 100F;
+            this.lblMauSo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMauSo.LocationFloat = new DevExpress.Utils.PointFloat(626.375F, 0F);
+            this.lblMauSo.Name = "lblMauSo";
+            this.lblMauSo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblMauSo.SizeF = new System.Drawing.SizeF(140.625F, 23F);
+            this.lblMauSo.StylePriority.UseFont = false;
+            this.lblMauSo.StylePriority.UseTextAlignment = false;
+            this.lblMauSo.Text = "MS: 01D/BV01";
+            this.lblMauSo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblKhoaNhan
             // 
@@ -396,15 +396,15 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         public DevExpress.XtraReports.UI.XRLabel lblSoPhieu;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         public DevExpress.XtraReports.UI.XRLabel lblKhoaNhan;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         public DevExpress.XtraReports.UI.XRLabel lblNgayXuat;
         public DevExpress.XtraReports.UI.XRLabel lblNgayIn;
+        public DevExpress.XtraReports.UI.XRLabel lblMauSo;
+        public DevExpress.XtraReports.UI.XRLabel lblPhieuLinh;
     }
 }

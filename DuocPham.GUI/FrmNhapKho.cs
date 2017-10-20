@@ -262,7 +262,7 @@ namespace DuocPham.GUI
             {
                 if (!nhapkho.SpPhieuNhapXoa (ref err))
                 {
-                    MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 LoadData ();
@@ -376,13 +376,20 @@ namespace DuocPham.GUI
                 gridViewDS.SetFocusedRowCellValue ("ThanhTien",soLuong * Convert.ToDecimal( donGia));
                 this.gridViewDS.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler (this.gridViewDS_CellValueChanged);
             }
-            if(e.Column.FieldName == "DonGiaBHYT")
+            if(e.Column.FieldName == "DonGiaBV")
             {
                 this.gridViewDS.CellValueChanged -= new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler (this.gridViewDS_CellValueChanged);
-                var soLuong = gridViewDS.GetRowCellValue (e.RowHandle, gridViewDS.Columns["DonGiaBHYT"]);
+                var soLuong = gridViewDS.GetRowCellValue (e.RowHandle, gridViewDS.Columns["DonGiaBV"]);
                 var donGia = e.Value;
                 gridViewDS.SetFocusedRowCellValue ("ThanhTien", Convert.ToDecimal (soLuong) * Convert.ToDecimal (donGia));
                 this.gridViewDS.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler (this.gridViewDS_CellValueChanged);
+            }
+            if (e.Column.FieldName == "ThanhTien")
+            {
+                this.gridViewDS.CellValueChanged -= new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewDS_CellValueChanged);
+                var soLuong = gridViewDS.GetRowCellValue(e.RowHandle, gridViewDS.Columns["SoLuongQuyDoi"]);
+                gridViewDS.SetFocusedRowCellValue("DonGiaBV", Convert.ToDecimal(e.Value) / Convert.ToDecimal(soLuong));
+                this.gridViewDS.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewDS_CellValueChanged);
             }
         }
 
@@ -440,9 +447,9 @@ namespace DuocPham.GUI
 
         private void txtTKNo_EditValueChanged (object sender, EventArgs e)
         {
-            if (txtTKNo.Text.Length == 4)
+            if (txtTKNo.Text.Length > 3)
             {
-                lookUpMaVatTu.Properties.DataSource = nhapkho.DSVatTu (txtTKNo.Text.Substring (3, 1));
+                lookUpMaVatTu.Properties.DataSource = nhapkho.DSVatTu (txtTKNo.Text.Substring (3, txtTKNo.Text.Length-3));
             }
         }
 

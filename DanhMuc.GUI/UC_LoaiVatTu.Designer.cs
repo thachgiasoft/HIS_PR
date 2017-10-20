@@ -29,10 +29,12 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.txtMauBC = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Ma = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Ten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Mau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -50,8 +52,10 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMauBC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit)).BeginInit();
@@ -66,10 +70,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl
             // 
+            this.layoutControl.Controls.Add(this.txtMauBC);
             this.layoutControl.Controls.Add(this.gridControl);
             this.layoutControl.Controls.Add(this.btnLuu);
             this.layoutControl.Controls.Add(this.btnThem);
@@ -83,6 +89,16 @@
             this.layoutControl.Root = this.layoutControlGroup;
             this.layoutControl.Size = new System.Drawing.Size(777, 436);
             this.layoutControl.TabIndex = 0;
+            // 
+            // txtMauBC
+            // 
+            this.txtMauBC.Location = new System.Drawing.Point(536, 12);
+            this.txtMauBC.Name = "txtMauBC";
+            this.txtMauBC.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMauBC.Properties.Appearance.Options.UseFont = true;
+            this.txtMauBC.Size = new System.Drawing.Size(85, 22);
+            this.txtMauBC.StyleController = this.layoutControl;
+            this.txtMauBC.TabIndex = 11;
             // 
             // gridControl
             // 
@@ -101,6 +117,7 @@
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Ma,
             this.Ten,
+            this.Mau,
             this.TinhTrang});
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
@@ -116,7 +133,7 @@
             this.Ma.OptionsColumn.AllowEdit = false;
             this.Ma.Visible = true;
             this.Ma.VisibleIndex = 0;
-            this.Ma.Width = 162;
+            this.Ma.Width = 101;
             // 
             // Ten
             // 
@@ -126,7 +143,17 @@
             this.Ten.OptionsColumn.AllowEdit = false;
             this.Ten.Visible = true;
             this.Ten.VisibleIndex = 1;
-            this.Ten.Width = 505;
+            this.Ten.Width = 475;
+            // 
+            // Mau
+            // 
+            this.Mau.Caption = "Mẫu Báo cáo";
+            this.Mau.FieldName = "Mau";
+            this.Mau.Name = "Mau";
+            this.Mau.OptionsColumn.AllowEdit = false;
+            this.Mau.Visible = true;
+            this.Mau.VisibleIndex = 2;
+            this.Mau.Width = 106;
             // 
             // TinhTrang
             // 
@@ -136,8 +163,8 @@
             this.TinhTrang.Name = "TinhTrang";
             this.TinhTrang.OptionsColumn.AllowEdit = false;
             this.TinhTrang.Visible = true;
-            this.TinhTrang.VisibleIndex = 2;
-            this.TinhTrang.Width = 68;
+            this.TinhTrang.VisibleIndex = 3;
+            this.TinhTrang.Width = 53;
             // 
             // repositoryItemCheckEdit
             // 
@@ -194,11 +221,11 @@
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(277, 12);
+            this.txtTen.Location = new System.Drawing.Point(241, 12);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
-            this.txtTen.Size = new System.Drawing.Size(344, 22);
+            this.txtTen.Size = new System.Drawing.Size(246, 22);
             this.txtTen.StyleController = this.layoutControl;
             this.txtTen.TabIndex = 5;
             // 
@@ -208,9 +235,9 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMa.Properties.Appearance.Options.UseFont = true;
-            this.txtMa.Properties.Mask.EditMask = "[0-9A-W]";
+            this.txtMa.Properties.Mask.EditMask = "[1-9A-W]|[1-9A-W][A-W]";
             this.txtMa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtMa.Size = new System.Drawing.Size(171, 22);
+            this.txtMa.Size = new System.Drawing.Size(135, 22);
             this.txtMa.StyleController = this.layoutControl;
             this.txtMa.TabIndex = 4;
             // 
@@ -226,7 +253,8 @@
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.emptySpaceItem2,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem8});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(777, 436);
@@ -237,16 +265,16 @@
             this.layoutControlItem1.Control = this.txtMa;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(220, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(184, 26);
             this.layoutControlItem1.Text = "Mã:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtTen;
-            this.layoutControlItem2.Location = new System.Drawing.Point(220, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(184, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(393, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(295, 26);
             this.layoutControlItem2.Text = "Tên:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(42, 13);
             // 
@@ -312,6 +340,15 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.txtMauBC;
+            this.layoutControlItem8.Location = new System.Drawing.Point(479, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(134, 26);
+            this.layoutControlItem8.Text = "Mẫu BC:";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(42, 13);
+            // 
             // UC_LoaiVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,6 +359,7 @@
             this.Load += new System.EventHandler(this.UC_LoaiVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtMauBC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit)).EndInit();
@@ -336,6 +374,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,5 +403,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn Ten;
         private DevExpress.XtraGrid.Columns.GridColumn TinhTrang;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit;
+        private DevExpress.XtraEditors.TextEdit txtMauBC;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraGrid.Columns.GridColumn Mau;
     }
 }

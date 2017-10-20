@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using Core.DAL;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraNavBar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,8 @@ namespace DanhMuc.GUI
     public partial class FrmDanhMucCSKCB : RibbonForm
     {
         UC_GiuongBenh ucTienKham;
+        UC_CongKham ucCongKham;
+        UC_DVKT ucDVKT;
         public FrmDanhMucCSKCB ()
         {
             InitializeComponent ();
@@ -25,9 +29,22 @@ namespace DanhMuc.GUI
         }
         private void FrmDanhMucCSKCB_Load (object sender, EventArgs e)
         {
-
+            LoadMenu();
         }
-
+        private void LoadMenu()
+        {
+            foreach (NavBarItem navBarItem in navBarControl.Items)
+            {
+                if (Utils.CheckMenu(navBarItem.Name))
+                {
+                    navBarItem.Enabled = true;
+                }
+                else
+                {
+                    navBarItem.Enabled = false;
+                }
+            }
+        }
         private void navBarGiuongBenh_LinkClicked (object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             if (!panelControl.Controls.Contains (ucTienKham))
@@ -37,6 +54,28 @@ namespace DanhMuc.GUI
                 panelControl.Controls.Add (ucTienKham);
             }
             ucTienKham.BringToFront ();
+        }
+
+        private void navBarCongKham_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains(ucCongKham))
+            {
+                ucCongKham = new UC_CongKham();
+                ucCongKham.Dock = DockStyle.Fill;
+                panelControl.Controls.Add(ucCongKham);
+            }
+            ucCongKham.BringToFront();
+        }
+
+        private void navBarDVKT_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!panelControl.Controls.Contains(ucDVKT))
+            {
+                ucDVKT = new UC_DVKT();
+                ucDVKT.Dock = DockStyle.Fill;
+                panelControl.Controls.Add(ucDVKT);
+            }
+            ucDVKT.BringToFront();
         }
     }
 }

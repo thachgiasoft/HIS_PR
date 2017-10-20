@@ -769,7 +769,6 @@
             this.ThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.ThanhTien.FieldName = "ThanhTien";
             this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.OptionsColumn.AllowEdit = false;
             this.ThanhTien.Visible = true;
             this.ThanhTien.VisibleIndex = 9;
             this.ThanhTien.Width = 92;
@@ -1230,7 +1229,7 @@
             this.txtTKNo.Name = "txtTKNo";
             this.txtTKNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTKNo.Properties.Appearance.Options.UseFont = true;
-            this.txtTKNo.Properties.Mask.EditMask = "156[0-9A-W]";
+            this.txtTKNo.Properties.Mask.EditMask = "156([1-9A-W]|[1-9A-W][A-W])";
             this.txtTKNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtTKNo.Size = new System.Drawing.Size(110, 22);
             this.txtTKNo.StyleController = this.layoutControl1;

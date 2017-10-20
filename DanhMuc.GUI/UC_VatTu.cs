@@ -107,6 +107,8 @@ namespace DanhMuc.GUI
         private void lookUpLoaiVatTu_EditValueChanged (object sender, EventArgs e)
         {
             vattu.LoaiVatTu = (lookUpLoaiVatTu.GetSelectedDataRow () as DataRowView)[0].ToString ();
+            vattu.NhomVatTu = null;
+            LoadData();
             lookUpNhomVatTu.Properties.DataSource = vattu.DSNhomVatTu ();
         }
 
@@ -223,7 +225,10 @@ namespace DanhMuc.GUI
 
         private void lookUpNhomVatTu_EditValueChanged (object sender, EventArgs e)
         {
-            vattu.NhomVatTu = (lookUpNhomVatTu.GetSelectedDataRow () as DataRowView)[0].ToString ();
+            if (lookUpNhomVatTu.GetSelectedDataRow() is DataRowView)
+            {
+                vattu.NhomVatTu = (lookUpNhomVatTu.GetSelectedDataRow() as DataRowView)[0].ToString();
+            }
             LoadData ();
         }
 
@@ -248,7 +253,7 @@ namespace DanhMuc.GUI
                 lookUpNuocSX.EditValue = dr["NuocSX"].ToString();
                 txtQuyetDinh.Text = dr["QuyetDinh"].ToString();
                 txtCongBo.Text = dr["CongBo"].ToString();
-                cbLoaiThuoc.SelectedIndex = int.Parse (dr["LoaiThuoc"].ToString ());
+                cbLoaiThuoc.SelectedIndex = Utils.ToInt (dr["LoaiThuoc"]);
                 txtGiaBHYT.Text = dr["GiaBHYT"].ToString();
                 checkHieuLuc.Checked = bool.Parse(dr["TinhTrang"].ToString());
 

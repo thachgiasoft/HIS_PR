@@ -49,6 +49,8 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
@@ -64,10 +66,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl
             // 
+            this.layoutControl.Controls.Add(this.btnExcel);
             this.layoutControl.Controls.Add(this.txtMa);
             this.layoutControl.Controls.Add(this.gridControl);
             this.layoutControl.Controls.Add(this.btnLuu);
@@ -79,7 +83,7 @@
             this.layoutControl.Location = new System.Drawing.Point(0, 0);
             this.layoutControl.Name = "layoutControl";
             this.layoutControl.Root = this.layoutControlGroup;
-            this.layoutControl.Size = new System.Drawing.Size(654, 395);
+            this.layoutControl.Size = new System.Drawing.Size(750, 400);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
             // 
@@ -100,7 +104,7 @@
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit});
-            this.gridControl.Size = new System.Drawing.Size(630, 345);
+            this.gridControl.Size = new System.Drawing.Size(726, 350);
             this.gridControl.TabIndex = 9;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -160,7 +164,7 @@
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
             this.btnLuu.ImageUri.Uri = "Save;Size16x16";
-            this.btnLuu.Location = new System.Drawing.Point(486, 12);
+            this.btnLuu.Location = new System.Drawing.Point(502, 12);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(76, 22);
             this.btnLuu.StyleController = this.layoutControl;
@@ -173,7 +177,7 @@
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
             this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
-            this.btnXoa.Location = new System.Drawing.Point(566, 12);
+            this.btnXoa.Location = new System.Drawing.Point(582, 12);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 22);
             this.btnXoa.StyleController = this.layoutControl;
@@ -186,7 +190,7 @@
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
             this.btnThem.ImageUri.Uri = "Add;Size16x16";
-            this.btnThem.Location = new System.Drawing.Point(406, 12);
+            this.btnThem.Location = new System.Drawing.Point(422, 12);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 22);
             this.btnThem.StyleController = this.layoutControl;
@@ -197,7 +201,7 @@
             // checkTinhTrang
             // 
             this.checkTinhTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkTinhTrang.Location = new System.Drawing.Point(382, 12);
+            this.checkTinhTrang.Location = new System.Drawing.Point(398, 12);
             this.checkTinhTrang.Name = "checkTinhTrang";
             this.checkTinhTrang.Size = new System.Drawing.Size(20, 20);
             this.checkTinhTrang.TabIndex = 5;
@@ -209,7 +213,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
-            this.txtTen.Size = new System.Drawing.Size(149, 22);
+            this.txtTen.Size = new System.Drawing.Size(165, 22);
             this.txtTen.StyleController = this.layoutControl;
             this.txtTen.TabIndex = 4;
             // 
@@ -224,10 +228,11 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem6,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem8});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
-            this.layoutControlGroup.Size = new System.Drawing.Size(654, 395);
+            this.layoutControlGroup.Size = new System.Drawing.Size(750, 400);
             this.layoutControlGroup.TextVisible = false;
             // 
             // layoutControlItem1
@@ -235,14 +240,14 @@
             this.layoutControlItem1.Control = this.txtTen;
             this.layoutControlItem1.Location = new System.Drawing.Point(127, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(198, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(214, 26);
             this.layoutControlItem1.Text = "Tên:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.checkTinhTrang;
-            this.layoutControlItem2.Location = new System.Drawing.Point(325, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(341, 0);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(69, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(69, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -254,7 +259,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnThem;
-            this.layoutControlItem3.Location = new System.Drawing.Point(394, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(410, 0);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -266,7 +271,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnXoa;
-            this.layoutControlItem4.Location = new System.Drawing.Point(554, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(570, 0);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -278,7 +283,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnLuu;
-            this.layoutControlItem5.Location = new System.Drawing.Point(474, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(490, 0);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -292,7 +297,7 @@
             this.layoutControlItem6.Control = this.gridControl;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(634, 349);
+            this.layoutControlItem6.Size = new System.Drawing.Size(730, 354);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -308,13 +313,38 @@
             this.layoutControlItem7.Text = "Mã:";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(42, 13);
             // 
+            // btnExcel
+            // 
+            this.btnExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Appearance.Options.UseFont = true;
+            this.btnExcel.ImageUri.Uri = "ExportToXLS;Size16x16";
+            this.btnExcel.Location = new System.Drawing.Point(662, 12);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(76, 22);
+            this.btnExcel.StyleController = this.layoutControl;
+            this.btnExcel.TabIndex = 11;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.btnExcel;
+            this.layoutControlItem8.Location = new System.Drawing.Point(650, 0);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
             // UC_NhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl);
             this.Name = "UC_NhaCungCap";
-            this.Size = new System.Drawing.Size(654, 395);
+            this.Size = new System.Drawing.Size(750, 400);
             this.Load += new System.EventHandler(this.UC_NhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
@@ -331,6 +361,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,5 +389,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit;
         private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.SimpleButton btnExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
     }
 }

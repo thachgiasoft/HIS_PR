@@ -87,6 +87,7 @@ namespace DanhMuc.GUI
         {
             loaivattu.Ma = txtMa.Text;
             loaivattu.Ten = txtTen.Text;
+            loaivattu.MauBC = txtMauBC.Text;
             loaivattu.TinhTrang = checkTinhTrang.Checked;
             string err = "";
             if (them)
@@ -134,6 +135,7 @@ namespace DanhMuc.GUI
                 txtMa.Text = dr["Ma"].ToString ();
                 loaivattu.Ma = txtMa.Text;
                 txtTen.Text = dr["Ten"].ToString ();
+                txtMauBC.Text = dr["Mau"].ToString();
                 checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
                 txtMa.ReadOnly = true;
                 them = false;

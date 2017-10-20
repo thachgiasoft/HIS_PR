@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DanhMuc.DAL;
 using DevExpress.XtraEditors;
+using Core.DAL;
 
 namespace DanhMuc.GUI
 {
@@ -62,10 +63,12 @@ namespace DanhMuc.GUI
             if (quyen.IndexOf ('1') >= 0)
             {
                 btnThem.Enabled = true;
+                btnExcel.Enabled = true;
             }
             else
             {
                 btnThem.Enabled = false;
+                btnExcel.Enabled = false;
             }
         }
         private void UC_NhaCungCap_Load (object sender, EventArgs e)
@@ -121,7 +124,7 @@ namespace DanhMuc.GUI
             {
                 if (!nhacungcap.XoaNhaCungCap (ref err))
                 {
-                    MessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show (err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 LoadData ();
@@ -142,6 +145,41 @@ namespace DanhMuc.GUI
 
                 Enabled_Xoa ();
                 Enabled_Luu ();
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = ImportExcel.OpenDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    string err = "";
+                    DataTable data = ImportExcel.OpenFile();
+                    foreach (DataRow dtRow in data.Rows)
+                    {
+                        err = "";
+                        nhacungcap.ID = dtRow[0].ToString();
+                        nhacungcap.Ten = dtRow[1].ToString();
+                        nhacungcap.TinhTrang = true;
+
+                        if (!nhacungcap.ThemNhaCungCap(ref err))
+                        {
+                            //nhacungcap.SuaNhaCungCap(ref err);
+                        }
+
+                        if (!string.IsNullOrEmpty(err))
+                        {
+                            XtraMessageBox.Show(err);
+                        }
+                    }
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
             }
         }
     }

@@ -61,7 +61,12 @@ namespace DanhMuc.DAL
         }
         public DataTable DSVatTu ()
         {
-            return db.ExcuteQuery ("Select * From VatTu Where LoaiVatTu = '"+LoaiVatTu+"' and NhomVatTu = '"+NhomVatTu+"'",
+            string sql = "Select* From VatTu Where LoaiVatTu = '"+LoaiVatTu+"'";
+            if(!string.IsNullOrEmpty(NhomVatTu))
+            {
+                sql += " and NhomVatTu = '" + NhomVatTu + "'";
+            }
+            return db.ExcuteQuery (sql,
                 CommandType.Text, null);
         }
         public bool SpVatTu (ref string err,string Action)
