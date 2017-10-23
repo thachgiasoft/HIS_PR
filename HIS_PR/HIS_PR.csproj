@@ -172,6 +172,10 @@
       <Project>{2E3951DB-34F2-45C4-8C21-69F88B2633F7}</Project>
       <Name>HeThong.GUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TiepNhan.GUI\TiepNhan.GUI.csproj">
+      <Project>{5A88788C-249F-4168-A604-CE2502819E32}</Project>
+      <Name>TiepNhan.GUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

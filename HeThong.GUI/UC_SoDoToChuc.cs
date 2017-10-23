@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeThong.DAL;
 using DevExpress.XtraEditors;
+using Core.DAL;
 
 namespace HeThong.GUI
 {
@@ -103,6 +104,7 @@ namespace HeThong.GUI
             sodo.TinhTrang = checkTinhTrang.Checked;
             sodo.KhoVatTu = checkKhoVatTu.Checked;
             sodo.LoaiKho = cbKhoChanLe.SelectedIndex;
+            sodo.LoaiPhong = cbLoai.SelectedIndex;
             string err = "";
             if (them)
             {
@@ -181,9 +183,10 @@ namespace HeThong.GUI
                 txtTen.Text = dr["TenKhoa"].ToString ();
                 cbCap.EditValue = dr["CapDo"].ToString ();
                 lookUpMaCha.EditValue = dr["KhoaCha"].ToString ();
-                checkTinhTrang.Checked = bool.Parse (dr["TinhTrang"].ToString ());
-                checkKhoVatTu.Checked = bool.Parse (dr["KhoVatTu"].ToString ());
-                cbKhoChanLe.SelectedIndex = int.Parse (dr["LoaiKho"].ToString ());
+                checkTinhTrang.Checked = Utils.ToBoolean (dr["TinhTrang"]);
+                checkKhoVatTu.Checked = Utils.ToBoolean(dr["KhoVatTu"]);
+                cbKhoChanLe.SelectedIndex = Utils.ToInt (dr["LoaiKho"]);
+                cbLoai.SelectedIndex = Utils.ToInt(dr["LoaiPhong"]);
                 txtMa.ReadOnly = true;
                 them = false;
 

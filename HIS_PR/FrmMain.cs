@@ -8,6 +8,7 @@ using DuocPham.GUI;
 using HeThong.GUI;
 using System;
 using System.Windows.Forms;
+using TiepNhan.GUI;
 
 namespace HIS_PR
 {
@@ -270,6 +271,22 @@ namespace HIS_PR
             FrmBCTonKho frmTonKho = new FrmBCTonKho ();
             frmTonKho.MdiParent = this;
             frmTonKho.Show ();
+        }
+
+        private void barButtonTiepNhan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmTiepNhan))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmTiepNhan frmTiepNhan = new FrmTiepNhan();
+            frmTiepNhan.MdiParent = this;
+            frmTiepNhan.Show();
         }
     }
 }
