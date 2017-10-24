@@ -660,6 +660,8 @@
             this.lookUpDuongDung.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lookUpDuongDung.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpDuongDung.Properties.Appearance.Options.UseFont = true;
+            this.lookUpDuongDung.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpDuongDung.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookUpDuongDung.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpDuongDung.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
