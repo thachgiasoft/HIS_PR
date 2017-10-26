@@ -1,66 +1,70 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.DAL
 {
     public class Utils
     {
-        private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture ("el-GR");
-        public static Connection db = new Connection ();
-        public static string ToMD5 (string matKhau)
+        private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture("el-GR");
+        public static Connection db = new Connection();
+        public static string ToMD5(string matKhau)
         {
-            MD5 mh = MD5.Create ();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes (matKhau);
-            byte[] hash = mh.ComputeHash (inputBytes);
-            StringBuilder sb = new StringBuilder ();
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < hash.Length; i++)
             {
-                sb.Append (hash[i].ToString ("X2"));
+                sb.Append(hash[i].ToString("X2"));
             }
-            return sb.ToString ();
+            return sb.ToString();
         }
         public static bool ThemHoatDong(string noidung)
         {
             return true;
             string err = "";
-           if(db ==null)
+            if (db == null)
             {
-                db = new Connection ();
+                db = new Connection();
             }
-            return db.MyExecuteNonQuery ("SpThemHoatDong",
+            return db.MyExecuteNonQuery("SpThemHoatDong",
                 CommandType.StoredProcedure, ref err,
-                new SqlParameter ("@Ma_NV", AppConfig.MaNV),
-                new SqlParameter ("@Ten_May", Environment.MachineName),
-                new SqlParameter ("@NguoiDung", Environment.UserName),
-                new SqlParameter ("@Ngay", DateTime.Now),
-                new SqlParameter ("@HoatDong", noidung));
+                new SqlParameter("@Ma_NV", AppConfig.MaNV),
+                new SqlParameter("@Ten_May", Environment.MachineName),
+                new SqlParameter("@NguoiDung", Environment.UserName),
+                new SqlParameter("@Ngay", DateTime.Now),
+                new SqlParameter("@HoatDong", noidung));
         }
-        public static string GetQuyen (string MaCN)
+        public static string GetQuyen(string MaCN)
         {
             if (db == null)
             {
-                db = new Connection ();
+                db = new Connection();
             }
-            DataTable data = db.ExcuteQuery ("Select * From DanhSachQuyen,ChucNang Where Ma_NV = '" + AppConfig.MaNV +
+            DataTable data = db.ExcuteQuery("Select * From DanhSachQuyen,ChucNang Where Ma_NV = '" + AppConfig.MaNV +
                 "' And Lop_CN = '" + MaCN + "' And DanhSachQuyen.Ma_CN = ChucNang.Ma_CN And ChucNang.TinhTrang = 1",
                CommandType.Text, null);
             if (data == null || data.Rows.Count == 0)
             {
                 return "";
             }
-            return data.Rows[0]["MaQuyen"].ToString ();
+            return data.Rows[0]["MaQuyen"].ToString();
         }
-        public static bool CheckMenu (string MaCN)
+        public static bool CheckMenu(string MaCN)
         {
             if (db == null)
             {
-                db = new Connection ();
+                db = new Connection();
             }
-            DataTable data = db.ExcuteQuery ("Select * From DanhSachQuyen Where Ma_NV = '" + AppConfig.MaNV + "' And Ma_CN = '" + MaCN + "'",
+            DataTable data = db.ExcuteQuery("Select * From DanhSachQuyen Where Ma_NV = '" + AppConfig.MaNV + "' And Ma_CN = '" + MaCN + "'",
                 CommandType.Text, null);
             if (data == null || data.Rows.Count == 0)
             {
@@ -68,36 +72,36 @@ namespace Core.DAL
             }
             return true;
         }
-        public static string VietHoa (string s)
+        public static string VietHoa(string s)
         {
-            if (String.IsNullOrEmpty (s))
+            if (String.IsNullOrEmpty(s))
                 return s;
 
             string result = "";
 
             //lấy danh sách các từ  
 
-            string[] words = s.Split (' ');
+            string[] words = s.Split(' ');
 
             foreach (string word in words)
             {
                 // từ nào là các khoảng trắng thừa thì bỏ  
-                if (word.Trim () != "")
+                if (word.Trim() != "")
                 {
                     if (word.Length > 1)
-                        result += word.Substring (0, 1).ToUpper () + word.Substring (1) + " ";
+                        result += word.Substring(0, 1).ToUpper() + word.Substring(1) + " ";
                     else
-                        result += word.ToUpper () + " ";
+                        result += word.ToUpper() + " ";
                 }
 
             }
-            return result.Trim ();
+            return result.Trim();
         }
         public static bool ToBoolean(object value, bool defaultvalue = false)
         {
             try
             {
-                return Convert.ToBoolean (value);
+                return Convert.ToBoolean(value);
             }
             catch
             {
@@ -108,8 +112,8 @@ namespace Core.DAL
         {
             try
             {
-                value = value.Replace (",", "");
-                return Convert.ToDouble (value);
+                value = value.Replace(",", "");
+                return Convert.ToDouble(value);
             }
             catch
             {
@@ -120,8 +124,8 @@ namespace Core.DAL
         {
             try
             {
-                value = value.Replace (",", "");
-                return Convert.ToDecimal (value);
+                value = value.Replace(",", "");
+                return Convert.ToDecimal(value);
             }
             catch
             {
@@ -132,23 +136,23 @@ namespace Core.DAL
         {
             try
             {
-                decimal t = ToDecimal (value);
-                if(defaultvalue == null && t == 0)
+                decimal t = ToDecimal(value);
+                if (defaultvalue == null && t == 0)
                 {
                     return null;
                 }
-                return t.ToString ("0,0", elGR);
+                return t.ToString("0,0", elGR);
             }
             catch
             {
                 return defaultvalue;
             }
         }
-        public static string ToString (decimal value, decimal defaultvalue = 0)
+        public static string ToString(decimal value, decimal defaultvalue = 0)
         {
             try
             {
-                return value.ToString ("0,0", elGR);
+                return value.ToString("0,0", elGR);
             }
             catch
             {
@@ -178,12 +182,12 @@ namespace Core.DAL
             }
 
         }
-        public static int ToInt (string value, int defaultvalue = 0)
+        public static int ToInt(string value, int defaultvalue = 0)
         {
             try
             {
-                value = value.Replace (",", "");
-                return Convert.ToInt32 (value);
+                value = value.Replace(",", "");
+                return Convert.ToInt32(value);
             }
             catch
             {
@@ -191,7 +195,7 @@ namespace Core.DAL
             }
 
         }
-        public static string ChuyenSo (string number)
+        public static string ChuyenSo(string number)
         {
             string[] dv = { "", "mươi", "trăm", "nghìn", "triệu", "tỉ" };
             string[] cs = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
@@ -268,7 +272,7 @@ namespace Core.DAL
                                     doc += cs[5] + " ";
                                 break;
                             default:
-                                doc += cs[(int) number[i + j] - 48] + " ";
+                                doc += cs[(int)number[i + j] - 48] + " ";
                                 break;
                         }
 
@@ -300,9 +304,163 @@ namespace Core.DAL
 
             if (len == 1)
                 if (number[0] == '0' || number[0] == '5')
-                    return cs[(int) number[0] - 48];
+                    return cs[(int)number[0] - 48];
 
             return doc + "đồng";
+        }
+        public static string VietHoaTuDong(string value)
+        {
+            value = value.Replace("  ", " ");
+            return System.Globalization.CultureInfo.
+                    CurrentCulture.TextInfo.ToTitleCase(value);
+        }
+        public static string HexToText(string hex)
+        {
+            int NumberChars = hex.Length / 2;
+            byte[] bytes = new byte[NumberChars];
+            using (var sr = new StringReader(hex))
+            {
+                for (int i = 0; i < NumberChars; i++)
+                    try
+                    {
+                        bytes[i] =
+                          Convert.ToByte(new string(new char[2] { (char)sr.Read(), (char)sr.Read() }), 16);
+                    }
+                    catch { }
+            }
+            string utf8result = System.Text.Encoding.UTF8.GetString(bytes);
+            return utf8result;
+        }
+        public static async Task<ThongTinThe> KiemTraThongTuyen(string maThe, string hoTen, string ngaySinh)
+        {
+            ThongTinThe thongtin = new ThongTinThe();
+            thongtin.MaThe = maThe;
+            thongtin.HoTen = hoTen;
+            thongtin.NgaySinh = ngaySinh;
+            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("MaThe",thongtin.MaThe),
+                new KeyValuePair<string, string>("HoTen",thongtin.HoTen),
+                new KeyValuePair<string, string>("NgaySinh",thongtin.NgaySinh)
+            };
+            HttpContent q = new FormUrlEncodedContent(queries);
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    using (HttpResponseMessage response = await client.PostAsync("https://gdbhyt.baohiemxahoi.gov.vn/ThongTuyenLSKCB/CheckMaThe", q))
+                    {
+
+                        if (response.IsSuccessStatusCode)
+                        {
+
+                            using (HttpContent content = response.Content)
+                            {
+                                //MessageBox.Show (content.Headers.ToString ());
+                                string mycontent = await content.ReadAsStringAsync();
+                                int iMessage = mycontent.IndexOf("message");
+                                int iErro = mycontent.IndexOf("erro");
+                                int iCode = mycontent.IndexOf("code");
+                                string code = mycontent.Substring(iCode + 4, iErro - (iCode + 4));
+                                code = code.Replace("\"", "").Replace(":", "").Replace(",", "");
+                                string message = mycontent.Substring(iMessage + 7);
+                                StringBuilder sMessage = new StringBuilder(message);
+                                sMessage = sMessage.Replace("\"", "").Replace("}", "").Replace("\\u003cb", "").Replace("\\u003c", "")
+                                    .Replace("\\u0027", "").Replace("style=", "").Replace("color:", "").Replace("#0070C0", "").Replace("\\u003e", "")
+                                    .Replace("/b", "");
+                                thongtin.Code = code;
+                                switch (code)
+                                {
+                                    case "1":
+                                        GanThongTin(ref thongtin, sMessage.ToString());
+                                        break;
+                                    case "false":
+                                        thongtin.ThongBao = "Không có thông tin!";
+                                        break;
+                                    default:
+                                        thongtin.ThongBao = sMessage.ToString();
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            thongtin.ThongBao = Library.KetNoiCong + response.RequestMessage;
+                        }
+                    }
+                }
+                catch
+                {
+                    thongtin.ThongBao = Library.KetNoiInternet;
+                }
+            }
+            return thongtin;
+        }
+        private static void GanThongTin(ref ThongTinThe thongtinthe, string mess)
+        {
+            string[] mg = mess.Split('!');
+            string thongtin = mg[1];
+            try
+            {
+                string[] tmp = thongtin.Split(',');
+
+                string hoTen = tmp[0].Trim().Split(':')[1].Trim();
+
+                thongtinthe.HoTen = hoTen;
+
+                string ngaySinh = tmp[1].Trim().Split(':')[1].Trim();
+                thongtinthe.NgaySinh = ngaySinh;
+                string gioiTinh = tmp[2].Trim().Split(':')[1].Trim();
+                if (gioiTinh == "Nam")
+                {
+                    thongtinthe.GioiTinh = 0;
+                }
+                else
+                {
+                    thongtinthe.GioiTinh = 1;
+                }
+
+            }
+            catch { }
+            string thongtin2 = mg[2].Replace("(", "").Replace(")", "").Replace(".", "");
+            try
+            {
+                string[] tmp = thongtin2.Split(';');
+                string diaChi = tmp[0].Split(':')[1].TrimStart().TrimEnd().Replace("\\u0027", "'");
+                thongtinthe.DiaChi = diaChi;
+                string noiDKKCB = tmp[1].Split(':')[1].TrimStart().TrimEnd();
+                thongtinthe.MaCoSoDKKCB = noiDKKCB;
+                string hanThe = tmp[2].Split(':')[1].Trim();
+                thongtinthe.TheTu = hanThe.Split('-')[0].Trim().Substring(0, 10);
+
+                thongtinthe.TheDen = hanThe.Split('-')[1].Trim().Substring(0, 10);
+            }
+            catch
+            {
+                thongtinthe.ThongBao = Library.GanThongTinThe;
+            }
+        }
+        public static DateTime ToDateTime(string value, string format)
+        {
+            try
+            {
+                return DateTime.ParseExact(value, format, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                return DateTime.Now;
+            }
+        }
+        public static DateTime ToDateTime(string value)
+        {
+            try
+            {
+                return DateTime.Parse(value);
+            }
+            catch
+            {
+                return DateTime.Now;
+            }
         }
     }
 }
