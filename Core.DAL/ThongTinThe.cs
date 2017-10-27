@@ -8,6 +8,7 @@ namespace Core.DAL
 {
     public class ThongTinThe
     {
+        public string MaBN { get; set; }
         public string MaThe { get; set; }
         public string TheTu { get; set; }
         public string TheDen { get; set; }
@@ -18,5 +19,6 @@ namespace Core.DAL
         public string MaCoSoDKKCB { get; set; }
         public string Code { get; set; }
         public string ThongBao { get; set; }
+
     }
 }

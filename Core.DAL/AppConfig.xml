@@ -14,4 +14,8 @@
     <LoginPass>123456</LoginPass>
     <NhoTT>true</NhoTT>
   </Config>
+  <BHYT>
+    <UserLogin>70013_BV</UserLogin>
+    <PassWord>Prkt1179</PassWord>
+  </BHYT>
 </AppConfig>

@@ -395,7 +395,7 @@
             this.txtCanNang.Name = "txtCanNang";
             this.txtCanNang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCanNang.Properties.Appearance.Options.UseFont = true;
-            this.txtCanNang.Properties.Mask.EditMask = "n0";
+            this.txtCanNang.Properties.Mask.EditMask = "n2";
             this.txtCanNang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtCanNang.Size = new System.Drawing.Size(70, 22);
             this.txtCanNang.StyleController = this.layoutControl1;
@@ -534,7 +534,7 @@
             // 
             // txtMaBN
             // 
-            this.txtMaBN.Location = new System.Drawing.Point(79, 90);
+            this.txtMaBN.Location = new System.Drawing.Point(79, 64);
             this.txtMaBN.MenuManager = this.ribbonControl;
             this.txtMaBN.Name = "txtMaBN";
             this.txtMaBN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -543,6 +543,7 @@
             this.txtMaBN.Size = new System.Drawing.Size(91, 22);
             this.txtMaBN.StyleController = this.layoutControl1;
             this.txtMaBN.TabIndex = 15;
+            this.txtMaBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaBN_KeyPress);
             // 
             // txtHoTen
             // 
@@ -585,7 +586,7 @@
             // 
             // txtSTTNgay
             // 
-            this.txtSTTNgay.Location = new System.Drawing.Point(79, 64);
+            this.txtSTTNgay.Location = new System.Drawing.Point(79, 90);
             this.txtSTTNgay.MenuManager = this.ribbonControl;
             this.txtSTTNgay.Name = "txtSTTNgay";
             this.txtSTTNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -657,6 +658,7 @@
             this.txtTheBHYT.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTheBHYT.Properties.Appearance.Options.UseFont = true;
             this.txtTheBHYT.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTheBHYT.Properties.MaxLength = 15;
             this.txtTheBHYT.Size = new System.Drawing.Size(183, 22);
             this.txtTheBHYT.StyleController = this.layoutControl1;
             this.txtTheBHYT.TabIndex = 6;
@@ -774,7 +776,6 @@
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem9,
-            this.layoutControlItem10,
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.layoutControlItem13,
@@ -792,11 +793,12 @@
             this.layoutControlItem28,
             this.layoutControlItem29,
             this.layoutControlItem25,
-            this.layoutControlItem14,
             this.layoutControlItem24,
             this.layoutControlItem34,
             this.layoutControlItem35,
-            this.layoutControlItem30});
+            this.layoutControlItem30,
+            this.layoutControlItem14,
+            this.layoutControlItem10});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1156, 167);
@@ -868,7 +870,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtSTTNgay;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 78);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(162, 26);
             this.layoutControlItem10.Text = "STT Ngày:";
@@ -1033,7 +1035,7 @@
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.txtMaBN;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 78);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(162, 26);
             this.layoutControlItem14.Text = "Mã BN:";

@@ -96,5 +96,21 @@ namespace KhamBenh.DAL
                 this.MaKhuVuc = data.Rows[0]["MaKhuVuc"].ToString();
             }
         }
+        public bool LayThongTinKhongThe(string maBN)
+        {
+            this.MaBN = null;
+            DataTable data = db.ExcuteQuery("Select MaBN,HoTen,NgaySinh,GioiTinh,DiaChi From ThongTinBN Where MaBN = '" + maBN + "'",
+               CommandType.Text, null);
+            if (data != null && data.Rows.Count > 0)
+            {
+                this.MaBN = data.Rows[0]["MaBN"].ToString();
+                this.HoTen = data.Rows[0]["HoTen"].ToString();
+                this.NgaySinh = Utils.ToDateTime(data.Rows[0]["NgaySinh"].ToString());
+                this.GioiTinh = Utils.ToInt(data.Rows[0]["GioiTinh"].ToString());
+                this.DiaChi = data.Rows[0]["DiaChi"].ToString();
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace Core.DAL
         private static string loginMaNV = "";
         private static string loginPass = "";
         private static bool nhoTT = false;
+        private static string userLogin = "";
+        private static string passWord = "";
         public AppConfig()
         {
             xmlfile = new XmlDocument ();
@@ -169,6 +171,32 @@ namespace Core.DAL
             }
         }
 
+        public static string UserLoginBHYT
+        {
+            get
+            {
+                return userLogin;
+            }
+
+            set
+            {
+                userLogin = value;
+            }
+        }
+
+        public static string PassWordBHYT
+        {
+            get
+            {
+                return passWord;
+            }
+
+            set
+            {
+                passWord = value;
+            }
+        }
+
         public void Read ()
         {
             
@@ -180,6 +208,8 @@ namespace Core.DAL
             AppConfig.LoginMaNV = xmlfile.SelectSingleNode ("AppConfig/Config/LoginMaNV").InnerText.ToString ();
             AppConfig.LoginPass = xmlfile.SelectSingleNode ("AppConfig/Config/LoginPass").InnerText.ToString ();
             AppConfig.NhoTT = bool.Parse(xmlfile.SelectSingleNode ("AppConfig/Config/NhoTT").InnerText.ToString ());
+            AppConfig.UserLoginBHYT = xmlfile.SelectSingleNode("AppConfig/BHYT/UserLogin").InnerText.ToString();
+            AppConfig.PassWordBHYT = (xmlfile.SelectSingleNode("AppConfig/BHYT/PassWord").InnerText.ToString());
         }
         public void WriteTheme()
         {

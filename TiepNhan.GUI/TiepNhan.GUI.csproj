@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmLichSuKCB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLichSuKCB.Designer.cs">
+      <DependentUpon>FrmLichSuKCB.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTiepNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmLichSuKCB.resx">
+      <DependentUpon>FrmLichSuKCB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTiepNhan.resx">
       <DependentUpon>FrmTiepNhan.cs</DependentUpon>
     </EmbeddedResource>

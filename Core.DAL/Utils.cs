@@ -12,6 +12,11 @@ namespace Core.DAL
 {
     public class Utils
     {
+        // Thông tin Token
+        private static string Token = null;
+        private static string Id_Token = null;
+        private static DateTime Expires_In = DateTime.Now;
+        //
         private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture("el-GR");
         public static Connection db = new Connection();
         public static string ToMD5(string matKhau)
@@ -460,6 +465,106 @@ namespace Core.DAL
             catch
             {
                 return DateTime.Now;
+            }
+        }
+        public static async Task<ThongTinThe> LichSuKhamChuaBenhBHYT(ThongTinThe thongTinThe)
+        {
+            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("maThe",thongTinThe.MaThe),
+                new KeyValuePair<string, string>("hoTen",thongTinThe.HoTen),
+                new KeyValuePair<string, string>("ngaySinh",thongTinThe.NgaySinh),
+                new KeyValuePair<string, string>("gioiTinh",(thongTinThe.GioiTinh+1)+""),
+                new KeyValuePair<string, string>("maCSKCB",thongTinThe.MaCoSoDKKCB),
+                new KeyValuePair<string, string>("ngayBD",thongTinThe.TheTu),
+                new KeyValuePair<string, string>("ngayKT",thongTinThe.TheDen)
+            };
+            IEnumerable<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("username",AppConfig.UserLoginBHYT),
+                new KeyValuePair<string, string>("password",Utils.ToMD5(AppConfig.PassWordBHYT))
+            };
+            HttpContent quer = new FormUrlEncodedContent(queries);
+            HttpContent user = new FormUrlEncodedContent(values);
+            // lấy phiên làm việc
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://egw.baohiemxahoi.gov.vn/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    if (string.IsNullOrEmpty(Token) || string.IsNullOrEmpty(Id_Token) || Expires_In < DateTime.Now)
+                    {
+                        using (HttpResponseMessage response = await client.PostAsync("api/token/take", user))
+                        {
+
+                            if (response.IsSuccessStatusCode)
+                            {
+
+                                using (HttpContent content = response.Content)
+                                {
+                                    //MessageBox.Show (content.Headers.ToString ());
+                                    string mycontent = await content.ReadAsStringAsync();
+                                    mycontent = mycontent.Replace("\"", "").Replace("{", "").Replace("}", "");
+                                    string[] kq = mycontent.Split(',');
+                                    string maKetQua = kq[0].Split(':')[1];
+                                    if (maKetQua.Equals("200"))
+                                    {
+                                        Token = kq[1].Split(':')[2];
+                                        Id_Token = kq[2].Split(':')[1];
+                                        Expires_In = Utils.ToDateTime(kq[5].Replace("expires_in:", ""));
+                                    }
+                                    else
+                                    {
+                                        thongTinThe.Code = "false";
+                                        thongTinThe.ThongBao = maKetQua + " - Lỗi xác thực!";
+                                        return thongTinThe;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                thongTinThe.ThongBao = Library.KetNoiCong + response.RequestMessage;
+                                thongTinThe.Code = "false";
+                                return thongTinThe;
+                            }
+                        }
+                    }
+                    //
+                    // lấy lịch sử KCB
+                    string data = string.Format("token={0}&id_token={1}&username={2}&password={3}",
+                        Token, Id_Token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT));
+                    using (HttpResponseMessage response = await client.PostAsync("api/egw/KQNhanLichSuKCB595?" + data, quer))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (HttpContent content = response.Content)
+                            {
+                                string mycontent = await content.ReadAsStringAsync();
+                                mycontent = mycontent.Replace("\"", "");
+                                string ketqua = mycontent.Substring(0, mycontent.IndexOf("dsLichSuKCB"));
+                                string danhsach = mycontent.Substring(mycontent.IndexOf("dsLichSuKCB") + 11);
+
+                                thongTinThe.Code = ketqua.Split(',')[0].Split(':')[1]; ;
+                                thongTinThe.ThongBao = danhsach;
+                                return thongTinThe;
+                            }
+                        }
+                        else
+                        {
+                            thongTinThe.ThongBao = Library.KetNoiCong + response.RequestMessage;
+                            thongTinThe.Code = "false";
+                            return thongTinThe;
+                        }
+                    }
+                }
+                catch
+                {
+                    thongTinThe.ThongBao = Library.KetNoiInternet;
+                    thongTinThe.Code = "false";
+                    return thongTinThe;
+                }
             }
         }
     }

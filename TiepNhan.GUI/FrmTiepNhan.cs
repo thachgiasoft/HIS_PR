@@ -14,6 +14,7 @@ namespace TiepNhan.GUI
         TiepNhanEntity tiepnhan;
         DataTable dataCoso,dataTinh,dataMucHuong;
         private bool themMoi = true;
+        FrmLichSuKCB lichSuKCB = new FrmLichSuKCB();
         public FrmTiepNhan()
         {
             InitializeComponent();
@@ -112,6 +113,7 @@ namespace TiepNhan.GUI
                 cbKhuVuc.ReadOnly = false;
                 txtMaBN.ReadOnly = true;
                 btnKtraThongTuyen.Enabled = true;
+                txtMaQR.Focus();
             }
             else
             {
@@ -132,7 +134,10 @@ namespace TiepNhan.GUI
                 cbKhuVuc.ReadOnly = true;
                 cbKhuVuc.SelectedItem = null;
                 txtMaBN.ReadOnly = false;
+                txtMucHuong.Text = "0";
+                txtTyLe.Text = "0";
                 btnKtraThongTuyen.Enabled = false;
+                txtMaBN.Focus();
             }
         }
 
@@ -216,9 +221,50 @@ namespace TiepNhan.GUI
             }
         }
 
-        private void btnLichSuKCB_Click(object sender, EventArgs e)
+        private async void btnLichSuKCB_Click(object sender, EventArgs e)
         {
-
+            if(checkBHYT.Checked == true )
+            {
+                // Lấy danh sách lịch sử trên cổng (trên phần mềm nếu cổng lỗi)
+                if (KiemTraThongTinTiepNhan(true))
+                {
+                    ThongTinThe thongtin = new ThongTinThe();
+                    thongtin.MaBN = null;
+                    thongtin.MaThe = txtTheBHYT.Text;
+                    thongtin.HoTen = txtHoTen.Text;
+                    thongtin.NgaySinh = txtNgaySinh.Text;
+                    thongtin.GioiTinh = cbGioiTinh.SelectedIndex;
+                    thongtin.MaCoSoDKKCB = txtMaDKKCB.Text;
+                    thongtin.TheTu = txtTheTu.Text;
+                    thongtin.TheDen = txtTheDen.Text;
+                    thongtin = await Utils.LichSuKhamChuaBenhBHYT(thongtin);
+                    if(thongtin.Code == "false")
+                    {
+                        // lỗi hệ thống
+                        XtraMessageBox.Show(thongtin.ThongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        // hiện thông báo, lịch sử
+                        lichSuKCB.ThongTin = thongtin;
+                        lichSuKCB.ShowDialog();
+                    }
+                }
+            }
+            else
+            if(KiemTraThongTinTiepNhan())
+            {
+                // Lấy danh sách lịch sử từ phần mềm, dựa vào họ tên, ngày sinh, giới tính -> mã bệnh nhân
+                ThongTinThe thongtin = new ThongTinThe();
+                thongtin.MaBN = "";
+                thongtin.MaThe = null;
+                thongtin.HoTen = txtHoTen.Text;
+                thongtin.NgaySinh = txtNgaySinh.Text;
+                thongtin.GioiTinh = cbGioiTinh.SelectedIndex;
+                lichSuKCB.ThongTin = thongtin;
+                lichSuKCB.ShowDialog();
+            }
         }
 
         private void btnInLai_Click(object sender, EventArgs e)
@@ -288,7 +334,10 @@ namespace TiepNhan.GUI
             if (e.KeyChar == 13)
             {
                 txtDiaChi.Text = Utils.VietHoaTuDong(txtDiaChi.Text);
-                btnKtraThongTuyen.Focus();
+                if (checkBHYT.Checked)
+                    btnKtraThongTuyen.Focus();
+                else
+                    btnLichSuKCB.Focus();
             }
         }
 
@@ -407,7 +456,7 @@ namespace TiepNhan.GUI
                 // Lấy mã bệnh nhân
                 tiepnhan.LayThongTinCoThe(txtTheBHYT.Text,
                         Utils.ToDateTime(txtNgayTN.Text, "dd/MM/yyyy").ToShortDateString());
-                // Kiểm tra đã tiếp nhận hay chưa
+                // Kiểm tra đã tiếp nhận hay chưa, ngày khám 1 lần
                 if(!string.IsNullOrEmpty(tiepnhan.MaLK))
                 {
                     XtraMessageBox.Show(Library.BenhNhanDaTiepNhan , "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -438,6 +487,32 @@ namespace TiepNhan.GUI
                 }
             }
         }
+
+        private void txtMaBN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13 )
+            {
+                // lấy thông tin bệnh nhân, không có thẻ
+                if(checkBHYT.Checked == false)
+                {
+                    if(txtMaBN.Text.Length > 11 && tiepnhan.LayThongTinKhongThe(txtMaBN.Text))
+                    {
+                        txtMaBN.Text = tiepnhan.MaBN;
+                        txtHoTen.Text = tiepnhan.HoTen;
+                        txtNgaySinh.Text = tiepnhan.NgaySinh.ToString("dd/MM/yyyy");
+                        cbGioiTinh.SelectedIndex = tiepnhan.GioiTinh;
+                        txtDiaChi.Text = tiepnhan.DiaChi;
+                        btnLichSuKCB.Focus();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(Library.MaBNKhongTonTai, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                txtHoTen.Focus();
+            }
+        }
+
         private bool CheckMaThe(string maThe)
         {
 
