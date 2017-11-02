@@ -6,20 +6,24 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Core.DAL;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using DevExpress.XtraReports.UI;
 
 namespace TiepNhan.GUI
 {
     public partial class FrmTiepNhan : RibbonForm
     {
         TiepNhanEntity tiepnhan;
-        DataTable dataCoso,dataTinh,dataMucHuong;
+        DataTable dataCoso,dataTinh,dataMucHuong,dataDanhSach;
         private bool themMoi = true;
-        FrmLichSuKCB lichSuKCB = new FrmLichSuKCB();
+        FrmLichSuKCB lichSuKCB;
+        private List<int> listPhongKham = new List<int>();
+        RptSoPhieu rptSoPhieu;
         public FrmTiepNhan()
         {
             InitializeComponent();
             tiepnhan = new TiepNhanEntity();
-
+            rptSoPhieu = new RptSoPhieu();
             lookUpTaiNan.Properties.DataSource = tiepnhan.DSTaiNan();
             lookUpTaiNan.Properties.DisplayMember = "Ten";
             lookUpTaiNan.Properties.ValueMember = "Ma";
@@ -27,8 +31,11 @@ namespace TiepNhan.GUI
             lookUpNoiChuyenDen.Properties.DataSource = dataCoso;
             lookUpNoiChuyenDen.Properties.ValueMember = "Ma_CS";
             lookUpNoiChuyenDen.Properties.DisplayMember = "Ten_CS";
-            cbLoaiKCB.SelectedIndex = 0;
-
+            lookUpMaKhoa.Properties.DataSource = tiepnhan.DSKhoaBan(1);
+            lookUpMaKhoa.Properties.ValueMember = "MaKhoa";
+            lookUpMaKhoa.Properties.DisplayMember = "TenKhoa";
+            lookUpMaKhoa.ItemIndex = 0;
+            lichSuKCB = new FrmLichSuKCB(dataCoso);
             DataTable phongkham = tiepnhan.DSKhoaBan(2);
             if(phongkham!=null)
             {
@@ -43,6 +50,7 @@ namespace TiepNhan.GUI
                     b.Text = dr["TenKhoa"].ToString();
                     b.Click += btnNew_Click;
                     flowLayoutPanel.Controls.Add(b);
+                    listPhongKham.Add(Utils.ToInt(b.Name.Substring(b.Name.Length - 2, 2)));
                 }
             }
             // Data Tỉnh, Mức hưởng
@@ -51,13 +59,11 @@ namespace TiepNhan.GUI
         }
         private void btnNew_Click(object sender, EventArgs e)
         {
-            try
+            if (KiemTraThongTinTiepNhan(true))
             {
-                KiemTraThongTinTiepNhan(true);
                 SimpleButton clickedButton = (SimpleButton)sender;
-                ChuyenPhong(Utils.ToInt(clickedButton.Name.ToLower().Replace("phongkham", "")));
+                ChuyenPhong(Utils.ToInt(clickedButton.Name.Substring(clickedButton.Name.Length-2,2)));
             }
-            catch { }
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -68,6 +74,29 @@ namespace TiepNhan.GUI
         {
             ResetForm();
             this.ActiveControl = txtMaQR;
+            this.LoadData();
+        }
+        private void LoadData()
+        {
+            // load data danh sách
+            dataDanhSach = tiepnhan.DSTiepNhan(DateTime.Now.ToShortDateString());
+            lblPhongKham.Text = "";
+            if (dataDanhSach !=null && dataDanhSach.Rows.Count>0)
+            {
+                foreach (var t in listPhongKham)
+                {
+                    lblPhongKham.Text += "Phòng khám " + t + ": "+dataDanhSach.Select("Phong = "+t).Length+"     ";
+                }
+            }
+            else
+            {
+                
+                foreach(var t in listPhongKham)
+                {
+                    lblPhongKham.Text += "Phòng khám " + t+ ": 0     ";
+                }
+            }
+            gridControl.DataSource = dataDanhSach;
         }
         private void ResetForm()
         {
@@ -76,7 +105,7 @@ namespace TiepNhan.GUI
             cbGioiTinh.SelectedIndex = 0;
             cbLyDoVaoVien.SelectedIndex = 0;
             lookUpTaiNan.ItemIndex = 0;
-            cbLoaiKCB.SelectedIndex = 0;
+            lookUpMaKhoa.ItemIndex = 0;
             checkCapCuu.Checked = false;
             checkChiTra.Checked = false;
             checkUuTien.Checked = false;
@@ -90,6 +119,7 @@ namespace TiepNhan.GUI
             txtTyLe.Text = null;
             txtTenDKKCB.Text = null;
             txtSTTNgay.Text = null;
+            txtMaBN.Text = null;
             txtNgaySinh.Text = null;
             txtMucHuong.Text = null;
             txtMaDKKCB.Text = null;
@@ -97,7 +127,7 @@ namespace TiepNhan.GUI
             txtDu5Nam.Text = null;
             txtCanNang.Text = null;
             txtDiaChi.Text = null;
-
+            txtMaQR.Focus();
         }
         private void checkBHYT_CheckedChanged(object sender, EventArgs e)
         {
@@ -163,7 +193,72 @@ namespace TiepNhan.GUI
         }
         private void ChuyenPhong(int phongKham)
         {
-            XtraMessageBox.Show("Chuyển phòng: "+phongKham);
+            // chuyển phòng
+            // chưa có mã bệnh nhân
+            if(string.IsNullOrEmpty(txtMaBN.Text))
+            {
+                tiepnhan.MaBN = null;
+            }
+            else
+            {
+                tiepnhan.MaBN = txtMaBN.Text;
+            }
+            tiepnhan.CoThe = checkBHYT.Checked;
+            if (tiepnhan.CoThe)
+            {
+                tiepnhan.MaThe = txtTheBHYT.Text;
+                tiepnhan.TheTu = Utils.ToDateTime(txtTheTu.Text, "dd/MM/yyyy");
+                tiepnhan.TheDen = Utils.ToDateTime(txtTheDen.Text, "dd/MM/yyyy");
+                tiepnhan.MaCS = txtMaDKKCB.Text;
+                tiepnhan.Du5Nam = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy");
+                tiepnhan.MaKhuVuc = Utils.ToString( cbKhuVuc.SelectedItem);
+            }
+            else
+            {
+                tiepnhan.MaThe = null;
+                tiepnhan.TheTu = DateTime.Now;
+                tiepnhan.TheDen =DateTime.Now;
+                tiepnhan.MaCS = null;
+                tiepnhan.Du5Nam = DateTime.Now;
+                tiepnhan.MaKhuVuc = null;
+            }
+            tiepnhan.HoTen = txtHoTen.Text;
+            tiepnhan.NgaySinh = txtNgaySinh.Text;
+            tiepnhan.GioiTinh = cbGioiTinh.SelectedIndex;
+            tiepnhan.DiaChi = txtDiaChi.Text;
+            // tạo mã hoặc cập nhật lại thông tin
+            string err = "";
+            if(tiepnhan.SpThongTinTiepNhan(ref err))
+            {
+                txtMaBN.Text = tiepnhan.MaBN;
+            }
+            // insert dữ liệu tiếp nhận vào ThongTinBNChiTiet
+            tiepnhan.MaLK = null;
+            tiepnhan.LyDoVaoVien = cbLyDoVaoVien.SelectedIndex;
+            tiepnhan.TinhTrang = 0;
+            if (checkCapCuu.Checked)
+                tiepnhan.TinhTrang = 2;
+            if (checkUuTien.Checked)
+                tiepnhan.TinhTrang = 1;
+            tiepnhan.MaNoiChuyenDen =Utils.ToString( lookUpNoiChuyenDen.EditValue);
+            tiepnhan.MaTaiNan = lookUpTaiNan.ItemIndex;
+            tiepnhan.NgayVao = DateTime.Now;
+            tiepnhan.MaKhoa = Utils.ToString(lookUpMaKhoa.EditValue);// lúc xuất ra nhớ bỏ dấu _ file XML
+            tiepnhan.MaCoSoKCB = AppConfig.CoSoKCB;
+            tiepnhan.CanNang = Utils.ToDouble(txtCanNang.Text);
+            tiepnhan.STTNgay = null;
+            tiepnhan.STTPhong = 0;
+            tiepnhan.Phong = phongKham;
+            tiepnhan.MucHuong = Utils.ToInt(txtTyLe.Text);
+            tiepnhan.MaLoaiKCB = 1;
+            // out STTNgay, STTPhong
+            err = "";
+            if(!tiepnhan.SpThongTinChiTietTiepNhan(ref err))
+            {
+                XtraMessageBox.Show(err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            txtSTTNgay.Text = tiepnhan.STTNgay;
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
@@ -269,7 +364,19 @@ namespace TiepNhan.GUI
 
         private void btnInLai_Click(object sender, EventArgs e)
         {
+            DataRow dr = gridView.GetFocusedDataRow();
+            if(dr!=null)
+            {
+                string ngaySinh = dr["NgaySinh"].ToString();
+                rptSoPhieu.xrlblHoTen.Text = dr["HoTen"] + " - " + ngaySinh.Substring(ngaySinh.Length - 4, 4);
+                rptSoPhieu.xrlblSoPhong.Text = "Phòng " + dr["STTPhong"];
+                rptSoPhieu.xrlblSTT.Text = dr["STTPhong"].ToString();
+                rptSoPhieu.xrlblNgay.Text = Utils.ToDateTime(dr["NgayVao"].ToString()).ToString("HH:ss dd/MM/yyyy");
 
+                rptSoPhieu.CreateDocument();
+                rptSoPhieu.ShowPreviewDialog();
+                //rptSoPhieu.PrintDialog();
+            }
         }
 
         private void txtMaQR_KeyPress(object sender, KeyPressEventArgs e)
@@ -464,12 +571,13 @@ namespace TiepNhan.GUI
                     txtTheBHYT.Focus();
                     return;
                 }
+                txtMaBN.Text = tiepnhan.MaBN;
                 if (string.IsNullOrEmpty(txtMaQR.Text) && !string.IsNullOrEmpty(tiepnhan.MaBN))
                 {
                     // gán thông tin, nếu không quyét bằng mã QR
-                    txtMaBN.Text = tiepnhan.MaBN;
+                    //txtMaBN.Text = tiepnhan.MaBN;
                     txtHoTen.Text = tiepnhan.HoTen;
-                    txtNgaySinh.Text = tiepnhan.NgaySinh.ToString("dd/MM/yyyy");
+                    txtNgaySinh.Text = tiepnhan.NgaySinh;
                     cbGioiTinh.SelectedIndex = tiepnhan.GioiTinh;
                     txtDiaChi.Text = tiepnhan.DiaChi;
                     txtTheTu.Text = tiepnhan.TheTu.ToString("dd/MM/yyyy");
@@ -488,6 +596,33 @@ namespace TiepNhan.GUI
             }
         }
 
+        private void gridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if(e.Column.Name =="GioiTinh")
+            {
+                if (Utils.ToInt(e.Value) == 0)
+                    e.DisplayText = "Nam";
+                else
+                    e.DisplayText = "Nữ";
+            }
+            else
+                if(e.Column.Name =="TinhTrang")
+            {
+                switch(Utils.ToInt(e.Value))
+                {
+                    case 2:
+                        e.DisplayText = "Cấp cứu";
+                        break;
+                    case 1:
+                        e.DisplayText = "Ưu tiên";
+                        break;
+                    default:
+                        e.DisplayText = "Thường";
+                        break;
+                }
+            }
+        }
+
         private void txtMaBN_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == 13 )
@@ -499,14 +634,22 @@ namespace TiepNhan.GUI
                     {
                         txtMaBN.Text = tiepnhan.MaBN;
                         txtHoTen.Text = tiepnhan.HoTen;
-                        txtNgaySinh.Text = tiepnhan.NgaySinh.ToString("dd/MM/yyyy");
+                        txtNgaySinh.Text = tiepnhan.NgaySinh;
                         cbGioiTinh.SelectedIndex = tiepnhan.GioiTinh;
                         txtDiaChi.Text = tiepnhan.DiaChi;
+                        if(tiepnhan.CoThe)
+                        {
+                            checkBHYT.Checked = true;
+                            //this.txtTheBHYT.EditValueChanged -= new System.EventHandler(this.txtTheBHYT_EditValueChanged);
+                            txtTheBHYT.Text = tiepnhan.MaThe;
+                            return;
+                        }
                         btnLichSuKCB.Focus();
                     }
                     else
                     {
                         XtraMessageBox.Show(Library.MaBNKhongTonTai, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaBN.Text = null;
                     }
                 }
                 txtHoTen.Focus();

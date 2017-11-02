@@ -125,6 +125,7 @@ namespace Core.DAL
                 return defaultvalue;
             }
         }
+ 
         public static decimal ToDecimal(string value, decimal defaultvalue = 0)
         {
             try
@@ -137,7 +138,7 @@ namespace Core.DAL
                 return defaultvalue;
             }
         }
-        public static string ToString(string value, string defaultvalue = null)
+        public static string ToString(string value, string defaultvalue = null, string format = "0,0")
         {
             try
             {
@@ -146,7 +147,7 @@ namespace Core.DAL
                 {
                     return null;
                 }
-                return t.ToString("0,0", elGR);
+                return t.ToString(format, System.Globalization.CultureInfo.InvariantCulture);
             }
             catch
             {
@@ -198,7 +199,6 @@ namespace Core.DAL
             {
                 return defaultvalue;
             }
-
         }
         public static string ChuyenSo(string number)
         {
@@ -467,24 +467,13 @@ namespace Core.DAL
                 return DateTime.Now;
             }
         }
-        public static async Task<ThongTinThe> LichSuKhamChuaBenhBHYT(ThongTinThe thongTinThe)
+        private static async Task<string> GetToken()
         {
-            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
-            {
-                new KeyValuePair<string, string>("maThe",thongTinThe.MaThe),
-                new KeyValuePair<string, string>("hoTen",thongTinThe.HoTen),
-                new KeyValuePair<string, string>("ngaySinh",thongTinThe.NgaySinh),
-                new KeyValuePair<string, string>("gioiTinh",(thongTinThe.GioiTinh+1)+""),
-                new KeyValuePair<string, string>("maCSKCB",thongTinThe.MaCoSoDKKCB),
-                new KeyValuePair<string, string>("ngayBD",thongTinThe.TheTu),
-                new KeyValuePair<string, string>("ngayKT",thongTinThe.TheDen)
-            };
             IEnumerable<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string>("username",AppConfig.UserLoginBHYT),
                 new KeyValuePair<string, string>("password",Utils.ToMD5(AppConfig.PassWordBHYT))
             };
-            HttpContent quer = new FormUrlEncodedContent(queries);
             HttpContent user = new FormUrlEncodedContent(values);
             // lấy phiên làm việc
             using (HttpClient client = new HttpClient())
@@ -498,10 +487,8 @@ namespace Core.DAL
                     {
                         using (HttpResponseMessage response = await client.PostAsync("api/token/take", user))
                         {
-
                             if (response.IsSuccessStatusCode)
                             {
-
                                 using (HttpContent content = response.Content)
                                 {
                                     //MessageBox.Show (content.Headers.ToString ());
@@ -514,24 +501,56 @@ namespace Core.DAL
                                         Token = kq[1].Split(':')[2];
                                         Id_Token = kq[2].Split(':')[1];
                                         Expires_In = Utils.ToDateTime(kq[5].Replace("expires_in:", ""));
+                                        return null;
                                     }
                                     else
                                     {
-                                        thongTinThe.Code = "false";
-                                        thongTinThe.ThongBao = maKetQua + " - Lỗi xác thực!";
-                                        return thongTinThe;
+                                        return maKetQua + " - Lỗi xác thực!";
                                     }
                                 }
                             }
                             else
                             {
-                                thongTinThe.ThongBao = Library.KetNoiCong + response.RequestMessage;
-                                thongTinThe.Code = "false";
-                                return thongTinThe;
+                                return Library.KetNoiCong + response.RequestMessage;
                             }
                         }
                     }
-                    //
+                    return null;
+                }
+                catch
+                {
+                    return Library.KetNoiInternet; ;
+                }
+            }
+        }
+        public static async Task<ThongTinThe> LichSuKhamChuaBenhBHYT(ThongTinThe thongTinThe)
+        {
+            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("maThe",thongTinThe.MaThe),
+                new KeyValuePair<string, string>("hoTen",thongTinThe.HoTen),
+                new KeyValuePair<string, string>("ngaySinh",thongTinThe.NgaySinh),
+                new KeyValuePair<string, string>("gioiTinh",(thongTinThe.GioiTinh+1)+""),
+                new KeyValuePair<string, string>("maCSKCB",thongTinThe.MaCoSoDKKCB),
+                new KeyValuePair<string, string>("ngayBD",thongTinThe.TheTu),
+                new KeyValuePair<string, string>("ngayKT",thongTinThe.TheDen)
+            };        
+            HttpContent quer = new FormUrlEncodedContent(queries);
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://egw.baohiemxahoi.gov.vn/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    // lấy phiên làm việc
+                    string err = await GetToken();
+                    if(!string.IsNullOrEmpty(err))
+                    {
+                        thongTinThe.Code = "false";
+                        thongTinThe.ThongBao = err;
+                        return thongTinThe;
+                    }
                     // lấy lịch sử KCB
                     string data = string.Format("token={0}&id_token={1}&username={2}&password={3}",
                         Token, Id_Token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT));
@@ -566,6 +585,83 @@ namespace Core.DAL
                     return thongTinThe;
                 }
             }
+        }
+        public static async Task<ThongTinThe> LayChiTietHoSo(string maHoSo)
+        {
+            ThongTinThe thongTinThe = new ThongTinThe();
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://egw.baohiemxahoi.gov.vn/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    string err = await GetToken();
+                    if (!string.IsNullOrEmpty(err))
+                    {
+                        thongTinThe.Code = "false";
+                        thongTinThe.ThongBao = err;
+                        return thongTinThe;
+                    }
+                    // lấy lịch sử KCB
+                    string data = string.Format("token={0}&id_token={1}&username={2}&password={3}&maHoSo={4}",
+                        Token, Id_Token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT), maHoSo);
+                    using (HttpResponseMessage response = await client.PostAsync("api/egw/nhanHoSoKCBChiTiet?" + data, null))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (HttpContent content = response.Content)
+                            {
+                                string mycontent = await content.ReadAsStringAsync();
+                                //var list = JsonConvert.DeserializeObject<List<LichSuKCB>>(mycontent);
+                                string ketqua = mycontent.Split(',')[0].Split(':')[1].Replace("\"", "");
+                                switch (ketqua)
+                                {
+                                    case "200":
+                                        try
+                                        {
+                                            string xml2 = "", xml3 = "";
+                                            if (mycontent.IndexOf("Xml2") > 0 && mycontent.IndexOf("Xml2\":[]") < 0)
+                                            {
+                                                xml2 = mycontent.Substring(mycontent.IndexOf("Xml2"), mycontent.IndexOf("}]") - mycontent.IndexOf("Xml2") + 1);
+                                                xml2 = xml2.Replace("Xml2\":[", "");
+                                                mycontent = mycontent.Substring(mycontent.IndexOf("}]") + 2);
+                                            }
+                                            if (mycontent.IndexOf("Xml3") > 0 && mycontent.IndexOf("Xml3\":[]") < 0)
+                                            {
+                                                xml3 = mycontent.Substring(mycontent.IndexOf("Xml3"), mycontent.IndexOf("]}") - mycontent.IndexOf("Xml3") + 1);
+                                                xml3 = xml3.Replace("Xml3\":[", "");
+                                            }
+                                            thongTinThe.Code = ketqua;
+                                            thongTinThe.XML2 = xml2;
+                                            thongTinThe.XML3 = xml3;
+                                        }
+                                        catch {
+                                             thongTinThe.Code = "false";
+                                            thongTinThe.ThongBao = "Lỗi dữ liệu XML2,XML3.";
+                                        }
+                                        break;
+                                    default:
+                                        thongTinThe.ThongBao = "Lỗi không được xác thực.\n" + "Lỗi - " + ketqua;
+                                        thongTinThe.Code = "false";
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            thongTinThe.ThongBao = Library.KetNoiCong +"\n"+ response.RequestMessage;
+                            thongTinThe.Code = "false";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    thongTinThe.ThongBao = ex.Message;
+                    thongTinThe.Code = "false";
+                }
+            }
+            return thongTinThe;
         }
     }
 }

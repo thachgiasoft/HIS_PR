@@ -906,6 +906,7 @@
             this.lookUpMaVatTu.Size = new System.Drawing.Size(316, 22);
             this.lookUpMaVatTu.StyleController = this.layoutControl1;
             this.lookUpMaVatTu.TabIndex = 15;
+            this.lookUpMaVatTu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpMaVatTu_KeyPress);
             // 
             // gridView2
             // 

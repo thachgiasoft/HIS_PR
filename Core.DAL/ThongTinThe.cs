@@ -19,6 +19,10 @@ namespace Core.DAL
         public string MaCoSoDKKCB { get; set; }
         public string Code { get; set; }
         public string ThongBao { get; set; }
+        public string XML1 { get; set; }
+        public string XML2 { get; set; }
+        public string XML3 { get; set; }
+        public string XML4 { get; set; }
 
     }
 }

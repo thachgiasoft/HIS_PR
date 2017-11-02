@@ -151,12 +151,13 @@ namespace DuocPham.GUI
                     dr["DonGiaBHYT"] = drview["DonGiaBHYT"].ToString ();
                     dr["DonGiaBV"] = drview["DonGiaBV"].ToString ();
                     dr["HetHan"] = drview["HetHan"].ToString ();
-                    dr["ThanhTien"] = Utils.ToDecimal (txtSoLuong.Text) * Utils.ToDecimal (drview["DonGiaBHYT"].ToString ());
+                    dr["ThanhTien"] = Utils.ToDecimal (txtSoLuong.Text) * Utils.ToDecimal (drview["DonGiaBV"].ToString ());
                     dr["LoaiVatTu"] = drview["LoaiVatTu"].ToString ();
                     dr["DonViTinh"] = drview["DonViTinh"].ToString ();
 
                     //lookUpMaVatTu.EditValue = null;
                     txtSoLuong.Text = "";
+                    lookUpMaVatTu.Focus();
                 }
             }
         }
@@ -433,6 +434,14 @@ namespace DuocPham.GUI
         private void txtNguoiNhan_Leave (object sender, EventArgs e)
         {
             txtNguoiNhan.Text = Utils.VietHoa (txtNguoiNhan.Text);
+        }
+
+        private void lookUpMaVatTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
+            {
+                txtSoLuong.Focus();
+            }
         }
     }
 }

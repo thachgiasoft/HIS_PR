@@ -18,6 +18,7 @@ namespace DuocPham.GUI
         bool them = false;
         DataView data;
         DataTable dtPhieu;
+        DataTable dtVatTu;
         Dictionary<string, bool> dsVatTu = new Dictionary<string, bool> ();
         SortedSet<string> dsLoaiVatTu = new SortedSet<string> ();
         decimal thanhTien = 0;
@@ -35,6 +36,8 @@ namespace DuocPham.GUI
         }
         private void FrmNhapKho_Load (object sender, EventArgs e)
         {
+            dtVatTu = nhapkho.DSVatTu();
+
             lookUpKhoNhap.Properties.DataSource = nhapkho.DSKho ();
             lookUpKhoNhap.Properties.DisplayMember = "TenKhoa";
             lookUpKhoNhap.Properties.ValueMember = "MaKhoa";
@@ -429,14 +432,16 @@ namespace DuocPham.GUI
                 Enabled_Xoa ();
                 Enabled_Luu ();
                 // danh sách
-                lookUpMaVatTu.Properties.DataSource = nhapkho.DSVatTu (txtTKNo.Text.Substring (3, 1));
+                lookUpMaVatTu.Properties.DataSource = dtVatTu.Select ("LoaiVatTu = '"+ txtTKNo.Text.Substring(3, txtTKNo.Text.Length - 3) + "'").CopyToDataTable(); // data vật tư dataVatTu.Select
                 nhapkho.SoPhieu = int.Parse (txtSoPhieu.Text);
                 dtPhieu = nhapkho.DSPhieuVatTu ();
                 dsVatTu.Clear ();
                 foreach(DataRow drow in dtPhieu.Rows)
                 {
                     dsVatTu.Add (drow["MaVatTu"].ToString (), false);
-                    drow["TenVatTu"] = (lookUpMaVatTu.Properties.GetRowByKeyValue (drow["MaVatTu"].ToString ()) as DataRowView)[1];
+                    drow["TenVatTu"] = dtVatTu.Select("MaBV = '" + drow["MaVatTu"].ToString() + "'")[0][1];
+                    //(lookUpMaVatTu.Properties.GetRowByKeyValue (drow["MaVatTu"].ToString ()) as DataRowView)[1];
+                    // lấy tên vật tư từ mã vật tư, từ lookUpMaVatTu (thay bằng data vật tư) dataVatTu.Select
                 }
                 gridControlDS.DataSource = dtPhieu.AsDataView ();
                 txtTongTien.Text = (dtPhieu.Compute("SUM(ThanhTien)", "").ToString());
@@ -449,7 +454,8 @@ namespace DuocPham.GUI
         {
             if (txtTKNo.Text.Length > 3)
             {
-                lookUpMaVatTu.Properties.DataSource = nhapkho.DSVatTu (txtTKNo.Text.Substring (3, txtTKNo.Text.Length-3));
+                lookUpMaVatTu.Properties.DataSource = dtVatTu.Select("LoaiVatTu = '" + txtTKNo.Text.Substring(3, txtTKNo.Text.Length - 3) + "'").CopyToDataTable(); 
+                //nhapkho.DSVatTu (txtTKNo.Text.Substring (3, txtTKNo.Text.Length-3));// dataVatTu.Select
             }
         }
 
@@ -502,7 +508,8 @@ namespace DuocPham.GUI
                 row.Cells.Add (cell);
 
                 cell = new XRTableCell ();
-                cell.Text = (lookUpMaVatTu.Properties.GetRowByKeyValue (drview["MaVatTu"].ToString ()) as DataRowView)[2].ToString ();
+                cell.Text = dtVatTu.Select("MaBV = '" + drview["MaVatTu"].ToString() + "'")[0][2].ToString();
+                //(lookUpMaVatTu.Properties.GetRowByKeyValue (drview["MaVatTu"].ToString ()) as DataRowView)[2].ToString ();
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
                 cell.WidthF = 70;
@@ -516,7 +523,7 @@ namespace DuocPham.GUI
                 row.Cells.Add (cell);
 
                 cell = new XRTableCell ();
-                cell.Text = Utils.ToString (drview["DonGiaBHYT"].ToString ());
+                cell.Text = Utils.ToString (drview["DonGiaBV"].ToString (),null, "0,0.00");
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 80;

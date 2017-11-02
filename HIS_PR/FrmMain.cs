@@ -272,7 +272,6 @@ namespace HIS_PR
             frmTonKho.MdiParent = this;
             frmTonKho.Show ();
         }
-
         private void barButtonTiepNhan_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (Form frm in this.MdiChildren)

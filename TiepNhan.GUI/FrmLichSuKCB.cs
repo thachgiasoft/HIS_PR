@@ -1,5 +1,6 @@
 ﻿using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,14 @@ namespace TiepNhan.GUI
     public partial class FrmLichSuKCB : RibbonForm
     {
         public ThongTinThe ThongTin = new ThongTinThe();
-        public FrmLichSuKCB()
+        FrmThongTinHoSo frmHoSo = new FrmThongTinHoSo();
+
+        public FrmLichSuKCB(DataTable dataCoSo)
         {
             InitializeComponent();
+            repositoryItemLookUpEdit.DataSource = dataCoSo;
+            repositoryItemLookUpEdit.DisplayMember = "Ten_CS";
+            repositoryItemLookUpEdit.ValueMember = "Ma_CS";
         }
 
         private void FrmLichSuKCB_Load(object sender, EventArgs e)
@@ -33,7 +39,7 @@ namespace TiepNhan.GUI
             {
                 lblGioiTinh.Text = "Nữ";
             }
-            // lịch sử
+            // lịch sử theo cổng BHYT
             if(ThongTin.MaBN == null)
             {
                 switch (ThongTin.Code)
@@ -164,9 +170,78 @@ namespace TiepNhan.GUI
             }
             else
             {
+                // Lịch sử theo phần mềm
                 this.lblThongTin.ForeColor = System.Drawing.Color.Blue;
                 lblThongTin.Text = "Thông tin lịch sử khám chữa bệnh tại bệnh viện.";
             }
+        }
+
+        private void gridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == "tinhTrang")
+            {
+                switch (e.DisplayText)
+                {
+                    case "1":
+                        e.DisplayText = "Ra viện";
+                        break;
+                    case "2":
+                        e.DisplayText = "Chuyển viện";
+                        break;
+                    case "3":
+                        e.DisplayText = "Trốn viện";
+                        break;
+                    case "4":
+                        e.DisplayText = "Xin ra viện";
+                        break;
+                }
+            }
+            else
+            if (e.Column.Name == "kqDieuTri")
+            {
+                switch (e.DisplayText)
+                {
+                    case "1":
+                        e.DisplayText = "Khỏi";
+                        break;
+                    case "2":
+                        e.DisplayText = "Đỡ";
+                        break;
+                    case "3":
+                        e.DisplayText = "Không thay đổi";
+                        break;
+                    case "4":
+                        e.DisplayText = "Nặng hơn";
+                        break;
+                    case "5":
+                        e.DisplayText = "Tử vong";
+                        break;
+                }
+            }
+        }
+
+        private async void btneditChiTiet_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string maHoSo = gridView.GetFocusedDataRow()["maHoSo"].ToString();
+            if (ThongTin.MaBN == null)
+            {
+                // Hồ sơ từ BHYT
+                ThongTinThe thongTinHS = await Utils.LayChiTietHoSo(maHoSo);
+                if (thongTinHS.Code != "200")
+                {
+                    XtraMessageBox.Show(thongTinHS.ThongBao, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                frmHoSo.BHYT = true;
+                frmHoSo.XML2 = thongTinHS.XML2;
+                frmHoSo.XML3 = thongTinHS.XML3;
+            }
+            else
+            {
+                // Hồ sơ từ phần mềm
+                frmHoSo.BHYT = false;
+            }
+            frmHoSo.ShowDialog();
         }
     }
 }

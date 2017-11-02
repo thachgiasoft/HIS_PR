@@ -94,6 +94,11 @@ namespace DuocPham.DAL
             return db.ExcuteQuery ("Select MaBV,TenVatTu,DonViTinh,SoDK,GiaBHYT From VatTu Where TinhTrang = 1 And LoaiVatTu = '" + loaiVatTu + "'",
                 CommandType.Text, null);
         }
+        public DataTable DSVatTu()
+        {
+            return db.ExcuteQuery("Select MaBV,TenVatTu,DonViTinh,SoDK,GiaBHYT,LoaiVatTu From VatTu Where TinhTrang = 1",
+                CommandType.Text, null);
+        }
         public DataTable DSVatTu (string loaiVatTu, string khoTra)
         {
             return db.ExcuteQuery ("Select * From DSVatTuTra('" + loaiVatTu + "','" + khoTra + "') ORDER BY SoPhieuNhap,SoPhieu ASC",
