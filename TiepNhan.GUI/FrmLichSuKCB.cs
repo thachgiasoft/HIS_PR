@@ -173,6 +173,7 @@ namespace TiepNhan.GUI
                 // Lịch sử theo phần mềm
                 this.lblThongTin.ForeColor = System.Drawing.Color.Blue;
                 lblThongTin.Text = "Thông tin lịch sử khám chữa bệnh tại bệnh viện.";
+                gridControl.DataSource = ThongTin.LichSuPhanMem;
             }
         }
 

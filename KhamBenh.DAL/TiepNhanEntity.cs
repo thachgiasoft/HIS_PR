@@ -75,10 +75,30 @@ namespace KhamBenh.DAL
         public DataTable DSTiepNhan(string ngayVao)
         {
             return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen,"+
-                "TenBenh,MaBenh,MaBenhKhac,MaLyDoVaoVien,MaNoiChuyenDen,MaTaiNan,NgayVao,NgayRa,KetQuaDieuTri,"+
-                "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,CanNang,STTNgay,"+
-                "STTPhong,Phong,TinhTrang,CoThe From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
+                "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,MaTaiNan,NgayVao,NgayRa,KetQuaDieuTri,"+
+                "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,STTNgay,"+
+                "STTPhong,Phong,TinhTrang,CoThe,CanNang From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
                 + ngayVao+"' AS DATE)  Order By STTNgay ASC",
+                CommandType.Text, null);
+        }
+        public DataTable DSTiepNhan(string ngayBT, string ngayKT)
+        {
+            return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen," +
+                "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,NgayVao,NgayRa,KetQuaDieuTri," +
+                "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,CanNang,STTNgay," +
+                "STTPhong,Phong,TinhTrang,CoThe From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) Between  CAST('"
+                + ngayBT + "' AS DATE) And  CAST('"+ ngayKT + "' AS DATE)  Order By STTNgay ASC",
+                CommandType.Text, null);
+        }
+        public DataTable DSLichSuPhanMem()
+        {
+            return db.ExcuteQuery("select MaLK as maHoSo,MaCoSoKCB as maCSKCB,"
+            + "NgayVao as tuNgay, NgayRa as denNgay, TenBenh as tenBenh, "
+            + "TinhTrangRaVien as tinhTrang, KetQuaDieuTri as kqDieuTri "
+            + "from ThongTinBNChiTiet "
+            + "where MaBN = '"+MaBN+"' "
+            + "or(dbo.ChangeVietnameseWord(N'"+HoTen+"') = dbo.ChangeVietnameseWord(HoTen) "
+            + "AND '01/11/1994' = NgaySinh AND GioiTinh = "+GioiTinh+")",
                 CommandType.Text, null);
         }
         public bool SpThongTinBN(ref string err, string Action)

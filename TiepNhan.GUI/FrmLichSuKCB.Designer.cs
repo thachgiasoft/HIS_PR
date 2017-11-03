@@ -164,6 +164,8 @@
             // tuNgay
             // 
             this.tuNgay.Caption = "Từ ngày";
+            this.tuNgay.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.tuNgay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tuNgay.FieldName = "tuNgay";
             this.tuNgay.Name = "tuNgay";
             this.tuNgay.OptionsColumn.AllowEdit = false;
@@ -173,6 +175,8 @@
             // denNgay
             // 
             this.denNgay.Caption = "Đến ngày";
+            this.denNgay.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.denNgay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.denNgay.FieldName = "denNgay";
             this.denNgay.Name = "denNgay";
             this.denNgay.OptionsColumn.AllowEdit = false;
