@@ -1642,6 +1642,8 @@ namespace TiepNhan.GUI
             this.PhongDS});
             this.gridViewDS.GridControl = this.gridControlDS;
             this.gridViewDS.Name = "gridViewDS";
+            this.gridViewDS.OptionsFind.AlwaysVisible = true;
+            this.gridViewDS.OptionsFind.FindNullPrompt = "Nhập thông tin cần tìm";
             this.gridViewDS.OptionsView.ShowGroupPanel = false;
             // 
             // STTNgayDS
@@ -1651,6 +1653,7 @@ namespace TiepNhan.GUI
             this.STTNgayDS.Caption = "STT Ngày";
             this.STTNgayDS.FieldName = "STTNgay";
             this.STTNgayDS.Name = "STTNgayDS";
+            this.STTNgayDS.OptionsColumn.AllowEdit = false;
             this.STTNgayDS.Visible = true;
             this.STTNgayDS.VisibleIndex = 0;
             this.STTNgayDS.Width = 90;
@@ -1662,6 +1665,7 @@ namespace TiepNhan.GUI
             this.MaBNDS.Caption = "Mã BN";
             this.MaBNDS.FieldName = "MaBN";
             this.MaBNDS.Name = "MaBNDS";
+            this.MaBNDS.OptionsColumn.AllowEdit = false;
             this.MaBNDS.Visible = true;
             this.MaBNDS.VisibleIndex = 1;
             this.MaBNDS.Width = 90;
@@ -1673,6 +1677,7 @@ namespace TiepNhan.GUI
             this.MaTheDS.Caption = "Mã Thẻ";
             this.MaTheDS.FieldName = "MaThe";
             this.MaTheDS.Name = "MaTheDS";
+            this.MaTheDS.OptionsColumn.AllowEdit = false;
             this.MaTheDS.Visible = true;
             this.MaTheDS.VisibleIndex = 2;
             this.MaTheDS.Width = 120;
@@ -1684,6 +1689,7 @@ namespace TiepNhan.GUI
             this.HoTenDS.Caption = "Họ Tên";
             this.HoTenDS.FieldName = "HoTen";
             this.HoTenDS.Name = "HoTenDS";
+            this.HoTenDS.OptionsColumn.AllowEdit = false;
             this.HoTenDS.Visible = true;
             this.HoTenDS.VisibleIndex = 3;
             this.HoTenDS.Width = 150;
@@ -1695,6 +1701,7 @@ namespace TiepNhan.GUI
             this.NgaySinhDS.Caption = "Ngày Sinh";
             this.NgaySinhDS.FieldName = "NgaySinh";
             this.NgaySinhDS.Name = "NgaySinhDS";
+            this.NgaySinhDS.OptionsColumn.AllowEdit = false;
             this.NgaySinhDS.Visible = true;
             this.NgaySinhDS.VisibleIndex = 4;
             this.NgaySinhDS.Width = 70;
@@ -1706,6 +1713,7 @@ namespace TiepNhan.GUI
             this.GioiTinhDS.Caption = "Giới Tính";
             this.GioiTinhDS.FieldName = "GioiTinh";
             this.GioiTinhDS.Name = "GioiTinhDS";
+            this.GioiTinhDS.OptionsColumn.AllowEdit = false;
             this.GioiTinhDS.Visible = true;
             this.GioiTinhDS.VisibleIndex = 5;
             this.GioiTinhDS.Width = 50;
@@ -1717,6 +1725,7 @@ namespace TiepNhan.GUI
             this.DiaChiDS.Caption = "Địa Chỉ";
             this.DiaChiDS.FieldName = "DiaChi";
             this.DiaChiDS.Name = "DiaChiDS";
+            this.DiaChiDS.OptionsColumn.AllowEdit = false;
             this.DiaChiDS.Visible = true;
             this.DiaChiDS.VisibleIndex = 6;
             this.DiaChiDS.Width = 150;
@@ -1728,6 +1737,7 @@ namespace TiepNhan.GUI
             this.TenBenh.Caption = "Tên Bệnh";
             this.TenBenh.FieldName = "TenBenh";
             this.TenBenh.Name = "TenBenh";
+            this.TenBenh.OptionsColumn.AllowEdit = false;
             this.TenBenh.Visible = true;
             this.TenBenh.VisibleIndex = 7;
             this.TenBenh.Width = 150;
@@ -1741,6 +1751,7 @@ namespace TiepNhan.GUI
             this.NgayVaoDS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.NgayVaoDS.FieldName = "NgayVao";
             this.NgayVaoDS.Name = "NgayVaoDS";
+            this.NgayVaoDS.OptionsColumn.AllowEdit = false;
             this.NgayVaoDS.Visible = true;
             this.NgayVaoDS.VisibleIndex = 8;
             this.NgayVaoDS.Width = 70;
@@ -1754,6 +1765,7 @@ namespace TiepNhan.GUI
             this.NgayRa.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.NgayRa.FieldName = "NgayRa";
             this.NgayRa.Name = "NgayRa";
+            this.NgayRa.OptionsColumn.AllowEdit = false;
             this.NgayRa.Visible = true;
             this.NgayRa.VisibleIndex = 9;
             this.NgayRa.Width = 70;
@@ -1765,6 +1777,7 @@ namespace TiepNhan.GUI
             this.STTPhongDS.Caption = "STT Phòng";
             this.STTPhongDS.FieldName = "STTPhong";
             this.STTPhongDS.Name = "STTPhongDS";
+            this.STTPhongDS.OptionsColumn.AllowEdit = false;
             this.STTPhongDS.Visible = true;
             this.STTPhongDS.VisibleIndex = 11;
             this.STTPhongDS.Width = 60;
@@ -1776,6 +1789,7 @@ namespace TiepNhan.GUI
             this.PhongDS.Caption = "Phòng khám";
             this.PhongDS.FieldName = "Phong";
             this.PhongDS.Name = "PhongDS";
+            this.PhongDS.OptionsColumn.AllowEdit = false;
             this.PhongDS.Visible = true;
             this.PhongDS.VisibleIndex = 10;
             this.PhongDS.Width = 72;
@@ -1869,9 +1883,9 @@ namespace TiepNhan.GUI
             this.btnTim.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
             this.btnTim.ImageUri.Uri = "Zoom;Size16x16;Office2013";
-            this.btnTim.Location = new System.Drawing.Point(347, 12);
+            this.btnTim.Location = new System.Drawing.Point(357, 12);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(91, 23);
+            this.btnTim.Size = new System.Drawing.Size(68, 23);
             this.btnTim.StyleController = this.layoutControl3;
             this.btnTim.TabIndex = 6;
             this.btnTim.Text = "Tìm";
@@ -2026,24 +2040,27 @@ namespace TiepNhan.GUI
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(314, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(21, 27);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(31, 27);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem38
             // 
             this.layoutControlItem38.Control = this.btnTim;
-            this.layoutControlItem38.Location = new System.Drawing.Point(335, 0);
+            this.layoutControlItem38.Location = new System.Drawing.Point(345, 0);
+            this.layoutControlItem38.MaxSize = new System.Drawing.Size(72, 27);
+            this.layoutControlItem38.MinSize = new System.Drawing.Size(72, 27);
             this.layoutControlItem38.Name = "layoutControlItem38";
-            this.layoutControlItem38.Size = new System.Drawing.Size(95, 27);
+            this.layoutControlItem38.Size = new System.Drawing.Size(72, 27);
+            this.layoutControlItem38.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem38.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem38.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(430, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(417, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(32, 27);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(45, 27);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem45

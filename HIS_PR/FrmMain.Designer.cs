@@ -35,8 +35,8 @@
             this.barDanhMucNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barlblMaNV = new DevExpress.XtraBars.BarStaticItem();
             this.barbtnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            //this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            //this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDanhMucDungChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonNhapKho = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXuatKho = new DevExpress.XtraBars.BarButtonItem();
@@ -47,10 +47,13 @@
             this.barButtonNhapKhaTra = new DevExpress.XtraBars.BarButtonItem();
             this.barTonKho = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonTiepNhan = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonKhamBenh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageKhamBenh = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupKhamBenh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupCSKCB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -73,8 +76,8 @@
             this.barDanhMucNhanVien,
             this.barlblMaNV,
             this.barbtnLogout,
-            this.barSubItem1,
-            this.barButtonItem1,
+            //this.barSubItem1,
+            //this.barButtonItem1,
             this.barDanhMucDungChung,
             this.barButtonNhapKho,
             this.barButtonXuatKho,
@@ -84,14 +87,16 @@
             this.barBaoCaoNhapXuat,
             this.barButtonNhapKhaTra,
             this.barTonKho,
-            this.barButtonTiepNhan});
+            this.barButtonTiepNhan,
+            this.barButtonKhamBenh});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 24;
+            this.ribbonControlMain.MaxItemId = 25;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageHeThong,
             this.ribbonPageTiepNhan,
+            this.ribbonPageKhamBenh,
             this.ribbonPageDanhMuc,
             this.ribbonPageDuocPham,
             this.ribbonPageBaoCao});
@@ -141,17 +146,17 @@
             // 
             // barSubItem1
             // 
-            this.barSubItem1.Caption = "barSubItem1";
-            this.barSubItem1.Id = 12;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.barSubItem1.Name = "barSubItem1";
+            //this.barSubItem1.Caption = "barSubItem1";
+            //this.barSubItem1.Id = 12;
+            //this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            //new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            //this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItem1
             // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 13;
-            this.barButtonItem1.Name = "barButtonItem1";
+            //this.barButtonItem1.Caption = "barButtonItem1";
+            //this.barButtonItem1.Id = 13;
+            //this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barDanhMucDungChung
             // 
@@ -233,6 +238,14 @@
             this.barButtonTiepNhan.Name = "barButtonTiepNhan";
             this.barButtonTiepNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTiepNhan_ItemClick);
             // 
+            // barButtonKhamBenh
+            // 
+            this.barButtonKhamBenh.Caption = "Khám bệnh ngoại trú";
+            this.barButtonKhamBenh.Id = 24;
+            this.barButtonKhamBenh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonKhamBenh.ImageOptions.Image")));
+            this.barButtonKhamBenh.Name = "barButtonKhamBenh";
+            this.barButtonKhamBenh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonKhamBenh_ItemClick);
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -258,6 +271,19 @@
             this.ribbonPageGroupTiepNhan.ItemLinks.Add(this.barButtonTiepNhan);
             this.ribbonPageGroupTiepNhan.Name = "ribbonPageGroupTiepNhan";
             this.ribbonPageGroupTiepNhan.ShowCaptionButton = false;
+            // 
+            // ribbonPageKhamBenh
+            // 
+            this.ribbonPageKhamBenh.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupKhamBenh});
+            this.ribbonPageKhamBenh.Name = "ribbonPageKhamBenh";
+            this.ribbonPageKhamBenh.Text = "Khám bệnh";
+            // 
+            // ribbonPageGroupKhamBenh
+            // 
+            this.ribbonPageGroupKhamBenh.ItemLinks.Add(this.barButtonKhamBenh);
+            this.ribbonPageGroupKhamBenh.Name = "ribbonPageGroupKhamBenh";
+            this.ribbonPageGroupKhamBenh.ShowCaptionButton = false;
             // 
             // ribbonPageDanhMuc
             // 
@@ -360,8 +386,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupDanhMuc;
         private DevExpress.XtraBars.BarStaticItem barlblMaNV;
         private DevExpress.XtraBars.BarButtonItem barbtnLogout;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        //private DevExpress.XtraBars.BarSubItem barSubItem1;
+        //private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barDanhMucDungChung;
         private DevExpress.XtraBars.BarButtonItem barButtonNhapKho;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageDuocPham;
@@ -380,5 +406,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonTiepNhan;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageTiepNhan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupTiepNhan;
+        private DevExpress.XtraBars.BarButtonItem barButtonKhamBenh;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageKhamBenh;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupKhamBenh;
     }
 }

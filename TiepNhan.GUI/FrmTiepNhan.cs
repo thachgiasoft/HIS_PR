@@ -847,8 +847,8 @@ namespace TiepNhan.GUI
                     this.txtTheBHYT.EditValueChanged -= new System.EventHandler(this.txtTheBHYT_EditValueChanged);
                     txtTheBHYT.Text = dr["MaThe"].ToString();
                     this.txtTheBHYT.EditValueChanged += new System.EventHandler(this.txtTheBHYT_EditValueChanged);
-                    txtTheTu.Text = dr["TheTu"].ToString();
-                    txtTheDen.Text = dr["TheDen"].ToString();
+                    txtTheTu.Text = Utils.ToDateTime(dr["TheTu"].ToString()).ToString("dd/MM/yyyy");
+                    txtTheDen.Text = Utils.ToDateTime(dr["TheDen"].ToString()).ToString("dd/MM/yyyy");
                     txtTyLe.Text = dr["MucHuong"].ToString();
                     txtMucHuong.Text = txtTheBHYT.Text.Substring(2,1);
                     cbKhuVuc.SelectedItem = dr["MaKhuVuc"];
@@ -869,7 +869,57 @@ namespace TiepNhan.GUI
             {
                 // lưu lại thông tin trừ trường hợp không có internet
                 // kiểm tra thông tuyến và lưu lại
-
+                tiepnhan.MaBN = txtMaBN.Text;
+                tiepnhan.CoThe = checkBHYT.Checked;
+                if (tiepnhan.CoThe)
+                {
+                    tiepnhan.MaThe = txtTheBHYT.Text;
+                    tiepnhan.TheTu = Utils.ToDateTime(txtTheTu.Text, "dd/MM/yyyy");
+                    tiepnhan.TheDen = Utils.ToDateTime(txtTheDen.Text, "dd/MM/yyyy");
+                    tiepnhan.MaCS = txtMaDKKCB.Text;
+                    tiepnhan.Du5Nam = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy");
+                    tiepnhan.MaKhuVuc = Utils.ToString(cbKhuVuc.SelectedItem);
+                }
+                else
+                {
+                    tiepnhan.MaThe = null;
+                    tiepnhan.TheTu = DateTime.Now;
+                    tiepnhan.TheDen = DateTime.Now;
+                    tiepnhan.MaCS = null;
+                    tiepnhan.Du5Nam = DateTime.Now;
+                    tiepnhan.MaKhuVuc = null;
+                }
+                tiepnhan.HoTen = txtHoTen.Text;
+                tiepnhan.NgaySinh = txtNgaySinh.Text;
+                tiepnhan.GioiTinh = cbGioiTinh.SelectedIndex;
+                tiepnhan.DiaChi = txtDiaChi.Text;
+                tiepnhan.LyDoVaoVien = cbLyDoVaoVien.SelectedIndex + 1;
+                tiepnhan.TinhTrang = 0;
+                if (checkCapCuu.Checked)
+                    tiepnhan.TinhTrang = 2;
+                if (checkUuTien.Checked)
+                    tiepnhan.TinhTrang = 1;
+                tiepnhan.MaNoiChuyenDen = Utils.ToString(lookUpNoiChuyenDen.EditValue);
+                tiepnhan.MaTaiNan = lookUpTaiNan.ItemIndex;
+                tiepnhan.NgayVao = DateTime.Now;
+                tiepnhan.MaKhoa = Utils.ToString(lookUpMaKhoa.EditValue);// lúc xuất ra nhớ bỏ dấu _ file XML
+                tiepnhan.MaCoSoKCB = AppConfig.CoSoKCB;
+                tiepnhan.CanNang = Utils.ToDouble(txtCanNang.Text);
+                //tiepnhan.STTNgay = null;
+                //tiepnhan.STTPhong = 0;
+                //tiepnhan.Phong = phongKham;
+                tiepnhan.MucHuong = Utils.ToInt(txtTyLe.Text);
+                //tiepnhan.MaLoaiKCB = 1;
+                string err = "";
+                if(!tiepnhan.SpThongTinChiTietTiepNhan(ref err, "UpdateTiepNhan"))
+                {
+                    XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    XtraMessageBox.Show(Library.LuuThanhCong, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    LoadData();
+                }
             }
         }
 

@@ -32,5 +32,7 @@ namespace Core.DAL
         // Lấy thông tin bệnh nhân
         public const string BenhNhanDaTiepNhan = "Bệnh nhân này đã tiếp nhận hôm nay.";
         public const string MaBNKhongTonTai = "Mã bệnh nhân không tồn tại.";
+        // lưu thông tin
+        public const string LuuThanhCong = "Đã lưu thông tin thành công.";
     }
 }

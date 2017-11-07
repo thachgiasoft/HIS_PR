@@ -221,6 +221,56 @@ namespace KhamBenh.DAL
             }
             return kq;
         }
+        public bool SpThongTinChiTietTiepNhan(ref string err, string Action)
+        {
+            // mã liên kết
+            return db.MyExecuteNonQuery("SpThongTinBNChiTiet",
+               CommandType.StoredProcedure, ref err,
+               new SqlParameter("@Action", Action),
+               new SqlParameter("@MaLK", MaLK),
+               new SqlParameter("@MaBN", MaBN),
+               new SqlParameter("@HoTen", HoTen),
+               new SqlParameter("@NgaySinh", NgaySinh),
+               new SqlParameter("@GioiTinh", GioiTinh),
+               new SqlParameter("@DiaChi", DiaChi),
+               new SqlParameter("@MaThe", MaThe),
+               new SqlParameter("@MaDKBD", MaCS),
+               new SqlParameter("@TheTu", TheTu),
+               new SqlParameter("@TheDen", TheDen),
+               //new SqlParameter("@TenBenh", TenBenh),
+               //new SqlParameter("@MaBenh", MaBenh),
+               //new SqlParameter("@MaBenhKhac", MaBenhKhac),
+               new SqlParameter("@MaLyDoVaoVien", LyDoVaoVien),
+               new SqlParameter("@MaNoiChuyenDen", MaNoiChuyenDen),
+               new SqlParameter("@MaTaiNan", MaTaiNan),
+               new SqlParameter("@NgayVao", NgayVao),
+               //new SqlParameter("@NgayRa", NgayRa),
+               //new SqlParameter("@SoNgayDieuTri", SoNgayDieuTri),
+               //new SqlParameter("@KetQuaDieuTri", KetQuaDieuTri),
+               //new SqlParameter("@TinhTrangRaVien", TinhTrangRaVien),
+               //new SqlParameter("@NgayThanhToan", NgayThanhToan),
+               new SqlParameter("@MucHuong", MucHuong),
+               //new SqlParameter("@TienThuoc", TienThuoc),
+               //new SqlParameter("@TienVTYT", TienVTYT),
+               //new SqlParameter("@TongChi", TongChi),
+               //new SqlParameter("@TienBNTT", TienBNTT),
+               //new SqlParameter("@TienBHTT", TienBHTT),
+               //new SqlParameter("@TienNguonKhac", TienNguonKhac),
+               //new SqlParameter("@TienNgoaiDS", TienNgoaiDS),
+               //new SqlParameter("@NamQT", NamQT),
+               //new SqlParameter("@ThangQT", ThangQT),
+               new SqlParameter("@MaLoaiKCB", MaLoaiKCB),
+               new SqlParameter("@MaKhoa", MaKhoa),
+               new SqlParameter("@MaCoSoKCB", MaCoSoKCB),
+               new SqlParameter("@MaKhuVuc", MaKhuVuc),
+               //new SqlParameter("@MaPTTTTQT", MaPTTTTQT),
+               new SqlParameter("@CanNang", CanNang),
+               new SqlParameter("@STTNgay", STTNgay),
+               new SqlParameter("@STTPhong", STTPhong),
+               new SqlParameter("@Phong", Phong),
+               new SqlParameter("@TinhTrang", TinhTrang),
+               new SqlParameter("@CoThe", CoThe));
+        }
         public void LayThongTinCoThe(string maThe, string ngayVao)
         {
             DataTable data = db.ExcuteQuery("Select * From LayThongTinCoThe('" + maThe + "','" + ngayVao + "')",

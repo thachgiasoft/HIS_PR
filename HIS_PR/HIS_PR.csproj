@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Hospital-blue.ico</ApplicationIcon>
+    <ApplicationIcon>Large-Home-Drugstore.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Hospital-blue.ico" />
+    <Content Include="Large-Home-Drugstore.ico" />
     <None Include="Resources\store-arrow-icon.png" />
     <None Include="Resources\user-settings-icon.png" />
     <None Include="Resources\category-icon.png" />
@@ -172,9 +173,9 @@
       <Project>{2E3951DB-34F2-45C4-8C21-69F88B2633F7}</Project>
       <Name>HeThong.GUI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TiepNhan.GUI\TiepNhan.GUI.csproj">
+    <ProjectReference Include="..\TiepNhan.GUI\KhamBenh.GUI.csproj">
       <Project>{5A88788C-249F-4168-A604-CE2502819E32}</Project>
-      <Name>TiepNhan.GUI</Name>
+      <Name>KhamBenh.GUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

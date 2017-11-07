@@ -287,5 +287,21 @@ namespace HIS_PR
             frmTiepNhan.MdiParent = this;
             frmTiepNhan.Show();
         }
+
+        private void barButtonKhamBenh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmKhamBenhNgoaiTru))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmKhamBenhNgoaiTru frmKhamBenh = new FrmKhamBenhNgoaiTru();
+            frmKhamBenh.MdiParent = this;
+            frmKhamBenh.Show();
+        }
     }
 }

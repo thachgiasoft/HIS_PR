@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KhamBenh", "KhamBenh", "{92
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhamBenh.DAL", "KhamBenh.DAL\KhamBenh.DAL.csproj", "{F0C49925-9660-4D7A-B777-A99B3EC3C4B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiepNhan.GUI", "TiepNhan.GUI\TiepNhan.GUI.csproj", "{5A88788C-249F-4168-A604-CE2502819E32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhamBenh.GUI", "TiepNhan.GUI\KhamBenh.GUI.csproj", "{5A88788C-249F-4168-A604-CE2502819E32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
