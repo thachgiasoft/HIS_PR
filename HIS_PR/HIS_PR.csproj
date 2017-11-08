@@ -143,7 +143,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Hospital-blue.ico" />
     <Content Include="Large-Home-Drugstore.ico" />
     <None Include="Resources\store-arrow-icon.png" />
     <None Include="Resources\user-settings-icon.png" />

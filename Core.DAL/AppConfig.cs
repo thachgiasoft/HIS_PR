@@ -23,6 +23,7 @@ namespace Core.DAL
         private static bool nhoTT = false;
         private static string userLogin = "";
         private static string passWord = "";
+        private static string maKhoa = null;
         public AppConfig()
         {
             xmlfile = new XmlDocument ();
@@ -194,6 +195,19 @@ namespace Core.DAL
             set
             {
                 passWord = value;
+            }
+        }
+
+        public static string MaKhoa
+        {
+            get
+            {
+                return maKhoa;
+            }
+
+            set
+            {
+                maKhoa = value;
             }
         }
 

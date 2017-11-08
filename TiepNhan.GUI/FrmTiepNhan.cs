@@ -743,7 +743,7 @@ namespace TiepNhan.GUI
 
         private void checkTatCaDS_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkTatCaDS.Checked)
+            if (checkTatCaDS.Checked && dataDanhSach2!=null)
             {
                 gridControlDS.DataSource = dataDanhSach2;
                 lblSoLuong.Text = Utils.ToString(dataDanhSach2.Rows.Count);

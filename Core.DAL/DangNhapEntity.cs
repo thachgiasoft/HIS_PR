@@ -42,6 +42,7 @@ namespace Core.DAL
             AppConfig.MaNV = data.Rows[0]["Ma_NV"].ToString ();
             AppConfig.MatKhau = data.Rows[0]["MatKhau"].ToString ();
             AppConfig.CoSoKCB = data.Rows[0]["CoSoKCB"].ToString ();
+            AppConfig.MaKhoa = data.Rows[0]["MaKhoa"].ToString();
 
             
             Utils.ThemHoatDong (Library.DANGNHAP);
