@@ -31,29 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKhamBenhNgoaiTru));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkTatCa = new DevExpress.XtraEditors.CheckEdit();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.checkChoKham = new DevExpress.XtraEditors.CheckEdit();
-            this.checkDaKham = new DevExpress.XtraEditors.CheckEdit();
-            this.checkChuyenTuyen = new DevExpress.XtraEditors.CheckEdit();
-            this.checkNhapVien = new DevExpress.XtraEditors.CheckEdit();
-            this.checkRaVien = new DevExpress.XtraEditors.CheckEdit();
-            this.flowLayoutPanelSoLuong = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblPhongKham = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlGroupMain = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnLichSuKCB = new DevExpress.XtraEditors.SimpleButton();
-            this.btnKeDon = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCanLamSan = new DevExpress.XtraEditors.SimpleButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.flowLayoutPanelChuyenPhong = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnChuyenTuyen = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNhapVien = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLamMoi = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.STTNgayDS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,10 +45,37 @@
             this.NgayRa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STTPhongDS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PhongDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flowLayoutPanelChuyenPhong = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnLichSuKCB = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKeDon = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCanLamSan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyenTuyen = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNhapVien = new DevExpress.XtraEditors.SimpleButton();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkTatCa = new DevExpress.XtraEditors.CheckEdit();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.checkChoKham = new DevExpress.XtraEditors.CheckEdit();
+            this.checkDaKham = new DevExpress.XtraEditors.CheckEdit();
+            this.checkChuyenTuyen = new DevExpress.XtraEditors.CheckEdit();
+            this.checkNhapVien = new DevExpress.XtraEditors.CheckEdit();
+            this.checkRaVien = new DevExpress.XtraEditors.CheckEdit();
+            this.btnLamMoi = new DevExpress.XtraEditors.SimpleButton();
+            this.flowLayoutPanelSoLuong = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblPhongKham = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroupMain = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkTatCa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -84,11 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +122,261 @@
             this.layoutControlMain.Root = this.layoutControlGroupMain;
             this.layoutControlMain.Size = new System.Drawing.Size(890, 468);
             this.layoutControlMain.TabIndex = 1;
+            // 
+            // gridControl
+            // 
+            this.gridControl.Location = new System.Drawing.Point(12, 76);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.MenuManager = this.ribbonControl;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(866, 380);
+            this.gridControl.TabIndex = 15;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
+            // 
+            // gridView
+            // 
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.STTNgayDS,
+            this.MaBNDS,
+            this.MaTheDS,
+            this.HoTenDS,
+            this.NgaySinhDS,
+            this.GioiTinhDS,
+            this.DiaChiDS,
+            this.TenBenh,
+            this.NgayVaoDS,
+            this.NgayRa,
+            this.STTPhongDS,
+            this.PhongDS,
+            this.TinhTrang});
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
+            this.gridView.OptionsFind.AlwaysVisible = true;
+            this.gridView.OptionsFind.FindNullPrompt = "Nhập thông tin cần tìm";
+            this.gridView.OptionsView.ShowGroupPanel = false;
+            this.gridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView_CustomColumnDisplayText);
+            // 
+            // STTNgayDS
+            // 
+            this.STTNgayDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STTNgayDS.AppearanceCell.Options.UseFont = true;
+            this.STTNgayDS.Caption = "STT Ngày";
+            this.STTNgayDS.FieldName = "STTNgay";
+            this.STTNgayDS.Name = "STTNgayDS";
+            this.STTNgayDS.OptionsColumn.AllowEdit = false;
+            this.STTNgayDS.Width = 90;
+            // 
+            // MaBNDS
+            // 
+            this.MaBNDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaBNDS.AppearanceCell.Options.UseFont = true;
+            this.MaBNDS.Caption = "Mã BN";
+            this.MaBNDS.FieldName = "MaBN";
+            this.MaBNDS.Name = "MaBNDS";
+            this.MaBNDS.OptionsColumn.AllowEdit = false;
+            this.MaBNDS.Visible = true;
+            this.MaBNDS.VisibleIndex = 0;
+            this.MaBNDS.Width = 90;
+            // 
+            // MaTheDS
+            // 
+            this.MaTheDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaTheDS.AppearanceCell.Options.UseFont = true;
+            this.MaTheDS.Caption = "Mã Thẻ";
+            this.MaTheDS.FieldName = "MaThe";
+            this.MaTheDS.Name = "MaTheDS";
+            this.MaTheDS.OptionsColumn.AllowEdit = false;
+            this.MaTheDS.Visible = true;
+            this.MaTheDS.VisibleIndex = 1;
+            this.MaTheDS.Width = 120;
+            // 
+            // HoTenDS
+            // 
+            this.HoTenDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoTenDS.AppearanceCell.Options.UseFont = true;
+            this.HoTenDS.Caption = "Họ Tên";
+            this.HoTenDS.FieldName = "HoTen";
+            this.HoTenDS.Name = "HoTenDS";
+            this.HoTenDS.OptionsColumn.AllowEdit = false;
+            this.HoTenDS.Visible = true;
+            this.HoTenDS.VisibleIndex = 2;
+            this.HoTenDS.Width = 150;
+            // 
+            // NgaySinhDS
+            // 
+            this.NgaySinhDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgaySinhDS.AppearanceCell.Options.UseFont = true;
+            this.NgaySinhDS.Caption = "Ngày Sinh";
+            this.NgaySinhDS.FieldName = "NgaySinh";
+            this.NgaySinhDS.Name = "NgaySinhDS";
+            this.NgaySinhDS.OptionsColumn.AllowEdit = false;
+            this.NgaySinhDS.Visible = true;
+            this.NgaySinhDS.VisibleIndex = 3;
+            this.NgaySinhDS.Width = 70;
+            // 
+            // GioiTinhDS
+            // 
+            this.GioiTinhDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GioiTinhDS.AppearanceCell.Options.UseFont = true;
+            this.GioiTinhDS.Caption = "Giới Tính";
+            this.GioiTinhDS.FieldName = "GioiTinh";
+            this.GioiTinhDS.Name = "GioiTinhDS";
+            this.GioiTinhDS.OptionsColumn.AllowEdit = false;
+            this.GioiTinhDS.Visible = true;
+            this.GioiTinhDS.VisibleIndex = 4;
+            this.GioiTinhDS.Width = 50;
+            // 
+            // DiaChiDS
+            // 
+            this.DiaChiDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiaChiDS.AppearanceCell.Options.UseFont = true;
+            this.DiaChiDS.Caption = "Địa Chỉ";
+            this.DiaChiDS.FieldName = "DiaChi";
+            this.DiaChiDS.Name = "DiaChiDS";
+            this.DiaChiDS.OptionsColumn.AllowEdit = false;
+            this.DiaChiDS.Visible = true;
+            this.DiaChiDS.VisibleIndex = 5;
+            this.DiaChiDS.Width = 150;
+            // 
+            // TenBenh
+            // 
+            this.TenBenh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenBenh.AppearanceCell.Options.UseFont = true;
+            this.TenBenh.Caption = "Tên Bệnh";
+            this.TenBenh.FieldName = "TenBenh";
+            this.TenBenh.Name = "TenBenh";
+            this.TenBenh.OptionsColumn.AllowEdit = false;
+            this.TenBenh.Visible = true;
+            this.TenBenh.VisibleIndex = 6;
+            this.TenBenh.Width = 150;
+            // 
+            // NgayVaoDS
+            // 
+            this.NgayVaoDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayVaoDS.AppearanceCell.Options.UseFont = true;
+            this.NgayVaoDS.Caption = "Ngày Vào";
+            this.NgayVaoDS.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgayVaoDS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NgayVaoDS.FieldName = "NgayVao";
+            this.NgayVaoDS.Name = "NgayVaoDS";
+            this.NgayVaoDS.OptionsColumn.AllowEdit = false;
+            this.NgayVaoDS.Visible = true;
+            this.NgayVaoDS.VisibleIndex = 7;
+            this.NgayVaoDS.Width = 70;
+            // 
+            // NgayRa
+            // 
+            this.NgayRa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayRa.AppearanceCell.Options.UseFont = true;
+            this.NgayRa.Caption = "Ngày Ra";
+            this.NgayRa.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgayRa.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NgayRa.FieldName = "NgayRa";
+            this.NgayRa.Name = "NgayRa";
+            this.NgayRa.OptionsColumn.AllowEdit = false;
+            this.NgayRa.Visible = true;
+            this.NgayRa.VisibleIndex = 8;
+            this.NgayRa.Width = 70;
+            // 
+            // STTPhongDS
+            // 
+            this.STTPhongDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STTPhongDS.AppearanceCell.Options.UseFont = true;
+            this.STTPhongDS.Caption = "STT Phòng";
+            this.STTPhongDS.FieldName = "STTPhong";
+            this.STTPhongDS.Name = "STTPhongDS";
+            this.STTPhongDS.OptionsColumn.AllowEdit = false;
+            this.STTPhongDS.Visible = true;
+            this.STTPhongDS.VisibleIndex = 10;
+            this.STTPhongDS.Width = 60;
+            // 
+            // PhongDS
+            // 
+            this.PhongDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhongDS.AppearanceCell.Options.UseFont = true;
+            this.PhongDS.Caption = "Phòng khám";
+            this.PhongDS.FieldName = "Phong";
+            this.PhongDS.Name = "PhongDS";
+            this.PhongDS.OptionsColumn.AllowEdit = false;
+            this.PhongDS.Visible = true;
+            this.PhongDS.VisibleIndex = 9;
+            this.PhongDS.Width = 72;
+            // 
+            // flowLayoutPanelChuyenPhong
+            // 
+            this.flowLayoutPanelChuyenPhong.Location = new System.Drawing.Point(546, 43);
+            this.flowLayoutPanelChuyenPhong.Name = "flowLayoutPanelChuyenPhong";
+            this.flowLayoutPanelChuyenPhong.Size = new System.Drawing.Size(332, 29);
+            this.flowLayoutPanelChuyenPhong.TabIndex = 11;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnLichSuKCB);
+            this.flowLayoutPanel1.Controls.Add(this.btnKeDon);
+            this.flowLayoutPanel1.Controls.Add(this.btnCanLamSan);
+            this.flowLayoutPanel1.Controls.Add(this.btnChuyenTuyen);
+            this.flowLayoutPanel1.Controls.Add(this.btnNhapVien);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 43);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(530, 29);
+            this.flowLayoutPanel1.TabIndex = 10;
+            // 
+            // btnLichSuKCB
+            // 
+            this.btnLichSuKCB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLichSuKCB.Appearance.Options.UseFont = true;
+            this.btnLichSuKCB.ImageUri.Uri = "SwitchTimeScalesTo;Size16x16;Office2013";
+            this.btnLichSuKCB.Location = new System.Drawing.Point(3, 3);
+            this.btnLichSuKCB.Name = "btnLichSuKCB";
+            this.btnLichSuKCB.Size = new System.Drawing.Size(94, 23);
+            this.btnLichSuKCB.TabIndex = 7;
+            this.btnLichSuKCB.Text = "Lịch sử KCB";
+            this.btnLichSuKCB.Click += new System.EventHandler(this.btnLichSuKCB_Click);
+            // 
+            // btnKeDon
+            // 
+            this.btnKeDon.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKeDon.Appearance.Options.UseFont = true;
+            this.btnKeDon.ImageUri.Uri = "MoreLayoutOptions;Size16x16;Office2013";
+            this.btnKeDon.Location = new System.Drawing.Point(103, 3);
+            this.btnKeDon.Name = "btnKeDon";
+            this.btnKeDon.Size = new System.Drawing.Size(92, 23);
+            this.btnKeDon.TabIndex = 8;
+            this.btnKeDon.Text = "Kê đơn";
+            // 
+            // btnCanLamSan
+            // 
+            this.btnCanLamSan.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanLamSan.Appearance.Options.UseFont = true;
+            this.btnCanLamSan.ImageUri.Uri = "Show;Size16x16;Office2013";
+            this.btnCanLamSan.Location = new System.Drawing.Point(201, 3);
+            this.btnCanLamSan.Name = "btnCanLamSan";
+            this.btnCanLamSan.Size = new System.Drawing.Size(104, 23);
+            this.btnCanLamSan.TabIndex = 9;
+            this.btnCanLamSan.Text = "Chỉ định CLS";
+            // 
+            // btnChuyenTuyen
+            // 
+            this.btnChuyenTuyen.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChuyenTuyen.Appearance.Options.UseFont = true;
+            this.btnChuyenTuyen.ImageUri.Uri = "Previous;Size16x16;Office2013";
+            this.btnChuyenTuyen.Location = new System.Drawing.Point(311, 3);
+            this.btnChuyenTuyen.Name = "btnChuyenTuyen";
+            this.btnChuyenTuyen.Size = new System.Drawing.Size(109, 23);
+            this.btnChuyenTuyen.TabIndex = 10;
+            this.btnChuyenTuyen.Text = "Chuyển tuyến";
+            // 
+            // btnNhapVien
+            // 
+            this.btnNhapVien.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapVien.Appearance.Options.UseFont = true;
+            this.btnNhapVien.ImageUri.Uri = "Home;Size16x16;Office2013";
+            this.btnNhapVien.Location = new System.Drawing.Point(426, 3);
+            this.btnNhapVien.Name = "btnNhapVien";
+            this.btnNhapVien.Size = new System.Drawing.Size(101, 23);
+            this.btnNhapVien.TabIndex = 11;
+            this.btnNhapVien.Text = "Nhập viện";
             // 
             // flowLayoutPanel3
             // 
@@ -230,6 +486,18 @@
             this.checkRaVien.TabStop = false;
             this.checkRaVien.CheckedChanged += new System.EventHandler(this.checkRaVien_CheckedChanged);
             // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLamMoi.Appearance.Options.UseFont = true;
+            this.btnLamMoi.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
+            this.btnLamMoi.Location = new System.Drawing.Point(451, 3);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnLamMoi.TabIndex = 6;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
             // flowLayoutPanelSoLuong
             // 
             this.flowLayoutPanelSoLuong.Controls.Add(this.lblPhongKham);
@@ -289,51 +557,6 @@
             this.layoutControlItem32.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem32.TextVisible = false;
             // 
-            // btnLichSuKCB
-            // 
-            this.btnLichSuKCB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLichSuKCB.Appearance.Options.UseFont = true;
-            this.btnLichSuKCB.ImageUri.Uri = "SwitchTimeScalesTo;Size16x16;Office2013";
-            this.btnLichSuKCB.Location = new System.Drawing.Point(3, 3);
-            this.btnLichSuKCB.Name = "btnLichSuKCB";
-            this.btnLichSuKCB.Size = new System.Drawing.Size(94, 23);
-            this.btnLichSuKCB.TabIndex = 7;
-            this.btnLichSuKCB.Text = "Lịch sử KCB";
-            // 
-            // btnKeDon
-            // 
-            this.btnKeDon.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKeDon.Appearance.Options.UseFont = true;
-            this.btnKeDon.ImageUri.Uri = "MoreLayoutOptions;Size16x16;Office2013";
-            this.btnKeDon.Location = new System.Drawing.Point(103, 3);
-            this.btnKeDon.Name = "btnKeDon";
-            this.btnKeDon.Size = new System.Drawing.Size(92, 23);
-            this.btnKeDon.TabIndex = 8;
-            this.btnKeDon.Text = "Kê đơn";
-            // 
-            // btnCanLamSan
-            // 
-            this.btnCanLamSan.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanLamSan.Appearance.Options.UseFont = true;
-            this.btnCanLamSan.ImageUri.Uri = "Show;Size16x16;Office2013";
-            this.btnCanLamSan.Location = new System.Drawing.Point(201, 3);
-            this.btnCanLamSan.Name = "btnCanLamSan";
-            this.btnCanLamSan.Size = new System.Drawing.Size(104, 23);
-            this.btnCanLamSan.TabIndex = 9;
-            this.btnCanLamSan.Text = "Chỉ định CLS";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnLichSuKCB);
-            this.flowLayoutPanel1.Controls.Add(this.btnKeDon);
-            this.flowLayoutPanel1.Controls.Add(this.btnCanLamSan);
-            this.flowLayoutPanel1.Controls.Add(this.btnChuyenTuyen);
-            this.flowLayoutPanel1.Controls.Add(this.btnNhapVien);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 43);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(530, 29);
-            this.flowLayoutPanel1.TabIndex = 10;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.flowLayoutPanel1;
@@ -345,13 +568,6 @@
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // flowLayoutPanelChuyenPhong
-            // 
-            this.flowLayoutPanelChuyenPhong.Location = new System.Drawing.Point(546, 43);
-            this.flowLayoutPanelChuyenPhong.Name = "flowLayoutPanelChuyenPhong";
-            this.flowLayoutPanelChuyenPhong.Size = new System.Drawing.Size(332, 29);
-            this.flowLayoutPanelChuyenPhong.TabIndex = 11;
             // 
             // layoutControlItem2
             // 
@@ -365,220 +581,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // btnChuyenTuyen
-            // 
-            this.btnChuyenTuyen.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChuyenTuyen.Appearance.Options.UseFont = true;
-            this.btnChuyenTuyen.ImageUri.Uri = "Previous;Size16x16;Office2013";
-            this.btnChuyenTuyen.Location = new System.Drawing.Point(311, 3);
-            this.btnChuyenTuyen.Name = "btnChuyenTuyen";
-            this.btnChuyenTuyen.Size = new System.Drawing.Size(109, 23);
-            this.btnChuyenTuyen.TabIndex = 10;
-            this.btnChuyenTuyen.Text = "Chuyển tuyến";
-            // 
-            // btnNhapVien
-            // 
-            this.btnNhapVien.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapVien.Appearance.Options.UseFont = true;
-            this.btnNhapVien.ImageUri.Uri = "Home;Size16x16;Office2013";
-            this.btnNhapVien.Location = new System.Drawing.Point(426, 3);
-            this.btnNhapVien.Name = "btnNhapVien";
-            this.btnNhapVien.Size = new System.Drawing.Size(101, 23);
-            this.btnNhapVien.TabIndex = 11;
-            this.btnNhapVien.Text = "Nhập viện";
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Appearance.Options.UseFont = true;
-            this.btnLamMoi.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
-            this.btnLamMoi.Location = new System.Drawing.Point(451, 3);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnLamMoi.TabIndex = 6;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
-            // 
-            // gridControl
-            // 
-            this.gridControl.Location = new System.Drawing.Point(12, 76);
-            this.gridControl.MainView = this.gridView;
-            this.gridControl.MenuManager = this.ribbonControl;
-            this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(866, 380);
-            this.gridControl.TabIndex = 15;
-            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView});
-            // 
-            // gridView
-            // 
-            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.STTNgayDS,
-            this.MaBNDS,
-            this.MaTheDS,
-            this.HoTenDS,
-            this.NgaySinhDS,
-            this.GioiTinhDS,
-            this.DiaChiDS,
-            this.TenBenh,
-            this.NgayVaoDS,
-            this.NgayRa,
-            this.STTPhongDS,
-            this.PhongDS});
-            this.gridView.GridControl = this.gridControl;
-            this.gridView.Name = "gridView";
-            this.gridView.OptionsFind.AlwaysVisible = true;
-            this.gridView.OptionsFind.FindNullPrompt = "Nhập thông tin cần tìm";
-            this.gridView.OptionsView.ShowGroupPanel = false;
-            // 
-            // STTNgayDS
-            // 
-            this.STTNgayDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STTNgayDS.AppearanceCell.Options.UseFont = true;
-            this.STTNgayDS.Caption = "STT Ngày";
-            this.STTNgayDS.FieldName = "STTNgay";
-            this.STTNgayDS.Name = "STTNgayDS";
-            this.STTNgayDS.OptionsColumn.AllowEdit = false;
-            this.STTNgayDS.Visible = true;
-            this.STTNgayDS.VisibleIndex = 0;
-            this.STTNgayDS.Width = 90;
-            // 
-            // MaBNDS
-            // 
-            this.MaBNDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaBNDS.AppearanceCell.Options.UseFont = true;
-            this.MaBNDS.Caption = "Mã BN";
-            this.MaBNDS.FieldName = "MaBN";
-            this.MaBNDS.Name = "MaBNDS";
-            this.MaBNDS.OptionsColumn.AllowEdit = false;
-            this.MaBNDS.Visible = true;
-            this.MaBNDS.VisibleIndex = 1;
-            this.MaBNDS.Width = 90;
-            // 
-            // MaTheDS
-            // 
-            this.MaTheDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaTheDS.AppearanceCell.Options.UseFont = true;
-            this.MaTheDS.Caption = "Mã Thẻ";
-            this.MaTheDS.FieldName = "MaThe";
-            this.MaTheDS.Name = "MaTheDS";
-            this.MaTheDS.OptionsColumn.AllowEdit = false;
-            this.MaTheDS.Visible = true;
-            this.MaTheDS.VisibleIndex = 2;
-            this.MaTheDS.Width = 120;
-            // 
-            // HoTenDS
-            // 
-            this.HoTenDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoTenDS.AppearanceCell.Options.UseFont = true;
-            this.HoTenDS.Caption = "Họ Tên";
-            this.HoTenDS.FieldName = "HoTen";
-            this.HoTenDS.Name = "HoTenDS";
-            this.HoTenDS.OptionsColumn.AllowEdit = false;
-            this.HoTenDS.Visible = true;
-            this.HoTenDS.VisibleIndex = 3;
-            this.HoTenDS.Width = 150;
-            // 
-            // NgaySinhDS
-            // 
-            this.NgaySinhDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgaySinhDS.AppearanceCell.Options.UseFont = true;
-            this.NgaySinhDS.Caption = "Ngày Sinh";
-            this.NgaySinhDS.FieldName = "NgaySinh";
-            this.NgaySinhDS.Name = "NgaySinhDS";
-            this.NgaySinhDS.OptionsColumn.AllowEdit = false;
-            this.NgaySinhDS.Visible = true;
-            this.NgaySinhDS.VisibleIndex = 4;
-            this.NgaySinhDS.Width = 70;
-            // 
-            // GioiTinhDS
-            // 
-            this.GioiTinhDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GioiTinhDS.AppearanceCell.Options.UseFont = true;
-            this.GioiTinhDS.Caption = "Giới Tính";
-            this.GioiTinhDS.FieldName = "GioiTinh";
-            this.GioiTinhDS.Name = "GioiTinhDS";
-            this.GioiTinhDS.OptionsColumn.AllowEdit = false;
-            this.GioiTinhDS.Visible = true;
-            this.GioiTinhDS.VisibleIndex = 5;
-            this.GioiTinhDS.Width = 50;
-            // 
-            // DiaChiDS
-            // 
-            this.DiaChiDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiaChiDS.AppearanceCell.Options.UseFont = true;
-            this.DiaChiDS.Caption = "Địa Chỉ";
-            this.DiaChiDS.FieldName = "DiaChi";
-            this.DiaChiDS.Name = "DiaChiDS";
-            this.DiaChiDS.OptionsColumn.AllowEdit = false;
-            this.DiaChiDS.Visible = true;
-            this.DiaChiDS.VisibleIndex = 6;
-            this.DiaChiDS.Width = 150;
-            // 
-            // TenBenh
-            // 
-            this.TenBenh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenBenh.AppearanceCell.Options.UseFont = true;
-            this.TenBenh.Caption = "Tên Bệnh";
-            this.TenBenh.FieldName = "TenBenh";
-            this.TenBenh.Name = "TenBenh";
-            this.TenBenh.OptionsColumn.AllowEdit = false;
-            this.TenBenh.Visible = true;
-            this.TenBenh.VisibleIndex = 7;
-            this.TenBenh.Width = 150;
-            // 
-            // NgayVaoDS
-            // 
-            this.NgayVaoDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgayVaoDS.AppearanceCell.Options.UseFont = true;
-            this.NgayVaoDS.Caption = "Ngày Vào";
-            this.NgayVaoDS.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.NgayVaoDS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.NgayVaoDS.FieldName = "NgayVao";
-            this.NgayVaoDS.Name = "NgayVaoDS";
-            this.NgayVaoDS.OptionsColumn.AllowEdit = false;
-            this.NgayVaoDS.Visible = true;
-            this.NgayVaoDS.VisibleIndex = 8;
-            this.NgayVaoDS.Width = 70;
-            // 
-            // NgayRa
-            // 
-            this.NgayRa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NgayRa.AppearanceCell.Options.UseFont = true;
-            this.NgayRa.Caption = "Ngày Ra";
-            this.NgayRa.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.NgayRa.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.NgayRa.FieldName = "NgayRa";
-            this.NgayRa.Name = "NgayRa";
-            this.NgayRa.OptionsColumn.AllowEdit = false;
-            this.NgayRa.Visible = true;
-            this.NgayRa.VisibleIndex = 9;
-            this.NgayRa.Width = 70;
-            // 
-            // STTPhongDS
-            // 
-            this.STTPhongDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STTPhongDS.AppearanceCell.Options.UseFont = true;
-            this.STTPhongDS.Caption = "STT Phòng";
-            this.STTPhongDS.FieldName = "STTPhong";
-            this.STTPhongDS.Name = "STTPhongDS";
-            this.STTPhongDS.OptionsColumn.AllowEdit = false;
-            this.STTPhongDS.Visible = true;
-            this.STTPhongDS.VisibleIndex = 11;
-            this.STTPhongDS.Width = 60;
-            // 
-            // PhongDS
-            // 
-            this.PhongDS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhongDS.AppearanceCell.Options.UseFont = true;
-            this.PhongDS.Caption = "Phòng khám";
-            this.PhongDS.FieldName = "Phong";
-            this.PhongDS.Name = "PhongDS";
-            this.PhongDS.OptionsColumn.AllowEdit = false;
-            this.PhongDS.Visible = true;
-            this.PhongDS.VisibleIndex = 10;
-            this.PhongDS.Width = 72;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.gridControl;
@@ -587,6 +589,16 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(870, 384);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TinhTrang.AppearanceCell.Options.UseFont = true;
+            this.TinhTrang.Caption = "Tiếp nhận";
+            this.TinhTrang.FieldName = "TinhTrang";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Visible = true;
+            this.TinhTrang.VisibleIndex = 11;
             // 
             // FrmKhamBenhNgoaiTru
             // 
@@ -604,6 +616,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).EndInit();
             this.layoutControlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkTatCa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
@@ -617,11 +632,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -670,5 +682,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn STTPhongDS;
         private DevExpress.XtraGrid.Columns.GridColumn PhongDS;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.Columns.GridColumn TinhTrang;
     }
 }

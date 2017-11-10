@@ -650,7 +650,7 @@ namespace TiepNhan.GUI
 
         private void gridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if(e.Column.Name =="GioiTinh")
+            if (e.Column.Name == "GioiTinh")
             {
                 if (Utils.ToInt(e.Value) == 0)
                     e.DisplayText = "Nam";
@@ -658,9 +658,9 @@ namespace TiepNhan.GUI
                     e.DisplayText = "Nữ";
             }
             else
-                if(e.Column.Name =="TinhTrang")
+                if (e.Column.Name == "TinhTrang")
             {
-                switch(Utils.ToInt(e.Value))
+                switch (Utils.ToInt(e.Value))
                 {
                     case 2:
                         e.DisplayText = "Cấp cứu";
@@ -679,7 +679,7 @@ namespace TiepNhan.GUI
         {
             if(checkChoKham.Checked)
             {
-                var data = dataDanhSach.Select("MaBenh is null And NgayRa is null");
+                var data = dataDanhSach.Select(Library.SqlChoKham);
                 if (data.Length > 0)
                     GanSoLuongPhongKham(data.CopyToDataTable());
                 else
@@ -697,7 +697,7 @@ namespace TiepNhan.GUI
         {
             if (checkDaKham.Checked)
             {
-                var data = dataDanhSach.Select("MaBenh is not null And NgayRa is null");
+                var data = dataDanhSach.Select(Library.SqlDaKham);
                 if (data.Length > 0)
                     GanSoLuongPhongKham(data.CopyToDataTable());
                 else
@@ -709,7 +709,7 @@ namespace TiepNhan.GUI
         {
             if (checkChuyenTuyen.Checked)
             {
-                var data = dataDanhSach.Select("TinhTrangRaVien = 2");
+                var data = dataDanhSach.Select(Library.SqlChuyenTuyen);
                 if (data.Length > 0)
                     GanSoLuongPhongKham(data.CopyToDataTable());
                 else
@@ -721,7 +721,7 @@ namespace TiepNhan.GUI
         {
             if (checkNhapVien.Checked)
             {
-                var data = dataDanhSach.Select("MaLoaiKCB = 3");
+                var data = dataDanhSach.Select(Library.SqlNhapVien);
                 if (data.Length > 0)
                     GanSoLuongPhongKham(data.CopyToDataTable());
                 else
@@ -733,7 +733,7 @@ namespace TiepNhan.GUI
         {
             if (checkRaVien.Checked)
             {
-                var data = dataDanhSach.Select("MaBenh is not null And NgayRa is not null");
+                var data = dataDanhSach.Select(Library.SqlRaVien);
                 if (data.Length > 0)
                     GanSoLuongPhongKham(data.CopyToDataTable());
                 else
@@ -754,7 +754,7 @@ namespace TiepNhan.GUI
         {
             if (checkChoKhamDS.Checked && dataDanhSach2!=null)
             {
-                var data = dataDanhSach2.Select("MaBenh is null And NgayRa is null");
+                var data = dataDanhSach2.Select(Library.SqlChoKham);
                 if (data.Length > 0)
                     gridControlDS.DataSource = data.CopyToDataTable();
                 else
@@ -767,7 +767,7 @@ namespace TiepNhan.GUI
         {
             if (checkDaKhamDS.Checked && dataDanhSach2 != null)
             {
-                var data = dataDanhSach2.Select("MaBenh is not null And NgayRa is null");
+                var data = dataDanhSach2.Select(Library.SqlDaKham);
                 if (data.Length > 0)
                     gridControlDS.DataSource = data.CopyToDataTable();
                 else
@@ -780,7 +780,7 @@ namespace TiepNhan.GUI
         {
             if (checkChuyenTuyenDS.Checked && dataDanhSach2 != null)
             {
-                var data = dataDanhSach2.Select("TinhTrangRaVien = 2");
+                var data = dataDanhSach2.Select(Library.SqlChuyenTuyen);
                 if (data.Length > 0)
                     gridControlDS.DataSource = data.CopyToDataTable();
                 else
@@ -793,7 +793,7 @@ namespace TiepNhan.GUI
         {
             if (checkNhapVienDS.Checked && dataDanhSach2 != null)
             {
-                var data = dataDanhSach2.Select("MaLoaiKCB = 3");
+                var data = dataDanhSach2.Select(Library.SqlNhapVien);
                 if (data.Length > 0)
                     gridControlDS.DataSource = data.CopyToDataTable();
                 else
@@ -806,7 +806,7 @@ namespace TiepNhan.GUI
         {
             if (checkRaVienDS.Checked && dataDanhSach2 != null)
             {
-                var data = dataDanhSach2.Select("MaBenh is not null And NgayRa is not null");
+                var data = dataDanhSach2.Select(Library.SqlRaVien);
                 if (data.Length > 0)
                     gridControlDS.DataSource = data.CopyToDataTable();
                 else
