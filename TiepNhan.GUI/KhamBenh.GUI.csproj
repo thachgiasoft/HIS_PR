@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmChonKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChonKhoa.Designer.cs">
+      <DependentUpon>FrmChonKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmKhamBenhNgoaiTru.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="RptSoPhieu.Designer.cs">
       <DependentUpon>RptSoPhieu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmChonKhoa.resx">
+      <DependentUpon>FrmChonKhoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmKhamBenhNgoaiTru.resx">
       <DependentUpon>FrmKhamBenhNgoaiTru.cs</DependentUpon>
     </EmbeddedResource>

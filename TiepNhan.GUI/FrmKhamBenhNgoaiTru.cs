@@ -75,18 +75,18 @@ namespace TiepNhan.GUI
         }
         private void btnNew_Click(object sender, EventArgs e)
         {
-                SimpleButton clickedButton = (SimpleButton)sender;
-                ChuyenPhong(Utils.ToInt(clickedButton.Name.Substring(clickedButton.Name.Length - 2, 2)));
+            SimpleButton clickedButton = (SimpleButton)sender;
+            ChuyenPhong(Utils.ToInt(clickedButton.Name.Substring(clickedButton.Name.Length - 2, 2)));
         }
-        private void GanSoLuongPhongKham(DataTable data, string sql=null)
+        private void GanSoLuongPhongKham(DataTable data, string sql = null)
         {
             lblPhongKham.Text = "";
 
             var sqlCountPhong = listPhongKham.Aggregate(string.Empty,
-                (total, part) => total + "SUM(CASE WHEN PHONG = " + part + " THEN 1 ELSE 0 END) AS Phong"+part+ ",");
+                (total, part) => total + "SUM(CASE WHEN PHONG = " + part + " THEN 1 ELSE 0 END) AS Phong" + part + ",");
             sqlCountPhong = "SELECT " + sqlCountPhong.Substring(0, sqlCountPhong.Length - 1) + " FROM ThongTinBNChiTiet " +
                 "Where CAST(NgayVao AS DATE) = CAST('" + DateTime.Now.ToShortDateString() + "' AS DATE)";
-            if(sql!=null)
+            if (sql != null)
             {
                 sqlCountPhong += " And " + sql;
             }
@@ -95,7 +95,7 @@ namespace TiepNhan.GUI
             {
                 foreach (var t in listPhongKham)
                 {
-                    lblPhongKham.Text += "Phòng khám " + t + ": " + dt.Rows[0]["Phong"+t] + "     ";
+                    lblPhongKham.Text += "Phòng khám " + t + ": " + dt.Rows[0]["Phong" + t] + "     ";
                 }
             }
             else
@@ -109,7 +109,7 @@ namespace TiepNhan.GUI
         }
         private void checkTatCa_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkTatCa.Checked)
+            if (checkTatCa.Checked)
             {
                 gridControl.DataSource = dataDanhSach;
                 GanSoLuongPhongKham(dataDanhSach, null);
@@ -118,7 +118,7 @@ namespace TiepNhan.GUI
 
         private void checkChoKham_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkChoKham.Checked)
+            if (checkChoKham.Checked)
             {
                 var data = dataDanhSach.Select(Library.SqlChoKham);
                 if (data.Length > 0)
@@ -130,7 +130,7 @@ namespace TiepNhan.GUI
 
         private void checkDaKham_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkDaKham.Checked)
+            if (checkDaKham.Checked)
             {
                 var data = dataDanhSach.Select(Library.SqlDaKham);
                 if (data.Length > 0)
@@ -142,7 +142,7 @@ namespace TiepNhan.GUI
 
         private void checkChuyenTuyen_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkChuyenTuyen.Checked)
+            if (checkChuyenTuyen.Checked)
             {
                 var data = dataDanhSach.Select(Library.SqlChuyenTuyen);
                 if (data.Length > 0)
@@ -154,7 +154,7 @@ namespace TiepNhan.GUI
 
         private void checkNhapVien_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkNhapVien.Checked)
+            if (checkNhapVien.Checked)
             {
                 var data = dataDanhSach.Select(Library.SqlNhapVien);
                 if (data.Length > 0)
@@ -166,7 +166,7 @@ namespace TiepNhan.GUI
 
         private void checkRaVien_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkRaVien.Checked)
+            if (checkRaVien.Checked)
             {
                 var data = dataDanhSach.Select(Library.SqlRaVien);
                 if (data.Length > 0)
@@ -219,7 +219,7 @@ namespace TiepNhan.GUI
                     ThongTinThe thongtin = new ThongTinThe();
                     thongtin.MaBN = null;
                     thongtin.MaThe = dr["MaThe"].ToString();
-                    thongtin.HoTen = dr["HoTen"].ToString(); 
+                    thongtin.HoTen = dr["HoTen"].ToString();
                     thongtin.NgaySinh = dr["NgaySinh"].ToString();
                     thongtin.GioiTinh = Utils.ToInt(dr["GioiTinh"]);
                     thongtin.MaCoSoDKKCB = dr["MaDKBD"].ToString();
@@ -249,7 +249,7 @@ namespace TiepNhan.GUI
                     thongtin.NgaySinh = dr["NgaySinh"].ToString();
                     thongtin.GioiTinh = Utils.ToInt(dr["GioiTinh"]);
                     // lấy lịch sử
-                    thongtin.LichSuPhanMem = khambenh.DSLichSuPhanMem(thongtin.MaBN,thongtin.HoTen,thongtin.GioiTinh);
+                    thongtin.LichSuPhanMem = khambenh.DSLichSuPhanMem(thongtin.MaBN, thongtin.HoTen, thongtin.GioiTinh);
                     lichSuKCB.ThongTin = thongtin;
                     lichSuKCB.ShowDialog();
                 }
@@ -257,7 +257,75 @@ namespace TiepNhan.GUI
         }
         private void ChuyenPhong(int soPhong)
         {
+            DataRow dr = gridView.GetFocusedDataRow();
+            if (dr != null)
+            {
+                DialogResult traloi;
+                traloi = XtraMessageBox.Show(Library.ChuyenBenhNhan + soPhong, "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (traloi == DialogResult.Yes)
+                {
+                    if (!string.IsNullOrEmpty(dr["MaBenh"].ToString()) ||
+                        !string.IsNullOrEmpty(dr["NgayRa"].ToString()))
+                    {
+                        XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else// thực hiện chuyển phòng và cấp số mới
+                    {
+                        khambenh.MaLK = dr["MaLK"].ToString();
+                        khambenh.NgayVao = Utils.ToDateTime(dr["NgayVao"].ToString());
+                        khambenh.Phong = soPhong;
+                        string err = null;
+                        if (!khambenh.SpChuyenPhong(ref err))
+                        {
+                            XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    LoadData();
+                }
+            }
+        }
 
+        private void btnChuyenTuyen_Click(object sender, EventArgs e)
+        {
+            // chuyển tuyến : Tình trạng ra viện 2: Chuyển viện
+            DataRow dr = gridView.GetFocusedDataRow();
+            if (dr != null)
+            {
+                DialogResult traloi;
+                traloi = XtraMessageBox.Show(Library.ChuyenTuyenBenhNhan, "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (traloi == DialogResult.Yes)
+                {
+                    khambenh.MaLK = dr["MaLK"].ToString();
+                    khambenh.TinhTrangRaVien = 2;
+                    string err = null;
+                    if (!khambenh.SpChuyenVien(ref err))
+                    {
+                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    LoadData();
+                }
+            }
+        }
+
+        private void btnNhapVien_Click(object sender, EventArgs e)
+        {
+            // MaLoaiKCB 1. Khám bệnh, 2. Điều trị ngoại trú, 3. Điều trị nội trú
+            // chọn khoa: MaKhoa
+            DataRow dr = gridView.GetFocusedDataRow();
+            if (dr != null)
+            {
+                FrmChonKhoa frm = new FrmChonKhoa(khambenh.DSKhoaBan(1));
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    khambenh.MaLK = dr["MaLK"].ToString();
+                    khambenh.MaLoaiKCB = 3;
+                    khambenh.MaKhoa = frm.MaKhoa;
+                }
+            }
         }
     }
 }

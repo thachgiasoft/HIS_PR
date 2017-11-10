@@ -32,10 +32,13 @@ namespace Core.DAL
         // Lấy thông tin bệnh nhân
         public const string BenhNhanDaTiepNhan = "Bệnh nhân này đã tiếp nhận hôm nay.";
         public const string MaBNKhongTonTai = "Mã bệnh nhân không tồn tại.";
+        public const string BenhNhanDaKhamRaVien = "Bệnh nhân đã khám hoặc đã ra viện.";
+        public const string ChuyenBenhNhan = "Chuyển bệnh nhân sang phòng: ";
+        public const string ChuyenTuyenBenhNhan = "Chuyển tuyến bệnh nhân này?";
         // lưu thông tin
         public const string LuuThanhCong = "Đã lưu thông tin thành công.";
         // câu  lệnh sql
-        public const string SqlChoKham = "MaBenh is null And NgayRa is null";
+        public const string SqlChoKham = "MaBenh is null And NgayRa is null And TinhTrangRaVien is null";
         public const string SqlDaKham = "MaBenh is not null And NgayRa is null";
         public const string SqlChuyenTuyen = "TinhTrangRaVien = 2";
         public const string SqlNhapVien = "MaLoaiKCB = 3";

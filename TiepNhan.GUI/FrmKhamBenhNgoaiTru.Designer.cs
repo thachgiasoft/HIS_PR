@@ -45,6 +45,7 @@
             this.NgayRa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STTPhongDS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PhongDS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.flowLayoutPanelChuyenPhong = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLichSuKCB = new DevExpress.XtraEditors.SimpleButton();
@@ -69,7 +70,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
@@ -303,6 +303,16 @@
             this.PhongDS.VisibleIndex = 9;
             this.PhongDS.Width = 72;
             // 
+            // TinhTrang
+            // 
+            this.TinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TinhTrang.AppearanceCell.Options.UseFont = true;
+            this.TinhTrang.Caption = "Tiếp nhận";
+            this.TinhTrang.FieldName = "TinhTrang";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Visible = true;
+            this.TinhTrang.VisibleIndex = 11;
+            // 
             // flowLayoutPanelChuyenPhong
             // 
             this.flowLayoutPanelChuyenPhong.Location = new System.Drawing.Point(546, 43);
@@ -366,6 +376,7 @@
             this.btnChuyenTuyen.Size = new System.Drawing.Size(109, 23);
             this.btnChuyenTuyen.TabIndex = 10;
             this.btnChuyenTuyen.Text = "Chuyển tuyến";
+            this.btnChuyenTuyen.Click += new System.EventHandler(this.btnChuyenTuyen_Click);
             // 
             // btnNhapVien
             // 
@@ -377,6 +388,7 @@
             this.btnNhapVien.Size = new System.Drawing.Size(101, 23);
             this.btnNhapVien.TabIndex = 11;
             this.btnNhapVien.Text = "Nhập viện";
+            this.btnNhapVien.Click += new System.EventHandler(this.btnNhapVien_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -589,16 +601,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(870, 384);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TinhTrang.AppearanceCell.Options.UseFont = true;
-            this.TinhTrang.Caption = "Tiếp nhận";
-            this.TinhTrang.FieldName = "TinhTrang";
-            this.TinhTrang.Name = "TinhTrang";
-            this.TinhTrang.Visible = true;
-            this.TinhTrang.VisibleIndex = 11;
             // 
             // FrmKhamBenhNgoaiTru
             // 
