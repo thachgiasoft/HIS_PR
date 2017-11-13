@@ -12,9 +12,9 @@ namespace DanhMuc.DAL
     public class VatTuEntity
     {
         Connection db;
-        public VatTuEntity ()
+        public VatTuEntity()
         {
-            db = new Connection ();
+            db = new Connection();
         }
         public string LoaiVatTu { get; set; }
         public string NhomVatTu { get; set; }
@@ -34,64 +34,75 @@ namespace DanhMuc.DAL
         public string LoaiThuoc { get; set; }
         public decimal GiaBHYT { get; set; }
         public bool TinhTrang { get; set; }
-        public DataTable DSLoaiVatTu ()
+        public string GoiThau { get; set; }
+        public string NhomThau { get; set; }
+        public int LoaiThau { get; set; }
+        public DataTable DSLoaiVatTu()
         {
-            return db.ExcuteQuery ("Select * From LoaiVatTu Where TinhTrang = 1",
+            return db.ExcuteQuery("Select * From LoaiVatTu Where TinhTrang = 1",
                 CommandType.Text, null);
         }
-        public DataTable DSNhomVatTu ()
+        public DataTable DSNhomVatTu()
         {
-            return db.ExcuteQuery ("Select * From NhomVatTu Where MaLoai = '" + LoaiVatTu + "' And TinhTrang = 1",
+            return db.ExcuteQuery("Select * From NhomVatTu Where MaLoai = '" + LoaiVatTu + "' And TinhTrang = 1",
                 CommandType.Text, null);
         }
-        public DataTable DSDuongDung ()
+        public DataTable DSDuongDung()
         {
-            return db.ExcuteQuery ("Select * From DuongDung",
+            return db.ExcuteQuery("Select * From DuongDung",
                 CommandType.Text, null);
         }
-        public DataTable DSDonViTinh ()
+        public DataTable DSDonViTinh()
         {
-            return db.ExcuteQuery ("Select * From DonViTinh",
+            return db.ExcuteQuery("Select * From DonViTinh",
                 CommandType.Text, null);
         }
-        public DataTable DSNuocSX ()
+        public DataTable DSNuocSX()
         {
-            return db.ExcuteQuery ("Select * From NuocSX Where TinhTrang = 1",
+            return db.ExcuteQuery("Select * From NuocSX Where TinhTrang = 1",
                 CommandType.Text, null);
         }
-        public DataTable DSVatTu ()
+        public DataTable DSGoiThau()
         {
-            string sql = "Select* From VatTu Where LoaiVatTu = '"+LoaiVatTu+"'";
-            if(!string.IsNullOrEmpty(NhomVatTu))
+            return db.ExcuteQuery("Select * From GoiThau",
+                CommandType.Text, null);
+        }
+        public DataTable DSVatTu()
+        {
+            string sql = "Select* From VatTu Where LoaiVatTu = '" + LoaiVatTu + "'";
+            if (!string.IsNullOrEmpty(NhomVatTu))
             {
                 sql += " and NhomVatTu = '" + NhomVatTu + "'";
             }
-            return db.ExcuteQuery (sql,
+            return db.ExcuteQuery(sql,
                 CommandType.Text, null);
         }
-        public bool SpVatTu (ref string err,string Action)
+        public bool SpVatTu(ref string err, string Action)
         {
-            return db.MyExecuteNonQuery ("SpVatTu",
+            return db.MyExecuteNonQuery("SpVatTu",
                 CommandType.StoredProcedure, ref err,
-                new SqlParameter ("@Action", Action),
-                new SqlParameter ("@LoaiVatTu", LoaiVatTu),
-                new SqlParameter ("@NhomVatTu", NhomVatTu),
-                new SqlParameter ("@MaBV", MaBV),
-                new SqlParameter ("@MaHoatChat", MaHoatChat),
-                new SqlParameter ("@HoatChat", HoatChat),
-                new SqlParameter ("@MaDuongDung", MaDuongDung),
-                new SqlParameter ("@HamLuong", HamLuong),
-                new SqlParameter ("@TenVatTu", TenVatTu),
-                new SqlParameter ("@SoDK", SoDK),
-                new SqlParameter ("@DonViTinh", DonViTinh),
-                new SqlParameter ("@QuyCach", QuyCach),
-                new SqlParameter ("@HangSX", HangSX),
-                new SqlParameter ("@NuocSX", NuocSX),
-                new SqlParameter ("@QuyetDinh", QuyetDinh),
-                new SqlParameter ("@CongBo", CongBo),
-                new SqlParameter ("@LoaiThuoc", LoaiThuoc),
-                new SqlParameter ("@GiaBHYT", GiaBHYT),
-                new SqlParameter ("@TinhTrang", TinhTrang));
+                new SqlParameter("@Action", Action),
+                new SqlParameter("@LoaiVatTu", LoaiVatTu),
+                new SqlParameter("@NhomVatTu", NhomVatTu),
+                new SqlParameter("@MaBV", MaBV),
+                new SqlParameter("@MaHoatChat", MaHoatChat),
+                new SqlParameter("@HoatChat", HoatChat),
+                new SqlParameter("@MaDuongDung", MaDuongDung),
+                new SqlParameter("@HamLuong", HamLuong),
+                new SqlParameter("@TenVatTu", TenVatTu),
+                new SqlParameter("@SoDK", SoDK),
+                new SqlParameter("@DonViTinh", DonViTinh),
+                new SqlParameter("@QuyCach", QuyCach),
+                new SqlParameter("@HangSX", HangSX),
+                new SqlParameter("@NuocSX", NuocSX),
+                new SqlParameter("@QuyetDinh", QuyetDinh),
+                new SqlParameter("@CongBo", CongBo),
+                new SqlParameter("@LoaiThuoc", LoaiThuoc),
+                new SqlParameter("@GoiThau", GoiThau),
+                new SqlParameter("@NhomThau", NhomThau),
+                new SqlParameter("@LoaiThau", LoaiThau),
+                new SqlParameter("@GiaBHYT", GiaBHYT),
+                new SqlParameter("@TinhTrang", TinhTrang));
         }
     }
 }

@@ -37,6 +37,13 @@ namespace DanhMuc.DAL
         {
             return db.ExcuteQuery ("Select * From GiuongBenh Where Ma_CS ='"+Ma_CS+"'", CommandType.Text, null);
         }
+        public DataTable DSKhoaBan(int loaiPhong)
+        {
+            string sql = "";
+            sql = "EXEC SpGetKhoaBan '" + Ma_CS + "'," + loaiPhong;
+            return db.ExcuteQuery(sql,
+                CommandType.Text, null);
+        }
         public bool SpGiuongBenh (ref string err, string Action)
         {
             return db.MyExecuteNonQuery ("SpGiuongBenh",

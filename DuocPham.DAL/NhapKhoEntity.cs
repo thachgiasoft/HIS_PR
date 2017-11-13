@@ -20,8 +20,6 @@ namespace DuocPham.DAL
         public int SoPhieu { get; set; }
         public string SoHoaDon { get; set; }
         public string TKNo { get; set; }
-        public int LoaiThau { get; set; }
-        public string NhomThau { get; set; }
         public DateTime NgayNhap { get; set; }
         public string NhaCungCap { get; set; }
         public string NguoiGiaoHang { get; set; }
@@ -117,8 +115,6 @@ namespace DuocPham.DAL
                 outSoPhieu,
                 new SqlParameter ("@SoHoaDon", SoHoaDon),
                 new SqlParameter ("@TKNo", TKNo),
-                new SqlParameter ("@LoaiThau", LoaiThau),
-                new SqlParameter ("@NhomThau", NhomThau),
                 new SqlParameter ("@NgayNhap", NgayNhap),
                 new SqlParameter ("@NhaCungCap", NhaCungCap),
                 new SqlParameter ("@NguoiGiaoHang", NguoiGiaoHang),

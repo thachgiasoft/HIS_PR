@@ -187,8 +187,6 @@ namespace DuocPham.GUI
             nhapkho.SoPhieu = Utils.ToInt (txtSoPhieu.Text);
             nhapkho.SoHoaDon = null;
             nhapkho.TKNo = txtTKNo.Text;
-            nhapkho.LoaiThau = 0;
-            nhapkho.NhomThau = null;
             nhapkho.NgayNhap = dateNgayNhap.DateTime;
             nhapkho.NhaCungCap = lookUpKhoaTra.Properties.GetDisplayValueByKeyValue (lookUpKhoaTra.EditValue).ToString();
             nhapkho.NguoiGiaoHang = txtNguoiTra.Text;

@@ -321,9 +321,32 @@ namespace TiepNhan.GUI
                 FrmChonKhoa frm = new FrmChonKhoa(khambenh.DSKhoaBan(1));
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
+                    string err = "";
                     khambenh.MaLK = dr["MaLK"].ToString();
                     khambenh.MaLoaiKCB = 3;
                     khambenh.MaKhoa = frm.MaKhoa;
+                    if(!khambenh.SpNhapVien(ref err))
+                    {
+                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    LoadData();
+                }
+            }
+        }
+
+        private void btnKeDon_Click(object sender, EventArgs e)
+        {
+            DataRow dr = gridView.GetFocusedDataRow();
+            if(dr!=null)
+            {
+                if(!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
+                {
+                    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+
                 }
             }
         }

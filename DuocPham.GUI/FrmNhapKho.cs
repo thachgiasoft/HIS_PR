@@ -115,8 +115,6 @@ namespace DuocPham.GUI
             txtSoPhieu.Text = "0";
             txtSoHoaDon.Text = "";
             txtTKNo.Text = "";
-            cbLoaiThau.SelectedIndex = 0;
-            txtNhomThau.Text = "";
             dateNgayNhap.EditValue = DateTime.Now;
             lookUpNhaCungCap.EditValue = "";
             txtNguoiGiaoHang.Text = "Lý Văn Thép";
@@ -159,8 +157,6 @@ namespace DuocPham.GUI
             nhapkho.SoPhieu = int.Parse(txtSoPhieu.Text);
             nhapkho.SoHoaDon = txtSoHoaDon.Text;
             nhapkho.TKNo = txtTKNo.Text;
-            nhapkho.LoaiThau = cbLoaiThau.SelectedIndex;
-            nhapkho.NhomThau = txtNhomThau.Text;
             nhapkho.NgayNhap = dateNgayNhap.DateTime;
             nhapkho.NhaCungCap = lookUpNhaCungCap.EditValue.ToString ();
             nhapkho.NguoiGiaoHang = txtNguoiGiaoHang.Text;
@@ -416,8 +412,6 @@ namespace DuocPham.GUI
             {
                 txtTKNo.Text = dr["TKNo"].ToString ();
                 txtSoHoaDon.Text = dr["SoHoaDon"].ToString ();
-                cbLoaiThau.SelectedIndex = int.Parse (dr["LoaiThau"].ToString ());
-                txtNhomThau.Text = dr["NhomThau"].ToString ();
                 dateNgayNhap.DateTime = DateTime.Parse (dr["NgayNhap"].ToString ());
                 lookUpNhaCungCap.EditValue = dr["NhaCungCap"].ToString ();
                 txtNguoiGiaoHang.Text = dr["NguoiGiaoHang"].ToString ();

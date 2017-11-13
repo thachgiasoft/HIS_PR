@@ -32,6 +32,7 @@
             this.treeList = new DevExpress.XtraTreeList.TreeList();
             this.tlcSoDo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.cbLoai = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cbKhoChanLe = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkKhoVatTu = new DevExpress.XtraEditors.CheckEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
@@ -44,6 +45,7 @@
             this.repositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.KhoVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LoaiKho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LoaiPhong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamMoi = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
@@ -66,15 +68,14 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbLoai = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.LoaiPhong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkKhoVatTu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -98,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +164,24 @@
             this.layoutControl.Root = this.layoutControlGroup;
             this.layoutControl.Size = new System.Drawing.Size(729, 500);
             this.layoutControl.TabIndex = 0;
+            // 
+            // cbLoai
+            // 
+            this.cbLoai.Location = new System.Drawing.Point(303, 64);
+            this.cbLoai.Name = "cbLoai";
+            this.cbLoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoai.Properties.Appearance.Options.UseFont = true;
+            this.cbLoai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLoai.Properties.Items.AddRange(new object[] {
+            "",
+            "1. Khoa KCB",
+            "2. Phòng Khám",
+            "3. Phòng Cận Lâm Sàn",
+            "4. Giường Bệnh"});
+            this.cbLoai.Size = new System.Drawing.Size(92, 22);
+            this.cbLoai.StyleController = this.layoutControl;
+            this.cbLoai.TabIndex = 17;
             // 
             // cbKhoChanLe
             // 
@@ -298,6 +316,15 @@
             this.LoaiKho.Visible = true;
             this.LoaiKho.VisibleIndex = 6;
             this.LoaiKho.Width = 60;
+            // 
+            // LoaiPhong
+            // 
+            this.LoaiPhong.Caption = "Loại Phòng";
+            this.LoaiPhong.FieldName = "LoaiPhong";
+            this.LoaiPhong.Name = "LoaiPhong";
+            this.LoaiPhong.Visible = true;
+            this.LoaiPhong.VisibleIndex = 7;
+            this.LoaiPhong.Width = 65;
             // 
             // btnLuu
             // 
@@ -564,23 +591,6 @@
             this.layoutControlItem12.Text = "Kho chẵn/lẻ:";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(67, 13);
             // 
-            // cbLoai
-            // 
-            this.cbLoai.Location = new System.Drawing.Point(303, 64);
-            this.cbLoai.Name = "cbLoai";
-            this.cbLoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLoai.Properties.Appearance.Options.UseFont = true;
-            this.cbLoai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbLoai.Properties.Items.AddRange(new object[] {
-            "",
-            "1. Khoa KCB",
-            "2. Phòng Khám",
-            "3. Phòng Cận Lâm Sàn"});
-            this.cbLoai.Size = new System.Drawing.Size(92, 22);
-            this.cbLoai.StyleController = this.layoutControl;
-            this.cbLoai.TabIndex = 17;
-            // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.cbLoai;
@@ -601,15 +611,6 @@
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // LoaiPhong
-            // 
-            this.LoaiPhong.Caption = "Loại Phòng";
-            this.LoaiPhong.FieldName = "LoaiPhong";
-            this.LoaiPhong.Name = "LoaiPhong";
-            this.LoaiPhong.Visible = true;
-            this.LoaiPhong.VisibleIndex = 7;
-            this.LoaiPhong.Width = 65;
-            // 
             // UC_SoDoToChuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,6 +624,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbKhoChanLe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkKhoVatTu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
@@ -646,7 +648,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);

@@ -40,6 +40,10 @@ namespace DanhMuc.GUI
             lookUpNuocSX.Properties.DisplayMember = "Ten";
             lookUpNuocSX.Properties.ValueMember = "Ten";
 
+            lookUpGoiThau.Properties.DataSource = vattu.DSGoiThau();
+            lookUpGoiThau.Properties.ValueMember = "Ma";
+            lookUpGoiThau.Properties.DisplayMember = "Ten";
+
             checkButton ();
             LoadData ();
         }
@@ -131,7 +135,9 @@ namespace DanhMuc.GUI
             cbLoaiThuoc.SelectedIndex = 0;
             txtGiaBHYT.Text = "";
             checkHieuLuc.Checked = true;
-
+            txtQuyCach.Text = "";
+            txtNhomThau.Text = "";
+            cbLoaiThau.SelectedIndex = 0;
             Enabled_Luu ();
         }
 
@@ -184,6 +190,9 @@ namespace DanhMuc.GUI
             vattu.LoaiThuoc = cbLoaiThuoc.SelectedIndex.ToString();
             vattu.GiaBHYT = Utils.ToDecimal(txtGiaBHYT.Text);
             vattu.TinhTrang = checkHieuLuc.Checked;
+            vattu.GoiThau = lookUpGoiThau.EditValue.ToString();
+            vattu.LoaiThau = cbLoaiThau.SelectedIndex;
+            vattu.NhomThau = txtNhomThau.Text;
 
             string err = "";
             if (them)
@@ -256,7 +265,9 @@ namespace DanhMuc.GUI
                 cbLoaiThuoc.SelectedIndex = Utils.ToInt (dr["LoaiThuoc"]);
                 txtGiaBHYT.Text = dr["GiaBHYT"].ToString();
                 checkHieuLuc.Checked = bool.Parse(dr["TinhTrang"].ToString());
-
+                lookUpGoiThau.EditValue = dr["GoiThau"];
+                cbLoaiThau.SelectedIndex = Utils.ToInt(dr["LoaiThau"]);
+                txtNhomThau.Text = dr["NhomThau"].ToString();
                 them = false;
 
                 Enabled_Xoa ();

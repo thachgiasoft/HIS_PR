@@ -87,6 +87,7 @@
     <Compile Include="LuongCoSoEntity.cs" />
     <Compile Include="NhaCungCapEntity.cs" />
     <Compile Include="NhanVienEntity.cs" />
+    <Compile Include="NhomCanLamSanEntity.cs" />
     <Compile Include="NhomVatTuEntity.cs" />
     <Compile Include="NuocSXEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

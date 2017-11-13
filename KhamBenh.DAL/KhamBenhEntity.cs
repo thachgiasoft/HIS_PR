@@ -76,5 +76,13 @@ namespace KhamBenh.DAL
                 new SqlParameter("@MaLK", MaLK),
                 new SqlParameter("@TinhTrangRaVien", TinhTrangRaVien));
         }
+        public bool SpNhapVien(ref string err)
+        {
+            return db.MyExecuteNonQuery("SpNhapVien",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@MaLK", MaLK),
+                new SqlParameter("@MaLoaiKCB", MaLoaiKCB),
+                new SqlParameter("@MaKhoa", MaKhoa));
+        }
     }
 }

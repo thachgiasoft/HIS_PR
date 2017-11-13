@@ -35,8 +35,9 @@
             this.navBarGroupDMCSKCB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGiuongBenh = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarCongKham = new DevExpress.XtraNavBar.NavBarItem();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             this.navBarDVKT = new DevExpress.XtraNavBar.NavBarItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.navBarNhomCanLamSan = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -83,7 +84,8 @@
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarGiuongBenh,
             this.navBarCongKham,
-            this.navBarDVKT});
+            this.navBarDVKT,
+            this.navBarNhomCanLamSan});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 178;
@@ -98,7 +100,8 @@
             this.navBarGroupDMCSKCB.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarGiuongBenh),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarCongKham),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDVKT)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDVKT),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarNhomCanLamSan)});
             this.navBarGroupDMCSKCB.Name = "navBarGroupDMCSKCB";
             this.navBarGroupDMCSKCB.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroupDMCSKCB.SmallImage")));
             // 
@@ -116,6 +119,13 @@
             this.navBarCongKham.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarCongKham.SmallImage")));
             this.navBarCongKham.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarCongKham_LinkClicked);
             // 
+            // navBarDVKT
+            // 
+            this.navBarDVKT.Caption = "Danh mục DVKT";
+            this.navBarDVKT.Name = "navBarDVKT";
+            this.navBarDVKT.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDVKT.SmallImage")));
+            this.navBarDVKT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDVKT_LinkClicked);
+            // 
             // panelControl
             // 
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -124,12 +134,12 @@
             this.panelControl.Size = new System.Drawing.Size(681, 456);
             this.panelControl.TabIndex = 0;
             // 
-            // navBarDVKT
+            // navBarNhomCanLamSan
             // 
-            this.navBarDVKT.Caption = "Danh mục DVKT";
-            this.navBarDVKT.Name = "navBarDVKT";
-            this.navBarDVKT.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDVKT.SmallImage")));
-            this.navBarDVKT.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDVKT_LinkClicked);
+            this.navBarNhomCanLamSan.Caption = "Nhóm Cận lâm sàn";
+            this.navBarNhomCanLamSan.Name = "navBarNhomCanLamSan";
+            this.navBarNhomCanLamSan.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarNhomCanLamSan.SmallImage")));
+            this.navBarNhomCanLamSan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarNhomCanLamSan_LinkClicked);
             // 
             // FrmDanhMucCSKCB
             // 
@@ -164,5 +174,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarGiuongBenh;
         private DevExpress.XtraNavBar.NavBarItem navBarCongKham;
         private DevExpress.XtraNavBar.NavBarItem navBarDVKT;
+        private DevExpress.XtraNavBar.NavBarItem navBarNhomCanLamSan;
     }
 }

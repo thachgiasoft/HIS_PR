@@ -78,8 +78,7 @@ namespace DanhMuc.GUI
             repItemLookUpCoSo.ValueMember = "Ma_CS";
             repItemLookUpCoSo.DisplayMember = "Ten_CS";
 
-            dt= giuongbenh.DSKhoa ();
-            lookUpKhoaPhong.Properties.DataSource = dt;
+            lookUpKhoaPhong.Properties.DataSource = null;
             lookUpKhoaPhong.Properties.ValueMember = "MaKhoa";
             lookUpKhoaPhong.Properties.DisplayMember = "TenKhoa";
             repItemLookUpKhoa.DataSource = dt;
@@ -157,6 +156,7 @@ namespace DanhMuc.GUI
         private void lookUpCoSoKCB_EditValueChanged (object sender, EventArgs e)
         {
             giuongbenh.Ma_CS = lookUpCoSoKCB.EditValue.ToString ();
+            lookUpKhoaPhong.Properties.DataSource = giuongbenh.DSKhoaBan(4);
             gridControl.DataSource = giuongbenh.DSGiuong ();
         }
 
@@ -166,6 +166,7 @@ namespace DanhMuc.GUI
             if(dr!=null)
             {
                 txtMa.Text = dr["Ma"].ToString ();
+                giuongbenh.Ma = txtMa.Text;
                 txtTen.Text = dr["Ten"].ToString ();
                 txtDonGia.Text = dr["DonGia"].ToString ();
                 checkTinhTrang.Checked = Utils.ToBoolean (dr["TinhTrang"].ToString ());

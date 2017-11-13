@@ -38,7 +38,7 @@ namespace Core.DAL
         // lưu thông tin
         public const string LuuThanhCong = "Đã lưu thông tin thành công.";
         // câu  lệnh sql
-        public const string SqlChoKham = "MaBenh is null And NgayRa is null And TinhTrangRaVien is null";
+        public const string SqlChoKham = "MaBenh is null And NgayRa is null And TinhTrangRaVien is null And MaLoaiKCB = 1";
         public const string SqlDaKham = "MaBenh is not null And NgayRa is null";
         public const string SqlChuyenTuyen = "TinhTrangRaVien = 2";
         public const string SqlNhapVien = "MaLoaiKCB = 3";

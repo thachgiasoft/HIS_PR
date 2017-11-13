@@ -29,6 +29,7 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -49,7 +50,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -86,6 +86,19 @@
             this.layoutControl.Size = new System.Drawing.Size(750, 400);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Appearance.Options.UseFont = true;
+            this.btnExcel.ImageUri.Uri = "ExportToXLS;Size16x16";
+            this.btnExcel.Location = new System.Drawing.Point(662, 12);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(76, 22);
+            this.btnExcel.StyleController = this.layoutControl;
+            this.btnExcel.TabIndex = 11;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // txtMa
             // 
@@ -125,6 +138,8 @@
             // 
             // ID
             // 
+            this.ID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.AppearanceCell.Options.UseFont = true;
             this.ID.Caption = "ID";
             this.ID.FieldName = "ID";
             this.ID.Name = "ID";
@@ -135,6 +150,8 @@
             // 
             // Ten
             // 
+            this.Ten.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.AppearanceCell.Options.UseFont = true;
             this.Ten.Caption = "Tên nhà cung cấp";
             this.Ten.FieldName = "Ten";
             this.Ten.Name = "Ten";
@@ -145,6 +162,8 @@
             // 
             // TinhTrang
             // 
+            this.TinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TinhTrang.AppearanceCell.Options.UseFont = true;
             this.TinhTrang.Caption = "Hiệu lực";
             this.TinhTrang.ColumnEdit = this.repositoryItemCheckEdit;
             this.TinhTrang.FieldName = "TinhTrang";
@@ -312,19 +331,6 @@
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "Mã:";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(42, 13);
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.Appearance.Options.UseFont = true;
-            this.btnExcel.ImageUri.Uri = "ExportToXLS;Size16x16";
-            this.btnExcel.Location = new System.Drawing.Point(662, 12);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(76, 22);
-            this.btnExcel.StyleController = this.layoutControl;
-            this.btnExcel.TabIndex = 11;
-            this.btnExcel.Text = "Excel";
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // layoutControlItem8
             // 

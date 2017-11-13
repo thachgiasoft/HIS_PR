@@ -354,6 +354,7 @@
             this.btnKeDon.Size = new System.Drawing.Size(92, 23);
             this.btnKeDon.TabIndex = 8;
             this.btnKeDon.Text = "Kê đơn";
+            this.btnKeDon.Click += new System.EventHandler(this.btnKeDon_Click);
             // 
             // btnCanLamSan
             // 
