@@ -366,6 +366,7 @@
             this.btnCanLamSan.Size = new System.Drawing.Size(104, 23);
             this.btnCanLamSan.TabIndex = 9;
             this.btnCanLamSan.Text = "Chỉ định CLS";
+            this.btnCanLamSan.Click += new System.EventHandler(this.btnCanLamSan_Click);
             // 
             // btnChuyenTuyen
             // 

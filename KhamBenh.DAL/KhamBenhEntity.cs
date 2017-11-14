@@ -24,6 +24,12 @@ namespace KhamBenh.DAL
         // Nhập viện
         public int MaLoaiKCB { get; set; }
         public string MaKhoa { get; set; }
+        // cận lâm sàn
+        public string MaCSL { get; set; }
+        public string MaBS { get; set; }
+        public string ChuanDoan { get; set; }
+        public string YeuCau { get; set; }
+        public string NgayChiDinh { get; set; }
         public DataTable DSKhoaBan(int loaiPhong)
         {
             string sql = "";
@@ -48,6 +54,12 @@ namespace KhamBenh.DAL
         public DataTable DSCoSoKCB()
         {
             return db.ExcuteQuery("Select Ma_CS,Ten_CS From CoSoKCB ",
+                CommandType.Text, null);
+        }
+        public DataTable DSBacSi()
+        {
+            return db.ExcuteQuery("Select Ma_BS, Ten_NV From NhanVien Where TinhTrang=1 And CoSoKCB = '"
+                +AppConfig.CoSoKCB+"' And LEN(Ma_BS) > 0",
                 CommandType.Text, null);
         }
         public DataTable DSLichSuPhanMem(string MaBN, string HoTen, int GioiTinh)
@@ -83,6 +95,24 @@ namespace KhamBenh.DAL
                 new SqlParameter("@MaLK", MaLK),
                 new SqlParameter("@MaLoaiKCB", MaLoaiKCB),
                 new SqlParameter("@MaKhoa", MaKhoa));
+        }
+        // chỉ định cận lâm sàn
+        public DataTable DSChiDinhCanLamSan(string maLK)
+        {
+            return db.ExcuteQuery("Select * From getChiDinhCLS('" + maLK + "')",
+                CommandType.Text, null);
+        }
+        public bool SpCDCanLamSan(ref string err, string Action)
+        {
+            return db.MyExecuteNonQuery("SpCDCanLamSan",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@Action", Action),
+                new SqlParameter("@MaLK", MaLK),
+                new SqlParameter("@MaCLS", MaCSL),
+                new SqlParameter("@MaBS", MaBS),
+                new SqlParameter("@ChuanDoan",ChuanDoan ),
+                new SqlParameter("@YeuCau", YeuCau),
+                new SqlParameter("@NgayChiDinh",NgayChiDinh ));
         }
     }
 }

@@ -336,7 +336,7 @@
             this.MaBS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaBS.AppearanceCell.Options.UseFont = true;
             this.MaBS.Caption = "Mã Bác Sĩ";
-            this.MaBS.FieldName = "MaBS";
+            this.MaBS.FieldName = "Ma_BS";
             this.MaBS.Name = "MaBS";
             this.MaBS.OptionsColumn.AllowEdit = false;
             this.MaBS.Visible = true;

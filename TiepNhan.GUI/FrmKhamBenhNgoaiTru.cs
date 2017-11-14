@@ -21,6 +21,7 @@ namespace TiepNhan.GUI
         string quyen = "";
         private List<int> listPhongKham = new List<int>();
         FrmLichSuKCB lichSuKCB;
+        FrmCDCanLamSan frmCanLamSan;
         public FrmKhamBenhNgoaiTru()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace TiepNhan.GUI
             DataTable phongkham = khambenh.DSKhoaBan(2);
             checkButton();
             lichSuKCB = new FrmLichSuKCB(khambenh.DSCoSoKCB());
+            frmCanLamSan = new FrmCDCanLamSan(khambenh);
             if (phongkham != null)
             {
                 foreach (DataRow dr in phongkham.Rows)
@@ -348,6 +350,21 @@ namespace TiepNhan.GUI
                 {
 
                 }
+            }
+        }
+
+        private void btnCanLamSan_Click(object sender, EventArgs e)
+        {
+            DataRow dr = gridView.GetFocusedDataRow();
+            if (dr != null)
+            {
+                frmCanLamSan.HoTen = dr["HoTen"].ToString();
+                frmCanLamSan.MaLK = dr["MaLK"].ToString();
+                frmCanLamSan.GioiTinh = dr["GioiTinh"].ToString();
+                frmCanLamSan.TheBHYT = dr["MaThe"].ToString();
+                frmCanLamSan.DiaChi = dr["DiaChi"].ToString();
+                frmCanLamSan.NamSinh = dr["NgaySinh"].ToString();
+                frmCanLamSan.ShowDialog();
             }
         }
     }

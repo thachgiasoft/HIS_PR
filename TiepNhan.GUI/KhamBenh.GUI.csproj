@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCDCanLamSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCDCanLamSan.Designer.cs">
+      <DependentUpon>FrmCDCanLamSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmChonKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,14 +116,23 @@
     <Compile Include="FrmTiepNhan.Designer.cs">
       <DependentUpon>FrmTiepNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+	<Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RptPhieuYeuCau.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptPhieuYeuCau.Designer.cs">
+      <DependentUpon>RptPhieuYeuCau.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptSoPhieu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RptSoPhieu.Designer.cs">
       <DependentUpon>RptSoPhieu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmCDCanLamSan.resx">
+      <DependentUpon>FrmCDCanLamSan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmChonKhoa.resx">
       <DependentUpon>FrmChonKhoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +158,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RptPhieuYeuCau.resx">
+      <DependentUpon>RptPhieuYeuCau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RptSoPhieu.resx">
       <DependentUpon>RptSoPhieu.cs</DependentUpon>
     </EmbeddedResource>
