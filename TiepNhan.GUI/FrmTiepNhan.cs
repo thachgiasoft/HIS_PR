@@ -287,6 +287,11 @@ namespace TiepNhan.GUI
             tiepnhan.Phong = phongKham;
             tiepnhan.MucHuong = Utils.ToInt(txtTyLe.Text);
             tiepnhan.MaLoaiKCB = 1;
+            tiepnhan.MienCungCT = null;
+            if(txtDu5Nam.Text.Length>0)
+            {
+                tiepnhan.MienCungCT = Utils.ToDateTime(txtDu5Nam.Text,"dd/MM/yyyy").ToShortDateString();
+            }
             // out STTNgay, STTPhong
             err = "";
             if(!tiepnhan.SpThongTinChiTietTiepNhan(ref err))
@@ -320,26 +325,15 @@ namespace TiepNhan.GUI
             if (KiemTraThongTinTiepNhan() == false)
                 return;
             ThongTinThe thongtin = await Utils.KiemTraThongTuyen(txtTheBHYT.Text, txtHoTen.Text, txtNgaySinh.Text);
-            switch(thongtin.Code)
+            switch (thongtin.Code)
             {
                 case "1":
                     // chỉnh thông tin
-                    if (thongtin.HoTen != txtHoTen.Text)
-                    {
-                        txtHoTen.Text = thongtin.HoTen;
-                    }
-                    if (thongtin.NgaySinh != txtNgaySinh.Text)
-                    {
-                        txtNgaySinh.Text = thongtin.NgaySinh;
-                    }
-                    if(cbGioiTinh.SelectedIndex != thongtin.GioiTinh)
-                    {
-                        cbGioiTinh.SelectedIndex = thongtin.GioiTinh;
-                    }
-                    if (txtDiaChi.Text != thongtin.DiaChi)
-                    {
-                        txtDiaChi.Text = thongtin.DiaChi;
-                    }
+
+                    txtHoTen.Text = thongtin.HoTen;
+                    txtNgaySinh.Text = thongtin.NgaySinh;
+                    cbGioiTinh.SelectedIndex = thongtin.GioiTinh;
+                    txtDiaChi.Text = thongtin.DiaChi;
                     if (txtMaDKKCB.Text != thongtin.MaCoSoDKKCB)
                     {
                         txtMaDKKCB.Text = thongtin.MaCoSoDKKCB;
@@ -349,14 +343,9 @@ namespace TiepNhan.GUI
                         else
                             txtTenDKKCB.Text = null;
                     }
-                    if(txtTheTu.Text != thongtin.TheTu)
-                    {
-                        txtTheTu.Text = thongtin.TheTu;
-                    }
-                    if (txtTheDen.Text != thongtin.TheDen)
-                    {
-                        txtTheDen.Text = thongtin.TheDen;
-                    }
+                    txtTheTu.Text = thongtin.TheTu;
+                    txtTheDen.Text = thongtin.TheDen;
+                    txtDu5Nam.Text = thongtin.Du5Nam;
                     btnLichSuKCB.Focus();
                     break;
                 default:
@@ -829,6 +818,7 @@ namespace TiepNhan.GUI
                 txtHoTen.Text = dr["HoTen"].ToString();
                 txtNgaySinh.Text = dr["NgaySinh"].ToString();
                 txtDiaChi.Text = dr["DiaChi"].ToString();
+                cbGioiTinh.SelectedIndex = Utils.ToInt(dr["GioiTinh"]);
                 txtSTTNgay.Text = dr["STTNgay"].ToString();
                 cbLyDoVaoVien.SelectedIndex = Utils.ToInt(dr["MaLyDoVaoVien"]) - 1;
                 int tinhTrang = Utils.ToInt(dr["TinhTrang"]);
@@ -842,7 +832,7 @@ namespace TiepNhan.GUI
                 lookUpTaiNan.EditValue = dr["MaTaiNan"];
                 lookUpNoiChuyenDen.EditValue = dr["MaNoiChuyenDen"];
                 checkBHYT.Checked = Utils.ToBoolean(dr["CoThe"]);
-                if(checkBHYT.Checked)
+                if (checkBHYT.Checked)
                 {
                     this.txtTheBHYT.EditValueChanged -= new System.EventHandler(this.txtTheBHYT_EditValueChanged);
                     txtTheBHYT.Text = dr["MaThe"].ToString();
@@ -850,7 +840,7 @@ namespace TiepNhan.GUI
                     txtTheTu.Text = Utils.ToDateTime(dr["TheTu"].ToString()).ToString("dd/MM/yyyy");
                     txtTheDen.Text = Utils.ToDateTime(dr["TheDen"].ToString()).ToString("dd/MM/yyyy");
                     txtTyLe.Text = dr["MucHuong"].ToString();
-                    txtMucHuong.Text = txtTheBHYT.Text.Substring(2,1);
+                    txtMucHuong.Text = txtTheBHYT.Text.Substring(2, 1);
                     cbKhuVuc.SelectedItem = dr["MaKhuVuc"];
                     txtMaDKKCB.Text = dr["MaDKBD"].ToString();
                     // lấy tên cơ sở
@@ -859,6 +849,11 @@ namespace TiepNhan.GUI
                         txtTenDKKCB.Text = ten.ToString();
                     else
                         txtTenDKKCB.Text = null;
+                    txtDu5Nam.Text = null;
+                    if (!string.IsNullOrEmpty(dr["MienCungCT"].ToString()))
+                    {
+                        txtDu5Nam.Text = Utils.ToDateTime(dr["MienCungCT"].ToString()).ToString("dd/MM/yyyy");
+                    }
                 }
             }
         }
@@ -879,6 +874,11 @@ namespace TiepNhan.GUI
                     tiepnhan.MaCS = txtMaDKKCB.Text;
                     tiepnhan.Du5Nam = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy");
                     tiepnhan.MaKhuVuc = Utils.ToString(cbKhuVuc.SelectedItem);
+                    tiepnhan.MienCungCT = null;
+                    if (txtDu5Nam.Text.Length>0)
+                    {
+                        tiepnhan.MienCungCT = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy").ToShortDateString();
+                    }
                 }
                 else
                 {
@@ -1012,15 +1012,22 @@ namespace TiepNhan.GUI
                     return false;
                 }
                 DateTime theTu = Utils.ToDateTime(txtTheTu.Text, "dd/MM/yyyy");
+                DateTime theDen = Utils.ToDateTime(txtTheDen.Text, "dd/MM/yyyy");
                 if (theTu > DateTime.Now)
                 {
                     XtraMessageBox.Show(Library.TheTuLonHonHienTai, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTheTu.Focus();
                     return false;
                 }
-                if (theTu > Utils.ToDateTime(txtTheDen.Text,"dd/MM/yyyy"))
+                if (theTu > theDen)
                 {
                     XtraMessageBox.Show(Library.TheTuLonHonTheDen, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTheDen.Focus();
+                    return false;
+                }
+                if(theDen<= DateTime.Now)
+                {
+                    XtraMessageBox.Show(Library.TheHetHan, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTheDen.Focus();
                     return false;
                 }

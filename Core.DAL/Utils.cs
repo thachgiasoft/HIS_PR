@@ -439,6 +439,8 @@ namespace Core.DAL
                 thongtinthe.TheTu = hanThe.Split('-')[0].Trim().Substring(0, 10);
 
                 thongtinthe.TheDen = hanThe.Split('-')[1].Trim().Substring(0, 10);
+                
+                thongtinthe.Du5Nam = tmp[3].Split(':')[1].Trim().Substring(0,10);
             }
             catch
             {

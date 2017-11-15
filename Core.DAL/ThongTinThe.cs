@@ -12,6 +12,7 @@ namespace Core.DAL
         public string MaThe { get; set; }
         public string TheTu { get; set; }
         public string TheDen { get; set; }
+        public string Du5Nam { get; set; }
         public string HoTen { get; set; }
         public string NgaySinh { get; set; }
         public int GioiTinh { get; set; }

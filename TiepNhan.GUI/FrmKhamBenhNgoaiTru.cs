@@ -20,16 +20,18 @@ namespace TiepNhan.GUI
         KhamBenhEntity khambenh;
         string quyen = "";
         private List<int> listPhongKham = new List<int>();
-        FrmLichSuKCB lichSuKCB;
+        FrmLichSuKCB frmLichSuKCB;
         FrmCDCanLamSan frmCanLamSan;
+        FrmKeDonThuoc frmKeDon;
         public FrmKhamBenhNgoaiTru()
         {
             InitializeComponent();
             khambenh = new KhamBenhEntity();
             DataTable phongkham = khambenh.DSKhoaBan(2);
             checkButton();
-            lichSuKCB = new FrmLichSuKCB(khambenh.DSCoSoKCB());
+            frmLichSuKCB = new FrmLichSuKCB(khambenh.DSCoSoKCB());
             frmCanLamSan = new FrmCDCanLamSan(khambenh);
+            frmKeDon = new FrmKeDonThuoc();
             if (phongkham != null)
             {
                 foreach (DataRow dr in phongkham.Rows)
@@ -237,8 +239,8 @@ namespace TiepNhan.GUI
                     else
                     {
                         // hiện thông báo, lịch sử
-                        lichSuKCB.ThongTin = thongtin;
-                        lichSuKCB.ShowDialog();
+                        frmLichSuKCB.ThongTin = thongtin;
+                        frmLichSuKCB.ShowDialog();
                     }
                 }
                 else
@@ -252,8 +254,8 @@ namespace TiepNhan.GUI
                     thongtin.GioiTinh = Utils.ToInt(dr["GioiTinh"]);
                     // lấy lịch sử
                     thongtin.LichSuPhanMem = khambenh.DSLichSuPhanMem(thongtin.MaBN, thongtin.HoTen, thongtin.GioiTinh);
-                    lichSuKCB.ThongTin = thongtin;
-                    lichSuKCB.ShowDialog();
+                    frmLichSuKCB.ThongTin = thongtin;
+                    frmLichSuKCB.ShowDialog();
                 }
             }
         }
@@ -348,7 +350,7 @@ namespace TiepNhan.GUI
                 }
                 else
                 {
-
+                    frmKeDon.ShowDialog();
                 }
             }
         }

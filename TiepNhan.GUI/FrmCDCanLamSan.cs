@@ -31,11 +31,15 @@ namespace TiepNhan.GUI
             lookUpBacSi.Properties.DataSource = khambenh.DSBacSi();
             lookUpBacSi.Properties.ValueMember = "Ma_BS";
             lookUpBacSi.Properties.DisplayMember = "Ten_NV";
-            lookUpBacSi.ItemIndex = 0;
+           
         }
 
         private void FrmCDCanLamSan_Load(object sender, EventArgs e)
         {
+            if (lookUpBacSi.ItemIndex <0)
+            {
+                lookUpBacSi.ItemIndex = 0;
+            }
             this.ActiveControl = lookUpBacSi;
             txtHoTen.Text = this.HoTen;
             khambenh.MaLK = MaLK;

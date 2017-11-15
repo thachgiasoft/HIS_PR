@@ -34,6 +34,7 @@ namespace KhamBenh.DAL
         public int LyDoVaoVien { get; set; }
         public string MaNoiChuyenDen { get; set; }
         public int MaTaiNan { get; set; }
+        public string MienCungCT { get; set; }
         public DateTime NgayVao { get; set; }
         public int MucHuong { get; set; }
         public int MaLoaiKCB { get; set; }
@@ -74,7 +75,7 @@ namespace KhamBenh.DAL
         }
         public DataTable DSTiepNhan(string ngayVao)
         {
-            return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen,"+
+            return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen,MienCungCT,"+
                 "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,MaTaiNan,NgayVao,NgayRa,KetQuaDieuTri,"+
                 "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,STTNgay,"+
                 "STTPhong,Phong,TinhTrang,CoThe,CanNang From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
@@ -179,6 +180,7 @@ namespace KhamBenh.DAL
                new SqlParameter("@MaDKBD", MaCS),
                new SqlParameter("@TheTu", TheTu),
                new SqlParameter("@TheDen", TheDen),
+               new SqlParameter("@MienCungCT", MienCungCT),
                //new SqlParameter("@TenBenh", TenBenh),
                //new SqlParameter("@MaBenh", MaBenh),
                //new SqlParameter("@MaBenhKhac", MaBenhKhac),
@@ -237,6 +239,7 @@ namespace KhamBenh.DAL
                new SqlParameter("@MaDKBD", MaCS),
                new SqlParameter("@TheTu", TheTu),
                new SqlParameter("@TheDen", TheDen),
+               new SqlParameter("@MienCungCT", MienCungCT),
                //new SqlParameter("@TenBenh", TenBenh),
                //new SqlParameter("@MaBenh", MaBenh),
                //new SqlParameter("@MaBenhKhac", MaBenhKhac),

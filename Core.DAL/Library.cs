@@ -29,6 +29,7 @@ namespace Core.DAL
         public const string NhapKCBBD = "Chưa nhập nơi đăng ký KCB ban đầu.";
         public const string TheTuLonHonTheDen = "Giá trị thẻ từ (ngày) lớn hơn giá trị thẻ đến (ngày).";
         public const string TheTuLonHonHienTai = "Giá trị thẻ từ (ngày) lớn hơn ngày hiện tại (Thẻ chưa đến hạn, vui lòng kiểm tra lại).";
+        public const string TheHetHan = "Thẻ đã hết hạn.";
         // Lấy thông tin bệnh nhân
         public const string BenhNhanDaTiepNhan = "Bệnh nhân này đã tiếp nhận hôm nay.";
         public const string MaBNKhongTonTai = "Mã bệnh nhân không tồn tại.";

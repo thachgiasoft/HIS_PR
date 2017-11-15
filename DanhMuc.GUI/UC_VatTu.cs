@@ -193,7 +193,7 @@ namespace DanhMuc.GUI
             vattu.GoiThau = lookUpGoiThau.EditValue.ToString();
             vattu.LoaiThau = cbLoaiThau.SelectedIndex;
             vattu.NhomThau = txtNhomThau.Text;
-
+            vattu.QuyCach = txtQuyCach.Text;
             string err = "";
             if (them)
             {
