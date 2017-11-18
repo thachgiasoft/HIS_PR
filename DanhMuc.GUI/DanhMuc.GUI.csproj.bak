@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36D3E6D8-2501-44D6-B815-B93610699F99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DanhMuc.GUI</RootNamespace>
+    <AssemblyName>DanhMuc.GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="HeThong.GUI">
+      <HintPath>..\HeThong.GUI\obj\Debug\HeThong.GUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmDanhMucCSKCB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDanhMucCSKCB.Designer.cs">
+      <DependentUpon>FrmDanhMucCSKCB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDanhMucDungChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDanhMucDungChung.Designer.cs">
+      <DependentUpon>FrmDanhMucDungChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhanVien.Designer.cs">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_BenhICDX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_BenhICDX.Designer.cs">
+      <DependentUpon>UC_BenhICDX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CongKham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CongKham.Designer.cs">
+      <DependentUpon>UC_CongKham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CoSoKCB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CoSoKCB.Designer.cs">
+      <DependentUpon>UC_CoSoKCB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DonViTinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DonViTinh.Designer.cs">
+      <DependentUpon>UC_DonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DuongDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DuongDung.Designer.cs">
+      <DependentUpon>UC_DuongDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DVKT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DVKT.Designer.cs">
+      <DependentUpon>UC_DVKT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LoaiVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LoaiVatTu.Designer.cs">
+      <DependentUpon>UC_LoaiVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LuongCoSo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LuongCoSo.Designer.cs">
+      <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhaCungCap.Designer.cs">
+      <DependentUpon>UC_NhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhomCanLamSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhomCanLamSan.Designer.cs">
+      <DependentUpon>UC_NhomCanLamSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhomVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhomVatTu.Designer.cs">
+      <DependentUpon>UC_NhomVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NuocSX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NuocSX.Designer.cs">
+      <DependentUpon>UC_NuocSX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_GiuongBenh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_GiuongBenh.Designer.cs">
+      <DependentUpon>UC_GiuongBenh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_VatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_VatTu.Designer.cs">
+      <DependentUpon>UC_VatTu.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmDanhMucCSKCB.resx">
+      <DependentUpon>FrmDanhMucCSKCB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDanhMucDungChung.resx">
+      <DependentUpon>FrmDanhMucDungChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhanVien.resx">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UC_BenhICDX.resx">
+      <DependentUpon>UC_BenhICDX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CongKham.resx">
+      <DependentUpon>UC_CongKham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CoSoKCB.resx">
+      <DependentUpon>UC_CoSoKCB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DonViTinh.resx">
+      <DependentUpon>UC_DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DuongDung.resx">
+      <DependentUpon>UC_DuongDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DVKT.resx">
+      <DependentUpon>UC_DVKT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LoaiVatTu.resx">
+      <DependentUpon>UC_LoaiVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LuongCoSo.resx">
+      <DependentUpon>UC_LuongCoSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhaCungCap.resx">
+      <DependentUpon>UC_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhomCanLamSan.resx">
+      <DependentUpon>UC_NhomCanLamSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhomVatTu.resx">
+      <DependentUpon>UC_NhomVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NuocSX.resx">
+      <DependentUpon>UC_NuocSX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_GiuongBenh.resx">
+      <DependentUpon>UC_GiuongBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_VatTu.resx">
+      <DependentUpon>UC_VatTu.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.DAL\Core.DAL.csproj">
+      <Project>{C6E86929-31E5-41E4-99DE-E25F3FADB210}</Project>
+      <Name>Core.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DanhMuc.DAL\DanhMuc.DAL.csproj">
+      <Project>{559E5DFE-9BE4-42A8-BAA9-902EA4715DA5}</Project>
+      <Name>DanhMuc.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

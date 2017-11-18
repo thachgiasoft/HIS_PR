@@ -120,23 +120,23 @@ namespace DanhMuc.GUI
         {
             them = true;
             txtMaBV.ReadOnly = false;
-            txtMaBV.Text = "";
-            txtMaHoatChat.Text = "";
-            txtHoatChat.Text = "";
+            txtMaBV.Text = null;
+            txtMaHoatChat.Text = null;
+            txtHoatChat.Text = null;
             lookUpDuongDung.EditValue = null;
-            txtHamLuong.Text = "";
-            txtTenVatTu.Text = "";
-            txtSoDK.Text = "";
+            txtHamLuong.Text = null;
+            txtTenVatTu.Text = null;
+            txtSoDK.Text = null;
             lookUpDonViTinh.EditValue = null;
             txtHangSX.Text = "";
             lookUpNuocSX.EditValue = null;
-            txtQuyetDinh.Text = "";
-            txtCongBo.Text = "";
+            txtQuyetDinh.Text = null;
+            txtCongBo.Text = null;
             cbLoaiThuoc.SelectedIndex = 0;
-            txtGiaBHYT.Text = "";
+            txtGiaBHYT.Text = null;
             checkHieuLuc.Checked = true;
-            txtQuyCach.Text = "";
-            txtNhomThau.Text = "";
+            txtQuyCach.Text = null;
+            txtNhomThau.Text = null;
             cbLoaiThau.SelectedIndex = 0;
             Enabled_Luu ();
         }

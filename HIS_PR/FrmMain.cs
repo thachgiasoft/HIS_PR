@@ -303,5 +303,11 @@ namespace HIS_PR
             frmKhamBenh.MdiParent = this;
             frmKhamBenh.Show();
         }
+
+        private void barButtonCauHinh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmThamSoHeThong frmThamSo = new FrmThamSoHeThong();
+            frmThamSo.ShowDialog();
+        }
     }
 }

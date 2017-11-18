@@ -350,6 +350,9 @@ namespace TiepNhan.GUI
                 }
                 else
                 {
+                    frmKeDon.MaLK = dr["MaLK"].ToString();
+                    frmKeDon.HoTen = dr["HoTen"].ToString();
+                    frmKeDon.TheDen = dr["TheDen"].ToString();
                     frmKeDon.ShowDialog();
                 }
             }

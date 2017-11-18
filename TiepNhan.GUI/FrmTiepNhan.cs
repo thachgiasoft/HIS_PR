@@ -36,7 +36,6 @@ namespace TiepNhan.GUI
             lookUpMaKhoa.Properties.DataSource = tiepnhan.DSKhoaBan(1);
             lookUpMaKhoa.Properties.ValueMember = "MaKhoa";
             lookUpMaKhoa.Properties.DisplayMember = "TenKhoa";
-            lookUpMaKhoa.ItemIndex = 0;
             checkButton();
             lichSuKCB = new FrmLichSuKCB(dataCoso);
             DataTable phongkham = tiepnhan.DSKhoaBan(2);

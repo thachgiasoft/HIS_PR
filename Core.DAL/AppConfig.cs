@@ -237,5 +237,15 @@ namespace Core.DAL
             xmlfile.SelectSingleNode ("AppConfig/Config/NhoTT").InnerText = AppConfig.NhoTT.ToString();
             xmlfile.Save ("AppConfig.xml");
         }
+        public void WriteCauHinh()
+        {
+            xmlfile.SelectSingleNode("AppConfig/Connection/ServerName").InnerText = AppConfig.ServerName;
+            xmlfile.SelectSingleNode("AppConfig/Connection/Database").InnerText = AppConfig.Database;
+            xmlfile.SelectSingleNode("AppConfig/Connection/UserName").InnerText = AppConfig.UserName;
+            xmlfile.SelectSingleNode("AppConfig/Connection/Password").InnerText = AppConfig.Password;
+            xmlfile.SelectSingleNode("AppConfig/BHYT/UserLogin").InnerText = AppConfig.UserLoginBHYT;
+            xmlfile.SelectSingleNode("AppConfig/BHYT/PassWord").InnerText = AppConfig.PassWordBHYT;
+            xmlfile.Save("AppConfig.xml");
+        }
     }
 }

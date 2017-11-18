@@ -35,8 +35,6 @@
             this.barDanhMucNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barlblMaNV = new DevExpress.XtraBars.BarStaticItem();
             this.barbtnLogout = new DevExpress.XtraBars.BarButtonItem();
-            //this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            //this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDanhMucDungChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonNhapKho = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXuatKho = new DevExpress.XtraBars.BarButtonItem();
@@ -63,6 +61,7 @@
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.barButtonCauHinh = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,8 +75,6 @@
             this.barDanhMucNhanVien,
             this.barlblMaNV,
             this.barbtnLogout,
-            //this.barSubItem1,
-            //this.barButtonItem1,
             this.barDanhMucDungChung,
             this.barButtonNhapKho,
             this.barButtonXuatKho,
@@ -88,9 +85,10 @@
             this.barButtonNhapKhaTra,
             this.barTonKho,
             this.barButtonTiepNhan,
-            this.barButtonKhamBenh});
+            this.barButtonKhamBenh,
+            this.barButtonCauHinh});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 25;
+            this.ribbonControlMain.MaxItemId = 26;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -143,20 +141,6 @@
             this.barbtnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barbtnLogout.ImageOptions.LargeImage")));
             this.barbtnLogout.Name = "barbtnLogout";
             this.barbtnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnLogout_ItemClick);
-            // 
-            // barSubItem1
-            // 
-            //this.barSubItem1.Caption = "barSubItem1";
-            //this.barSubItem1.Id = 12;
-            //this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            //new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            //this.barSubItem1.Name = "barSubItem1";
-            // 
-            // barButtonItem1
-            // 
-            //this.barButtonItem1.Caption = "barButtonItem1";
-            //this.barButtonItem1.Id = 13;
-            //this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barDanhMucDungChung
             // 
@@ -256,6 +240,7 @@
             // ribbonPageGroupHeThong
             // 
             this.ribbonPageGroupHeThong.ItemLinks.Add(this.barQuanTriHeThong);
+            this.ribbonPageGroupHeThong.ItemLinks.Add(this.barButtonCauHinh);
             this.ribbonPageGroupHeThong.Name = "ribbonPageGroupHeThong";
             this.ribbonPageGroupHeThong.ShowCaptionButton = false;
             // 
@@ -351,6 +336,14 @@
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
             // 
+            // barButtonCauHinh
+            // 
+            this.barButtonCauHinh.Caption = "Cấu hình hệ thống";
+            this.barButtonCauHinh.Id = 25;
+            this.barButtonCauHinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonCauHinh.ImageOptions.Image")));
+            this.barButtonCauHinh.Name = "barButtonCauHinh";
+            this.barButtonCauHinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonCauHinh_ItemClick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,5 +402,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonKhamBenh;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageKhamBenh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupKhamBenh;
+        private DevExpress.XtraBars.BarButtonItem barButtonCauHinh;
     }
 }

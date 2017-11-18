@@ -29,6 +29,8 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.txtNhomThau = new DevExpress.XtraEditors.TextEdit();
+            this.cbLoaiThau = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lookUpGoiThau = new DevExpress.XtraEditors.LookUpEdit();
             this.txtGiaBHYT = new DevExpress.XtraEditors.TextEdit();
             this.txtQuyCach = new DevExpress.XtraEditors.TextEdit();
@@ -60,6 +62,9 @@
             this.GiaBHYT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.NhomThau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LoaiThau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GoiThau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.checkHieuLuc = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpNuocSX = new DevExpress.XtraEditors.LookUpEdit();
             this.cbLoaiThuoc = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -102,15 +107,12 @@
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbLoaiThau = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtNhomThau = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.NhomThau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LoaiThau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GoiThau = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNhomThau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiThau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGoiThau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBHYT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuyCach.Properties)).BeginInit();
@@ -161,9 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiThau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNhomThau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,6 +203,35 @@
             this.layoutControl.Size = new System.Drawing.Size(850, 500);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
+            // 
+            // txtNhomThau
+            // 
+            this.txtNhomThau.Location = new System.Drawing.Point(788, 194);
+            this.txtNhomThau.Name = "txtNhomThau";
+            this.txtNhomThau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhomThau.Properties.Appearance.Options.UseFont = true;
+            this.txtNhomThau.Size = new System.Drawing.Size(50, 22);
+            this.txtNhomThau.StyleController = this.layoutControl;
+            this.txtNhomThau.TabIndex = 27;
+            // 
+            // cbLoaiThau
+            // 
+            this.cbLoaiThau.Location = new System.Drawing.Point(737, 142);
+            this.cbLoaiThau.Name = "cbLoaiThau";
+            this.cbLoaiThau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoaiThau.Properties.Appearance.Options.UseFont = true;
+            this.cbLoaiThau.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoaiThau.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cbLoaiThau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLoaiThau.Properties.Items.AddRange(new object[] {
+            "",
+            "1. Thầu tập trung",
+            "2. Thầu riêng",
+            "3. Tự bào chế"});
+            this.cbLoaiThau.Size = new System.Drawing.Size(101, 22);
+            this.cbLoaiThau.StyleController = this.layoutControl;
+            this.cbLoaiThau.TabIndex = 26;
             // 
             // lookUpGoiThau
             // 
@@ -612,6 +641,36 @@
             // 
             this.repositoryItemCheckEdit.AutoHeight = false;
             this.repositoryItemCheckEdit.Name = "repositoryItemCheckEdit";
+            // 
+            // NhomThau
+            // 
+            this.NhomThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NhomThau.AppearanceCell.Options.UseFont = true;
+            this.NhomThau.Caption = "Nhóm thầu";
+            this.NhomThau.FieldName = "NhomThau";
+            this.NhomThau.Name = "NhomThau";
+            this.NhomThau.Visible = true;
+            this.NhomThau.VisibleIndex = 14;
+            // 
+            // LoaiThau
+            // 
+            this.LoaiThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoaiThau.AppearanceCell.Options.UseFont = true;
+            this.LoaiThau.Caption = "Loại thầu";
+            this.LoaiThau.FieldName = "LoaiThau";
+            this.LoaiThau.Name = "LoaiThau";
+            this.LoaiThau.Visible = true;
+            this.LoaiThau.VisibleIndex = 15;
+            // 
+            // GoiThau
+            // 
+            this.GoiThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoiThau.AppearanceCell.Options.UseFont = true;
+            this.GoiThau.Caption = "Gói thầu";
+            this.GoiThau.FieldName = "GoiThau";
+            this.GoiThau.Name = "GoiThau";
+            this.GoiThau.Visible = true;
+            this.GoiThau.VisibleIndex = 16;
             // 
             // checkHieuLuc
             // 
@@ -1090,25 +1149,6 @@
             this.layoutControlItem25.Text = "Gói thầu:";
             this.layoutControlItem25.TextSize = new System.Drawing.Size(74, 13);
             // 
-            // cbLoaiThau
-            // 
-            this.cbLoaiThau.Location = new System.Drawing.Point(737, 142);
-            this.cbLoaiThau.Name = "cbLoaiThau";
-            this.cbLoaiThau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLoaiThau.Properties.Appearance.Options.UseFont = true;
-            this.cbLoaiThau.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLoaiThau.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cbLoaiThau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbLoaiThau.Properties.Items.AddRange(new object[] {
-            "",
-            "1. Thầu tập trung",
-            "2. Thầu riêng",
-            "3. Tự bào chế"});
-            this.cbLoaiThau.Size = new System.Drawing.Size(101, 22);
-            this.cbLoaiThau.StyleController = this.layoutControl;
-            this.cbLoaiThau.TabIndex = 26;
-            // 
             // layoutControlItem26
             // 
             this.layoutControlItem26.Control = this.cbLoaiThau;
@@ -1118,16 +1158,6 @@
             this.layoutControlItem26.Text = "Loại thầu:";
             this.layoutControlItem26.TextSize = new System.Drawing.Size(74, 13);
             // 
-            // txtNhomThau
-            // 
-            this.txtNhomThau.Location = new System.Drawing.Point(788, 194);
-            this.txtNhomThau.Name = "txtNhomThau";
-            this.txtNhomThau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhomThau.Properties.Appearance.Options.UseFont = true;
-            this.txtNhomThau.Size = new System.Drawing.Size(50, 22);
-            this.txtNhomThau.StyleController = this.layoutControl;
-            this.txtNhomThau.TabIndex = 27;
-            // 
             // layoutControlItem27
             // 
             this.layoutControlItem27.Control = this.txtNhomThau;
@@ -1136,36 +1166,6 @@
             this.layoutControlItem27.Size = new System.Drawing.Size(131, 26);
             this.layoutControlItem27.Text = "Nhóm thầu:";
             this.layoutControlItem27.TextSize = new System.Drawing.Size(74, 13);
-            // 
-            // NhomThau
-            // 
-            this.NhomThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NhomThau.AppearanceCell.Options.UseFont = true;
-            this.NhomThau.Caption = "Nhóm thầu";
-            this.NhomThau.FieldName = "NhomThau";
-            this.NhomThau.Name = "NhomThau";
-            this.NhomThau.Visible = true;
-            this.NhomThau.VisibleIndex = 14;
-            // 
-            // LoaiThau
-            // 
-            this.LoaiThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoaiThau.AppearanceCell.Options.UseFont = true;
-            this.LoaiThau.Caption = "Loại thầu";
-            this.LoaiThau.FieldName = "LoaiThau";
-            this.LoaiThau.Name = "LoaiThau";
-            this.LoaiThau.Visible = true;
-            this.LoaiThau.VisibleIndex = 15;
-            // 
-            // GoiThau
-            // 
-            this.GoiThau.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GoiThau.AppearanceCell.Options.UseFont = true;
-            this.GoiThau.Caption = "Gói thầu";
-            this.GoiThau.FieldName = "GoiThau";
-            this.GoiThau.Name = "GoiThau";
-            this.GoiThau.Visible = true;
-            this.GoiThau.VisibleIndex = 16;
             // 
             // UC_VatTu
             // 
@@ -1177,6 +1177,8 @@
             this.Load += new System.EventHandler(this.UC_VatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtNhomThau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiThau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGoiThau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBHYT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuyCach.Properties)).EndInit();
@@ -1227,9 +1229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiThau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNhomThau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
             this.ResumeLayout(false);
 
