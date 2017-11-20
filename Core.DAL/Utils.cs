@@ -32,21 +32,20 @@ namespace Core.DAL
             }
             return sb.ToString();
         }
-        public static bool ThemHoatDong(string noidung)
+        public static bool ThemHoatDong(string noidung, string err =null)
         {
             return true;
-            string err = "";
-            if (db == null)
-            {
-                db = new Connection();
-            }
-            return db.MyExecuteNonQuery("SpThemHoatDong",
-                CommandType.StoredProcedure, ref err,
-                new SqlParameter("@Ma_NV", AppConfig.MaNV),
-                new SqlParameter("@Ten_May", Environment.MachineName),
-                new SqlParameter("@NguoiDung", Environment.UserName),
-                new SqlParameter("@Ngay", DateTime.Now),
-                new SqlParameter("@HoatDong", noidung));
+            //if (db == null)
+            //{
+            //    db = new Connection();
+            //}
+            //return db.MyExecuteNonQuery("SpThemHoatDong",
+            //    CommandType.StoredProcedure, ref err,
+            //    new SqlParameter("@Ma_NV", AppConfig.MaNV),
+            //    new SqlParameter("@Ten_May", Environment.MachineName),
+            //    new SqlParameter("@NguoiDung", Environment.UserName),
+            //    new SqlParameter("@Ngay", DateTime.Now),
+            //    new SqlParameter("@HoatDong", noidung));
         }
         public static string GetQuyen(string MaCN)
         {
@@ -131,6 +130,17 @@ namespace Core.DAL
             try
             {
                 value = value.Replace(",", "");
+                return Convert.ToDecimal(value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+        }
+        public static decimal ToDecimal(object value, decimal defaultvalue = 0)
+        {
+            try
+            {
                 return Convert.ToDecimal(value);
             }
             catch
