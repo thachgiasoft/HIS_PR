@@ -47,6 +47,7 @@ namespace TiepNhan.GUI
 
         private void FrmKeDonThuoc_Load(object sender, EventArgs e)
         {
+            cbLoaiChiPhi.SelectedIndex = -1;
             maBenhChinh = null;
             txtMaBenhKhac.Text = null;
             txtTenBenh.Text = null;
@@ -371,44 +372,55 @@ namespace TiepNhan.GUI
             {
                 if(listThuoc[key] == 0)
                 {
+                    err = "";
                     // tiến hành xóa trong csdl, listThuoc
-
-                    listThuoc.Remove(key);
+                    kedon.MaVatTu = key;
+                    kedon.NgayYLenh = DateTime.Now;
+                    if (!kedon.SpKeDonThuoc(ref err, "DELETE"))
+                    {
+                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        listThuoc.Remove(key);
                 }
             }
             // lưu bảng thuốc
             foreach(DataRowView drv in dvThuoc)
             {
-                if(listThuoc[drv["MaVatTu"].ToString()] == 1)
+                err = "";
+                kedon.MaVatTu = drv["MaVatTu"].ToString();
+                kedon.MaThuoc = drv["MaThuoc"].ToString();
+                kedon.MaNhom = 4;// Thuốc trong danh mục BHYT 
+                kedon.TenThuoc = drv["TenThuoc"].ToString();
+                kedon.DonViTinh = drv["DonViTinh"].ToString();
+                kedon.HamLuong = drv["HamLuong"].ToString();
+                kedon.MaDuongDung = drv["MaDuongDung"].ToString();
+                kedon.LieuDung = drv["LieuDung"].ToString();
+                kedon.SoDK = drv["SoDK"].ToString();
+                kedon.TTinThau = drv["TTinThau"].ToString();
+                kedon.PhamVi = 1;
+                kedon.SoLuong = Utils.ToInt(drv["SoLuong"]);
+                kedon.DonGia = Utils.ToDecimal(drv["DonGia"]);
+                kedon.TyLe = 100;
+                kedon.ThanhTien = Utils.ToDecimal(drv["ThanhTien"]);
+                kedon.MaKhoa = Utils.ToString(lookUpMaKhoa.EditValue);
+                kedon.MaBacSi = Utils.ToString(lookUpBacSi.EditValue);
+                kedon.NgayYLenh = Utils.ToDateTime(drv["NgayYLenh"].ToString());
+                if (listThuoc[drv["MaVatTu"].ToString()] == 1)
                 {
                     //lưu lại đường dùng, không lưu lại số lượng
+                    if(!kedon.SpKeDonThuoc(ref err,"UPDATE"))
+                    {
+                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
                     // value = 2
-                    // thêm mới
-                    err = "";
-                    kedon.MaVatTu = drv["MaVatTu"].ToString();
-                    kedon.MaThuoc = drv["MaThuoc"].ToString();
-                    kedon.MaNhom = 4;// Thuốc trong danh mục BHYT 
-                    kedon.TenThuoc = drv["TenThuoc"].ToString();
-                    kedon.DonViTinh = drv["DonViTinh"].ToString();
-                    kedon.HamLuong = drv["HamLuong"].ToString();
-                    kedon.MaDuongDung = drv["MaDuongDung"].ToString();
-                    kedon.LieuDung = drv["LieuDung"].ToString();
-                    kedon.SoDK = drv["SoDK"].ToString();
-                    kedon.TTinThau = drv["TTinThau"].ToString();
-                    kedon.PhamVi = 1;
-                    kedon.SoLuong = Utils.ToInt(drv["SoLuong"]);
-                    kedon.DonGia = Utils.ToDecimal(drv["DonGia"]);
-                    kedon.TyLe = 100;
-                    kedon.ThanhTien = Utils.ToDecimal(drv["ThanhTien"]);
-                    kedon.MaKhoa =Utils.ToString( lookUpMaKhoa.EditValue);
-                    kedon.MaBacSi = Utils.ToString(lookUpBacSi.EditValue);
-                    kedon.NgayYLenh = Utils.ToDateTime(drv["NgayYLenh"].ToString());
+                    // thêm mới 
                     if (kedon.SpKeDonThuoc(ref err, "INSERT"))
                     {
-                        listThuoc[drv["MaVatTu"].ToString()] = 2;// đã có nếu lưu thành công, from chưa cập nhật lại số lượng thuốc
+                        listThuoc[drv["MaVatTu"].ToString()] = 1;// đã có nếu lưu thành công
                     }
                     else
                     {
@@ -420,6 +432,29 @@ namespace TiepNhan.GUI
         private void TaoDonThuoc()
         {
 
+        }
+
+        private void repbtnXoaThuoc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int index = gridViewThuoc.GetFocusedDataSourceRowIndex();
+            DataRow dr = dvThuoc.ToTable().Rows[index];
+            if (listThuoc[dr["MaVatTu"].ToString()] == 1)
+            {
+                string err = "";
+                // tiến hành xóa trong csdl, listThuoc
+                kedon.MaVatTu = dr["MaVatTu"].ToString();
+                kedon.NgayYLenh = DateTime.Now;
+                if (!kedon.SpKeDonThuoc(ref err, "DELETE"))
+                {
+                    XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    listThuoc[dr["MaVatTu"].ToString()] = 0;
+                }
+                else
+                    listThuoc.Remove(dr["MaVatTu"].ToString());
+            }
+            else
+                listThuoc.Remove(dr["MaVatTu"].ToString());
+            (gridControlThuoc.DataSource as DataView).Delete(index);
         }
     }
 }

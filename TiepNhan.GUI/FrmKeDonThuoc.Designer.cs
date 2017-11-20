@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKeDonThuoc));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.btnLuuIn = new DevExpress.XtraEditors.SimpleButton();
@@ -36,6 +41,8 @@
             this.lblHanThe = new DevExpress.XtraEditors.LabelControl();
             this.gridControlThuoc = new DevExpress.XtraGrid.GridControl();
             this.gridViewThuoc = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Delete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repbtnXoaThuoc = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.MaVatTuThuoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaThuoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenThuoc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,6 +52,7 @@
             this.DonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LieuDung = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaDuongDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnChon = new DevExpress.XtraEditors.SimpleButton();
             this.txtLanUong = new System.Windows.Forms.NumericUpDown();
             this.txtNgayUong = new System.Windows.Forms.NumericUpDown();
@@ -93,12 +101,12 @@
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaDuongDung = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThuoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repbtnXoaThuoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLanUong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayUong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).BeginInit();
@@ -222,6 +230,8 @@
             this.gridControlThuoc.MainView = this.gridViewThuoc;
             this.gridControlThuoc.MenuManager = this.ribbonControl;
             this.gridControlThuoc.Name = "gridControlThuoc";
+            this.gridControlThuoc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repbtnXoaThuoc});
             this.gridControlThuoc.Size = new System.Drawing.Size(916, 288);
             this.gridControlThuoc.TabIndex = 20;
             this.gridControlThuoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -230,6 +240,7 @@
             // gridViewThuoc
             // 
             this.gridViewThuoc.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Delete,
             this.MaVatTuThuoc,
             this.MaThuoc,
             this.TenThuoc,
@@ -243,6 +254,25 @@
             this.gridViewThuoc.GridControl = this.gridControlThuoc;
             this.gridViewThuoc.Name = "gridViewThuoc";
             this.gridViewThuoc.OptionsView.ShowGroupPanel = false;
+            // 
+            // Delete
+            // 
+            this.Delete.Caption = "#";
+            this.Delete.ColumnEdit = this.repbtnXoaThuoc;
+            this.Delete.Name = "Delete";
+            this.Delete.Visible = true;
+            this.Delete.VisibleIndex = 0;
+            this.Delete.Width = 20;
+            // 
+            // repbtnXoaThuoc
+            // 
+            this.repbtnXoaThuoc.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.repbtnXoaThuoc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repbtnXoaThuoc.Name = "repbtnXoaThuoc";
+            this.repbtnXoaThuoc.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repbtnXoaThuoc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repbtnXoaThuoc_ButtonClick);
             // 
             // MaVatTuThuoc
             // 
@@ -260,7 +290,8 @@
             this.MaThuoc.Name = "MaThuoc";
             this.MaThuoc.OptionsColumn.AllowEdit = false;
             this.MaThuoc.Visible = true;
-            this.MaThuoc.VisibleIndex = 0;
+            this.MaThuoc.VisibleIndex = 1;
+            this.MaThuoc.Width = 73;
             // 
             // TenThuoc
             // 
@@ -271,8 +302,8 @@
             this.TenThuoc.Name = "TenThuoc";
             this.TenThuoc.OptionsColumn.AllowEdit = false;
             this.TenThuoc.Visible = true;
-            this.TenThuoc.VisibleIndex = 1;
-            this.TenThuoc.Width = 220;
+            this.TenThuoc.VisibleIndex = 2;
+            this.TenThuoc.Width = 214;
             // 
             // HamLuongThuoc
             // 
@@ -283,8 +314,8 @@
             this.HamLuongThuoc.Name = "HamLuongThuoc";
             this.HamLuongThuoc.OptionsColumn.AllowEdit = false;
             this.HamLuongThuoc.Visible = true;
-            this.HamLuongThuoc.VisibleIndex = 2;
-            this.HamLuongThuoc.Width = 150;
+            this.HamLuongThuoc.VisibleIndex = 3;
+            this.HamLuongThuoc.Width = 146;
             // 
             // DonViTinhThuoc
             // 
@@ -295,8 +326,8 @@
             this.DonViTinhThuoc.Name = "DonViTinhThuoc";
             this.DonViTinhThuoc.OptionsColumn.AllowEdit = false;
             this.DonViTinhThuoc.Visible = true;
-            this.DonViTinhThuoc.VisibleIndex = 3;
-            this.DonViTinhThuoc.Width = 60;
+            this.DonViTinhThuoc.VisibleIndex = 4;
+            this.DonViTinhThuoc.Width = 58;
             // 
             // SoLuong
             // 
@@ -307,8 +338,8 @@
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.OptionsColumn.AllowEdit = false;
             this.SoLuong.Visible = true;
-            this.SoLuong.VisibleIndex = 4;
-            this.SoLuong.Width = 60;
+            this.SoLuong.VisibleIndex = 5;
+            this.SoLuong.Width = 58;
             // 
             // DonGia
             // 
@@ -321,8 +352,8 @@
             this.DonGia.Name = "DonGia";
             this.DonGia.OptionsColumn.AllowEdit = false;
             this.DonGia.Visible = true;
-            this.DonGia.VisibleIndex = 5;
-            this.DonGia.Width = 70;
+            this.DonGia.VisibleIndex = 6;
+            this.DonGia.Width = 67;
             // 
             // ThanhTien
             // 
@@ -335,8 +366,8 @@
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.OptionsColumn.AllowEdit = false;
             this.ThanhTien.Visible = true;
-            this.ThanhTien.VisibleIndex = 6;
-            this.ThanhTien.Width = 70;
+            this.ThanhTien.VisibleIndex = 7;
+            this.ThanhTien.Width = 67;
             // 
             // LieuDung
             // 
@@ -346,8 +377,14 @@
             this.LieuDung.FieldName = "LieuDung";
             this.LieuDung.Name = "LieuDung";
             this.LieuDung.Visible = true;
-            this.LieuDung.VisibleIndex = 7;
-            this.LieuDung.Width = 193;
+            this.LieuDung.VisibleIndex = 8;
+            this.LieuDung.Width = 195;
+            // 
+            // MaDuongDung
+            // 
+            this.MaDuongDung.Caption = "MaDuongDung";
+            this.MaDuongDung.FieldName = "MaDuongDung";
+            this.MaDuongDung.Name = "MaDuongDung";
             // 
             // btnChon
             // 
@@ -959,12 +996,6 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
-            // MaDuongDung
-            // 
-            this.MaDuongDung.Caption = "MaDuongDung";
-            this.MaDuongDung.FieldName = "MaDuongDung";
-            this.MaDuongDung.Name = "MaDuongDung";
-            // 
             // FrmKeDonThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -983,6 +1014,7 @@
             this.layoutControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThuoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repbtnXoaThuoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLanUong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayUong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).EndInit();
@@ -1090,5 +1122,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn ThanhTien;
         private DevExpress.XtraGrid.Columns.GridColumn LieuDung;
         private DevExpress.XtraGrid.Columns.GridColumn MaDuongDung;
+        private DevExpress.XtraGrid.Columns.GridColumn Delete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repbtnXoaThuoc;
     }
 }
