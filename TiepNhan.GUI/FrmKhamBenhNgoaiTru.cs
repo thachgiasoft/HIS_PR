@@ -16,7 +16,7 @@ namespace TiepNhan.GUI
 {
     public partial class FrmKhamBenhNgoaiTru : RibbonForm
     {
-        DataTable dataDanhSach;
+        DataTable dataDanhSach,dataCoSo;
         KhamBenhEntity khambenh;
         string quyen = "";
         private List<int> listPhongKham = new List<int>();
@@ -29,7 +29,8 @@ namespace TiepNhan.GUI
             khambenh = new KhamBenhEntity();
             DataTable phongkham = khambenh.DSKhoaBan(2);
             checkButton();
-            frmLichSuKCB = new FrmLichSuKCB(khambenh.DSCoSoKCB());
+            dataCoSo = khambenh.DSCoSoKCB();
+            frmLichSuKCB = new FrmLichSuKCB(dataCoSo);
             frmCanLamSan = new FrmCDCanLamSan(khambenh);
             frmKeDon = new FrmKeDonThuoc();
             if (phongkham != null)
@@ -353,7 +354,19 @@ namespace TiepNhan.GUI
                     frmKeDon.MaLK = dr["MaLK"].ToString();
                     frmKeDon.HoTen = dr["HoTen"].ToString();
                     frmKeDon.TheDen = dr["TheDen"].ToString();
+                    frmKeDon.TheTu = dr["TheTu"].ToString();
+                    frmKeDon.GioiTinh = dr["GioiTinh"].ToString();
+                    frmKeDon.MaThe = dr["MaThe"].ToString();
+                    frmKeDon.DiaChi = dr["DiaChi"].ToString();
+                    frmKeDon.NgaySinh = dr["NgaySinh"].ToString();
+                    try
+                    {
+                        frmKeDon.TenCoSo = dataCoSo.Select("Ma_CS = '" + AppConfig.CoSoKCB + "'", "")[0]["Ten_CS"].ToString();
+                        frmKeDon.NoiDangKy = dr["MaDKBD"] + "-" + dataCoSo.Select("Ma_CS = '" + dr["MaDKBD"] + "'", "")[0]["Ten_CS"].ToString();
+                    }
+                    catch { }
                     frmKeDon.ShowDialog();
+                    LoadData();
                 }
             }
         }

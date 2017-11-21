@@ -47,5 +47,7 @@ namespace Core.DAL
         // lỗi kê đơn
         public const string ThuocDaDuocChon = "Thuốc đã được kê, vui lòng chọn thuốc khác!";
         public const string SoLuongThuocKhongDu = "Số lượng thuốc không đủ, vui lòng chọn lại số lượng!";
+        public const string VatTuDaDuocChon = "Vật tư đã được chọn!";
+        public const string VatTuKhongDuSoLuong = "Số lượng vật tư không đủ!";
     }
 }

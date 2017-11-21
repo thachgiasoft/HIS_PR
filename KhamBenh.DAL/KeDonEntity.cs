@@ -47,7 +47,11 @@ namespace KhamBenh.DAL
         public string MaBacSi { get; set; }
         public DateTime NgayYLenh { get; set; }
         public int MaPTTT { get; set; }
-        //
+        // Bảng vật tư
+        public string MaVT { get; set; }
+        public string GoiVTYT { get; set; }
+        public string TenVatTu { get; set; }
+        public int TTrantT { get; set; }
         public DataTable DSBacSi()
         {
             return db.ExcuteQuery("Select Ma_BS, Ten_NV From NhanVien Where TinhTrang=1 And CoSoKCB = '"
@@ -82,6 +86,14 @@ namespace KhamBenh.DAL
                 + "LieuDung, SUM(SoLuong) as SoLuong, SUM(ThanhTien) as ThanhTien,SoDK,TTinThau,NgayYLenh "
                 + "From DonThuocChiTiet Where MaLK = '"+MaLK+"' GROUP BY MaVatTu, MaThuoc,MaDuongDung, "
                 + "TenThuoc, HamLuong, DonViTinh, DonGia, LieuDung,SoDK,TTinThau,NgayYLenh",
+                CommandType.Text, null);
+        }
+        public DataTable DSVatTu()
+        {
+            return db.ExcuteQuery("Select MaVatTu,TenVatTu,DonGia,MaKhoa,MaBacSi,NgayYLenh,TTinThau,"
+                                   + "SUM(SoLuong) as SoLuong, SUM(ThanhTien) As ThanhTien,MaVT,DonViTinh "
+                                   + "From VatTuChiTiet Where MaLK = '"+MaLK+"' "
+                                   + "Group By MaVatTu,MaVT, TenVatTu, DonGia, MaKhoa, MaBacSi, NgayYLenh, DonViTinh, TTinThau",
                 CommandType.Text, null);
         }
         public DataTable DSDichVuKyThuat()
@@ -154,6 +166,40 @@ namespace KhamBenh.DAL
                 new SqlParameter("@TenBenh", TenBenh),
                 new SqlParameter("@MaBenh", MaBenh),
                 new SqlParameter("@MaBenhKhac", MaBenhKhac));
+        }
+        public bool SpKeVatTu(ref string err, string Action)
+        {
+            return db.MyExecuteNonQuery("SpKeVatTu",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@Action", Action),
+                new SqlParameter("@KhoNhan", KhoNhan),
+                new SqlParameter("@MaLK", MaLK),
+                //new SqlParameter("@SoPhieu", 0),
+                //new SqlParameter("@SoPhieuNhap", 0),
+                new SqlParameter("@MaVatTu", MaVatTu),
+                new SqlParameter("@MaVT", MaVT),
+                new SqlParameter("@MaNhom", MaNhom),
+                new SqlParameter("@GoiVTYT", GoiVTYT),
+                new SqlParameter("@TenVatTu", TenVatTu),
+                new SqlParameter("@DonViTinh", DonViTinh),
+                new SqlParameter("@PhamVi", PhamVi),
+                new SqlParameter("@SoLuong", SoLuong),
+                new SqlParameter("@DonGia", DonGia),
+                new SqlParameter("@TTinThau", TTinThau),
+                new SqlParameter("@ThanhTien", ThanhTien),
+                new SqlParameter("@TyLe", TyLe),
+                new SqlParameter("@TTrantT", TTrantT),
+                new SqlParameter("@MucHuong", MucHuong),
+                new SqlParameter("@TienNguonKhac", TienNguonKhac),
+                new SqlParameter("@TienBNTT", TienBNTT),
+                new SqlParameter("@TienBHTT", TienBHTT),
+                new SqlParameter("@TienBNCCT", TienBNCCT),
+                new SqlParameter("@TienNgoaiDS", TienNgoaiDS),
+                new SqlParameter("@MaKhoa", MaKhoa),
+                new SqlParameter("@MaBacSi", MaBacSi),
+                new SqlParameter("@MaBenh", MaBenh + ";" + MaBenhKhac),
+                new SqlParameter("@NgayYLenh", NgayYLenh),
+                new SqlParameter("@MaPTTT", MaPTTT));
         }
     }
 }
