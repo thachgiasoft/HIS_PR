@@ -1,5 +1,6 @@
 ﻿using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using KhamBenh.DAL;
 using System;
@@ -23,7 +24,7 @@ namespace TiepNhan.GUI
         public string DiaChi { get; set; }
         public string TheBHYT { get; set; }
         public string GioiTinh { get; set; }
-        private DataTable data;
+        private DataView data;
         public FrmCDCanLamSan(KhamBenhEntity khambenh)
         {
             InitializeComponent();
@@ -43,7 +44,8 @@ namespace TiepNhan.GUI
             this.ActiveControl = lookUpBacSi;
             txtHoTen.Text = this.HoTen;
             khambenh.MaLK = MaLK;
-            gridControl.DataSource = data = khambenh.DSChiDinhCanLamSan(this.MaLK);
+            data = khambenh.DSChiDinhCanLamSan(this.MaLK).AsDataView();
+            gridControl.DataSource = data;
         }
 
         private void gridView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -53,7 +55,9 @@ namespace TiepNhan.GUI
                 bool chon = Utils.ToBoolean(e.Value);
                 khambenh.MaCSL = gridView.GetRowCellValue(e.RowHandle, gridView.Columns["Ma"]).ToString();
                 khambenh.NgayChiDinh = DateTime.Now.ToShortDateString();
+                khambenh.MaBS = lookUpBacSi.EditValue.ToString();
                 gridView.SetFocusedRowCellValue("NgayChiDinh", khambenh.NgayChiDinh);
+                gridView.SetFocusedRowCellValue("MaBS", khambenh.MaBS);
                 string err = null;
                 if(chon)
                 {
@@ -61,7 +65,15 @@ namespace TiepNhan.GUI
                 }
                 else
                 {
-                    khambenh.SpCDCanLamSan(ref err, "DELETE");
+                    if (!Utils.ToBoolean(gridView.GetRowCellValue(e.RowHandle, gridView.Columns["KetQua"])))
+                    {
+                        khambenh.SpCDCanLamSan(ref err, "DELETE");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Cận lâm sàn đã có kết quả, không thể xóa!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
         }
@@ -72,12 +84,12 @@ namespace TiepNhan.GUI
         }
         private void LuuCanLamSan(bool inPhieu = false)
         {
-            foreach(DataRow dr in data.Rows)
+            foreach(DataRowView dr in data)
             {
-                if(Utils.ToBoolean(dr["Chon"]))
+                if (Utils.ToBoolean(dr["Chon"]))
                 {
                     khambenh.MaCSL = dr["Ma"].ToString();
-                    khambenh.MaBS = Utils.ToString(lookUpBacSi.EditValue);
+                    khambenh.MaBS = dr["MaBS"].ToString();
                     khambenh.ChuanDoan = dr["ChuanDoan"].ToString();
                     khambenh.YeuCau = dr["YeuCau"].ToString();
                     khambenh.NgayChiDinh = dr["NgayChiDinh"].ToString();
@@ -95,7 +107,7 @@ namespace TiepNhan.GUI
         {
             LuuCanLamSan(true);
         }
-        private void TaoPhieu(DataRow dr)
+        private void TaoPhieu(DataRowView dr)
         {
             RptPhieuYeuCau rpt = new RptPhieuYeuCau();
             rpt.lblHoTen.Text = this.HoTen;
@@ -108,7 +120,7 @@ namespace TiepNhan.GUI
             rpt.lblYeuCau.Text = khambenh.YeuCau;
             rpt.lblNgayThang.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
             rpt.lblTenPhieu.Text = "PHIẾU " + dr["Ten"].ToString().ToUpper();
-            rpt.lblTenBacSi.Text = "Họ tên: " + lookUpBacSi.Properties.GetDisplayValueByKeyValue(lookUpBacSi.EditValue);
+            rpt.lblTenBacSi.Text = "Họ tên: " + lookUpBacSi.Properties.GetDisplayValueByKeyValue(dr["MaBS"]);
             rpt.CreateDocument();
             rpt.ShowPreviewDialog();
         }

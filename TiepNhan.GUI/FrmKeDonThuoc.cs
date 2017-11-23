@@ -338,7 +338,7 @@ namespace TiepNhan.GUI
                     drvNew["DonGia"] = dr["GiaBHYT"];
                     drvNew["ThanhTien"] = Utils.ToDecimal(dr["GiaBHYT"].ToString()) * txtSoLuong.Value;
                     drvNew["LieuDung"] = "Ngày "+dicDuongDung[dr["MaDuongDung"].ToString()].ToLower()
-                        +" "+txtNgayUong.Value+ " lần,lần "+txtLanUong.Value+" "+ dr["DonViTinh"].ToString().ToLower();
+                        +" "+txtNgayUong.Value+ " lần, lần "+txtLanUong.Value+" "+ dr["DonViTinh"].ToString().ToLower();
                     drvNew["NgayYLenh"] = dateYLenh.DateTime;
                     drvNew["MaDuongDung"] = dr["MaDuongDung"];
                     drvNew["SoDK"] = dr["SoDK"];

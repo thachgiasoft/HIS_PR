@@ -18,6 +18,7 @@ namespace DanhMuc.DAL
         public decimal DonGia { get; set; }
         public bool TinhTrang { get; set; }
         public int MaNhom { get; set; }
+        public string TT50 { get; set; }
         public DichVuKyThuatEntity()
         {
             db = new Connection();
@@ -49,7 +50,8 @@ namespace DanhMuc.DAL
                 new SqlParameter("@DonGia", DonGia),
                 new SqlParameter("@Ma_CS", MaCS),
                 new SqlParameter("@TinhTrang", TinhTrang),
-                new SqlParameter("@MaNhom", MaNhom));
+                new SqlParameter("@MaNhom", MaNhom),
+                new SqlParameter("@TT50",TT50));
         }
     }
 }

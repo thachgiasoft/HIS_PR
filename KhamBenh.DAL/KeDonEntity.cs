@@ -154,7 +154,6 @@ namespace KhamBenh.DAL
                 new SqlParameter("@TienNgoaiDS", TienNgoaiDS),
                 new SqlParameter("@MaKhoa", MaKhoa),
                 new SqlParameter("@MaBacSi", MaBacSi),
-                new SqlParameter("@MaBenh",MaBenh+";"+MaBenhKhac ),
                 new SqlParameter("@NgayYLenh", NgayYLenh),
                 new SqlParameter("@MaPTTT",MaPTTT ));
         }
@@ -197,7 +196,6 @@ namespace KhamBenh.DAL
                 new SqlParameter("@TienNgoaiDS", TienNgoaiDS),
                 new SqlParameter("@MaKhoa", MaKhoa),
                 new SqlParameter("@MaBacSi", MaBacSi),
-                new SqlParameter("@MaBenh", MaBenh + ";" + MaBenhKhac),
                 new SqlParameter("@NgayYLenh", NgayYLenh),
                 new SqlParameter("@MaPTTT", MaPTTT));
         }

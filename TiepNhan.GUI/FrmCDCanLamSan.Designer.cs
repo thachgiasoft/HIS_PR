@@ -52,6 +52,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.MaBS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.KetQua = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
@@ -120,7 +122,9 @@
             this.NgayChiDinh,
             this.Ma,
             this.MaLienKet,
-            this.MauSo});
+            this.MauSo,
+            this.MaBS,
+            this.KetQua});
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.OptionsView.ShowGroupPanel = false;
@@ -199,7 +203,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16;Office2013";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16;Office2013";
             this.btnLuu.Location = new System.Drawing.Point(627, 12);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(73, 23);
@@ -212,7 +216,7 @@
             // 
             this.btnIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.ImageUri.Uri = "Print;Size16x16;Office2013";
+            this.btnIn.ImageOptions.ImageUri.Uri = "Print;Size16x16;Office2013";
             this.btnIn.Location = new System.Drawing.Point(704, 12);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(74, 23);
@@ -234,7 +238,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpBacSi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_BS", "Mã BS"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_NV", 50, "Tên BS")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_NV", "Tên BS", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpBacSi.Properties.NullText = "";
             this.lookUpBacSi.Size = new System.Drawing.Size(212, 22);
             this.lookUpBacSi.StyleController = this.layoutControlMain;
@@ -263,7 +267,6 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5});
-            this.layoutControlGroupMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
             this.layoutControlGroupMain.Size = new System.Drawing.Size(790, 318);
             this.layoutControlGroupMain.TextVisible = false;
@@ -327,6 +330,18 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
+            // MaBS
+            // 
+            this.MaBS.Caption = "MaBS";
+            this.MaBS.FieldName = "MaBS";
+            this.MaBS.Name = "MaBS";
+            // 
+            // KetQua
+            // 
+            this.KetQua.Caption = "KetQua";
+            this.KetQua.FieldName = "KetQua";
+            this.KetQua.Name = "KetQua";
+            // 
             // FrmCDCanLamSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,5 +401,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn Ma;
         private DevExpress.XtraGrid.Columns.GridColumn MaLienKet;
         private DevExpress.XtraGrid.Columns.GridColumn MauSo;
+        private DevExpress.XtraGrid.Columns.GridColumn MaBS;
+        private DevExpress.XtraGrid.Columns.GridColumn KetQua;
     }
 }

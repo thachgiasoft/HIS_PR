@@ -376,6 +376,11 @@ namespace TiepNhan.GUI
             DataRow dr = gridView.GetFocusedDataRow();
             if (dr != null)
             {
+                if (!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
+                {
+                    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 frmCanLamSan.HoTen = dr["HoTen"].ToString();
                 frmCanLamSan.MaLK = dr["MaLK"].ToString();
                 frmCanLamSan.GioiTinh = dr["GioiTinh"].ToString();

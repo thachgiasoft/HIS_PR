@@ -115,6 +115,7 @@ namespace DanhMuc.GUI
             canlamsan.MauSo = txtMauSo.Text;
             canlamsan.MaKhoa = Utils.ToString( lookUpPhong.EditValue);
             canlamsan.MaNhom = Utils.ToString(lookUpNhomDVKT.EditValue);
+            canlamsan.MaMay = txtMaMay.Text;
             string err = null;
             if(them)
             {
@@ -160,7 +161,7 @@ namespace DanhMuc.GUI
                 lookUpNhomDVKT.EditValue = dr["MaNhom"];
                 txtMauSo.Text = dr["MauSo"].ToString();
                 lookUpPhong.EditValue = dr["MaKhoa"];
-
+                txtMaMay.Text = dr["MaMay"].ToString();
                 txtMaNhom.ReadOnly = true;
                 them = false;
 

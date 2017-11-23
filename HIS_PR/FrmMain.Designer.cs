@@ -46,6 +46,7 @@
             this.barTonKho = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonTiepNhan = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonKhamBenh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonCauHinh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -61,7 +62,7 @@
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barButtonCauHinh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonCanLamSan = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,9 +87,10 @@
             this.barTonKho,
             this.barButtonTiepNhan,
             this.barButtonKhamBenh,
-            this.barButtonCauHinh});
+            this.barButtonCauHinh,
+            this.barButtonCanLamSan});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 26;
+            this.ribbonControlMain.MaxItemId = 27;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -131,7 +133,6 @@
             this.barlblMaNV.Caption = "NhanVien";
             this.barlblMaNV.Id = 9;
             this.barlblMaNV.Name = "barlblMaNV";
-            this.barlblMaNV.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barbtnLogout
             // 
@@ -230,6 +231,14 @@
             this.barButtonKhamBenh.Name = "barButtonKhamBenh";
             this.barButtonKhamBenh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonKhamBenh_ItemClick);
             // 
+            // barButtonCauHinh
+            // 
+            this.barButtonCauHinh.Caption = "Cấu hình hệ thống";
+            this.barButtonCauHinh.Id = 25;
+            this.barButtonCauHinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonCauHinh.ImageOptions.Image")));
+            this.barButtonCauHinh.Name = "barButtonCauHinh";
+            this.barButtonCauHinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonCauHinh_ItemClick);
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -267,6 +276,7 @@
             // ribbonPageGroupKhamBenh
             // 
             this.ribbonPageGroupKhamBenh.ItemLinks.Add(this.barButtonKhamBenh);
+            this.ribbonPageGroupKhamBenh.ItemLinks.Add(this.barButtonCanLamSan);
             this.ribbonPageGroupKhamBenh.Name = "ribbonPageGroupKhamBenh";
             this.ribbonPageGroupKhamBenh.ShowCaptionButton = false;
             // 
@@ -336,13 +346,13 @@
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
             // 
-            // barButtonCauHinh
+            // barButtonCanLamSan
             // 
-            this.barButtonCauHinh.Caption = "Cấu hình hệ thống";
-            this.barButtonCauHinh.Id = 25;
-            this.barButtonCauHinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonCauHinh.ImageOptions.Image")));
-            this.barButtonCauHinh.Name = "barButtonCauHinh";
-            this.barButtonCauHinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonCauHinh_ItemClick);
+            this.barButtonCanLamSan.Caption = "Cận lâm sàn";
+            this.barButtonCanLamSan.Id = 26;
+            this.barButtonCanLamSan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonCanLamSan.ImageOptions.Image")));
+            this.barButtonCanLamSan.Name = "barButtonCanLamSan";
+            this.barButtonCanLamSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonCanLamSan_ItemClick);
             // 
             // FrmMain
             // 
@@ -403,5 +413,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageKhamBenh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupKhamBenh;
         private DevExpress.XtraBars.BarButtonItem barButtonCauHinh;
+        private DevExpress.XtraBars.BarButtonItem barButtonCanLamSan;
     }
 }

@@ -49,5 +49,6 @@ namespace Core.DAL
         public const string SoLuongThuocKhongDu = "Số lượng thuốc không đủ, vui lòng chọn lại số lượng!";
         public const string VatTuDaDuocChon = "Vật tư đã được chọn!";
         public const string VatTuKhongDuSoLuong = "Số lượng vật tư không đủ!";
+        public const string DichVuDaDuocChon = "Dịch vụ đã chọn, vui lòng chọn lại số lượng!.";
     }
 }

@@ -120,7 +120,7 @@ namespace DanhMuc.GUI
                 lookUpNhom.EditValue = dr["MaNhom"];
                 checkTinhTrang.Checked = Utils.ToBoolean(dr["TinhTrang"]);
                 lookUpCoSoKCB.EditValue = dr["Ma_CS"];
-
+                txtTT50.Text = dr["TT50"].ToString();
                 dvkt.MaDVKT = txtMa.Text;
                 dvkt.MaCS = dr["Ma_CS"].ToString();
 
@@ -146,12 +146,18 @@ namespace DanhMuc.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            if(txtMa.Text.Length>0)
+            {
+                XtraMessageBox.Show("Nhập mã dịch vụ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             dvkt.MaDVKT = txtMa.Text;
             dvkt.TenDVKT = txtTen.Text;
             dvkt.MaCS = Utils.ToString(lookUpCoSoKCB.EditValue);
             dvkt.DonGia = Utils.ToDecimal(txtDonGia.Text);
             dvkt.TinhTrang = checkTinhTrang.Checked;
             dvkt.MaNhom = Utils.ToInt(lookUpNhom.EditValue);
+            dvkt.TT50 = txtTT50.Text;
             string err = "";
             if (them)
             {

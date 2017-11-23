@@ -309,5 +309,21 @@ namespace HIS_PR
             FrmThamSoHeThong frmThamSo = new FrmThamSoHeThong();
             frmThamSo.ShowDialog();
         }
+
+        private void barButtonCanLamSan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmCanLamSan))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmCanLamSan frmCanLamSan = new FrmCanLamSan();
+            frmCanLamSan.MdiParent = this;
+            frmCanLamSan.Show();
+        }
     }
 }

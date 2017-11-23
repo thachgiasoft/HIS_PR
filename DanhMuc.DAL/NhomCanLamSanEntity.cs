@@ -22,6 +22,7 @@ namespace DanhMuc.DAL
         public string MauSo { get; set; }
         public string MaKhoa { get; set; }
         public string MaCoSo { get; set; }
+        public string MaMay { get; set; }
         public DataTable DSKhoaBan(int loaiPhong)
         {
             string sql = "";
@@ -56,7 +57,8 @@ namespace DanhMuc.DAL
                 new SqlParameter("@MaNhom", MaNhom),
                 new SqlParameter("@MauSo", MauSo),
                 new SqlParameter("@MaKhoa", MaKhoa),
-                new SqlParameter("@MaCoSo", MaCoSo));
+                new SqlParameter("@MaCoSo", MaCoSo),
+                new SqlParameter("@MaMay", MaMay));
         }
     }
 }
