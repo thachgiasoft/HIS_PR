@@ -26,7 +26,11 @@ namespace TiepNhan.GUI
             lookUpKhoaBan.Properties.DisplayMember = "TenKhoa";
             lookUpKhoaBan.Properties.ValueMember = "MaKhoa";
             lookUpKhoaBan.Properties.DataSource = dataKhoa;
-            lookUpKhoaBan.ItemIndex = 0;
+            if (dataKhoa.Rows.Count > 1)
+                lookUpKhoaBan.ItemIndex = dataKhoa.Rows.Count - 1;
+            else
+
+                lookUpKhoaBan.ItemIndex = 0;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

@@ -325,5 +325,21 @@ namespace HIS_PR
             frmCanLamSan.MdiParent = this;
             frmCanLamSan.Show();
         }
+
+        private void barButtonNoiTru_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmKhamBenhNoiTru))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmKhamBenhNoiTru frmKhamBenhNoiTru = new FrmKhamBenhNoiTru();
+            frmKhamBenhNoiTru.MdiParent = this;
+            frmKhamBenhNoiTru.Show();
+        }
     }
 }

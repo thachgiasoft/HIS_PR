@@ -43,14 +43,14 @@ namespace KhamBenh.DAL
         public string MaMay { get; set; }
         public string MoTa { get; set; }
         public string KetLuan { get; set; }
-        public DataTable DSBNCanLamSan(DateTime ngayYLenh)
+        public DataTable DSBNCanLamSan(DateTime ngayYLenh, string maKhoa)
         {
             return db.ExcuteQuery("Select CDCanLamSan.MaLK,MaCLS,MaBS,ChuanDoan,"
             + "YeuCau, NgayChiDinh, KetQua, HoTen, NgaySinh, GioiTinh,MaThe, "
-            + "Ten,MaNhom,MauSo,NhomCanLamSan.MaKhoa,MaMay,NgayThanhToan "
+            + "Ten,MaNhom,MauSo,NhomCanLamSan.MaKhoa,MaMay,NgayThanhToan,DiaChi "
             + "From CDCanLamSan, ThongTinBNChiTiet,NhomCanLamSan "
             + "Where CDCanLamSan.MaLK = ThongTinBNChiTiet.MaLK And NhomCanLamSan.Ma = CDCanLamSan.MaCLS "
-            + "And NgayChiDinh = CONVERT(DATE,'"+ngayYLenh+"')",
+            + "And NgayChiDinh = CONVERT(DATE,'"+ngayYLenh+ "') And NhomCanLamSan.MaKhoa = '"+maKhoa+"'",
                 CommandType.Text, null);
         }
         public DataTable DSKhoaBan(int loaiPhong)

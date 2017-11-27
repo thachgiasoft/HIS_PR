@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKQCanLamSan));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lookUpBacSi = new DevExpress.XtraEditors.LookUpEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnXoa = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,6 +50,9 @@
             this.MoTa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KetLuan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NgayQK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayYLenh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaChiSo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaMayDV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnChon = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuuIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -82,14 +86,11 @@
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.NgayYLenh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaChiSo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaMayDV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lookUpBacSi = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpBacSi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnXoa)).BeginInit();
@@ -116,7 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpBacSi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,6 +160,25 @@
             this.layoutControlMain.Size = new System.Drawing.Size(990, 418);
             this.layoutControlMain.TabIndex = 1;
             this.layoutControlMain.Text = "layoutControl1";
+            // 
+            // lookUpBacSi
+            // 
+            this.lookUpBacSi.Location = new System.Drawing.Point(772, 64);
+            this.lookUpBacSi.MenuManager = this.ribbonControl;
+            this.lookUpBacSi.Name = "lookUpBacSi";
+            this.lookUpBacSi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpBacSi.Properties.Appearance.Options.UseFont = true;
+            this.lookUpBacSi.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpBacSi.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpBacSi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpBacSi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_BS", "Mã"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_NV", "Tên", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lookUpBacSi.Properties.NullText = "";
+            this.lookUpBacSi.Size = new System.Drawing.Size(130, 22);
+            this.lookUpBacSi.StyleController = this.layoutControlMain;
+            this.lookUpBacSi.TabIndex = 19;
             // 
             // gridControl
             // 
@@ -207,9 +226,9 @@
             // repBtnXoa
             // 
             this.repBtnXoa.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.repBtnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repBtnXoa.Name = "repBtnXoa";
             this.repBtnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repBtnXoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtnXoa_ButtonClick);
@@ -316,6 +335,24 @@
             this.NgayQK.FieldName = "NgayQK";
             this.NgayQK.Name = "NgayQK";
             // 
+            // NgayYLenh
+            // 
+            this.NgayYLenh.Caption = "NgayYLenh";
+            this.NgayYLenh.FieldName = "NgayYLenh";
+            this.NgayYLenh.Name = "NgayYLenh";
+            // 
+            // MaChiSo
+            // 
+            this.MaChiSo.Caption = "MaChiSo";
+            this.MaChiSo.FieldName = "MaChiSo";
+            this.MaChiSo.Name = "MaChiSo";
+            // 
+            // MaMayDV
+            // 
+            this.MaMayDV.Caption = "MaMay";
+            this.MaMayDV.FieldName = "MaMay";
+            this.MaMayDV.Name = "MaMayDV";
+            // 
             // btnChon
             // 
             this.btnChon.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,6 +377,7 @@
             this.btnLuuIn.StyleController = this.layoutControlMain;
             this.btnLuuIn.TabIndex = 16;
             this.btnLuuIn.Text = "Lưu In";
+            this.btnLuuIn.Click += new System.EventHandler(this.btnLuuIn_Click);
             // 
             // btnLuu
             // 
@@ -704,43 +742,6 @@
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
-            // NgayYLenh
-            // 
-            this.NgayYLenh.Caption = "NgayYLenh";
-            this.NgayYLenh.FieldName = "NgayYLenh";
-            this.NgayYLenh.Name = "NgayYLenh";
-            // 
-            // MaChiSo
-            // 
-            this.MaChiSo.Caption = "MaChiSo";
-            this.MaChiSo.FieldName = "MaChiSo";
-            this.MaChiSo.Name = "MaChiSo";
-            // 
-            // MaMayDV
-            // 
-            this.MaMayDV.Caption = "MaMay";
-            this.MaMayDV.FieldName = "MaMay";
-            this.MaMayDV.Name = "MaMayDV";
-            // 
-            // lookUpBacSi
-            // 
-            this.lookUpBacSi.Location = new System.Drawing.Point(772, 64);
-            this.lookUpBacSi.MenuManager = this.ribbonControl;
-            this.lookUpBacSi.Name = "lookUpBacSi";
-            this.lookUpBacSi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpBacSi.Properties.Appearance.Options.UseFont = true;
-            this.lookUpBacSi.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpBacSi.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpBacSi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpBacSi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_BS", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_NV", "Tên", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lookUpBacSi.Properties.NullText = "";
-            this.lookUpBacSi.Size = new System.Drawing.Size(130, 22);
-            this.lookUpBacSi.StyleController = this.layoutControlMain;
-            this.lookUpBacSi.TabIndex = 19;
-            // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.lookUpBacSi;
@@ -766,6 +767,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).EndInit();
             this.layoutControlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpBacSi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnXoa)).EndInit();
@@ -792,7 +794,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpBacSi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

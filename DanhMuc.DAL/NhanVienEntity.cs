@@ -102,6 +102,13 @@ namespace DanhMuc.DAL
             return db.ExcuteQuery ("Select MaKhoa,TenKhoa From KhoaBan Where TinhTrang = 1",
                 CommandType.Text, null);
         }
+        public DataTable DSKhoaBan(int loaiPhong, string coSo)
+        {
+            string sql = "";
+            sql = "EXEC SpGetKhoaBan '" +coSo + "'," + loaiPhong;
+            return db.ExcuteQuery(sql,
+                CommandType.Text, null);
+        }
         public DataTable DSChuyenMon ()
         {
             return db.ExcuteQuery ("Select * From ChuyenMon",

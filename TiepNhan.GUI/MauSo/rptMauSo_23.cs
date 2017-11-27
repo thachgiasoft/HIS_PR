@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace BHYT.MauSo
+namespace TiepNhan.GUI
 {
     public partial class rptMauSo_23 : DevExpress.XtraReports.UI.XtraReport
     {

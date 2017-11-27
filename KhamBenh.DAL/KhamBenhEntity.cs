@@ -20,10 +20,13 @@ namespace KhamBenh.DAL
         public string MaLK { get; set; }
         public DateTime NgayVao { get; set; }
         public int Phong { get; set; }
-        public int TinhTrangRaVien { get; set; }
         // Nhập viện
         public int MaLoaiKCB { get; set; }
         public string MaKhoa { get; set; }
+        // Ra viện
+        public int KetQuaDieuTri { get; set; }
+        public int TinhTrangRaVien { get; set; }
+        public DateTime NgayRa { get; set; }
         // cận lâm sàn
         public string MaCSL { get; set; }
         public string MaBS { get; set; }
@@ -37,6 +40,11 @@ namespace KhamBenh.DAL
             return db.ExcuteQuery(sql,
                 CommandType.Text, null);
         }
+        public DataTable DSBenh()
+        {
+            return db.ExcuteQuery("Select MaBenh,TenBenh From BenhICD ",
+                CommandType.Text, null);
+        }
         public DataTable DSTiepNhan(string ngayVao, int phong)
         {
             return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen," +
@@ -44,6 +52,12 @@ namespace KhamBenh.DAL
                 "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,STTNgay," +
                 "STTPhong,Phong,TinhTrang,CoThe,CanNang From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
                 + ngayVao + "' AS DATE) And (Phong = "+phong+" Or "+phong+" = 0)  Order By STTNgay ASC",
+                CommandType.Text, null);
+        }
+        public DataTable DSBenhNhanNoiTru(string tuNgay, string denNgay, string maKhoa)
+        {
+            return db.ExcuteQuery("Select * From ThongTinBNChiTiet Where MaLoaiKCB > 1 And MaKhoa = '" + maKhoa + "'" +
+                "And CONVERT(Date,NgayVao) Between CONVERT(Date,'" + tuNgay + "') And CONVERT(Date,'" + denNgay + "') And NgayRa is NULL",
                 CommandType.Text, null);
         }
         public DataTable CountSoLuongBN(string sql)
@@ -95,6 +109,15 @@ namespace KhamBenh.DAL
                 new SqlParameter("@MaLK", MaLK),
                 new SqlParameter("@MaLoaiKCB", MaLoaiKCB),
                 new SqlParameter("@MaKhoa", MaKhoa));
+        }
+        public bool SpRaVien(ref string err)
+        {
+            return db.MyExecuteNonQuery("SpRaVien",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@MaLK", MaLK),
+                new SqlParameter("@NgayRa", NgayRa),
+                new SqlParameter("@KetQuaDieuTri", KetQuaDieuTri),
+                new SqlParameter("@TinhTrangRaVien", TinhTrangRaVien));
         }
         // chỉ định cận lâm sàn
         public DataTable DSChiDinhCanLamSan(string maLK)

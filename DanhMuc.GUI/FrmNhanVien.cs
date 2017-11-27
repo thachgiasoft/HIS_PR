@@ -39,7 +39,7 @@ namespace DanhMuc.GUI
             lookUpHocHamHocVi.Properties.ValueMember = "Ma_HHHV";
             lookUpHocHamHocVi.ItemIndex =0;
 
-            lookUpKhoaBoPhan.Properties.DataSource = nhanvien.DSKhoaBoPhan ();
+            
             lookUpKhoaBoPhan.Properties.ValueMember = "MaKhoa";
             lookUpKhoaBoPhan.Properties.DisplayMember = "TenKhoa";
             lookUpKhoaBoPhan.ItemIndex = 0;
@@ -217,6 +217,11 @@ namespace DanhMuc.GUI
                 Enabled_Xoa ();
                 Enabled_Luu ();
             }
+        }
+
+        private void lookUpCoSoKCB_EditValueChanged(object sender, EventArgs e)
+        {
+            lookUpKhoaBoPhan.Properties.DataSource = nhanvien.DSKhoaBan(0, lookUpCoSoKCB.EditValue.ToString());
         }
     }
 }

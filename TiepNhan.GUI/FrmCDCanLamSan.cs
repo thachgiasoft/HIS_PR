@@ -25,11 +25,15 @@ namespace TiepNhan.GUI
         public string TheBHYT { get; set; }
         public string GioiTinh { get; set; }
         private DataView data;
-        public FrmCDCanLamSan(KhamBenhEntity khambenh)
+        public FrmCDCanLamSan(KhamBenhEntity khambenh=null)
         {
             InitializeComponent();
             this.khambenh = khambenh;
-            lookUpBacSi.Properties.DataSource = khambenh.DSBacSi();
+            if(this.khambenh == null)
+            {
+                this.khambenh = new KhamBenhEntity();
+            }
+            lookUpBacSi.Properties.DataSource = this.khambenh.DSBacSi();
             lookUpBacSi.Properties.ValueMember = "Ma_BS";
             lookUpBacSi.Properties.DisplayMember = "Ten_NV";
            

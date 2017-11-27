@@ -96,6 +96,8 @@ namespace TiepNhan.GUI
                 {
                     listVatTu.Add(drv["MaVatTu"].ToString(), 1);
                 }
+                // dịch vụ kỹ thuật
+                gridControlDVKT.DataSource = kedon.DSDichVuKyThuat();
             }
         }
 

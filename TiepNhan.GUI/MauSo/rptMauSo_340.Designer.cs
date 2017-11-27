@@ -1,4 +1,4 @@
-﻿namespace BHYT.MauSo
+﻿namespace TiepNhan.GUI
 {
     partial class rptMauSo_340
     {

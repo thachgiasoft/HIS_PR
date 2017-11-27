@@ -98,8 +98,9 @@ namespace KhamBenh.DAL
         }
         public DataTable DSDichVuKyThuat()
         {
-            return db.ExcuteQuery("Select MaDVKT As MaVatTu,TenDVKT As TenVatTu,DonGia As GiaBHYT,MaNhom "
-                + " From DichVuKyThuat Where Ma_CS = '" + AppConfig.CoSoKCB + "' And TinhTrang = 1",
+            return db.ExcuteQuery("Select DichVuChiTiet.MaDichVu,TenDichVu,GiaTri,MoTa,KetLuan " +
+                "From DichVuChiTiet,HoSoCanLamSan " +
+                "Where DichVuChiTiet.MaLK ='"+MaLK+"' And DichVuChiTiet.MaDichVu = HoSoCanLamSan.MaDichVu",
                 CommandType.Text, null);
         }
         public bool LayThongTinMaBenh()

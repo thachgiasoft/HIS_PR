@@ -24,6 +24,9 @@ namespace TiepNhan.GUI
             InitializeComponent();
             canLamSan = new CanLamSanEntity();
             frmKQCanLamSan = new FrmKQCanLamSan();
+            lookUpKhoa.Properties.DataSource = canLamSan.DSKhoaBan(3);
+            lookUpKhoa.Properties.DisplayMember = "TenKhoa";
+            lookUpKhoa.Properties.ValueMember = "MaKhoa";
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -32,6 +35,10 @@ namespace TiepNhan.GUI
         }
         private void FrmCanLamSan_Load(object sender, EventArgs e)
         {
+            if(lookUpKhoa.ItemIndex <0)
+            {
+                lookUpKhoa.EditValue = AppConfig.MaKhoa;
+            }
             dateYLenh.DateTime = DateTime.Now;
             
             LoadData();
@@ -39,7 +46,7 @@ namespace TiepNhan.GUI
         private void LoadData()
         {
             checkChuaKQ.Checked = false;
-            data = canLamSan.DSBNCanLamSan(dateYLenh.DateTime);
+            data = canLamSan.DSBNCanLamSan(dateYLenh.DateTime,lookUpKhoa.EditValue.ToString());
             checkChuaKQ.Checked = true;
         }
         private void btnTim_Click(object sender, EventArgs e)
@@ -90,6 +97,11 @@ namespace TiepNhan.GUI
                 frmKQCanLamSan.MaCSL = dr["MaCLS"].ToString();
                 frmKQCanLamSan.MaBacSi = dr["MaBS"].ToString();
                 frmKQCanLamSan.MaMay = dr["MaMay"].ToString();
+                frmKQCanLamSan.MauSo = dr["MauSo"].ToString();
+                frmKQCanLamSan.NamSinh = dr["NgaySinh"].ToString();
+                frmKQCanLamSan.GioiTinh = dr["GioiTinh"].ToString();
+                frmKQCanLamSan.SoThe = dr["MaThe"].ToString();
+                frmKQCanLamSan.DiaChi = dr["DiaChi"].ToString();
                 frmKQCanLamSan.ShowDialog();
                 LoadData();
             }

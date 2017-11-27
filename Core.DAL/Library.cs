@@ -42,7 +42,7 @@ namespace Core.DAL
         public const string SqlChoKham = "MaBenh is null And NgayRa is null And TinhTrangRaVien is null And MaLoaiKCB = 1";
         public const string SqlDaKham = "MaBenh is not null And NgayRa is null";
         public const string SqlChuyenTuyen = "TinhTrangRaVien = 2";
-        public const string SqlNhapVien = "MaLoaiKCB = 3";
+        public const string SqlNhapVien = "MaLoaiKCB > 1";
         public const string SqlRaVien = "MaBenh is not null And NgayRa is not null";
         // lỗi kê đơn
         public const string ThuocDaDuocChon = "Thuốc đã được kê, vui lòng chọn thuốc khác!";
