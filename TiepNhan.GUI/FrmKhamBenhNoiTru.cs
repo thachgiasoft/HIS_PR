@@ -55,6 +55,13 @@ namespace TiepNhan.GUI
             gridControl.DataSource = khambenh.DSBenhNhanNoiTru(dateTuNgay.DateTime.ToShortDateString(),
                 dateDenNgay.DateTime.ToShortDateString(),lookUpKhoa.EditValue.ToString());
         }
+        private void LoadDataChiTiet()
+        {
+            khambenh.MaLK = drThongTin["MaLK"].ToString();
+            gridControlThuoc.DataSource = khambenh.DSThuocChiTiet();
+            gridControlDVKT.DataSource = khambenh.DSDichVuChiTiet();
+            gridControlVTYT.DataSource = khambenh.DSVatTuChiTiet();
+        }
         private void xtraTabControl_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
            if(xtraTabControl.SelectedTabPageIndex ==0)
@@ -124,6 +131,9 @@ namespace TiepNhan.GUI
                     lblHanThe.Text = "Bệnh nhân không có thẻ BHYT";
                 }
                 maBenhChinh = drThongTin["MaBenh"].ToString();
+                //lookUpMaBenh.EditValue = maBenhChinh;// lỗi
+                //
+                LoadDataChiTiet();
             }
         }
 
@@ -313,9 +323,45 @@ namespace TiepNhan.GUI
 
         private void btnGiuongBenh_Click(object sender, EventArgs e)
         {
-            if (drThongTin != null)
+
+            if (KiemTraBenhBacSi()&&drThongTin != null)
             {
                 FrmGiuongBenh frm = new FrmGiuongBenh();
+                frm.MaLK = drThongTin["MaLK"].ToString();
+                frm.MaKhoa = lookUpKhoa.EditValue.ToString();
+                frm.MaBacSi = lookUpBacSi.EditValue.ToString();
+                frm.ShowDialog();
+                LoadDataChiTiet();
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (drThongTin != null)
+            {
+                // kiểm tra nhập mã bệnh
+                if (string.IsNullOrEmpty(maBenhChinh))
+                {
+                    XtraMessageBox.Show("Chưa chọn bệnh chính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lookUpMaBenh.Focus();
+                    return;
+                }
+                string err = "";
+                // cập nhật mã bệnh, bảng thông tin chi tiết
+                khambenh.MaLK = drThongTin["MaLK"].ToString();
+                if (!khambenh.SpCapNhatBenh(ref err,
+                    txtTenBenh.Text, maBenhChinh, txtMaBenhKhac.Text))
+                {
+                    XtraMessageBox.Show(err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnDVKT_Click(object sender, EventArgs e)
+        {
+            if (KiemTraBenhBacSi() && drThongTin != null)
+            {
+                FrmDichVuChiTiet frm = new FrmDichVuChiTiet();
 
                 frm.ShowDialog();
             }

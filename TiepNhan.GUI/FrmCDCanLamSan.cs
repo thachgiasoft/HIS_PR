@@ -75,8 +75,11 @@ namespace TiepNhan.GUI
                     }
                     else
                     {
+                        this.gridView.CellValueChanged -= new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_CellValueChanged);
                         XtraMessageBox.Show("Cận lâm sàn đã có kết quả, không thể xóa!", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        gridView.SetFocusedRowCellValue("Chon",true);
+                        this.gridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_CellValueChanged);
                     }
                 }
             }

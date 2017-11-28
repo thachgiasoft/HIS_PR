@@ -45,19 +45,40 @@ namespace KhamBenh.DAL
             return db.ExcuteQuery("Select MaBenh,TenBenh From BenhICD ",
                 CommandType.Text, null);
         }
+        public DataTable DSVatTuChiTiet()
+        {
+            return db.ExcuteQuery("Select * From VatTuChiTiet Where MaLK ='"+MaLK+"' ",
+                CommandType.Text, null);
+        }
+        public DataTable DSDichVuChiTiet()
+        {
+            return db.ExcuteQuery("Select * From " +
+                "(Select MaLK,MaDichVu,MaNhom,TenDichVu,DonViTinh,SoLuong,DonGia," +
+                "ThanhTien,MaKhoa,MaGiuong,MaBacSi,NgayYLenh,NgayKQ" +
+                " From DichVuChiTiet Where MaLK ='" + MaLK + "') AS DV" +
+                " LEFT JOIN HoSoCanLamSan ON HoSoCanLamSan.MaDichVu = DV.MaDichVu",
+                CommandType.Text, null);
+        }
+        public DataTable DSThuocChiTiet()
+        {
+            return db.ExcuteQuery("Select * From DonThuocChiTiet Where MaLK ='" + MaLK + "' ",
+                CommandType.Text, null);
+        }
+
         public DataTable DSTiepNhan(string ngayVao, int phong)
         {
             return db.ExcuteQuery("Select MaLK,MaBN,HoTen,NgaySinh,GioiTinh,DiaChi,MaThe,MaDKBD,TheTu,TheDen," +
                 "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,MaTaiNan,NgayVao,NgayRa,KetQuaDieuTri," +
                 "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,STTNgay," +
                 "STTPhong,Phong,TinhTrang,CoThe,CanNang From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
-                + ngayVao + "' AS DATE) And (Phong = "+phong+" Or "+phong+" = 0)  Order By STTNgay ASC",
+                + ngayVao + "' AS DATE) And (Phong = "+phong+" Or "+phong+ " = 0) And MaCoSoKCB='"+AppConfig.CoSoKCB+"'  Order By STTNgay ASC",
                 CommandType.Text, null);
         }
         public DataTable DSBenhNhanNoiTru(string tuNgay, string denNgay, string maKhoa)
         {
-            return db.ExcuteQuery("Select * From ThongTinBNChiTiet Where MaLoaiKCB > 1 And MaKhoa = '" + maKhoa + "'" +
-                "And CONVERT(Date,NgayVao) Between CONVERT(Date,'" + tuNgay + "') And CONVERT(Date,'" + denNgay + "') And NgayRa is NULL",
+            return db.ExcuteQuery("Select * From ThongTinBNChiTiet Where MaLoaiKCB > 1 And MaKhoa = '" + maKhoa + "' " +
+                "And CONVERT(Date,NgayVao) Between CONVERT(Date,'" + tuNgay + "') And CONVERT(Date,'" + denNgay + "') And NgayRa is NULL " +
+                "And MaCoSoKCB = '"+AppConfig.CoSoKCB+"'",
                 CommandType.Text, null);
         }
         public DataTable CountSoLuongBN(string sql)
@@ -122,7 +143,7 @@ namespace KhamBenh.DAL
         // chỉ định cận lâm sàn
         public DataTable DSChiDinhCanLamSan(string maLK)
         {
-            return db.ExcuteQuery("Select * From getChiDinhCLS('" + maLK + "')",
+            return db.ExcuteQuery("Select * From getChiDinhCLS('"+AppConfig.CoSoKCB+"','" + maLK + "')",
                 CommandType.Text, null);
         }
         public bool SpCDCanLamSan(ref string err, string Action)
@@ -136,6 +157,15 @@ namespace KhamBenh.DAL
                 new SqlParameter("@ChuanDoan",ChuanDoan ),
                 new SqlParameter("@YeuCau", YeuCau),
                 new SqlParameter("@NgayChiDinh",NgayChiDinh ));
+        }
+        public bool SpCapNhatBenh(ref string err,string tenBenh,string maBenh, string maBenhKhac)
+        {
+            return db.MyExecuteNonQuery("SpCapNhatBenh",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@MaLK", MaLK),
+                new SqlParameter("@TenBenh", tenBenh),
+                new SqlParameter("@MaBenh", maBenh),
+                new SqlParameter("@MaBenhKhac", maBenhKhac));
         }
     }
 }

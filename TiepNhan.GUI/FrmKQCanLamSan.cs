@@ -118,7 +118,11 @@ namespace TiepNhan.GUI
             if (index > -1)
             {
                 // 0. xóa
-                listDichVu[(dvDichVu.ToTable().Rows[index]["MaDichVu"].ToString())] = 0;
+                string key = (dvDichVu.ToTable().Rows[index]["MaDichVu"].ToString());
+                if (listDichVu[key] == 1)
+                    listDichVu[key] = 0;
+                else
+                    listDichVu.Remove(key);
                 (gridControl.DataSource as DataView).Delete(index);
             }
         }
@@ -129,16 +133,19 @@ namespace TiepNhan.GUI
             {
                 DataRowView dr = (lookUpDichVu.EditValue as DataRowView);
                 string maDichVu = dr["MaDVKT"].ToString();
-                if (listDichVu.ContainsKey(maDichVu) && listDichVu[maDichVu] >0)
-                {// đã có và 1 hoặc 2
-                    XtraMessageBox.Show(Library.DichVuDaDuocChon, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    lookUpDichVu.Focus();
-                    return;
-                }
-                if (listDichVu.ContainsKey(maDichVu) && listDichVu[maDichVu] ==0)
+                if (listDichVu.ContainsKey(maDichVu))
                 {
-                    listDichVu[maDichVu] = 1;// đã có và đánh dấu 0. xóa, cập nhật lại
-                }else
+                    if (listDichVu[maDichVu] > 0)// đã có và 1 hoặc 2
+                    {
+                        XtraMessageBox.Show(Library.DichVuDaDuocChon, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lookUpDichVu.Focus();
+                    }
+                    else//listDichVu[maDichVu] ==0
+                    {
+                        listDichVu[maDichVu] = 1;// đã có và đánh dấu 0. xóa, cập nhật lại
+                    }
+                }
+                else
                 {
                     listDichVu.Add(maDichVu, 2);// 2. thêm mới
                 }
@@ -223,6 +230,7 @@ namespace TiepNhan.GUI
                 canLamSan.TyLe = 100;
                 canLamSan.ThanhTien = Utils.ToDecimal(drv["ThanhTien"]);
                 canLamSan.MaKhoa = Utils.ToString(lookUpMaKhoa.EditValue);
+                //canLamSan.MaBacSi = Utils.ToString(lookUpBacSi.EditValue);
                 canLamSan.NgayYLenh = Utils.ToDateTime(drv["NgayYLenh"].ToString());
                 canLamSan.NgayKQ = Utils.ToDateTime(drv["NgayKQ"].ToString());
                 canLamSan.MaPTTT = 0;

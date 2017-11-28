@@ -79,7 +79,7 @@ namespace KhamBenh.DAL
                 "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,MaTaiNan,NgayVao,NgayRa,KetQuaDieuTri,"+
                 "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,STTNgay,"+
                 "STTPhong,Phong,TinhTrang,CoThe,CanNang From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) = CAST('"
-                + ngayVao+"' AS DATE)  Order By STTNgay ASC",
+                + ngayVao+"' AS DATE) And MaCoSoKCB = '"+AppConfig.CoSoKCB+"'  Order By STTNgay ASC",
                 CommandType.Text, null);
         }
         public DataTable DSTiepNhan(string ngayBT, string ngayKT)
@@ -88,7 +88,7 @@ namespace KhamBenh.DAL
                 "TenBenh,MaBenh,MaLyDoVaoVien,MaNoiChuyenDen,NgayVao,NgayRa,KetQuaDieuTri," +
                 "TinhTrangRaVien,NgayThanhToan,MucHuong,MaLoaiKCB,MaKhoa,MaCoSoKCB,MaKhuVuc,CanNang,STTNgay," +
                 "STTPhong,Phong,TinhTrang,CoThe From ThongTinBNChiTiet Where CAST(NgayVao AS DATE) Between  CAST('"
-                + ngayBT + "' AS DATE) And  CAST('"+ ngayKT + "' AS DATE)  Order By STTNgay ASC",
+                + ngayBT + "' AS DATE) And  CAST('"+ ngayKT + "' AS DATE) And MaCoSoKCB = '" + AppConfig.CoSoKCB + "'  Order By STTNgay ASC",
                 CommandType.Text, null);
         }
         public DataTable DSLichSuPhanMem()

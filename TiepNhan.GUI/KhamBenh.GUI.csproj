@@ -102,6 +102,12 @@
     <Compile Include="FrmChonKhoa.Designer.cs">
       <DependentUpon>FrmChonKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDichVuChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDichVuChiTiet.Designer.cs">
+      <DependentUpon>FrmDichVuChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGiuongBenh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChonKhoa.resx">
       <DependentUpon>FrmChonKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDichVuChiTiet.resx">
+      <DependentUpon>FrmDichVuChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGiuongBenh.resx">
       <DependentUpon>FrmGiuongBenh.cs</DependentUpon>

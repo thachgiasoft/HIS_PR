@@ -50,7 +50,7 @@ namespace KhamBenh.DAL
             + "Ten,MaNhom,MauSo,NhomCanLamSan.MaKhoa,MaMay,NgayThanhToan,DiaChi "
             + "From CDCanLamSan, ThongTinBNChiTiet,NhomCanLamSan "
             + "Where CDCanLamSan.MaLK = ThongTinBNChiTiet.MaLK And NhomCanLamSan.Ma = CDCanLamSan.MaCLS "
-            + "And NgayChiDinh = CONVERT(DATE,'"+ngayYLenh+ "') And NhomCanLamSan.MaKhoa = '"+maKhoa+"'",
+            + "And NgayChiDinh = CONVERT(DATE,'"+ngayYLenh+ "') And NhomCanLamSan.MaKhoa = '"+maKhoa+ "' And MaCoSoKCB = '" + AppConfig.CoSoKCB + "'",
                 CommandType.Text, null);
         }
         public DataTable DSKhoaBan(int loaiPhong)
