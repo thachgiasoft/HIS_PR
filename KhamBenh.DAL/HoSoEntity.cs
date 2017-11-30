@@ -30,11 +30,24 @@ namespace KhamBenh.DAL
         public string MaBacSi { get; set; }
         public DateTime NgayYLenh { get; set; }
         public DateTime NgayKQ { get; set; }
+        public string MaChiSo { get; set; }
+        public string GiaTri { get; set; }
+       public string MoTa { get; set; }
+        public string KetLuan { get; set; }
+        public string MaMay { get; set; }
 
         public DataTable DSGiuong()
         {
             return db.ExcuteQuery("Select Ma,Ten,DonGia,MaNhom From GiuongBenh Where TinhTrang =1 And Ma_CS ='" + 
                 AppConfig.CoSoKCB + "'", CommandType.Text, null);
+        }
+        public DataTable DSDichVu()
+        {
+            return db.ExcuteQuery("Select MaDVKT,TenDVKT,DonGia,DV.MaNhom,TT50," +
+                "MauSo,MaMay From" +
+                "(Select * From DichVuKyThuat Where TinhTrang =1 And Ma_CS ='" +
+                AppConfig.CoSoKCB + "') AS DV " +
+                "LEFT JOIN NhomCanLamSan ON NhomCanLamSan.MaNhom = DV.MaNhom", CommandType.Text, null);
         }
         public DataTable DSDichVuGiuongBenh()
         {
@@ -42,6 +55,15 @@ namespace KhamBenh.DAL
                 "ThanhTien,MaKhoa,MaGiuong,MaBacSi,NgayYLenh,NgayKQ " +
                 " From DichVuChiTiet Where MaNhom = 15 And MaLK ='" +
                 this.MaLK + "'", CommandType.Text, null);
+        }
+        public DataTable DSDichVuChiTiet()
+        {
+            return db.ExcuteQuery("Select * From " +
+                "(Select MaLK,MaDichVu,MaNhom,TenDichVu,DonViTinh,SoLuong,DonGia," +
+                "ThanhTien,MaKhoa,MaGiuong,MaBacSi,NgayYLenh,NgayKQ" +
+                " From DichVuChiTiet Where MaLK ='" + MaLK + "' And MaNhom != 15 And MaNhom != 13) AS DV" +
+                " LEFT JOIN HoSoCanLamSan ON HoSoCanLamSan.MaDichVu = DV.MaDichVu",
+                CommandType.Text, null);
         }
         public bool SpDichVuChiTiet(ref string err, string Action)
         {
@@ -67,7 +89,12 @@ namespace KhamBenh.DAL
                 new SqlParameter("@MaGiuong", MaGiuong),
                 new SqlParameter("@MaBacSi", MaBacSi),
                 new SqlParameter("@NgayYLenh", NgayYLenh),
-                new SqlParameter("@NgayKQ", NgayKQ));
+                new SqlParameter("@NgayKQ", NgayKQ),
+                new SqlParameter("@MaChiSo", MaChiSo),
+                new SqlParameter("@GiaTri", GiaTri),
+                new SqlParameter("@MaMay", MaMay),
+                new SqlParameter("@MoTa", MoTa),
+                new SqlParameter("@KetLuan", KetLuan));
         }
     }
 }

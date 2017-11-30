@@ -285,7 +285,10 @@ namespace TiepNhan.GUI
             tiepnhan.STTPhong = 0;
             tiepnhan.Phong = phongKham;
             tiepnhan.MucHuong = Utils.ToInt(txtTyLe.Text);
-            tiepnhan.MaLoaiKCB = 1;
+            if (phongKham == 0)
+                tiepnhan.MaLoaiKCB = 3;
+            else
+                tiepnhan.MaLoaiKCB = 1;
             tiepnhan.MienCungCT = null;
             if(txtDu5Nam.Text.Length>0)
             {
@@ -300,7 +303,8 @@ namespace TiepNhan.GUI
             }
             txtSTTNgay.Text = tiepnhan.STTNgay;
             // in phiếu và tạo mới
-            InPhieu();
+            if (phongKham != 0)
+                InPhieu();
             LoadData();
             ResetForm();
         }
@@ -918,6 +922,19 @@ namespace TiepNhan.GUI
                 {
                     XtraMessageBox.Show(Library.LuuThanhCong, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
                     LoadData();
+                }
+            }
+        }
+
+        private void btnNhapVien_Click(object sender, EventArgs e)
+        {
+            if (KiemTraThongTinTiepNhan(true) && themMoi)
+            {
+                FrmChonKhoa frm = new FrmChonKhoa(tiepnhan.DSKhoaBan(1));
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    lookUpMaKhoa.EditValue = frm.MaKhoa;
+                    ChuyenPhong(0);
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace TiepNhan.GUI
         DataRow drThongTin;
         private string maBenhChinh = null;
         DataTable dtBenh;
+        DataTable dataCoSo;
         public FrmKhamBenhNoiTru()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace TiepNhan.GUI
             lookUpMaBenh.Properties.DisplayMember = "MaBenh";
             lookUpMaBenhKhac.Properties.DisplayMember = "MaBenh";
             lookUpMaBenhKhac.Properties.DataSource = dtBenh;
+            dataCoSo = khambenh.DSCoSoKCB();
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -362,8 +364,52 @@ namespace TiepNhan.GUI
             if (KiemTraBenhBacSi() && drThongTin != null)
             {
                 FrmDichVuChiTiet frm = new FrmDichVuChiTiet();
-
+                frm.MaLK = drThongTin["MaLK"].ToString();
+                frm.MaKhoa = lookUpKhoa.EditValue.ToString();
+                frm.MaBacSi = lookUpBacSi.EditValue.ToString();
                 frm.ShowDialog();
+                LoadDataChiTiet();
+            }
+        }
+
+        private void btnKeDon_Click(object sender, EventArgs e)
+        {
+            if (KiemTraBenhBacSi() && drThongTin != null)
+            {
+                FrmDonThuoc frm = new FrmDonThuoc(Utils.ToString(lookUpKhoa.EditValue));
+                frm.MaLK = drThongTin["MaLK"].ToString();
+                frm.MaKhoa = lookUpKhoa.EditValue.ToString();
+                frm.MaBacSi = lookUpBacSi.EditValue.ToString();
+                frm.HoTen = drThongTin["HoTen"].ToString();
+                frm.NgaySinh = drThongTin["NgaySinh"].ToString();
+                frm.GioiTinh = drThongTin["GioiTinh"].ToString();
+                frm.DiaChi = drThongTin["DiaChi"].ToString();
+                frm.MaThe = drThongTin["MaThe"].ToString();
+                frm.TenBenh = txtTenBenh.Text;
+                frm.TheTu = drThongTin["TheTu"].ToString();
+                frm.TheDen = drThongTin["TheDen"].ToString(); 
+                frm.TenBacSi = lookUpBacSi.Properties.GetDisplayValueByKeyValue(lookUpBacSi.EditValue).ToString();
+                try
+                {
+                    frm.TenCoSo = dataCoSo.Select("Ma_CS = '" + AppConfig.CoSoKCB + "'", "")[0]["Ten_CS"].ToString();
+                    frm.NoiDangKy = drThongTin["MaDKBD"] + "-" + dataCoSo.Select("Ma_CS = '" + drThongTin["MaDKBD"] + "'", "")[0]["Ten_CS"].ToString();
+                }
+                catch { }
+                frm.ShowDialog();
+                LoadDataChiTiet();
+            }
+        }
+
+        private void btnVTYT_Click(object sender, EventArgs e)
+        {
+            if (KiemTraBenhBacSi() && drThongTin != null)
+            {
+                FrmVatTuChiTiet frm = new FrmVatTuChiTiet();
+                frm.MaLK = drThongTin["MaLK"].ToString();
+                frm.MaKhoa = lookUpKhoa.EditValue.ToString();
+                frm.MaBacSi = lookUpBacSi.EditValue.ToString();
+                frm.ShowDialog();
+                LoadDataChiTiet();
             }
         }
     }

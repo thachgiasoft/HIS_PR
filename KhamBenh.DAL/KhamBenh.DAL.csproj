@@ -44,6 +44,7 @@
     <Compile Include="HoSoEntity.cs" />
     <Compile Include="KeDonEntity.cs" />
     <Compile Include="KhamBenhEntity.cs" />
+    <Compile Include="ThanhToanEntity.cs" />
     <Compile Include="TiepNhanEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

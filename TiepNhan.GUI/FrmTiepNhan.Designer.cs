@@ -38,6 +38,7 @@ namespace TiepNhan.GUI
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNhapVien = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnInLai = new DevExpress.XtraEditors.SimpleButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -397,19 +398,32 @@ namespace TiepNhan.GUI
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Controls.Add(this.btnNhapVien);
             this.flowLayoutPanel2.Controls.Add(this.btnLuu);
             this.flowLayoutPanel2.Controls.Add(this.btnInLai);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(977, 116);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(888, 116);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(167, 34);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(256, 34);
             this.flowLayoutPanel2.TabIndex = 38;
+            // 
+            // btnNhapVien
+            // 
+            this.btnNhapVien.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapVien.Appearance.Options.UseFont = true;
+            this.btnNhapVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapVien.ImageOptions.Image")));
+            this.btnNhapVien.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapVien.Name = "btnNhapVien";
+            this.btnNhapVien.Size = new System.Drawing.Size(85, 27);
+            this.btnNhapVien.TabIndex = 38;
+            this.btnNhapVien.Text = "Nhập viện";
+            this.btnNhapVien.Click += new System.EventHandler(this.btnNhapVien_Click);
             // 
             // btnLuu
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "SaveAll;Size16x16";
-            this.btnLuu.Location = new System.Drawing.Point(3, 3);
+            this.btnLuu.ImageOptions.ImageUri.Uri = "SaveAll;Size16x16";
+            this.btnLuu.Location = new System.Drawing.Point(94, 3);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 27);
             this.btnLuu.TabIndex = 37;
@@ -420,8 +434,8 @@ namespace TiepNhan.GUI
             // 
             this.btnInLai.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInLai.Appearance.Options.UseFont = true;
-            this.btnInLai.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
-            this.btnInLai.Location = new System.Drawing.Point(84, 3);
+            this.btnInLai.ImageOptions.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
+            this.btnInLai.Location = new System.Drawing.Point(175, 3);
             this.btnInLai.Name = "btnInLai";
             this.btnInLai.Size = new System.Drawing.Size(76, 27);
             this.btnInLai.TabIndex = 36;
@@ -442,7 +456,7 @@ namespace TiepNhan.GUI
             // 
             this.btnNhapMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapMoi.Appearance.Options.UseFont = true;
-            this.btnNhapMoi.ImageUri.Uri = "Add;Size16x16;Office2013";
+            this.btnNhapMoi.ImageOptions.ImageUri.Uri = "Add;Size16x16;Office2013";
             this.btnNhapMoi.Location = new System.Drawing.Point(3, 3);
             this.btnNhapMoi.Name = "btnNhapMoi";
             this.btnNhapMoi.Size = new System.Drawing.Size(82, 27);
@@ -456,7 +470,7 @@ namespace TiepNhan.GUI
             this.btnKtraThongTuyen.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.btnKtraThongTuyen.Appearance.Options.UseFont = true;
             this.btnKtraThongTuyen.Appearance.Options.UseForeColor = true;
-            this.btnKtraThongTuyen.ImageUri.Uri = "Previous;Size16x16;Office2013";
+            this.btnKtraThongTuyen.ImageOptions.ImageUri.Uri = "Previous;Size16x16;Office2013";
             this.btnKtraThongTuyen.Location = new System.Drawing.Point(91, 3);
             this.btnKtraThongTuyen.Name = "btnKtraThongTuyen";
             this.btnKtraThongTuyen.Size = new System.Drawing.Size(122, 27);
@@ -470,7 +484,7 @@ namespace TiepNhan.GUI
             this.btnLichSuKCB.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnLichSuKCB.Appearance.Options.UseFont = true;
             this.btnLichSuKCB.Appearance.Options.UseForeColor = true;
-            this.btnLichSuKCB.ImageUri.Uri = "TimeLineView;Size16x16;Office2013";
+            this.btnLichSuKCB.ImageOptions.ImageUri.Uri = "TimeLineView;Size16x16;Office2013";
             this.btnLichSuKCB.Location = new System.Drawing.Point(219, 3);
             this.btnLichSuKCB.Name = "btnLichSuKCB";
             this.btnLichSuKCB.Size = new System.Drawing.Size(94, 27);
@@ -483,7 +497,7 @@ namespace TiepNhan.GUI
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.Location = new System.Drawing.Point(336, 116);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(637, 34);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(548, 34);
             this.flowLayoutPanel.TabIndex = 37;
             // 
             // checkCapCuu
@@ -510,7 +524,7 @@ namespace TiepNhan.GUI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpTaiNan.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", 40, "Tên")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", "Tên", 40, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpTaiNan.Properties.NullText = "";
             this.lookUpTaiNan.Size = new System.Drawing.Size(105, 22);
             this.lookUpTaiNan.StyleController = this.layoutControl1;
@@ -830,7 +844,7 @@ namespace TiepNhan.GUI
             this.lookUpNoiChuyenDen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpNoiChuyenDen.Properties.NullText = "";
-            this.lookUpNoiChuyenDen.Properties.View = this.searchLookUpEdit1View;
+            this.lookUpNoiChuyenDen.Properties.PopupView = this.searchLookUpEdit1View;
             this.lookUpNoiChuyenDen.Size = new System.Drawing.Size(139, 22);
             this.lookUpNoiChuyenDen.StyleController = this.layoutControl1;
             this.lookUpNoiChuyenDen.TabIndex = 31;
@@ -884,7 +898,7 @@ namespace TiepNhan.GUI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpMaKhoa.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MaKhoa", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenKhoa", 50, "Tên")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenKhoa", "Tên", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpMaKhoa.Properties.NullText = "";
             this.lookUpMaKhoa.Size = new System.Drawing.Size(122, 22);
             this.lookUpMaKhoa.StyleController = this.layoutControl1;
@@ -925,7 +939,6 @@ namespace TiepNhan.GUI
             this.layoutControlItem30,
             this.layoutControlItem14,
             this.layoutControlItem10});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1156, 167);
             this.layoutControlGroup1.TextVisible = false;
@@ -1166,7 +1179,7 @@ namespace TiepNhan.GUI
             this.layoutControlItem34.MaxSize = new System.Drawing.Size(0, 38);
             this.layoutControlItem34.MinSize = new System.Drawing.Size(104, 38);
             this.layoutControlItem34.Name = "layoutControlItem34";
-            this.layoutControlItem34.Size = new System.Drawing.Size(641, 43);
+            this.layoutControlItem34.Size = new System.Drawing.Size(552, 43);
             this.layoutControlItem34.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem34.TextVisible = false;
@@ -1186,11 +1199,11 @@ namespace TiepNhan.GUI
             // layoutControlItem30
             // 
             this.layoutControlItem30.Control = this.flowLayoutPanel2;
-            this.layoutControlItem30.Location = new System.Drawing.Point(965, 104);
-            this.layoutControlItem30.MaxSize = new System.Drawing.Size(171, 38);
-            this.layoutControlItem30.MinSize = new System.Drawing.Size(171, 38);
+            this.layoutControlItem30.Location = new System.Drawing.Point(876, 104);
+            this.layoutControlItem30.MaxSize = new System.Drawing.Size(260, 38);
+            this.layoutControlItem30.MinSize = new System.Drawing.Size(260, 38);
             this.layoutControlItem30.Name = "layoutControlItem30";
-            this.layoutControlItem30.Size = new System.Drawing.Size(171, 43);
+            this.layoutControlItem30.Size = new System.Drawing.Size(260, 43);
             this.layoutControlItem30.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem30.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem30.TextVisible = false;
@@ -1504,7 +1517,6 @@ namespace TiepNhan.GUI
             this.layoutControlItem31,
             this.layoutControlItem32,
             this.layoutControlItem33});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(1156, 222);
             this.layoutControlGroup2.TextVisible = false;
@@ -1549,7 +1561,6 @@ namespace TiepNhan.GUI
             this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem3});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(1184, 461);
             this.layoutControlGroup.TextVisible = false;
@@ -1882,7 +1893,7 @@ namespace TiepNhan.GUI
             // 
             this.btnTim.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
-            this.btnTim.ImageUri.Uri = "Zoom;Size16x16;Office2013";
+            this.btnTim.ImageOptions.ImageUri.Uri = "Zoom;Size16x16;Office2013";
             this.btnTim.Location = new System.Drawing.Point(357, 12);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(68, 23);
@@ -1949,7 +1960,6 @@ namespace TiepNhan.GUI
             this.layoutControlItem38,
             this.emptySpaceItem2,
             this.layoutControlItem45});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(1184, 461);
             this.layoutControlGroup3.TextVisible = false;
@@ -2358,6 +2368,7 @@ namespace TiepNhan.GUI
         private DevExpress.XtraEditors.LabelControl lblSoLuong;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem45;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
+        private DevExpress.XtraEditors.SimpleButton btnNhapVien;
     }
 }
 

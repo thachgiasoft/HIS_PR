@@ -341,5 +341,21 @@ namespace HIS_PR
             frmKhamBenhNoiTru.MdiParent = this;
             frmKhamBenhNoiTru.Show();
         }
+
+        private void barButtonTTVienPhi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmThanhToan))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmThanhToan frmThanhToan = new FrmThanhToan();
+            frmThanhToan.MdiParent = this;
+            frmThanhToan.Show();
+        }
     }
 }

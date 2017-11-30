@@ -108,6 +108,12 @@
     <Compile Include="FrmDichVuChiTiet.Designer.cs">
       <DependentUpon>FrmDichVuChiTiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDonThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDonThuoc.Designer.cs">
+      <DependentUpon>FrmDonThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGiuongBenh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,12 @@
     <Compile Include="FrmRaVien.Designer.cs">
       <DependentUpon>FrmRaVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThanhToan.Designer.cs">
+      <DependentUpon>FrmThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmThongTinHoSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +173,12 @@
     </Compile>
     <Compile Include="FrmTiepNhan.Designer.cs">
       <DependentUpon>FrmTiepNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVatTuChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVatTuChiTiet.Designer.cs">
+      <DependentUpon>FrmVatTuChiTiet.cs</DependentUpon>
     </Compile>
     <Compile Include="MauSo\rptMauSo_19.cs">
       <SubType>Component</SubType>
@@ -254,6 +272,9 @@
     <EmbeddedResource Include="FrmDichVuChiTiet.resx">
       <DependentUpon>FrmDichVuChiTiet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDonThuoc.resx">
+      <DependentUpon>FrmDonThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGiuongBenh.resx">
       <DependentUpon>FrmGiuongBenh.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,11 +296,17 @@
     <EmbeddedResource Include="FrmRaVien.resx">
       <DependentUpon>FrmRaVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmThanhToan.resx">
+      <DependentUpon>FrmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmThongTinHoSo.resx">
       <DependentUpon>FrmThongTinHoSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTiepNhan.resx">
       <DependentUpon>FrmTiepNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVatTuChiTiet.resx">
+      <DependentUpon>FrmVatTuChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MauSo\rptMauSo_19.resx">
       <DependentUpon>rptMauSo_19.cs</DependentUpon>

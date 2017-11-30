@@ -49,12 +49,15 @@
             this.barButtonCauHinh = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonCanLamSan = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonNoiTru = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonTTVienPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonHSBenhAn = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageKhamBenh = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupKhamBenh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupHoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupCSKCB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,9 +67,6 @@
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.ribbonPageGroupHoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonTTVienPhi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonHSBenhAn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,6 +262,21 @@
             this.barButtonNoiTru.Name = "barButtonNoiTru";
             this.barButtonNoiTru.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNoiTru_ItemClick);
             // 
+            // barButtonTTVienPhi
+            // 
+            this.barButtonTTVienPhi.Caption = "Thanh toán viện phí";
+            this.barButtonTTVienPhi.Id = 28;
+            this.barButtonTTVienPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTTVienPhi.ImageOptions.Image")));
+            this.barButtonTTVienPhi.Name = "barButtonTTVienPhi";
+            this.barButtonTTVienPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTTVienPhi_ItemClick);
+            // 
+            // barButtonHSBenhAn
+            // 
+            this.barButtonHSBenhAn.Caption = "Hồ sơ bệnh nhân";
+            this.barButtonHSBenhAn.Id = 29;
+            this.barButtonHSBenhAn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonHSBenhAn.ImageOptions.Image")));
+            this.barButtonHSBenhAn.Name = "barButtonHSBenhAn";
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -304,6 +319,13 @@
             this.ribbonPageGroupKhamBenh.ItemLinks.Add(this.barButtonCanLamSan);
             this.ribbonPageGroupKhamBenh.Name = "ribbonPageGroupKhamBenh";
             this.ribbonPageGroupKhamBenh.ShowCaptionButton = false;
+            // 
+            // ribbonPageGroupHoSo
+            // 
+            this.ribbonPageGroupHoSo.ItemLinks.Add(this.barButtonTTVienPhi);
+            this.ribbonPageGroupHoSo.ItemLinks.Add(this.barButtonHSBenhAn);
+            this.ribbonPageGroupHoSo.Name = "ribbonPageGroupHoSo";
+            this.ribbonPageGroupHoSo.ShowCaptionButton = false;
             // 
             // ribbonPageDanhMuc
             // 
@@ -370,27 +392,6 @@
             this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
-            // 
-            // ribbonPageGroupHoSo
-            // 
-            this.ribbonPageGroupHoSo.ItemLinks.Add(this.barButtonTTVienPhi);
-            this.ribbonPageGroupHoSo.ItemLinks.Add(this.barButtonHSBenhAn);
-            this.ribbonPageGroupHoSo.Name = "ribbonPageGroupHoSo";
-            this.ribbonPageGroupHoSo.ShowCaptionButton = false;
-            // 
-            // barButtonTTVienPhi
-            // 
-            this.barButtonTTVienPhi.Caption = "Thanh toán viện phí";
-            this.barButtonTTVienPhi.Id = 28;
-            this.barButtonTTVienPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTTVienPhi.ImageOptions.Image")));
-            this.barButtonTTVienPhi.Name = "barButtonTTVienPhi";
-            // 
-            // barButtonHSBenhAn
-            // 
-            this.barButtonHSBenhAn.Caption = "Hồ sơ bệnh nhân";
-            this.barButtonHSBenhAn.Id = 29;
-            this.barButtonHSBenhAn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonHSBenhAn.ImageOptions.Image")));
-            this.barButtonHSBenhAn.Name = "barButtonHSBenhAn";
             // 
             // FrmMain
             // 
