@@ -44,6 +44,8 @@ namespace Core.DAL
         public const string SqlChuyenTuyen = "TinhTrangRaVien = 2";
         public const string SqlNhapVien = "MaLoaiKCB > 1";
         public const string SqlRaVien = "MaBenh is not null And NgayRa is not null";
+        public const string SqlYCRaVien = "MaBenh is not null And NgayRa is not null And NgayThanhToan is null";
+        public const string SqlDaThanhToan = "NgayThanhToan is not null";
         // lỗi kê đơn
         public const string ThuocDaDuocChon = "Thuốc đã được kê, vui lòng chọn thuốc khác!";
         public const string SoLuongThuocKhongDu = "Số lượng thuốc không đủ, vui lòng chọn lại số lượng!";

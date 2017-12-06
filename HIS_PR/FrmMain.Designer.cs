@@ -276,6 +276,7 @@
             this.barButtonHSBenhAn.Id = 29;
             this.barButtonHSBenhAn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonHSBenhAn.ImageOptions.Image")));
             this.barButtonHSBenhAn.Name = "barButtonHSBenhAn";
+            this.barButtonHSBenhAn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonHSBenhAn_ItemClick);
             // 
             // ribbonPageHeThong
             // 

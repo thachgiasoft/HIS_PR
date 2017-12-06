@@ -102,6 +102,12 @@
     <Compile Include="FrmChonKhoa.Designer.cs">
       <DependentUpon>FrmChonKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCongKham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCongKham.Designer.cs">
+      <DependentUpon>FrmCongKham.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDichVuChiTiet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,12 @@
     </Compile>
     <Compile Include="FrmGiuongBenh.Designer.cs">
       <DependentUpon>FrmGiuongBenh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHoSoBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHoSoBenhNhan.Designer.cs">
+      <DependentUpon>FrmHoSoBenhNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKeDonThuoc.cs">
       <SubType>Form</SubType>
@@ -242,6 +254,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RptChiPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptChiPhi.designer.cs">
+      <DependentUpon>RptChiPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptDonThuoc.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -269,6 +287,9 @@
     <EmbeddedResource Include="FrmChonKhoa.resx">
       <DependentUpon>FrmChonKhoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCongKham.resx">
+      <DependentUpon>FrmCongKham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDichVuChiTiet.resx">
       <DependentUpon>FrmDichVuChiTiet.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGiuongBenh.resx">
       <DependentUpon>FrmGiuongBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHoSoBenhNhan.resx">
+      <DependentUpon>FrmHoSoBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKeDonThuoc.resx">
       <DependentUpon>FrmKeDonThuoc.cs</DependentUpon>
@@ -348,6 +372,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RptChiPhi.resx">
+      <DependentUpon>RptChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RptDonThuoc.resx">
       <DependentUpon>RptDonThuoc.cs</DependentUpon>
     </EmbeddedResource>

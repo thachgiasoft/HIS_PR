@@ -148,6 +148,17 @@ namespace Core.DAL
                 return defaultvalue;
             }
         }
+        public static float ToFloat(string value, float defaultvalue = 0)
+        {
+            try
+            {
+                return float.Parse(value);
+            }
+            catch
+            {
+                return defaultvalue;
+            }
+        }
         public static string ToString(string value, string defaultvalue = null, string format = "0,0")
         {
             try
