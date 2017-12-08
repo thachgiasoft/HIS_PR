@@ -44,8 +44,8 @@ namespace TiepNhan.GUI
             dataChiTiet.Columns.Add("DonGia", typeof(decimal));
             dataChiTiet.Columns.Add("ThanhTien", typeof(decimal));
             dataChiTiet.Columns.Add("TenNhom", typeof(string));
-            dataChiTiet.Columns.Add("Mau01", typeof(string));
-            dataChiTiet.Columns.Add("Mau02", typeof(string));
+            dataChiTiet.Columns.Add("Mau01", typeof(float));
+            dataChiTiet.Columns.Add("Mau02", typeof(float));
             foreach (DataRow dr in thanhtoan.DSNhom().Rows)
             {
                 nhomChiPhi.Add(Utils.ToInt(dr["MaNhom"]),
@@ -425,7 +425,7 @@ namespace TiepNhan.GUI
                     thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
                     thanhtoan.TienNguonKhac = 0;
                     thanhtoan.TienNgoaiDS = 0;
-                    if (!thanhtoan.SpDichVuChiTiet(ref err, "Update_VT"))
+                    if (!thanhtoan.SpThanhToan(ref err, "Update_VT"))
                     {
                         XtraMessageBox.Show(err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -500,7 +500,7 @@ namespace TiepNhan.GUI
         private void btnLuuIn_Click(object sender, EventArgs e)
         {
             LuuHoSo(true);
-            }
+        }
         private void InHoSo()
         {
             rptChiPhi rpt = new rptChiPhi();
@@ -613,7 +613,7 @@ namespace TiepNhan.GUI
                     {
                         row = new XRTableRow();
                         cell = new XRTableCell();
-                        cell.Text = "Cộng "+dataRow[i-1][mau].ToString().Substring(0,1);
+                        cell.Text = "Cộng "+Utils.ToInt( dataRow[i-1][mau]);
                         cell.Font = font;
                         cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
                         cell.WidthF = 360;
@@ -735,8 +735,7 @@ namespace TiepNhan.GUI
             {
                 row = new XRTableRow();
                 cell = new XRTableCell();
-                cell.Text = "Cộng " + dataRow[dataRow.Length - 1][mau].ToString().Substring(0, 1);
-                cell.Font = font;
+                cell.Text = "Cộng " + Utils.ToInt(dataRow[dataRow.Length - 1][mau]);
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
                 cell.WidthF = 360;
                 row.Cells.Add(cell);

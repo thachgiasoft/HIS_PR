@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanLamSanEntity.cs" />
+    <Compile Include="DanhSachEntity.cs" />
     <Compile Include="HoSoEntity.cs" />
     <Compile Include="KeDonEntity.cs" />
     <Compile Include="KhamBenhEntity.cs" />

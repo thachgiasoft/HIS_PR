@@ -13,9 +13,7 @@ namespace Core.DAL
     public class Utils
     {
         // Thông tin Token
-        private static string Token = null;
-        private static string Id_Token = null;
-        private static DateTime Expires_In = DateTime.Now;
+        private static KQPhienLamViec phienLamViec = new KQPhienLamViec();
         //
         private static System.Globalization.CultureInfo elGR = System.Globalization.CultureInfo.CreateSpecificCulture("el-GR");
         public static Connection db = new Connection();
@@ -506,43 +504,54 @@ namespace Core.DAL
                     client.BaseAddress = new Uri("https://egw.baohiemxahoi.gov.vn/");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    if (string.IsNullOrEmpty(Token) || string.IsNullOrEmpty(Id_Token) || Expires_In < DateTime.Now)
+                    if (phienLamViec == null ||
+                        phienLamViec.APIKey.expires_in < DateTime.Now)
                     {
                         using (HttpResponseMessage response = await client.PostAsync("api/token/take", user))
-                        {
-                            if (response.IsSuccessStatusCode)
-                            {
-                                using (HttpContent content = response.Content)
-                                {
-                                    //MessageBox.Show (content.Headers.ToString ());
-                                    string mycontent = await content.ReadAsStringAsync();
-                                    mycontent = mycontent.Replace("\"", "").Replace("{", "").Replace("}", "");
-                                    string[] kq = mycontent.Split(',');
-                                    string maKetQua = kq[0].Split(':')[1];
-                                    if (maKetQua.Equals("200"))
-                                    {
-                                        Token = kq[1].Split(':')[2];
-                                        Id_Token = kq[2].Split(':')[1];
-                                        Expires_In = Utils.ToDateTime(kq[5].Replace("expires_in:", ""));
-                                        return null;
-                                    }
-                                    else
-                                    {
-                                        return maKetQua + " - Lỗi xác thực!";
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                return Library.KetNoiCong + response.RequestMessage;
-                            }
-                        }
+                         {
+                             if (response.IsSuccessStatusCode)
+                             {
+                                 using (HttpContent content = response.Content)
+                                 {
+                                     //MessageBox.Show (content.Headers.ToString ());
+                                     phienLamViec = await content.ReadAsAsync<KQPhienLamViec>();
+                                     //mycontent = mycontent.Replace("\"", "").Replace("{", "").Replace("}", "");
+                                     //string[] kq = mycontent.Split(',');
+                                     //string maKetQua = mycontent.maKetQua; //kq[0].Split(':')[1];
+                                     if (phienLamViec.maKetQua.Equals("200"))
+                                     {
+                                         //Token = mycontent.APIKey.access_token; //kq[1].Split(':')[2];
+                                         //Id_Token = mycontent.APIKey.id_token;// kq[2].Split(':')[1];
+                                         //Expires_In = mycontent.APIKey.expires_in.AddHours(7);
+                                         // Utils.ToDateTime(kq[5].Replace("expires_in:", ""));
+                                         phienLamViec.APIKey.expires_in = phienLamViec.APIKey.expires_in.AddHours(7);
+                                         return null;
+                                     }
+                                     else if(phienLamViec.maKetQua.Equals("401"))
+                                     {
+                                         return  "401 - sai tài khoản hoặc mật khẩu";
+                                     }
+                                     else if(phienLamViec.maKetQua.Equals("402"))
+                                     {
+                                         return "402 - tài khoản và mã cơ sở khám chữa bệnh không trùng khớp";
+                                     }
+                                     else
+                                     {
+                                         return "Lỗi kết nối,vui lòng kiểm tra lại đường truyền mạng !";
+                                     }
+                                 }
+                             }
+                             else 
+                             {
+                                 return Library.KetNoiCong + response.RequestMessage;
+                             }
+                         }
                     }
                     return null;
                 }
-                catch
+                catch(Exception ex)
                 {
-                    return Library.KetNoiInternet; ;
+                    return ex.Message;
                 }
             }
         }
@@ -575,8 +584,8 @@ namespace Core.DAL
                         return thongTinThe;
                     }
                     // lấy lịch sử KCB
-                    string data = string.Format("token={0}&id_token={1}&username={2}&password={3}",
-                        Token, Id_Token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT));
+                    string data = string.Format("token={0}&id_token={1}&username={2}&password={3}",phienLamViec.APIKey.access_token
+                        , phienLamViec.APIKey.id_token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT));
                     using (HttpResponseMessage response = await client.PostAsync("api/egw/KQNhanLichSuKCB595?" + data, quer))
                     {
                         if (response.IsSuccessStatusCode)
@@ -601,9 +610,9 @@ namespace Core.DAL
                         }
                     }
                 }
-                catch
+                catch(Exception e)
                 {
-                    thongTinThe.ThongBao = Library.KetNoiInternet;
+                    thongTinThe.ThongBao = e.Message;
                     thongTinThe.Code = "false";
                     return thongTinThe;
                 }
@@ -628,7 +637,8 @@ namespace Core.DAL
                     }
                     // lấy lịch sử KCB
                     string data = string.Format("token={0}&id_token={1}&username={2}&password={3}&maHoSo={4}",
-                        Token, Id_Token, AppConfig.UserLoginBHYT, Utils.ToMD5(AppConfig.PassWordBHYT), maHoSo);
+                        phienLamViec.APIKey.access_token, phienLamViec.APIKey.id_token, AppConfig.UserLoginBHYT, 
+                        Utils.ToMD5(AppConfig.PassWordBHYT), maHoSo);
                     using (HttpResponseMessage response = await client.PostAsync("api/egw/nhanHoSoKCBChiTiet?" + data, null))
                     {
                         if (response.IsSuccessStatusCode)
