@@ -51,6 +51,7 @@
             this.barButtonNoiTru = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonTTVienPhi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonHSBenhAn = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonTonKhoLe = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -66,6 +67,7 @@
             this.ribbonPageGroupQuanLyDuoc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupKhoLe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
@@ -95,9 +97,10 @@
             this.barButtonCanLamSan,
             this.barButtonNoiTru,
             this.barButtonTTVienPhi,
-            this.barButtonHSBenhAn});
+            this.barButtonHSBenhAn,
+            this.barButtonTonKhoLe});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 30;
+            this.ribbonControlMain.MaxItemId = 31;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -110,7 +113,7 @@
             this.ribbonControlMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControlMain.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControlMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbonControlMain.Size = new System.Drawing.Size(1290, 143);
+            this.ribbonControlMain.Size = new System.Drawing.Size(1290, 147);
             this.ribbonControlMain.StatusBar = this.ribbonStatusBarMain;
             // 
             // barLinkSkin
@@ -278,6 +281,14 @@
             this.barButtonHSBenhAn.Name = "barButtonHSBenhAn";
             this.barButtonHSBenhAn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonHSBenhAn_ItemClick);
             // 
+            // barButtonTonKhoLe
+            // 
+            this.barButtonTonKhoLe.Caption = "Tồn kho lẻ";
+            this.barButtonTonKhoLe.Id = 30;
+            this.barButtonTonKhoLe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTonKhoLe.ImageOptions.Image")));
+            this.barButtonTonKhoLe.Name = "barButtonTonKhoLe";
+            this.barButtonTonKhoLe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTonKhoLe_ItemClick);
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -373,7 +384,8 @@
             // ribbonPageBaoCao
             // 
             this.ribbonPageBaoCao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupBaoCao});
+            this.ribbonPageGroupBaoCao,
+            this.ribbonPageGroupKhoLe});
             this.ribbonPageBaoCao.Name = "ribbonPageBaoCao";
             this.ribbonPageBaoCao.Text = "Báo cáo";
             // 
@@ -385,14 +397,21 @@
             this.ribbonPageGroupBaoCao.ShowCaptionButton = false;
             this.ribbonPageGroupBaoCao.Text = "Dược";
             // 
+            // ribbonPageGroupKhoLe
+            // 
+            this.ribbonPageGroupKhoLe.ItemLinks.Add(this.barButtonTonKhoLe);
+            this.ribbonPageGroupKhoLe.Name = "ribbonPageGroupKhoLe";
+            this.ribbonPageGroupKhoLe.ShowCaptionButton = false;
+            this.ribbonPageGroupKhoLe.Text = "Kho lẻ";
+            // 
             // ribbonStatusBarMain
             // 
             this.ribbonStatusBarMain.ItemLinks.Add(this.barlblMaNV);
             this.ribbonStatusBarMain.ItemLinks.Add(this.barbtnLogout);
-            this.ribbonStatusBarMain.Location = new System.Drawing.Point(0, 668);
+            this.ribbonStatusBarMain.Location = new System.Drawing.Point(0, 676);
             this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
-            this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
+            this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 23);
             // 
             // FrmMain
             // 
@@ -458,5 +477,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonTTVienPhi;
         private DevExpress.XtraBars.BarButtonItem barButtonHSBenhAn;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupHoSo;
+        private DevExpress.XtraBars.BarButtonItem barButtonTonKhoLe;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupKhoLe;
     }
 }

@@ -170,8 +170,12 @@ namespace TiepNhan.GUI
                 dateNgayVao.DateTime = Utils.ToDateTime(dr["NgayVao"].ToString());
                 dateNgayRa.DateTime = Utils.ToDateTime(dr["NgayRa"].ToString());
                 txtSoNgayDTri.Text =Utils.ToInt( dr["SoNgayDieuTri"],(dateNgayRa.DateTime-dateNgayVao.DateTime).Days).ToString();
-                cbKQDieuTri.SelectedIndex = Utils.ToInt(dr["KetQuaDieuTri"]) - 1;
-                cbTTRaVien.SelectedIndex = Utils.ToInt(dr["TinhTrangRaVien"]) - 1;
+                cbKQDieuTri.SelectedIndex = Utils.ToInt(dr["KetQuaDieuTri"],1) - 1;
+                cbTTRaVien.SelectedIndex = Utils.ToInt(dr["TinhTrangRaVien"],1) - 1;
+                if (cbKQDieuTri.SelectedIndex < 0)
+                    cbKQDieuTri.SelectedIndex = 0;
+                if (cbTTRaVien.SelectedIndex < 0)
+                    cbTTRaVien.SelectedIndex = 0;
                 dateNgayTToan.DateTime = Utils.ToDateTime(dr["NgayThanhToan"].ToString());
                 txtMaBN.Text = dr["MaBN"].ToString();
                 txtSTTNgay.Text = dr["STTNgay"].ToString();
@@ -432,6 +436,21 @@ namespace TiepNhan.GUI
                 }
                 // cập nhật dịch vụ
                 foreach (DataRow dr in dataDichVu.Rows)
+                {
+                    err = null;
+                    thanhtoan.MaVatTu = dr["MaDichVu"].ToString();
+                    thanhtoan.TongChi = Utils.ToDecimal(dr["ThanhTien"]);
+                    thanhtoan.TienBNTT = 0;
+                    thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                    thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    thanhtoan.TienNguonKhac = 0;
+                    thanhtoan.TienNgoaiDS = 0;
+                    if (!thanhtoan.SpThanhToan(ref err, "Update_DV"))
+                    {
+                        XtraMessageBox.Show(err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }// công khám
+                foreach (DataRow dr in dataCongKham.Rows)
                 {
                     err = null;
                     thanhtoan.MaVatTu = dr["MaDichVu"].ToString();

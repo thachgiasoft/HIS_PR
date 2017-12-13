@@ -8,6 +8,7 @@ using Core.DAL;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraSplashScreen;
 
 namespace TiepNhan.GUI
 {
@@ -23,7 +24,7 @@ namespace TiepNhan.GUI
         private string quyen = "";
         public FrmTiepNhan()
         {
-            SplashScreen.Start();
+            
             InitializeComponent();
             tiepnhan = new TiepNhanEntity();;
             lookUpTaiNan.Properties.DataSource = tiepnhan.DSTaiNan();
@@ -68,7 +69,7 @@ namespace TiepNhan.GUI
             dataMucHuong = tiepnhan.DSMucHuong();
             dateTuNgay.DateTime = DateTime.Now;
             dateDenNgay.DateTime = DateTime.Now;
-            SplashScreen.Stop();
+            
         }
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -359,7 +360,8 @@ namespace TiepNhan.GUI
 
         private async void btnLichSuKCB_Click(object sender, EventArgs e)
         {
-            if(checkBHYT.Checked == true )
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
+            if (checkBHYT.Checked == true )
             {
                 // Lấy danh sách lịch sử trên cổng (trên phần mềm nếu cổng lỗi)
                 if (KiemTraThongTinTiepNhan(true))
@@ -377,6 +379,7 @@ namespace TiepNhan.GUI
                     if(thongtin.Code == "false")
                     {
                         // lỗi hệ thống
+                        SplashScreenManager.CloseForm();
                         XtraMessageBox.Show(thongtin.ThongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
@@ -403,6 +406,7 @@ namespace TiepNhan.GUI
                 lichSuKCB.ThongTin = thongtin;
                 lichSuKCB.ShowDialog();
             }
+            SplashScreenManager.CloseForm();
         }
 
         private void btnInLai_Click(object sender, EventArgs e)

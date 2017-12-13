@@ -47,6 +47,7 @@
     <Compile Include="KhamBenhEntity.cs" />
     <Compile Include="NhomChiPhi.cs" />
     <Compile Include="ThanhToanEntity.cs" />
+    <Compile Include="ThongTinHoSoEntity.cs" />
     <Compile Include="TiepNhanEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

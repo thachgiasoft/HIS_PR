@@ -227,20 +227,21 @@ namespace TiepNhan.GUI
             if (ThongTin.MaBN == null)
             {
                 // Hồ sơ từ BHYT
-                ThongTinThe thongTinHS = await Utils.LayChiTietHoSo(maHoSo);
-                if (thongTinHS.Code != "200")
+                Core.DAL.LichSuKCBChiTiet lichSuKCBChiTiet  = await Utils.LayChiTietHoSo(maHoSo);
+                if (lichSuKCBChiTiet.maKetQua != "200")
                 {
-                    XtraMessageBox.Show(thongTinHS.ThongBao, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show(lichSuKCBChiTiet.ThongBao, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 frmHoSo.BHYT = true;
-                frmHoSo.XML2 = thongTinHS.XML2;
-                frmHoSo.XML3 = thongTinHS.XML3;
+                frmHoSo.XML2 = lichSuKCBChiTiet.hoSoKCB.dsXml2;
+                frmHoSo.XML3 = lichSuKCBChiTiet.hoSoKCB.dsXml3;
             }
             else
             {
                 // Hồ sơ từ phần mềm
                 frmHoSo.BHYT = false;
+                frmHoSo.MaHoSo = maHoSo;
             }
             frmHoSo.ShowDialog();
         }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThongTinHoSo));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.gridControlXML2 = new DevExpress.XtraGrid.GridControl();
             this.gridViewXML2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Stt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,16 +51,17 @@
             this.SoLuong3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DonGia3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ThanhTien3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXML2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewXML2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXML3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewXML3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
@@ -94,18 +94,6 @@
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(890, 368);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
             // gridControlXML2
             // 
             this.gridControlXML2.Location = new System.Drawing.Point(12, 12);
@@ -134,6 +122,8 @@
             // 
             // Stt
             // 
+            this.Stt.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Stt.AppearanceCell.Options.UseFont = true;
             this.Stt.Caption = "STT";
             this.Stt.FieldName = "Stt";
             this.Stt.Name = "Stt";
@@ -144,6 +134,8 @@
             // 
             // MaThuoc
             // 
+            this.MaThuoc.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaThuoc.AppearanceCell.Options.UseFont = true;
             this.MaThuoc.Caption = "Mã Thuốc";
             this.MaThuoc.FieldName = "MaThuoc";
             this.MaThuoc.Name = "MaThuoc";
@@ -154,15 +146,20 @@
             // 
             // TenThuoc
             // 
+            this.TenThuoc.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenThuoc.AppearanceCell.Options.UseFont = true;
             this.TenThuoc.Caption = "Tên Thuốc";
             this.TenThuoc.FieldName = "TenThuoc";
             this.TenThuoc.Name = "TenThuoc";
+            this.TenThuoc.OptionsColumn.AllowEdit = false;
             this.TenThuoc.Visible = true;
             this.TenThuoc.VisibleIndex = 2;
             this.TenThuoc.Width = 154;
             // 
             // HamLuong
             // 
+            this.HamLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HamLuong.AppearanceCell.Options.UseFont = true;
             this.HamLuong.Caption = "Hàm Lượng";
             this.HamLuong.FieldName = "HamLuong";
             this.HamLuong.Name = "HamLuong";
@@ -173,6 +170,8 @@
             // 
             // DonViTinh
             // 
+            this.DonViTinh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonViTinh.AppearanceCell.Options.UseFont = true;
             this.DonViTinh.Caption = "Đơn Vị";
             this.DonViTinh.FieldName = "DonViTinh";
             this.DonViTinh.Name = "DonViTinh";
@@ -183,6 +182,8 @@
             // 
             // SoLuong
             // 
+            this.SoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLuong.AppearanceCell.Options.UseFont = true;
             this.SoLuong.Caption = "Số Lượng";
             this.SoLuong.FieldName = "SoLuong";
             this.SoLuong.Name = "SoLuong";
@@ -193,7 +194,11 @@
             // 
             // DonGia
             // 
+            this.DonGia.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonGia.AppearanceCell.Options.UseFont = true;
             this.DonGia.Caption = "Đơn Giá";
+            this.DonGia.DisplayFormat.FormatString = "#,###";
+            this.DonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.DonGia.FieldName = "DonGia";
             this.DonGia.Name = "DonGia";
             this.DonGia.OptionsColumn.AllowEdit = false;
@@ -203,7 +208,11 @@
             // 
             // ThanhTien
             // 
+            this.ThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThanhTien.AppearanceCell.Options.UseFont = true;
             this.ThanhTien.Caption = "Thành Tiền";
+            this.ThanhTien.DisplayFormat.FormatString = "#,###";
+            this.ThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.ThanhTien.FieldName = "ThanhTien";
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.OptionsColumn.AllowEdit = false;
@@ -213,6 +222,8 @@
             // 
             // LieuDung
             // 
+            this.LieuDung.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LieuDung.AppearanceCell.Options.UseFont = true;
             this.LieuDung.Caption = "Liều Dùng";
             this.LieuDung.FieldName = "LieuDung";
             this.LieuDung.Name = "LieuDung";
@@ -247,6 +258,8 @@
             // 
             // Stt3
             // 
+            this.Stt3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Stt3.AppearanceCell.Options.UseFont = true;
             this.Stt3.Caption = "STT";
             this.Stt3.FieldName = "Stt";
             this.Stt3.Name = "Stt3";
@@ -257,6 +270,8 @@
             // 
             // MaDichVu
             // 
+            this.MaDichVu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaDichVu.AppearanceCell.Options.UseFont = true;
             this.MaDichVu.Caption = "Mã DV";
             this.MaDichVu.FieldName = "MaDichVu";
             this.MaDichVu.Name = "MaDichVu";
@@ -267,6 +282,8 @@
             // 
             // TenDichVu
             // 
+            this.TenDichVu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenDichVu.AppearanceCell.Options.UseFont = true;
             this.TenDichVu.Caption = "Tên Dịch Vụ";
             this.TenDichVu.FieldName = "TenDichVu";
             this.TenDichVu.Name = "TenDichVu";
@@ -277,6 +294,8 @@
             // 
             // DonViTinh3
             // 
+            this.DonViTinh3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonViTinh3.AppearanceCell.Options.UseFont = true;
             this.DonViTinh3.Caption = "Đơn Vị";
             this.DonViTinh3.FieldName = "DonViTinh";
             this.DonViTinh3.Name = "DonViTinh3";
@@ -287,6 +306,8 @@
             // 
             // SoLuong3
             // 
+            this.SoLuong3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLuong3.AppearanceCell.Options.UseFont = true;
             this.SoLuong3.Caption = "Số Lượng";
             this.SoLuong3.FieldName = "SoLuong";
             this.SoLuong3.Name = "SoLuong3";
@@ -297,7 +318,11 @@
             // 
             // DonGia3
             // 
+            this.DonGia3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonGia3.AppearanceCell.Options.UseFont = true;
             this.DonGia3.Caption = "Đơn Giá";
+            this.DonGia3.DisplayFormat.FormatString = "#,###";
+            this.DonGia3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.DonGia3.FieldName = "DonGia";
             this.DonGia3.Name = "DonGia3";
             this.DonGia3.OptionsColumn.AllowEdit = false;
@@ -307,13 +332,28 @@
             // 
             // ThanhTien3
             // 
+            this.ThanhTien3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThanhTien3.AppearanceCell.Options.UseFont = true;
             this.ThanhTien3.Caption = "Thành Tiền";
+            this.ThanhTien3.DisplayFormat.FormatString = "#,###";
+            this.ThanhTien3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.ThanhTien3.FieldName = "ThanhTien";
             this.ThanhTien3.Name = "ThanhTien3";
             this.ThanhTien3.OptionsColumn.AllowEdit = false;
             this.ThanhTien3.Visible = true;
             this.ThanhTien3.VisibleIndex = 6;
             this.ThanhTien3.Width = 124;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(890, 368);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
@@ -351,11 +391,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXML2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewXML2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlXML3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewXML3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);

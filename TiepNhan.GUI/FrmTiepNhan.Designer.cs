@@ -1916,8 +1916,11 @@ namespace TiepNhan.GUI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTuNgay.Properties.CalendarTimeProperties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateTuNgay.Properties.CalendarTimeProperties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateTuNgay.Properties.EditFormat.FormatString = "";
+            this.dateTuNgay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateTuNgay.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateTuNgay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateTuNgay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateTuNgay.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateTuNgay.Size = new System.Drawing.Size(101, 22);
             this.dateTuNgay.StyleController = this.layoutControl3;
             this.dateTuNgay.TabIndex = 5;
@@ -1936,8 +1939,11 @@ namespace TiepNhan.GUI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateDenNgay.Properties.CalendarTimeProperties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateDenNgay.Properties.CalendarTimeProperties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateDenNgay.Properties.EditFormat.FormatString = "";
+            this.dateDenNgay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateDenNgay.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateDenNgay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateDenNgay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateDenNgay.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateDenNgay.Size = new System.Drawing.Size(101, 22);
             this.dateDenNgay.StyleController = this.layoutControl3;
             this.dateDenNgay.TabIndex = 4;

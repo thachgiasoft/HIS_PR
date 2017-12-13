@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraSplashScreen;
+using Core.DAL;
 
 namespace DuocPham.GUI
 {
@@ -10,13 +12,13 @@ namespace DuocPham.GUI
     {
         public RptPhieuLinhThuoc ()
         {
-            Core.DAL.SplashScreen.Start ();
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             InitializeComponent ();
         }
 
         private void RptPhieuLinhThuoc_ParametersRequestBeforeShow (object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
         {
-            Core.DAL.SplashScreen.Stop ();
+            SplashScreenManager.CloseForm();
         }
     }
 }

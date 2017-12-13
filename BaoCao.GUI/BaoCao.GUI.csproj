@@ -80,12 +80,24 @@
     <Compile Include="FrmBCTonKho.Designer.cs">
       <DependentUpon>FrmBCTonKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTonKhoLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTonKhoLe.Designer.cs">
+      <DependentUpon>FrmTonKhoLe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RptBaoCaoNhapXuat.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RptBaoCaoNhapXuat.Designer.cs">
       <DependentUpon>RptBaoCaoNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RptTonKhoLe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTonKhoLe.Designer.cs">
+      <DependentUpon>RptTonKhoLe.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -95,9 +107,15 @@
     <EmbeddedResource Include="FrmBCTonKho.resx">
       <DependentUpon>FrmBCTonKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTonKhoLe.resx">
+      <DependentUpon>FrmTonKhoLe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="RptBaoCaoNhapXuat.resx">
       <DependentUpon>RptBaoCaoNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptTonKhoLe.resx">
+      <DependentUpon>RptTonKhoLe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

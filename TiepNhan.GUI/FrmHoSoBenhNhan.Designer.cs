@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHoSoBenhNhan));
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.btnBHYT = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.dateDenNgay = new DevExpress.XtraEditors.DateEdit();
@@ -60,6 +61,8 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateDenNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -77,10 +80,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlMain
             // 
+            this.layoutControlMain.Controls.Add(this.lblTinhTrang);
             this.layoutControlMain.Controls.Add(this.btnBHYT);
             this.layoutControlMain.Controls.Add(this.btnTim);
             this.layoutControlMain.Controls.Add(this.dateDenNgay);
@@ -94,6 +100,17 @@
             this.layoutControlMain.TabIndex = 0;
             this.layoutControlMain.Text = "layoutControl1";
             // 
+            // lblTinhTrang
+            // 
+            this.lblTinhTrang.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTinhTrang.Appearance.Options.UseFont = true;
+            this.lblTinhTrang.Location = new System.Drawing.Point(753, 12);
+            this.lblTinhTrang.Name = "lblTinhTrang";
+            this.lblTinhTrang.Size = new System.Drawing.Size(74, 16);
+            this.lblTinhTrang.StyleController = this.layoutControlMain;
+            this.lblTinhTrang.TabIndex = 9;
+            this.lblTinhTrang.Text = "Đang gửi....";
+            // 
             // btnBHYT
             // 
             this.btnBHYT.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,7 +122,7 @@
             this.btnBHYT.StyleController = this.layoutControlMain;
             this.btnBHYT.TabIndex = 8;
             this.btnBHYT.Text = "Gửi BHYT";
-            this.btnBHYT.Click += new System.EventHandler(this.btnBHYT_Click);
+            this.btnBHYT.Click += new System.EventHandler(this.btnBHYT_ClickAsync);
             // 
             // btnTim
             // 
@@ -410,7 +427,9 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.emptySpaceItem1,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.emptySpaceItem2});
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
             this.layoutControlGroupMain.Size = new System.Drawing.Size(934, 384);
             this.layoutControlGroupMain.TextVisible = false;
@@ -460,17 +479,37 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(362, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(467, 27);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(379, 27);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnBHYT;
             this.layoutControlItem5.Location = new System.Drawing.Point(829, 0);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(85, 27);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(85, 27);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(85, 27);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.lblTinhTrang;
+            this.layoutControlItem6.Location = new System.Drawing.Point(741, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(78, 27);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(819, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 27);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // FrmHoSoBenhNhan
             // 
@@ -502,6 +541,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,5 +581,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repCheck;
         private DevExpress.XtraEditors.SimpleButton btnBHYT;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.LabelControl lblTinhTrang;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLichSuKCB));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
@@ -144,6 +148,8 @@
             // 
             // maCSKCB
             // 
+            this.maCSKCB.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maCSKCB.AppearanceCell.Options.UseFont = true;
             this.maCSKCB.Caption = "CSKCB";
             this.maCSKCB.ColumnEdit = this.repositoryItemLookUpEdit;
             this.maCSKCB.FieldName = "maCSKCB";
@@ -151,7 +157,7 @@
             this.maCSKCB.OptionsColumn.AllowEdit = false;
             this.maCSKCB.Visible = true;
             this.maCSKCB.VisibleIndex = 0;
-            this.maCSKCB.Width = 210;
+            this.maCSKCB.Width = 223;
             // 
             // repositoryItemLookUpEdit
             // 
@@ -163,6 +169,8 @@
             // 
             // tuNgay
             // 
+            this.tuNgay.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tuNgay.AppearanceCell.Options.UseFont = true;
             this.tuNgay.Caption = "Từ ngày";
             this.tuNgay.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.tuNgay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -171,9 +179,12 @@
             this.tuNgay.OptionsColumn.AllowEdit = false;
             this.tuNgay.Visible = true;
             this.tuNgay.VisibleIndex = 1;
+            this.tuNgay.Width = 79;
             // 
             // denNgay
             // 
+            this.denNgay.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denNgay.AppearanceCell.Options.UseFont = true;
             this.denNgay.Caption = "Đến ngày";
             this.denNgay.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.denNgay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -182,37 +193,42 @@
             this.denNgay.OptionsColumn.AllowEdit = false;
             this.denNgay.Visible = true;
             this.denNgay.VisibleIndex = 2;
-            this.denNgay.Width = 68;
             // 
             // tenBenh
             // 
+            this.tenBenh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenBenh.AppearanceCell.Options.UseFont = true;
             this.tenBenh.Caption = "Tên bệnh";
             this.tenBenh.FieldName = "tenBenh";
             this.tenBenh.Name = "tenBenh";
             this.tenBenh.OptionsColumn.AllowEdit = false;
             this.tenBenh.Visible = true;
             this.tenBenh.VisibleIndex = 3;
-            this.tenBenh.Width = 369;
+            this.tenBenh.Width = 390;
             // 
             // tinhTrang
             // 
+            this.tinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tinhTrang.AppearanceCell.Options.UseFont = true;
             this.tinhTrang.Caption = "Tình trạng";
             this.tinhTrang.FieldName = "tinhTrang";
             this.tinhTrang.Name = "tinhTrang";
             this.tinhTrang.OptionsColumn.AllowEdit = false;
             this.tinhTrang.Visible = true;
             this.tinhTrang.VisibleIndex = 4;
-            this.tinhTrang.Width = 73;
+            this.tinhTrang.Width = 76;
             // 
             // kqDieuTri
             // 
+            this.kqDieuTri.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kqDieuTri.AppearanceCell.Options.UseFont = true;
             this.kqDieuTri.Caption = "Kết quả";
             this.kqDieuTri.FieldName = "kqDieuTri";
             this.kqDieuTri.Name = "kqDieuTri";
             this.kqDieuTri.OptionsColumn.AllowEdit = false;
             this.kqDieuTri.Visible = true;
             this.kqDieuTri.VisibleIndex = 5;
-            this.kqDieuTri.Width = 63;
+            this.kqDieuTri.Width = 71;
             // 
             // btnChiTiet
             // 
@@ -222,14 +238,15 @@
             this.btnChiTiet.OptionsColumn.FixedWidth = true;
             this.btnChiTiet.Visible = true;
             this.btnChiTiet.VisibleIndex = 6;
-            this.btnChiTiet.Width = 34;
+            this.btnChiTiet.Width = 30;
             // 
             // btneditChiTiet
             // 
             this.btneditChiTiet.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btneditChiTiet.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btneditChiTiet.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.btneditChiTiet.ContextImage = ((System.Drawing.Image)(resources.GetObject("btneditChiTiet.ContextImage")));
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btneditChiTiet.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btneditChiTiet.ContextImageOptions.Image")));
             this.btneditChiTiet.Name = "btneditChiTiet";
             this.btneditChiTiet.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btneditChiTiet.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btneditChiTiet_ButtonClick);
@@ -293,7 +310,6 @@
             this.emptySpaceItem4,
             this.layoutControlItem4,
             this.layoutControlItem5});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(990, 318);
             this.layoutControlGroup1.TextVisible = false;

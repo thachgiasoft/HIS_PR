@@ -4,6 +4,7 @@ using DanhMuc.GUI;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using DuocPham.GUI;
 using HeThong.GUI;
 using System;
@@ -273,7 +274,7 @@ namespace HIS_PR
             frmTonKho.Show ();
         }
         private void barButtonTiepNhan_ItemClick(object sender, ItemClickEventArgs e)
-        {
+        {  
             foreach (Form frm in this.MdiChildren)
             {
                 if (frm.GetType() == typeof(FrmTiepNhan))
@@ -283,13 +284,16 @@ namespace HIS_PR
                     return;
                 }
             }
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             FrmTiepNhan frmTiepNhan = new FrmTiepNhan();
             frmTiepNhan.MdiParent = this;
             frmTiepNhan.Show();
+            SplashScreenManager.CloseForm();
         }
 
         private void barButtonKhamBenh_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
             foreach (Form frm in this.MdiChildren)
             {
                 if (frm.GetType() == typeof(FrmKhamBenhNgoaiTru))
@@ -299,9 +303,11 @@ namespace HIS_PR
                     return;
                 }
             }
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             FrmKhamBenhNgoaiTru frmKhamBenh = new FrmKhamBenhNgoaiTru();
             frmKhamBenh.MdiParent = this;
             frmKhamBenh.Show();
+            SplashScreenManager.CloseForm();
         }
 
         private void barButtonCauHinh_ItemClick(object sender, ItemClickEventArgs e)
@@ -328,6 +334,7 @@ namespace HIS_PR
 
         private void barButtonNoiTru_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
             foreach (Form frm in this.MdiChildren)
             {
                 if (frm.GetType() == typeof(FrmKhamBenhNoiTru))
@@ -337,13 +344,16 @@ namespace HIS_PR
                     return;
                 }
             }
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             FrmKhamBenhNoiTru frmKhamBenhNoiTru = new FrmKhamBenhNoiTru();
             frmKhamBenhNoiTru.MdiParent = this;
             frmKhamBenhNoiTru.Show();
+            SplashScreenManager.CloseForm();
         }
 
         private void barButtonTTVienPhi_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
             foreach (Form frm in this.MdiChildren)
             {
                 if (frm.GetType() == typeof(FrmThanhToan))
@@ -353,9 +363,11 @@ namespace HIS_PR
                     return;
                 }
             }
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             FrmThanhToan frmThanhToan = new FrmThanhToan();
             frmThanhToan.MdiParent = this;
             frmThanhToan.Show();
+            SplashScreenManager.CloseForm();
         }
 
         private void barButtonHSBenhAn_ItemClick(object sender, ItemClickEventArgs e)
@@ -372,6 +384,22 @@ namespace HIS_PR
             FrmHoSoBenhNhan frmHoSoBenhNhan = new FrmHoSoBenhNhan();
             frmHoSoBenhNhan.MdiParent = this;
             frmHoSoBenhNhan.Show();
+        }
+
+        private void barButtonTonKhoLe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmTonKhoLe))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmTonKhoLe frmTonKhoLe = new FrmTonKhoLe();
+            frmTonKhoLe.MdiParent = this;
+            frmTonKhoLe.Show();
         }
     }
 }

@@ -17,10 +17,10 @@ namespace Core.DAL
             XmlElement root = doc.DocumentElement;
             doc.InsertBefore(xmlDeclaration, root);
 
-            XmlElement tonghop = doc.CreateElement("TONGHOP");
+            XmlElement tonghop = doc.CreateElement("TONG_HOP");
             doc.AppendChild(tonghop);
 
-            XmlElement element = doc.CreateElement("MALK");
+            XmlElement element = doc.CreateElement("MA_LK");
             element.AppendChild(doc.CreateTextNode(dataRow["MaLK"].ToString()));
             tonghop.AppendChild(element);
 
@@ -36,12 +36,16 @@ namespace Core.DAL
             element.AppendChild(doc.CreateCDataSection(dataRow["HoTen"].ToString()));
             tonghop.AppendChild(element);
 
+            DateTime ngaysinh = dataRow["NgaySinh"].ToString().Length > 4 ?
+                Utils.ToDateTime(dataRow["NgaySinh"].ToString(), "dd/MM/yyyy") : 
+                Utils.ToDateTime(dataRow["NgaySinh"].ToString(), "yyyy");
+
             element = doc.CreateElement("NGAY_SINH");
-            element.AppendChild(doc.CreateTextNode(dataRow["NgaySinh"].ToString()));
+            element.AppendChild(doc.CreateTextNode(ngaysinh.ToString("yyyyMMdd")));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("GIOI_TINH");
-            element.AppendChild(doc.CreateTextNode(dataRow["GioiTinh"].ToString()));
+            element.AppendChild(doc.CreateTextNode((Utils.ToInt(dataRow["GioiTinh"]) + 1).ToString()));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("DIA_CHI");
@@ -57,15 +61,17 @@ namespace Core.DAL
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("GT_THE_TU");
-            element.AppendChild(doc.CreateTextNode(dataRow["TheTu"].ToString()));
+            element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dataRow["TheTu"].ToString()).ToString("yyyyMMdd")));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("GT_THE_DEN");
-            element.AppendChild(doc.CreateTextNode(dataRow["TheDen"].ToString()));
+            element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dataRow["TheDen"].ToString()).ToString("yyyyMMdd")));
             tonghop.AppendChild(element);
 
+            string mienCungCT = dataRow["MienCungCT"].ToString().Length > 0 ?
+                Utils.ToDateTime(dataRow["MienCungCT"].ToString()).ToString("yyyyMMdd") : null;
             element = doc.CreateElement("MIEN_CUNG_CT");
-            element.AppendChild(doc.CreateTextNode(dataRow["MienCungCT"].ToString()));
+            element.AppendChild(doc.CreateTextNode(mienCungCT));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("TEN_BENH");
@@ -93,11 +99,11 @@ namespace Core.DAL
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("NGAY_VAO");
-            element.AppendChild(doc.CreateTextNode(dataRow["NgayVao"].ToString()));
+            element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dataRow["NgayVao"].ToString()).ToString("yyyyMMddHHmm")));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("NGAY_RA");
-            element.AppendChild(doc.CreateTextNode(dataRow["NgayRa"].ToString()));
+            element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dataRow["NgayRa"].ToString()).ToString("yyyyMMddHHmm")));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("SO_NGAY_DTRI");
@@ -105,15 +111,15 @@ namespace Core.DAL
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("KET_QUA_DTRI");
-            element.AppendChild(doc.CreateCDataSection(dataRow["KetQuaDieuTri"].ToString()));
+            element.AppendChild(doc.CreateTextNode((Utils.ToInt(dataRow["KetQuaDieuTri"])).ToString()));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("TINH_TRANG_RV");
-            element.AppendChild(doc.CreateTextNode(dataRow["TinhTrangRaVien"].ToString()));
+            element.AppendChild(doc.CreateTextNode((Utils.ToInt(dataRow["TinhTrangRaVien"])).ToString()));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("NGAY_TTOAN");
-            element.AppendChild(doc.CreateTextNode(dataRow["NgayThanhToan"].ToString()));
+            element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dataRow["NgayThanhToan"].ToString()).ToString("yyyyMMddHHmm")));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("T_THUOC");
@@ -161,7 +167,7 @@ namespace Core.DAL
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("MA_KHOA");
-            element.AppendChild(doc.CreateTextNode(dataRow["MaKhoa"].ToString().Split('_')[0]));
+            element.AppendChild(doc.CreateTextNode((dataRow["MaKhoa"] + "_").Split('_')[0]));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("MA_CSKCB");
@@ -186,6 +192,10 @@ namespace Core.DAL
 
         public static XmlDocument XML2_4210(DataTable dataTable, string MaBenh)
         {
+            if(dataTable==null || dataTable.Rows.Count==0)
+            {
+                return null;
+            }
             XmlDocument doc = new XmlDocument();
             XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             XmlElement root = doc.DocumentElement;
@@ -198,7 +208,7 @@ namespace Core.DAL
                 XmlElement chitiet = doc.CreateElement("CHI_TIET_THUOC");
                 danhsach.AppendChild(chitiet);
 
-                XmlElement element = doc.CreateElement("MALK");
+                XmlElement element = doc.CreateElement("MA_LK");
                 element.AppendChild(doc.CreateTextNode(dr["MaLK"].ToString()));
                 chitiet.AppendChild(element);
 
@@ -266,7 +276,7 @@ namespace Core.DAL
                 element.AppendChild(doc.CreateTextNode(dr["MucHuong"].ToString()));
                 chitiet.AppendChild(element);
 
-                element = doc.CreateElement("T_NGUON_KHAC");
+                element = doc.CreateElement("T_NGUONKHAC");
                 element.AppendChild(doc.CreateTextNode(dr["TienNguonKhac"].ToString()));
                 chitiet.AppendChild(element);
 
@@ -287,7 +297,7 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_KHOA");
-                element.AppendChild(doc.CreateTextNode(dr["MaKhoa"].ToString().Split('_')[0]));
+                element.AppendChild(doc.CreateTextNode((dr["MaKhoa"] + "_").Split('_')[0]));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_BAC_SI");
@@ -299,7 +309,7 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_YL");
-                element.AppendChild(doc.CreateTextNode(dr["NgayYLenh"].ToString()));
+                element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dr["NgayYLenh"].ToString()).ToString("yyyyMMddHHmm")));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_PTTT");
@@ -311,6 +321,10 @@ namespace Core.DAL
         }
         public static XmlDocument XML3_4210(DataTable dataTable, string MaBenh)
         {
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return null;
+            }
             XmlDocument doc = new XmlDocument();
             XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             XmlElement root = doc.DocumentElement;
@@ -323,7 +337,7 @@ namespace Core.DAL
                 XmlElement chitiet = doc.CreateElement("CHI_TIET_DVKT");
                 danhsach.AppendChild(chitiet);
 
-                XmlElement element = doc.CreateElement("MALK");
+                XmlElement element = doc.CreateElement("MA_LK");
                 element.AppendChild(doc.CreateTextNode(dr["MaLK"].ToString()));
                 chitiet.AppendChild(element);
 
@@ -391,7 +405,7 @@ namespace Core.DAL
                 element.AppendChild(doc.CreateTextNode(dr["MucHuong"].ToString()));
                 chitiet.AppendChild(element);
 
-                element = doc.CreateElement("T_NGUON_KHAC");
+                element = doc.CreateElement("T_NGUONKHAC");
                 element.AppendChild(doc.CreateTextNode(dr["TienNguonKhac"].ToString()));
                 chitiet.AppendChild(element);
 
@@ -412,7 +426,7 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_KHOA");
-                element.AppendChild(doc.CreateTextNode(dr["MaKhoa"].ToString().Split('_')[0]));
+                element.AppendChild(doc.CreateTextNode((dr["MaKhoa"] + "_").Split('_')[0]));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_GIUONG");
@@ -428,11 +442,11 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_YL");
-                element.AppendChild(doc.CreateTextNode(dr["NgayYLenh"].ToString()));
+                element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dr["NgayYLenh"].ToString()).ToString("yyyyMMddHHmm")));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_KQ");
-                element.AppendChild(doc.CreateTextNode(dr["NgayKQ"].ToString()));
+                element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dr["NgayKQ"].ToString()).ToString("yyyyMMddHHmm")));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_PTTT");
@@ -444,6 +458,10 @@ namespace Core.DAL
         }
         public static XmlDocument XML4_4210(DataTable dataTable)
         {
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return null;
+            }
             XmlDocument doc = new XmlDocument();
             XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             XmlElement root = doc.DocumentElement;
@@ -456,7 +474,7 @@ namespace Core.DAL
                 XmlElement chitiet = doc.CreateElement("CHI_TIET_CLS");
                 danhsach.AppendChild(chitiet);
 
-                XmlElement element = doc.CreateElement("MALK");
+                XmlElement element = doc.CreateElement("MA_LK");
                 element.AppendChild(doc.CreateTextNode(dr["MaLK"].ToString()));
                 chitiet.AppendChild(element);
 
@@ -493,10 +511,62 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_KQ");
-                element.AppendChild(doc.CreateTextNode(dr["NgayKQ"].ToString()));
+                element.AppendChild(doc.CreateTextNode(Utils.ToDateTime(dr["NgayKQ"].ToString()).ToString("yyyyMMddHHmm")));
                 chitiet.AppendChild(element);
             }
             //
+            return doc;
+        }
+        public static XmlDocument GIAMDINH(DanhSachHoSo danhSachHoSo)
+        {
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            XmlElement root = doc.DocumentElement;
+            doc.InsertBefore(xmlDeclaration, root);
+            XmlElement giamdinh = doc.CreateElement("GIAMDINHHS");
+            doc.AppendChild(giamdinh);
+            // THÔNG TIN ĐƠN VỊ
+            XmlElement thongtinDonVi = doc.CreateElement("THONGTINDONVI");
+            giamdinh.AppendChild(thongtinDonVi);
+
+            XmlElement element = doc.CreateElement("MACSKCB");
+            element.AppendChild(doc.CreateTextNode(AppConfig.CoSoKCB));
+            thongtinDonVi.AppendChild(element);
+
+            // THÔNG TIN HỒ SƠ
+            XmlElement thongtinHoSo = doc.CreateElement("THONGTINHOSO");
+            giamdinh.AppendChild(thongtinHoSo);
+
+            element = doc.CreateElement("NGAYLAP");
+            element.AppendChild(doc.CreateTextNode(DateTime.Now.ToString("yyyyMMdd")));
+            thongtinHoSo.AppendChild(element);
+
+            element = doc.CreateElement("SOLUONGHOSO");
+            element.AppendChild(doc.CreateTextNode(danhSachHoSo.Count.ToString()));
+            thongtinHoSo.AppendChild(element);
+
+            XmlElement danhsach = doc.CreateElement("DANHSACHHOSO");
+            thongtinHoSo.AppendChild(danhsach);
+            foreach (HoSo hoso in danhSachHoSo)
+            {
+                XmlElement elementHoSo = doc.CreateElement("HOSO");
+                danhsach.AppendChild(elementHoSo);
+                foreach (FileHoSo file in hoso)
+                {
+                    XmlElement elementFile = doc.CreateElement("FILEHOSO");
+                    elementHoSo.AppendChild(elementFile);
+
+                    XmlElement elementLoaiHS = doc.CreateElement("LOAIHOSO");
+                    elementLoaiHS.AppendChild(doc.CreateTextNode(file.LoaiHoSo));
+                    elementFile.AppendChild(elementLoaiHS);
+
+                    XmlElement elementNoiDung = doc.CreateElement("NOIDUNGFILE");
+                    elementNoiDung.AppendChild(doc.CreateTextNode(file.NoiDungFile));
+                    elementFile.AppendChild(elementNoiDung);
+                }
+            }
+            XmlElement chuKy = doc.CreateElement("CHUKYDONVI");
+            giamdinh.AppendChild(chuKy);
             return doc;
         }
     }

@@ -106,7 +106,7 @@
             this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(890, 27);
+            this.ribbonControl.Size = new System.Drawing.Size(892, 30);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // layoutControlMain
@@ -117,10 +117,10 @@
             this.layoutControlMain.Controls.Add(this.flowLayoutPanel3);
             this.layoutControlMain.Controls.Add(this.flowLayoutPanelSoLuong);
             this.layoutControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControlMain.Location = new System.Drawing.Point(0, 27);
+            this.layoutControlMain.Location = new System.Drawing.Point(0, 30);
             this.layoutControlMain.Name = "layoutControlMain";
             this.layoutControlMain.Root = this.layoutControlGroupMain;
-            this.layoutControlMain.Size = new System.Drawing.Size(890, 468);
+            this.layoutControlMain.Size = new System.Drawing.Size(892, 466);
             this.layoutControlMain.TabIndex = 1;
             // 
             // gridControl
@@ -129,7 +129,7 @@
             this.gridControl.MainView = this.gridView;
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(866, 380);
+            this.gridControl.Size = new System.Drawing.Size(868, 378);
             this.gridControl.TabIndex = 15;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -317,7 +317,7 @@
             // 
             this.flowLayoutPanelChuyenPhong.Location = new System.Drawing.Point(546, 43);
             this.flowLayoutPanelChuyenPhong.Name = "flowLayoutPanelChuyenPhong";
-            this.flowLayoutPanelChuyenPhong.Size = new System.Drawing.Size(332, 29);
+            this.flowLayoutPanelChuyenPhong.Size = new System.Drawing.Size(334, 29);
             this.flowLayoutPanelChuyenPhong.TabIndex = 11;
             // 
             // flowLayoutPanel1
@@ -336,7 +336,7 @@
             // 
             this.btnLichSuKCB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLichSuKCB.Appearance.Options.UseFont = true;
-            this.btnLichSuKCB.ImageUri.Uri = "SwitchTimeScalesTo;Size16x16;Office2013";
+            this.btnLichSuKCB.ImageOptions.ImageUri.Uri = "SwitchTimeScalesTo;Size16x16;Office2013";
             this.btnLichSuKCB.Location = new System.Drawing.Point(3, 3);
             this.btnLichSuKCB.Name = "btnLichSuKCB";
             this.btnLichSuKCB.Size = new System.Drawing.Size(94, 23);
@@ -348,7 +348,7 @@
             // 
             this.btnKeDon.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKeDon.Appearance.Options.UseFont = true;
-            this.btnKeDon.ImageUri.Uri = "MoreLayoutOptions;Size16x16;Office2013";
+            this.btnKeDon.ImageOptions.ImageUri.Uri = "MoreLayoutOptions;Size16x16;Office2013";
             this.btnKeDon.Location = new System.Drawing.Point(103, 3);
             this.btnKeDon.Name = "btnKeDon";
             this.btnKeDon.Size = new System.Drawing.Size(92, 23);
@@ -360,7 +360,7 @@
             // 
             this.btnCanLamSan.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCanLamSan.Appearance.Options.UseFont = true;
-            this.btnCanLamSan.ImageUri.Uri = "Show;Size16x16;Office2013";
+            this.btnCanLamSan.ImageOptions.ImageUri.Uri = "Show;Size16x16;Office2013";
             this.btnCanLamSan.Location = new System.Drawing.Point(201, 3);
             this.btnCanLamSan.Name = "btnCanLamSan";
             this.btnCanLamSan.Size = new System.Drawing.Size(104, 23);
@@ -372,7 +372,7 @@
             // 
             this.btnChuyenTuyen.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChuyenTuyen.Appearance.Options.UseFont = true;
-            this.btnChuyenTuyen.ImageUri.Uri = "Previous;Size16x16;Office2013";
+            this.btnChuyenTuyen.ImageOptions.ImageUri.Uri = "Previous;Size16x16;Office2013";
             this.btnChuyenTuyen.Location = new System.Drawing.Point(311, 3);
             this.btnChuyenTuyen.Name = "btnChuyenTuyen";
             this.btnChuyenTuyen.Size = new System.Drawing.Size(109, 23);
@@ -384,7 +384,7 @@
             // 
             this.btnNhapVien.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapVien.Appearance.Options.UseFont = true;
-            this.btnNhapVien.ImageUri.Uri = "Home;Size16x16;Office2013";
+            this.btnNhapVien.ImageOptions.ImageUri.Uri = "Home;Size16x16;Office2013";
             this.btnNhapVien.Location = new System.Drawing.Point(426, 3);
             this.btnNhapVien.Name = "btnNhapVien";
             this.btnNhapVien.Size = new System.Drawing.Size(101, 23);
@@ -504,7 +504,7 @@
             // 
             this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Appearance.Options.UseFont = true;
-            this.btnLamMoi.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
+            this.btnLamMoi.ImageOptions.ImageUri.Uri = "Recurrence;Size16x16;Office2013";
             this.btnLamMoi.Location = new System.Drawing.Point(451, 3);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
@@ -517,7 +517,7 @@
             this.flowLayoutPanelSoLuong.Controls.Add(this.lblPhongKham);
             this.flowLayoutPanelSoLuong.Location = new System.Drawing.Point(546, 12);
             this.flowLayoutPanelSoLuong.Name = "flowLayoutPanelSoLuong";
-            this.flowLayoutPanelSoLuong.Size = new System.Drawing.Size(332, 27);
+            this.flowLayoutPanelSoLuong.Size = new System.Drawing.Size(334, 27);
             this.flowLayoutPanelSoLuong.TabIndex = 5;
             // 
             // lblPhongKham
@@ -540,9 +540,8 @@
             this.layoutControlItem5,
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.layoutControlGroupMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
-            this.layoutControlGroupMain.Size = new System.Drawing.Size(890, 468);
+            this.layoutControlGroupMain.Size = new System.Drawing.Size(892, 466);
             this.layoutControlGroupMain.TextVisible = false;
             // 
             // layoutControlItem31
@@ -566,7 +565,7 @@
             this.layoutControlItem32.MaxSize = new System.Drawing.Size(0, 31);
             this.layoutControlItem32.MinSize = new System.Drawing.Size(104, 31);
             this.layoutControlItem32.Name = "layoutControlItem32";
-            this.layoutControlItem32.Size = new System.Drawing.Size(336, 31);
+            this.layoutControlItem32.Size = new System.Drawing.Size(338, 31);
             this.layoutControlItem32.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem32.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem32.TextVisible = false;
@@ -590,7 +589,7 @@
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(0, 33);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(104, 33);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(336, 33);
+            this.layoutControlItem2.Size = new System.Drawing.Size(338, 33);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -600,7 +599,7 @@
             this.layoutControlItem3.Control = this.gridControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 64);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(870, 384);
+            this.layoutControlItem3.Size = new System.Drawing.Size(872, 382);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -608,7 +607,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 495);
+            this.ClientSize = new System.Drawing.Size(892, 496);
             this.Controls.Add(this.layoutControlMain);
             this.Controls.Add(this.ribbonControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

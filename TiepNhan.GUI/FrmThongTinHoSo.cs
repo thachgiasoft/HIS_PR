@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using Core.DAL;
+using DevExpress.XtraBars.Ribbon;
+using KhamBenh.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +15,15 @@ namespace TiepNhan.GUI
 {
     public partial class FrmThongTinHoSo : RibbonForm
     {
-        public string XML2;
-        public string XML3;
+        public List<XML2> XML2;
+        public List<XML3> XML3;
         public bool BHYT;
-        public DataTable XML2_data;
-        public DataTable XML3_data;
+        ThongTinHoSoEntity thongTinHoSo;
+        public string MaHoSo { get; set; }
         public FrmThongTinHoSo()
         {
             InitializeComponent();
+            thongTinHoSo = new ThongTinHoSoEntity();
         }
 
         private void FrmThongTinHoSo_Load(object sender, EventArgs e)
@@ -39,22 +42,20 @@ namespace TiepNhan.GUI
                 dataxml2.Columns.Add("DonGia", typeof(string));
                 dataxml2.Columns.Add("ThanhTien", typeof(string));
                 dataxml2.Columns.Add("LieuDung", typeof(string));
-                string[] xml2 = XML2.Replace("\"", "").Split('{');
-                foreach (string thuoc in xml2)
+                foreach (XML2 thuoc in XML2)
                 {
-                    if (thuoc.Length > 0)
-                    {
-                        DataRow dr = dataxml2.NewRow();
-                        string[] ds = thuoc.Split(',');
-                        foreach (string column in ds)
-                        {
-                            if (dr.Table.Columns.Contains(column.Split(':')[0]))
-                            {
-                                dr[column.Split(':')[0]] = column.Split(':')[1];
-                            }
-                        }
-                        dataxml2.Rows.Add(dr);
-                    }
+                    DataRow dr = dataxml2.NewRow();
+                    dr["Stt"] = thuoc.Stt;
+                    dr["MaThuoc"] = thuoc.MaThuoc;
+                    dr["TenThuoc"] = thuoc.TenThuoc;
+                    dr["HamLuong"] = thuoc.HamLuong;
+                    dr["DonViTinh"] = thuoc.DonViTinh;
+                    dr["SoLuong"] = thuoc.SoLuong;
+                    dr["DonGia"] = thuoc.DonGia;
+                    dr["ThanhTien"] = thuoc.ThanhTien;
+                    dr["LieuDung"] = thuoc.LieuDung;
+                    dataxml2.Rows.Add(dr);
+
                 }
                 gridControlXML2.DataSource = dataxml2;
                 //
@@ -66,30 +67,26 @@ namespace TiepNhan.GUI
                 dataxml3.Columns.Add("SoLuong", typeof(string));
                 dataxml3.Columns.Add("DonGia", typeof(string));
                 dataxml3.Columns.Add("ThanhTien", typeof(string));
-                string[] xml3 = XML3.Replace("\"", "").Split('{');
-                foreach (string dvkt in xml3)
+                foreach (XML3 vtdv in XML3)
                 {
-                    if (dvkt.Length > 0)
-                    {
-                        DataRow dr = dataxml3.NewRow();
-                        string[] ds = dvkt.Split(',');
-                        foreach (string column in ds)
-                        {
-                            if (dr.Table.Columns.Contains(column.Split(':')[0]))
-                            {
-                                dr[column.Split(':')[0]] = column.Split(':')[1];
-                            }
-                        }
-                        dataxml3.Rows.Add(dr);
-                    }
+                    DataRow dr = dataxml3.NewRow();
+                    dr["Stt"] = vtdv.Stt;
+                    dr["MaDichVu"] = vtdv.MaDichVu;
+                    dr["TenDichVu"] = vtdv.TenDichVu;
+                    dr["DonViTinh"] = vtdv.DonViTinh;
+                    dr["SoLuong"] = vtdv.SoLuong;
+                    dr["DonGia"] = vtdv.DonGia;
+                    dr["ThanhTien"] = vtdv.ThanhTien;
+                    dataxml3.Rows.Add(dr);
                 }
                 gridControlXML3.DataSource = dataxml3;
             }
             else
             {
+                thongTinHoSo.MaLK = MaHoSo;
                 // từ phần mềm
-                gridControlXML2.DataSource = XML2_data;
-                gridControlXML3.DataSource = XML3_data;
+                gridControlXML2.DataSource = thongTinHoSo.DSThuoc();
+                gridControlXML3.DataSource = thongTinHoSo.DSDichVu(); ;
             }
         }
     }

@@ -84,7 +84,7 @@
             this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
             this.panel.Controls.Add(this.lblThongBao);
             this.panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel.Location = new System.Drawing.Point(0, 27);
+            this.panel.Location = new System.Drawing.Point(0, 30);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(317, 42);
             this.panel.TabIndex = 2;
@@ -120,7 +120,7 @@
             this.ribbonControl.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(317, 27);
+            this.ribbonControl.Size = new System.Drawing.Size(317, 30);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // label1
@@ -172,6 +172,7 @@
             this.checkLuu.Properties.Caption = "Nhớ thông tin";
             this.checkLuu.Size = new System.Drawing.Size(115, 20);
             this.checkLuu.TabIndex = 6;
+         
             // 
             // FrmDangNhap
             // 

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Core.DAL
 {
@@ -218,6 +219,16 @@ namespace Core.DAL
             {
                 return defaultvalue;
             }
+        }
+        public static byte[] XmlToByte(XmlDocument doc)
+        {
+            byte[] result;
+            using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
+            {
+                doc.Save(memoryStream);
+                result = memoryStream.ToArray();
+            }
+            return result;
         }
         public static string ChuyenSo(string number)
         {
@@ -618,9 +629,56 @@ namespace Core.DAL
                 }
             }
         }
-        public static async Task<ThongTinThe> LayChiTietHoSo(string maHoSo)
+        public static async Task<KQGuiHoSo> GuiHoSo4210(byte[] fileHS)
         {
-            ThongTinThe thongTinThe = new ThongTinThe();
+            KQGuiHoSo kqGuiHoSo = new KQGuiHoSo();
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://egw.baohiemxahoi.gov.vn/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    client.MaxResponseContentBufferSize = 2000005000L;
+                    string err = await GetToken();
+                    if (!string.IsNullOrEmpty(err))
+                    {
+                        kqGuiHoSo.maKetQua = "false_getToken";
+                        kqGuiHoSo.maGiaoDich = err;
+                        return kqGuiHoSo;
+                    }
+                    // gửi hồ sơ 4210
+                    string data = string.Format("token={0}&id_token={1}&username={2}&password={3}&loaiHoSo={4}&maTinh={5}&maCSKCB={6}",
+                        phienLamViec.APIKey.access_token, phienLamViec.APIKey.id_token, AppConfig.UserLoginBHYT,
+                        Utils.ToMD5(AppConfig.PassWordBHYT),3, AppConfig.CoSoKCB.Substring(0,2),AppConfig.CoSoKCB);
+                    using (HttpResponseMessage response = await client.PostAsJsonAsync("api/egw/guiHoSoGiamDinh4210?" + data, fileHS))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (HttpContent content = response.Content)
+                            {
+                                kqGuiHoSo = await content.ReadAsAsync<KQGuiHoSo>();
+                                return kqGuiHoSo;
+                            }
+                        }
+                        else
+                        {
+                            kqGuiHoSo.maGiaoDich = Library.KetNoiCong + "\n" + response.RequestMessage;
+                            kqGuiHoSo.maKetQua = "false_status";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    kqGuiHoSo.maGiaoDich = ex.Message;
+                    kqGuiHoSo.maKetQua = "false_ex";
+                }
+            }
+            return kqGuiHoSo;
+        }
+        public static async Task<LichSuKCBChiTiet> LayChiTietHoSo(string maHoSo)
+        {
+            LichSuKCBChiTiet lichSuKCBChiTiet = new LichSuKCBChiTiet();
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -631,9 +689,9 @@ namespace Core.DAL
                     string err = await GetToken();
                     if (!string.IsNullOrEmpty(err))
                     {
-                        thongTinThe.Code = "false";
-                        thongTinThe.ThongBao = err;
-                        return thongTinThe;
+                        lichSuKCBChiTiet.maKetQua = "false";
+                        lichSuKCBChiTiet.ThongBao = err;
+                        return lichSuKCBChiTiet;
                     }
                     // lấy lịch sử KCB
                     string data = string.Format("token={0}&id_token={1}&username={2}&password={3}&maHoSo={4}",
@@ -645,56 +703,56 @@ namespace Core.DAL
                         {
                             using (HttpContent content = response.Content)
                             {
-                                string mycontent = await content.ReadAsStringAsync();
-                                //var list = JsonConvert.DeserializeObject<List<LichSuKCB>>(mycontent);
-                                string ketqua = mycontent.Split(',')[0].Split(':')[1].Replace("\"", "");
-                                switch (ketqua)
-                                {
-                                    case "200":
-                                        try
-                                        {
-                                            string xml2 = "", xml3 = "";
-                                            if (mycontent.IndexOf("Xml2") > 0 && mycontent.IndexOf("Xml2\":[]") < 0)
-                                            {
-                                                xml2 = mycontent.Substring(mycontent.IndexOf("Xml2"), mycontent.IndexOf("}]") - mycontent.IndexOf("Xml2") + 1);
-                                                xml2 = xml2.Replace("Xml2\":[", "");
-                                                mycontent = mycontent.Substring(mycontent.IndexOf("}]") + 2);
-                                            }
-                                            if (mycontent.IndexOf("Xml3") > 0 && mycontent.IndexOf("Xml3\":[]") < 0)
-                                            {
-                                                xml3 = mycontent.Substring(mycontent.IndexOf("Xml3"), mycontent.IndexOf("]}") - mycontent.IndexOf("Xml3") + 1);
-                                                xml3 = xml3.Replace("Xml3\":[", "");
-                                            }
-                                            thongTinThe.Code = ketqua;
-                                            thongTinThe.XML2 = xml2;
-                                            thongTinThe.XML3 = xml3;
-                                        }
-                                        catch {
-                                             thongTinThe.Code = "false";
-                                            thongTinThe.ThongBao = "Lỗi dữ liệu XML2,XML3.";
-                                        }
-                                        break;
-                                    default:
-                                        thongTinThe.ThongBao = "Lỗi không được xác thực.\n" + "Lỗi - " + ketqua;
-                                        thongTinThe.Code = "false";
-                                        break;
-                                }
+                                //string mycontent = await content.ReadAsStringAsync();
+                                lichSuKCBChiTiet = await content.ReadAsAsync<LichSuKCBChiTiet>();
+                                //string ketqua = mycontent.Split(',')[0].Split(':')[1].Replace("\"", "");
+                                //switch (ketqua)
+                                //{
+                                //    case "200":
+                                //        try
+                                //        {
+                                //            string xml2 = "", xml3 = "";
+                                //            if (mycontent.IndexOf("Xml2") > 0 && mycontent.IndexOf("Xml2\":[]") < 0)
+                                //            {
+                                //                xml2 = mycontent.Substring(mycontent.IndexOf("Xml2"), mycontent.IndexOf("}]") - mycontent.IndexOf("Xml2") + 1);
+                                //                xml2 = xml2.Replace("Xml2\":[", "");
+                                //                mycontent = mycontent.Substring(mycontent.IndexOf("}]") + 2);
+                                //            }
+                                //            if (mycontent.IndexOf("Xml3") > 0 && mycontent.IndexOf("Xml3\":[]") < 0)
+                                //            {
+                                //                xml3 = mycontent.Substring(mycontent.IndexOf("Xml3"), mycontent.IndexOf("]}") - mycontent.IndexOf("Xml3") + 1);
+                                //                xml3 = xml3.Replace("Xml3\":[", "");
+                                //            }
+                                //            thongTinThe.Code = ketqua;
+                                //            thongTinThe.XML2 = xml2;
+                                //            thongTinThe.XML3 = xml3;
+                                //        }
+                                //        catch {
+                                //             thongTinThe.Code = "false";
+                                //            thongTinThe.ThongBao = "Lỗi dữ liệu XML2,XML3.";
+                                //        }
+                                //        break;
+                                //    default:
+                                //        thongTinThe.ThongBao = "Lỗi không được xác thực.\n" + "Lỗi - " + ketqua;
+                                //        thongTinThe.Code = "false";
+                                //        break;
+                                //}
                             }
                         }
                         else
                         {
-                            thongTinThe.ThongBao = Library.KetNoiCong +"\n"+ response.RequestMessage;
-                            thongTinThe.Code = "false";
+                            lichSuKCBChiTiet.ThongBao = Library.KetNoiCong +"\n"+ response.RequestMessage;
+                            lichSuKCBChiTiet.maKetQua = "false_ketnoi";
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    thongTinThe.ThongBao = ex.Message;
-                    thongTinThe.Code = "false";
+                    lichSuKCBChiTiet.ThongBao = ex.Message;
+                    lichSuKCBChiTiet.maKetQua = "false_ex";
                 }
             }
-            return thongTinThe;
+            return lichSuKCBChiTiet;
         }
     }
 }

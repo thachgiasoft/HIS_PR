@@ -1,6 +1,7 @@
 ﻿using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using KhamBenh.DAL;
 using System;
 using System.Collections.Generic;
@@ -216,6 +217,7 @@ namespace TiepNhan.GUI
 
         private async void btnLichSuKCB_Click(object sender, EventArgs e)
         {
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             DataRow dr = gridView.GetFocusedDataRow();
             if (dr != null)
             {
@@ -234,6 +236,7 @@ namespace TiepNhan.GUI
                     if (thongtin.Code == "false")
                     {
                         // lỗi hệ thống
+                        SplashScreenManager.CloseForm();
                         XtraMessageBox.Show(thongtin.ThongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
@@ -259,6 +262,7 @@ namespace TiepNhan.GUI
                     frmLichSuKCB.ShowDialog();
                 }
             }
+            SplashScreenManager.CloseForm();
         }
         private void ChuyenPhong(int soPhong)
         {

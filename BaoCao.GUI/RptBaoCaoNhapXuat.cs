@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using Core.DAL;
+using DevExpress.XtraSplashScreen;
 
 namespace BaoCao.GUI
 {
@@ -11,13 +12,13 @@ namespace BaoCao.GUI
     {
         public RptBaoCaoNhapXuat ()
         {
-            SplashScreen.Start ();
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             InitializeComponent ();
         }
 
         private void RptBaoCaoNhapXuat_ParametersRequestBeforeShow (object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
         {
-            SplashScreen.Stop ();
+            SplashScreenManager.CloseForm();
         }
     }
 }

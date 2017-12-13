@@ -54,7 +54,7 @@
             this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(260, 27);
+            this.ribbonControl.Size = new System.Drawing.Size(262, 30);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // labelControl1
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 145);
+            this.ClientSize = new System.Drawing.Size(262, 146);
             this.ControlBox = false;
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnChon);
