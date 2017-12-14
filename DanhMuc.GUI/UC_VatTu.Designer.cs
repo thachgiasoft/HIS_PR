@@ -245,7 +245,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpGoiThau.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", 60, "Tên")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", "Tên", 60, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpGoiThau.Properties.NullText = "";
             this.lookUpGoiThau.Size = new System.Drawing.Size(101, 22);
             this.lookUpGoiThau.StyleController = this.layoutControl;
@@ -288,7 +288,7 @@
             // 
             this.btnNhapExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapExcel.Appearance.Options.UseFont = true;
-            this.btnNhapExcel.ImageUri.Uri = "ExportToXLS;Size16x16";
+            this.btnNhapExcel.ImageOptions.ImageUri.Uri = "ExportToXLS;Size16x16";
             this.btnNhapExcel.Location = new System.Drawing.Point(740, 220);
             this.btnNhapExcel.Name = "btnNhapExcel";
             this.btnNhapExcel.Size = new System.Drawing.Size(98, 23);
@@ -329,7 +329,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(363, 220);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(101, 23);
@@ -342,7 +342,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(254, 220);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(105, 23);
@@ -355,7 +355,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(468, 220);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(110, 23);
@@ -373,6 +373,7 @@
             this.repositoryItemCheckEdit});
             this.gridControl.Size = new System.Drawing.Size(826, 241);
             this.gridControl.TabIndex = 20;
+            this.gridControl.UseEmbeddedNavigator = true;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
@@ -582,7 +583,7 @@
             this.QuyetDinh.OptionsColumn.FixedWidth = true;
             this.QuyetDinh.Visible = true;
             this.QuyetDinh.VisibleIndex = 11;
-            this.QuyetDinh.Width = 70;
+            this.QuyetDinh.Width = 80;
             // 
             // CongBo
             // 
@@ -595,7 +596,7 @@
             this.CongBo.OptionsColumn.FixedWidth = true;
             this.CongBo.Visible = true;
             this.CongBo.VisibleIndex = 12;
-            this.CongBo.Width = 60;
+            this.CongBo.Width = 100;
             // 
             // LoaiThuoc
             // 
@@ -891,7 +892,6 @@
             this.layoutControlItem25,
             this.layoutControlItem26,
             this.layoutControlItem27});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(850, 500);
             this.layoutControlGroup.TextVisible = false;

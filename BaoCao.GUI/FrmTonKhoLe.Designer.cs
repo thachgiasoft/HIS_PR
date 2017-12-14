@@ -84,7 +84,7 @@
             this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(1092, 30);
+            this.ribbonControl.Size = new System.Drawing.Size(1092, 27);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // layoutControlMain
@@ -95,10 +95,10 @@
             this.layoutControlMain.Controls.Add(this.gridControl);
             this.layoutControlMain.Controls.Add(this.gridControlNhom);
             this.layoutControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControlMain.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlMain.Location = new System.Drawing.Point(0, 27);
             this.layoutControlMain.Name = "layoutControlMain";
             this.layoutControlMain.Root = this.layoutControlGroupMain;
-            this.layoutControlMain.Size = new System.Drawing.Size(1092, 416);
+            this.layoutControlMain.Size = new System.Drawing.Size(1092, 419);
             this.layoutControlMain.TabIndex = 1;
             this.layoutControlMain.Text = "layoutControl1";
             // 
@@ -106,6 +106,7 @@
             // 
             this.btnIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseFont = true;
+            this.btnIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.ImageOptions.Image")));
             this.btnIn.Location = new System.Drawing.Point(1018, 12);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(62, 23);
@@ -152,7 +153,7 @@
             this.gridControl.MainView = this.gridView;
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(788, 365);
+            this.gridControl.Size = new System.Drawing.Size(788, 368);
             this.gridControl.TabIndex = 5;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -253,7 +254,7 @@
             this.gridControlNhom.MainView = this.gridViewNhom;
             this.gridControlNhom.MenuManager = this.ribbonControl;
             this.gridControlNhom.Name = "gridControlNhom";
-            this.gridControlNhom.Size = new System.Drawing.Size(276, 392);
+            this.gridControlNhom.Size = new System.Drawing.Size(276, 395);
             this.gridControlNhom.TabIndex = 4;
             this.gridControlNhom.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhom});
@@ -315,7 +316,7 @@
             this.emptySpaceItem1,
             this.layoutControlItem5});
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
-            this.layoutControlGroupMain.Size = new System.Drawing.Size(1092, 416);
+            this.layoutControlGroupMain.Size = new System.Drawing.Size(1092, 419);
             this.layoutControlGroupMain.TextVisible = false;
             // 
             // layoutControlItem1
@@ -323,7 +324,7 @@
             this.layoutControlItem1.Control = this.gridControlNhom;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(280, 396);
+            this.layoutControlItem1.Size = new System.Drawing.Size(280, 399);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -332,7 +333,7 @@
             this.layoutControlItem2.Control = this.gridControl;
             this.layoutControlItem2.Location = new System.Drawing.Point(280, 27);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(792, 369);
+            this.layoutControlItem2.Size = new System.Drawing.Size(792, 372);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

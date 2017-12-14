@@ -401,5 +401,21 @@ namespace HIS_PR
             frmTonKhoLe.MdiParent = this;
             frmTonKhoLe.Show();
         }
+
+        private void barButtonNguonNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == typeof(FrmNguonNhap))
+                {
+                    frm.Activate();
+                    frm.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            FrmNguonNhap frmNguonNhap = new FrmNguonNhap();
+            frmNguonNhap.MdiParent = this;
+            frmNguonNhap.Show();
+        }
     }
 }

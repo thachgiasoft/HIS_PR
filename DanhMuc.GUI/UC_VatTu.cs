@@ -110,10 +110,13 @@ namespace DanhMuc.GUI
 
         private void lookUpLoaiVatTu_EditValueChanged (object sender, EventArgs e)
         {
-            vattu.LoaiVatTu = (lookUpLoaiVatTu.GetSelectedDataRow () as DataRowView)[0].ToString ();
-            vattu.NhomVatTu = null;
-            LoadData();
-            lookUpNhomVatTu.Properties.DataSource = vattu.DSNhomVatTu ();
+            if (lookUpLoaiVatTu.GetSelectedDataRow() is DataRowView)
+            {
+                vattu.LoaiVatTu = (lookUpLoaiVatTu.GetSelectedDataRow() as DataRowView)[0].ToString();
+                vattu.NhomVatTu = null;
+                LoadData();
+                lookUpNhomVatTu.Properties.DataSource = vattu.DSNhomVatTu();
+            }
         }
 
         private void btnThem_Click (object sender, EventArgs e)
