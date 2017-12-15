@@ -100,6 +100,10 @@ namespace Core.DAL
             }
             return result.Trim();
         }
+        public static int LastDay(int year, int month)
+        {
+            return DateTime.DaysInMonth(year, month);
+        }
         public static bool ToBoolean(object value, bool defaultvalue = false)
         {
             try

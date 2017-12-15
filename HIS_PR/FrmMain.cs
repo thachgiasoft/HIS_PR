@@ -417,5 +417,11 @@ namespace HIS_PR
             frmNguonNhap.MdiParent = this;
             frmNguonNhap.Show();
         }
+
+        private void barButtonTongHopBC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmTongHopBaoCao frmTongHop = new FrmTongHopBaoCao();
+            frmTongHop.ShowDialog();
+        }
     }
 }

@@ -104,7 +104,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(597, 64);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(60, 23);
@@ -117,7 +117,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(661, 64);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(57, 23);
@@ -130,7 +130,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(722, 64);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(66, 22);
@@ -166,6 +166,8 @@
             // 
             // Ma
             // 
+            this.Ma.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma.AppearanceCell.Options.UseFont = true;
             this.Ma.Caption = "Mã";
             this.Ma.FieldName = "Ma_CN";
             this.Ma.Name = "Ma";
@@ -176,6 +178,8 @@
             // 
             // Ten
             // 
+            this.Ten.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.AppearanceCell.Options.UseFont = true;
             this.Ten.Caption = "Tên";
             this.Ten.FieldName = "Ten_CN";
             this.Ten.Name = "Ten";
@@ -186,6 +190,8 @@
             // 
             // Lop
             // 
+            this.Lop.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lop.AppearanceCell.Options.UseFont = true;
             this.Lop.Caption = "Lớp";
             this.Lop.FieldName = "Lop_CN";
             this.Lop.Name = "Lop";
@@ -212,6 +218,8 @@
             // 
             // MoTa
             // 
+            this.MoTa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoTa.AppearanceCell.Options.UseFont = true;
             this.MoTa.Caption = "Mô Tả";
             this.MoTa.FieldName = "MoTa";
             this.MoTa.Name = "MoTa";
@@ -287,7 +295,6 @@
             this.emptySpaceItem3,
             this.layoutControlItem7,
             this.layoutControlItem8});
-            this.layoutControlGroupMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
             this.layoutControlGroupMain.Size = new System.Drawing.Size(800, 500);
             this.layoutControlGroupMain.TextVisible = false;

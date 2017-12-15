@@ -51,6 +51,13 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoPhieu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayNhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NguoiGiaoHang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NhaCungCap = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -158,9 +165,20 @@
             // 
             // gridView
             // 
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.STT,
+            this.SoPhieu,
+            this.NgayNhap,
+            this.SoHoaDon,
+            this.NguoiGiaoHang,
+            this.ThanhTien,
+            this.NhaCungCap});
             this.gridView.GridControl = this.gridControl;
+            this.gridView.GroupCount = 1;
             this.gridView.Name = "gridView";
             this.gridView.OptionsView.ShowGroupPanel = false;
+            this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.NhaCungCap, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // btnIn
             // 
@@ -345,6 +363,84 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(151, 322);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // STT
+            // 
+            this.STT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STT.AppearanceCell.Options.UseFont = true;
+            this.STT.Caption = "STT";
+            this.STT.FieldName = "STT";
+            this.STT.Name = "STT";
+            this.STT.Visible = true;
+            this.STT.VisibleIndex = 0;
+            this.STT.Width = 41;
+            // 
+            // SoPhieu
+            // 
+            this.SoPhieu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoPhieu.AppearanceCell.Options.UseFont = true;
+            this.SoPhieu.Caption = "Số phiếu";
+            this.SoPhieu.FieldName = "SoPhieu";
+            this.SoPhieu.Name = "SoPhieu";
+            this.SoPhieu.Visible = true;
+            this.SoPhieu.VisibleIndex = 1;
+            this.SoPhieu.Width = 150;
+            // 
+            // NgayNhap
+            // 
+            this.NgayNhap.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayNhap.AppearanceCell.Options.UseFont = true;
+            this.NgayNhap.Caption = "Ngày nhập";
+            this.NgayNhap.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgayNhap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NgayNhap.FieldName = "NgayNhap";
+            this.NgayNhap.Name = "NgayNhap";
+            this.NgayNhap.Visible = true;
+            this.NgayNhap.VisibleIndex = 2;
+            this.NgayNhap.Width = 150;
+            // 
+            // SoHoaDon
+            // 
+            this.SoHoaDon.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoHoaDon.AppearanceCell.Options.UseFont = true;
+            this.SoHoaDon.Caption = "Số hóa đơn";
+            this.SoHoaDon.FieldName = "SoHoaDon";
+            this.SoHoaDon.Name = "SoHoaDon";
+            this.SoHoaDon.Visible = true;
+            this.SoHoaDon.VisibleIndex = 3;
+            this.SoHoaDon.Width = 150;
+            // 
+            // NguoiGiaoHang
+            // 
+            this.NguoiGiaoHang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NguoiGiaoHang.AppearanceCell.Options.UseFont = true;
+            this.NguoiGiaoHang.Caption = "Người nhập";
+            this.NguoiGiaoHang.FieldName = "NguoiGiaoHang";
+            this.NguoiGiaoHang.Name = "NguoiGiaoHang";
+            this.NguoiGiaoHang.Visible = true;
+            this.NguoiGiaoHang.VisibleIndex = 4;
+            this.NguoiGiaoHang.Width = 200;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThanhTien.AppearanceCell.Options.UseFont = true;
+            this.ThanhTien.Caption = "Thành tiền";
+            this.ThanhTien.DisplayFormat.FormatString = "#,###";
+            this.ThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.ThanhTien.FieldName = "ThanhTien";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.Visible = true;
+            this.ThanhTien.VisibleIndex = 5;
+            this.ThanhTien.Width = 150;
+            // 
+            // NhaCungCap
+            // 
+            this.NhaCungCap.Caption = "Nhà cung cấp";
+            this.NhaCungCap.FieldName = "NhaCungCap";
+            this.NhaCungCap.Name = "NhaCungCap";
+            this.NhaCungCap.Visible = true;
+            this.NhaCungCap.VisibleIndex = 6;
+            // 
             // FrmNguonNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,5 +504,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn STT;
+        private DevExpress.XtraGrid.Columns.GridColumn SoPhieu;
+        private DevExpress.XtraGrid.Columns.GridColumn NgayNhap;
+        private DevExpress.XtraGrid.Columns.GridColumn SoHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn NguoiGiaoHang;
+        private DevExpress.XtraGrid.Columns.GridColumn ThanhTien;
+        private DevExpress.XtraGrid.Columns.GridColumn NhaCungCap;
     }
 }

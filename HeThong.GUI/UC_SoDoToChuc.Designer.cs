@@ -171,6 +171,8 @@
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoai.Properties.Appearance.Options.UseFont = true;
+            this.cbLoai.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoai.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cbLoai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbLoai.Properties.Items.AddRange(new object[] {
@@ -189,6 +191,8 @@
             this.cbKhoChanLe.Name = "cbKhoChanLe";
             this.cbKhoChanLe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbKhoChanLe.Properties.Appearance.Options.UseFont = true;
+            this.cbKhoChanLe.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoChanLe.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cbKhoChanLe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbKhoChanLe.Properties.Items.AddRange(new object[] {
@@ -242,6 +246,8 @@
             // 
             // MaKhoa
             // 
+            this.MaKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaKhoa.AppearanceCell.Options.UseFont = true;
             this.MaKhoa.Caption = "Mã";
             this.MaKhoa.FieldName = "MaKhoa";
             this.MaKhoa.Name = "MaKhoa";
@@ -252,6 +258,8 @@
             // 
             // TenKhoa
             // 
+            this.TenKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenKhoa.AppearanceCell.Options.UseFont = true;
             this.TenKhoa.Caption = "Tên";
             this.TenKhoa.FieldName = "TenKhoa";
             this.TenKhoa.Name = "TenKhoa";
@@ -262,6 +270,8 @@
             // 
             // CapDo
             // 
+            this.CapDo.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CapDo.AppearanceCell.Options.UseFont = true;
             this.CapDo.Caption = "Cấp";
             this.CapDo.FieldName = "CapDo";
             this.CapDo.Name = "CapDo";
@@ -272,6 +282,8 @@
             // 
             // KhoaCha
             // 
+            this.KhoaCha.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KhoaCha.AppearanceCell.Options.UseFont = true;
             this.KhoaCha.Caption = "Cấp cha";
             this.KhoaCha.FieldName = "KhoaCha";
             this.KhoaCha.Name = "KhoaCha";
@@ -282,6 +294,8 @@
             // 
             // TinhTrang
             // 
+            this.TinhTrang.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TinhTrang.AppearanceCell.Options.UseFont = true;
             this.TinhTrang.Caption = "Hiệu lực";
             this.TinhTrang.ColumnEdit = this.repositoryItemCheckEdit;
             this.TinhTrang.FieldName = "TinhTrang";
@@ -298,6 +312,8 @@
             // 
             // KhoVatTu
             // 
+            this.KhoVatTu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KhoVatTu.AppearanceCell.Options.UseFont = true;
             this.KhoVatTu.Caption = "Kho VT";
             this.KhoVatTu.ColumnEdit = this.repositoryItemCheckEdit;
             this.KhoVatTu.FieldName = "KhoVatTu";
@@ -309,6 +325,8 @@
             // 
             // LoaiKho
             // 
+            this.LoaiKho.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoaiKho.AppearanceCell.Options.UseFont = true;
             this.LoaiKho.Caption = "Loại kho";
             this.LoaiKho.FieldName = "LoaiKho";
             this.LoaiKho.Name = "LoaiKho";
@@ -319,6 +337,8 @@
             // 
             // LoaiPhong
             // 
+            this.LoaiPhong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoaiPhong.AppearanceCell.Options.UseFont = true;
             this.LoaiPhong.Caption = "Loại Phòng";
             this.LoaiPhong.FieldName = "LoaiPhong";
             this.LoaiPhong.Name = "LoaiPhong";
@@ -330,7 +350,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(495, 64);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(69, 23);
@@ -343,7 +363,7 @@
             // 
             this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Appearance.Options.UseFont = true;
-            this.btnLamMoi.ImageUri.Uri = "Refresh;Size16x16";
+            this.btnLamMoi.ImageOptions.ImageUri.Uri = "Refresh;Size16x16";
             this.btnLamMoi.Location = new System.Drawing.Point(568, 64);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(77, 23);
@@ -356,7 +376,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(409, 64);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(82, 23);
@@ -369,7 +389,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(649, 64);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(68, 23);
@@ -384,6 +404,8 @@
             this.lookUpMaCha.Name = "lookUpMaCha";
             this.lookUpMaCha.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpMaCha.Properties.Appearance.Options.UseFont = true;
+            this.lookUpMaCha.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpMaCha.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookUpMaCha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpMaCha.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -412,6 +434,8 @@
             this.cbCap.Name = "cbCap";
             this.cbCap.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCap.Properties.Appearance.Options.UseFont = true;
+            this.cbCap.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCap.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cbCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbCap.Properties.Items.AddRange(new object[] {
@@ -466,7 +490,6 @@
             this.layoutControlItem12,
             this.layoutControlItem13,
             this.emptySpaceItem1});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(729, 500);
             this.layoutControlGroup.TextVisible = false;

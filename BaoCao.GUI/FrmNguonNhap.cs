@@ -1,6 +1,8 @@
 ﻿using BaoCao.DAL;
 using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,11 +45,25 @@ namespace BaoCao.GUI
         {
             dataDS = tonKho.DSKhoNhap(cbThang.SelectedIndex + 1, Utils.ToInt(cbNam.SelectedItem));
             gridControl.DataSource = dataDS;
+            gridView.ExpandAllGroups();
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-
+            if(dataDS!=null)
+            {
+                SplashScreenManager.ShowForm(typeof(WaitFormLoad));
+                RptNguonNhap rpt = new RptNguonNhap();
+                rpt.xrlblThangNam.Text ="Tháng "+ cbThang.SelectedItem + " năm " + cbNam.SelectedItem;
+                rpt.xrlblNguoiLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+                rpt.xrlblKeToan.Text = txtKeToan.Text;
+                rpt.xrlblKhoaDuoc.Text = txtKhoaDuoc.Text;
+                rpt.xrlblNguoiLap.Text = txtNguoiLap.Text;
+                rpt.DataSource = dataDS;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
+                SplashScreenManager.CloseForm();
+            }
         }
     }
 }

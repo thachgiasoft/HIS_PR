@@ -86,6 +86,12 @@
     <Compile Include="FrmNguonNhap.Designer.cs">
       <DependentUpon>FrmNguonNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTongHopBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTongHopBaoCao.Designer.cs">
+      <DependentUpon>FrmTongHopBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTonKhoLe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     <Compile Include="RptKiemKe.Designer.cs">
       <DependentUpon>RptKiemKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="RptNguonNhap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptNguonNhap.Designer.cs">
+      <DependentUpon>RptNguonNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptTonKhoLe.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -122,6 +134,9 @@
     <EmbeddedResource Include="FrmNguonNhap.resx">
       <DependentUpon>FrmNguonNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTongHopBaoCao.resx">
+      <DependentUpon>FrmTongHopBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTonKhoLe.resx">
       <DependentUpon>FrmTonKhoLe.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RptKiemKe.resx">
       <DependentUpon>RptKiemKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptNguonNhap.resx">
+      <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RptTonKhoLe.resx">
       <DependentUpon>RptTonKhoLe.cs</DependentUpon>

@@ -113,6 +113,8 @@
             // 
             // TenNV
             // 
+            this.TenNV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenNV.AppearanceCell.Options.UseFont = true;
             this.TenNV.Caption = "Tên NV";
             this.TenNV.FieldName = "Ten_NV";
             this.TenNV.Name = "TenNV";
@@ -122,6 +124,8 @@
             // 
             // TenKhoa
             // 
+            this.TenKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenKhoa.AppearanceCell.Options.UseFont = true;
             this.TenKhoa.Caption = "Khoa/Ban";
             this.TenKhoa.FieldName = "TenKhoa";
             this.TenKhoa.Name = "TenKhoa";
@@ -152,7 +156,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(240, 62);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(85, 23);
@@ -165,7 +169,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(329, 62);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(88, 23);
@@ -178,7 +182,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(421, 62);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(81, 23);
@@ -240,6 +244,8 @@
             this.lookUpChucNang.Name = "lookUpChucNang";
             this.lookUpChucNang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpChucNang.Properties.Appearance.Options.UseFont = true;
+            this.lookUpChucNang.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpChucNang.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookUpChucNang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpChucNang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -274,6 +280,8 @@
             // 
             // MaCN
             // 
+            this.MaCN.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaCN.AppearanceCell.Options.UseFont = true;
             this.MaCN.Caption = "Mã CN";
             this.MaCN.FieldName = "Ma_CN";
             this.MaCN.Name = "MaCN";
@@ -283,6 +291,8 @@
             // 
             // TenCN
             // 
+            this.TenCN.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenCN.AppearanceCell.Options.UseFont = true;
             this.TenCN.Caption = "Tên chức năng";
             this.TenCN.FieldName = "Ten_CN";
             this.TenCN.Name = "TenCN";
@@ -292,6 +302,8 @@
             // 
             // MaQuyen
             // 
+            this.MaQuyen.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaQuyen.AppearanceCell.Options.UseFont = true;
             this.MaQuyen.Caption = "Mã quyền";
             this.MaQuyen.FieldName = "MaQuyen";
             this.MaQuyen.Name = "MaQuyen";
@@ -314,7 +326,6 @@
             this.layoutControlItem8,
             this.layoutControlItem9,
             this.emptySpaceItem1});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(514, 499);
             this.layoutControlGroup.TextVisible = false;
