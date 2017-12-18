@@ -1,6 +1,7 @@
 ﻿using BaoCao.DAL;
 using Core.DAL;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
@@ -144,20 +145,47 @@ namespace BaoCao.GUI
             }
             if (cbLoaiBaoCao.SelectedIndex==0)
             {
-                //Số liệu mẫu 79 / 80A
+                //Tổng hợp tiền bệnh nhân thanh toán
+                dataTongHop = tongHop.DSBenhNhan(maKhoa, tuNgay, denNgay);
             }
             else if(cbLoaiBaoCao.SelectedIndex==1)
             {
                 //Tổng hợp vật tư y tế
+                dataTongHop = tongHop.DSVatTu(maKhoa, tuNgay, denNgay);
+                RptTongHopVatTu rpt = new RptTongHopVatTu();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
             }
             else if(cbLoaiBaoCao.SelectedIndex==2)
             {
                 //Tổng hợp thuốc
+                dataTongHop = tongHop.DSDonThuoc(maKhoa, tuNgay, denNgay);
+                RptTongHopThuoc rpt = new RptTongHopThuoc();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
             }
             else
             {
                 //Tổng hợp dịch vụ kỹ thuật
                 dataTongHop = tongHop.DSDichVuKyThuat(maKhoa, tuNgay, denNgay);
+                RptTongHopDichVu rpt = new RptTongHopDichVu();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
             }
 
             SplashScreenManager.CloseForm();

@@ -254,7 +254,8 @@ namespace KhamBenh.DAL
                 new SqlParameter("@CoThe", CoThe),
                 new SqlParameter("@SoPhieu", SoPhieu),
                 new SqlParameter("@SoPhieuNhap", SoPhieuNhap),
-                new SqlParameter("@MaVatTu", MaVatTu));
+                new SqlParameter("@MaVatTu", MaVatTu),
+                new SqlParameter("@TyLe", TyLe));
         }
     }
 }

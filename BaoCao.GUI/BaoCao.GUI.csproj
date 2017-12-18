@@ -117,11 +117,35 @@
     <Compile Include="RptNguonNhap.Designer.cs">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="RptTongHopBNTT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTongHopBNTT.Designer.cs">
+      <DependentUpon>RptTongHopBNTT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RptTongHopDichVu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTongHopDichVu.Designer.cs">
+      <DependentUpon>RptTongHopDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RptTongHopThuoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTongHopThuoc.Designer.cs">
+      <DependentUpon>RptTongHopThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptTonKhoLe.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RptTonKhoLe.Designer.cs">
       <DependentUpon>RptTonKhoLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RptTongHopVatTu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTongHopVatTu.Designer.cs">
+      <DependentUpon>RptTongHopVatTu.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -150,8 +174,17 @@
     <EmbeddedResource Include="RptNguonNhap.resx">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RptTongHopDichVu.resx">
+      <DependentUpon>RptTongHopDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptTongHopThuoc.resx">
+      <DependentUpon>RptTongHopThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RptTonKhoLe.resx">
       <DependentUpon>RptTonKhoLe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptTongHopVatTu.resx">
+      <DependentUpon>RptTongHopVatTu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

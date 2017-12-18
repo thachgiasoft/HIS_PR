@@ -84,7 +84,7 @@
             this.cbLoaiBaoCao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbLoaiBaoCao.Properties.Items.AddRange(new object[] {
-            "Số liệu mẫu 79/80A",
+            "Tổng hợp tiền BNTT",
             "Tổng hợp vật tư y tế",
             "Tổng hợp thuốc",
             "Tổng hợp dịch vụ kỹ thuật"});

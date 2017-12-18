@@ -361,6 +361,7 @@ namespace TiepNhan.GUI
                     {
                         thanhtoan.MienCungCT = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy").ToShortDateString();
                     }
+                    thanhtoan.TyLe = 100;
                 }
                 else
                 {
@@ -373,6 +374,7 @@ namespace TiepNhan.GUI
                     thanhtoan.MaKhuVuc = null;
                     //
                     mucHuong = 0;
+                    thanhtoan.TyLe = 0;
                 }
                 thanhtoan.MaBenh = maBenh;
                 thanhtoan.TenBenh = txtTenBenh.Text;
