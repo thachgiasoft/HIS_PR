@@ -147,6 +147,14 @@ namespace BaoCao.GUI
             {
                 //Tổng hợp tiền bệnh nhân thanh toán
                 dataTongHop = tongHop.DSBenhNhan(maKhoa, tuNgay, denNgay);
+                RptTongHopBNTT rpt = new RptTongHopBNTT();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
             }
             else if(cbLoaiBaoCao.SelectedIndex==1)
             {

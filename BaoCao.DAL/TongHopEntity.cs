@@ -61,7 +61,8 @@ namespace BaoCao.DAL
         }
         public DataTable DSBenhNhan(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery("select MaBN,HoTen,NgaySinh,MucHuong,TienBNCCT,NgayThanhToan " +
+            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaBN) as STT," +
+                "MaBN,HoTen,NgaySinh,MucHuong,TienBNCCT,NgayThanhToan " +
                 "from ThongTinBNChiTiet where TienBNCCT > 0 " +
                 "and MaKhoa = '" + maKhoa + "' "+
                 "and(convert(date,NgayThanhToan) between convert(date,'" + tuNgay + "') and convert(date,'" + denNgay + "'))",
