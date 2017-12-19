@@ -20,6 +20,7 @@ namespace TiepNhan.GUI
         KeDonEntity kedon;
         Dictionary<string, int> listThuoc;
         DataView dvThuoc;
+        DataTable thuocNgoaiDM;
         Dictionary<string, string> dicDuongDung = new Dictionary<string, string>();
         public FrmDonThuoc(string khoNhan)
         {
@@ -27,7 +28,7 @@ namespace TiepNhan.GUI
             kedon = new KeDonEntity();
             kedon.KhoNhan = khoNhan;
             lookUpThuoc.Properties.DisplayMember = "TenVatTu";
-            lookUpThuoc.Properties.DataSource = kedon.DSKeDon("1");
+            thuocNgoaiDM = kedon.DSKeDonNgoaiDM();
             dicDuongDung = kedon.DSDuongDung().AsEnumerable().ToDictionary<DataRow, string, string>
                 (row => row.Field<string>(0), row => row.Field<string>(1));
 
@@ -60,6 +61,7 @@ namespace TiepNhan.GUI
             {
                 listThuoc.Add(drv["MaVatTu"].ToString(), 1);
             }
+            cbLoaiThuoc.SelectedIndex = 0;
         }
 
         private void lookUpThuoc_KeyPress(object sender, KeyPressEventArgs e)
@@ -98,7 +100,7 @@ namespace TiepNhan.GUI
                     lookUpThuoc.Focus();
                     return;
                 }
-                if (txtSoLuong.Value > Utils.ToInt(dr["SoLuongTon"]))
+                if (cbLoaiThuoc.SelectedIndex == 0 && txtSoLuong.Value > Utils.ToInt(dr["SoLuongTon"]))
                 {
                     XtraMessageBox.Show(Library.SoLuongThuocKhongDu, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSoLuong.Focus();
@@ -120,7 +122,10 @@ namespace TiepNhan.GUI
                 drvNew["NgayYLenh"] = dateNgayYLenh.DateTime;
                 drvNew["MaDuongDung"] = dr["MaDuongDung"];
                 drvNew["SoDK"] = dr["SoDK"];
-                drvNew["TTinThau"] = dr["QuyetDinh"] + ";" + dr["GoiThau"] + ";" + dr["NhomThau"];
+                if (cbLoaiThuoc.SelectedIndex == 0)
+                    drvNew["TTinThau"] = dr["QuyetDinh"] + ";" + dr["GoiThau"] + ";" + dr["NhomThau"];
+                else
+                    drvNew["TTinThau"] = dr["TTinThau"];
 
                 lookUpThuoc.Focus();
                 txtSoLuong.ResetText();
@@ -251,13 +256,29 @@ namespace TiepNhan.GUI
                 {
                     // value = 2
                     // thêm mới 
-                    if (kedon.SpKeDonThuoc(ref err, "INSERT"))
+                    if (thuocNgoaiDM.Select("MaVatTu = '"+ kedon.MaVatTu + "' and MaHoatChat = '"+kedon.MaThuoc+"'", "").Length > 0)
                     {
-                        listThuoc[drv["MaVatTu"].ToString()] = 1;// đã có nếu lưu thành công
+                        // insert ngoài danh mục
+                        if (kedon.SpKeDonThuoc(ref err, "INSERT_NgoaiDM"))
+                        {
+                            listThuoc[drv["MaVatTu"].ToString()] = 1;// đã có nếu lưu thành công
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // insert thuốc danh mục
+                        if (kedon.SpKeDonThuoc(ref err, "INSERT"))
+                        {
+                            listThuoc[drv["MaVatTu"].ToString()] = 1;// đã có nếu lưu thành công
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -308,6 +329,18 @@ namespace TiepNhan.GUI
             rpt.DataSource = dtThuoc;
             rpt.CreateDocument();
             rpt.ShowPreviewDialog();
+        }
+
+        private void cbLoaiThuoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbLoaiThuoc.SelectedIndex ==0)
+            {
+                lookUpThuoc.Properties.DataSource = kedon.DSKeDon("1");
+            }
+            else
+            {
+                lookUpThuoc.Properties.DataSource = thuocNgoaiDM; 
+            }
         }
     }
 }

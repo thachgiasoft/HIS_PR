@@ -158,6 +158,8 @@ namespace DanhMuc.GUI
                 checkTinhTrang.Checked = Utils.ToBoolean(dr["TinhTrang"].ToString());
                 lookUpChuyenKhoa.EditValue = dr["MaCK"];
 
+                congkham.Ma = txtMa.Text;
+
                 txtMa.ReadOnly = true;
                 them = false;
 

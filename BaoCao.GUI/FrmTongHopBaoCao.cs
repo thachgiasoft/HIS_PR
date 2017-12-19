@@ -152,6 +152,7 @@ namespace BaoCao.GUI
                 rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
                     " đến ngày " + denNgay.ToString("dd/MM/yyyy");
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
@@ -165,6 +166,7 @@ namespace BaoCao.GUI
                 rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
                     " đến ngày " + denNgay.ToString("dd/MM/yyyy");
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
@@ -178,6 +180,7 @@ namespace BaoCao.GUI
                 rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
                     " đến ngày " + denNgay.ToString("dd/MM/yyyy");
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
@@ -191,6 +194,7 @@ namespace BaoCao.GUI
                 rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
                     " đến ngày " + denNgay.ToString("dd/MM/yyyy");
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();

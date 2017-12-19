@@ -80,6 +80,13 @@ namespace KhamBenh.DAL
             return db.ExcuteQuery("Select * From DSKeDonThuoc('"+loaiVatTu+"','"+KhoNhan+"')",
                 CommandType.Text, null);
         }
+        public DataTable DSKeDonNgoaiDM()
+        {
+            return db.ExcuteQuery("Select MaBV as MaVatTu,MaThuoc as MaHoatChat,TenThuoc as TenVatTu," +
+                "DonViTinh,HamLuong,MaDuongDung,DonGia as GiaBHYT,SoDK,TTinThau,MaNhom " +
+                "From ThuocNgoaiDM Where Ma_CS = '"+AppConfig.CoSoKCB+"'",
+                CommandType.Text, null);
+        }
         public DataTable DSThuoc()
         {
             return db.ExcuteQuery("Select MaVatTu, MaThuoc, TenThuoc, HamLuong, DonViTinh, DonGia,MaDuongDung, "
