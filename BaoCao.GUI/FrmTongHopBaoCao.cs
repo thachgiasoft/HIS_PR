@@ -185,7 +185,7 @@ namespace BaoCao.GUI
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
             }
-            else
+            else if (cbLoaiBaoCao.SelectedIndex == 3)
             {
                 //Tổng hợp dịch vụ kỹ thuật
                 dataTongHop = tongHop.DSDichVuKyThuat(maKhoa, tuNgay, denNgay);
@@ -195,6 +195,15 @@ namespace BaoCao.GUI
                     " đến ngày " + denNgay.ToString("dd/MM/yyyy");
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
                 rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                // Tổng hợp viện phí
+                RptTongHopVienPhi rpt = new RptTongHopVienPhi();
+
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();

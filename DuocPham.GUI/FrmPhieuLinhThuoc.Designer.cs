@@ -355,7 +355,7 @@
             // 
             this.btnPheDuyet.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPheDuyet.Appearance.Options.UseFont = true;
-            this.btnPheDuyet.ImageUri.Uri = "Apply;Size16x16";
+            this.btnPheDuyet.ImageOptions.ImageUri.Uri = "Apply;Size16x16";
             this.btnPheDuyet.Location = new System.Drawing.Point(113, 64);
             this.btnPheDuyet.Name = "btnPheDuyet";
             this.btnPheDuyet.Size = new System.Drawing.Size(84, 23);
@@ -368,7 +368,7 @@
             // 
             this.btnXuatKho.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuatKho.Appearance.Options.UseFont = true;
-            this.btnXuatKho.ImageUri.Uri = "Print;Size16x16";
+            this.btnXuatKho.ImageOptions.ImageUri.Uri = "Print;Size16x16";
             this.btnXuatKho.Location = new System.Drawing.Point(201, 64);
             this.btnXuatKho.Name = "btnXuatKho";
             this.btnXuatKho.Size = new System.Drawing.Size(94, 23);
@@ -381,7 +381,7 @@
             // 
             this.btnPhieuLinh.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhieuLinh.Appearance.Options.UseFont = true;
-            this.btnPhieuLinh.ImageUri.Uri = "Print;Size16x16";
+            this.btnPhieuLinh.ImageOptions.ImageUri.Uri = "Print;Size16x16";
             this.btnPhieuLinh.Location = new System.Drawing.Point(299, 64);
             this.btnPhieuLinh.Name = "btnPhieuLinh";
             this.btnPhieuLinh.Size = new System.Drawing.Size(101, 23);
@@ -450,7 +450,6 @@
             this.layoutControlItem12,
             this.emptySpaceItem4,
             this.layoutControlItem13});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(412, 408);
             this.layoutControlGroup2.TextVisible = false;
@@ -585,7 +584,7 @@
             // 
             this.btnTim.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
-            this.btnTim.ImageUri.Uri = "Zoom;Size16x16";
+            this.btnTim.ImageOptions.ImageUri.Uri = "Zoom;Size16x16";
             this.btnTim.Location = new System.Drawing.Point(302, 12);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(28, 22);
@@ -762,9 +761,10 @@
             this.PheDuyet.FieldName = "PheDuyet";
             this.PheDuyet.Name = "PheDuyet";
             this.PheDuyet.OptionsColumn.AllowEdit = false;
+            this.PheDuyet.OptionsColumn.FixedWidth = true;
             this.PheDuyet.Visible = true;
             this.PheDuyet.VisibleIndex = 5;
-            this.PheDuyet.Width = 47;
+            this.PheDuyet.Width = 30;
             // 
             // NguoiTao
             // 
@@ -793,7 +793,6 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem6});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(342, 408);
             this.layoutControlGroup1.TextVisible = false;
@@ -845,7 +844,6 @@
             this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem2});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(790, 454);
             this.layoutControlGroup.TextVisible = false;

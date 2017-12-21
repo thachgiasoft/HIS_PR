@@ -84,10 +84,11 @@
             this.cbLoaiBaoCao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbLoaiBaoCao.Properties.Items.AddRange(new object[] {
-            "Tổng hợp tiền BNTT",
-            "Tổng hợp vật tư y tế",
-            "Tổng hợp thuốc",
-            "Tổng hợp dịch vụ kỹ thuật"});
+            "1. Tổng hợp tiền BNTT",
+            "2. Tổng hợp vật tư y tế",
+            "3. Tổng hợp thuốc",
+            "4. Tổng hợp dịch vụ kỹ thuật",
+            "5. Tổng hợp viện phí"});
             this.cbLoaiBaoCao.Size = new System.Drawing.Size(320, 22);
             this.cbLoaiBaoCao.TabIndex = 0;
             // 

@@ -834,6 +834,8 @@
             // 
             // MaKhoa
             // 
+            this.MaKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaKhoa.AppearanceCell.Options.UseFont = true;
             this.MaKhoa.Caption = "Mã";
             this.MaKhoa.FieldName = "MaKhoa";
             this.MaKhoa.Name = "MaKhoa";
@@ -844,6 +846,8 @@
             // 
             // TenKhoa
             // 
+            this.TenKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenKhoa.AppearanceCell.Options.UseFont = true;
             this.TenKhoa.Caption = "Tên Kho";
             this.TenKhoa.FieldName = "TenKhoa";
             this.TenKhoa.Name = "TenKhoa";
@@ -879,6 +883,8 @@
             // 
             // MaKhoaNhan
             // 
+            this.MaKhoaNhan.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaKhoaNhan.AppearanceCell.Options.UseFont = true;
             this.MaKhoaNhan.Caption = "Mã";
             this.MaKhoaNhan.FieldName = "MaKhoa";
             this.MaKhoaNhan.Name = "MaKhoaNhan";
@@ -889,6 +895,8 @@
             // 
             // TenKhoaNhap
             // 
+            this.TenKhoaNhap.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenKhoaNhap.AppearanceCell.Options.UseFont = true;
             this.TenKhoaNhap.Caption = "Tên Kho";
             this.TenKhoaNhap.FieldName = "TenKhoa";
             this.TenKhoaNhap.Name = "TenKhoaNhap";
@@ -931,6 +939,8 @@
             // 
             // SP
             // 
+            this.SP.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SP.AppearanceCell.Options.UseFont = true;
             this.SP.Caption = "SP";
             this.SP.FieldName = "SoPhieu";
             this.SP.Name = "SP";
@@ -941,6 +951,8 @@
             // 
             // MaVatTu
             // 
+            this.MaVatTu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaVatTu.AppearanceCell.Options.UseFont = true;
             this.MaVatTu.Caption = "Mã";
             this.MaVatTu.FieldName = "MaVatTu";
             this.MaVatTu.Name = "MaVatTu";
@@ -951,6 +963,8 @@
             // 
             // TenVatTu
             // 
+            this.TenVatTu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenVatTu.AppearanceCell.Options.UseFont = true;
             this.TenVatTu.Caption = "Tên vật tư";
             this.TenVatTu.FieldName = "TenVatTu";
             this.TenVatTu.Name = "TenVatTu";
@@ -962,6 +976,8 @@
             // 
             // SoLuongTon
             // 
+            this.SoLuongTon.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLuongTon.AppearanceCell.Options.UseFont = true;
             this.SoLuongTon.Caption = "Số lượng tồn";
             this.SoLuongTon.FieldName = "SoLuongTon";
             this.SoLuongTon.Name = "SoLuongTon";
@@ -972,6 +988,8 @@
             // 
             // DonGiaBHYT
             // 
+            this.DonGiaBHYT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonGiaBHYT.AppearanceCell.Options.UseFont = true;
             this.DonGiaBHYT.Caption = "Giá BHYT";
             this.DonGiaBHYT.DisplayFormat.FormatString = "#,###";
             this.DonGiaBHYT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -984,6 +1002,8 @@
             // 
             // HetHan
             // 
+            this.HetHan.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HetHan.AppearanceCell.Options.UseFont = true;
             this.HetHan.Caption = "Hạn dùng";
             this.HetHan.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.HetHan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -996,6 +1016,8 @@
             // 
             // SoLo
             // 
+            this.SoLo.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLo.AppearanceCell.Options.UseFont = true;
             this.SoLo.Caption = "Số lô";
             this.SoLo.FieldName = "SoLo";
             this.SoLo.Name = "SoLo";

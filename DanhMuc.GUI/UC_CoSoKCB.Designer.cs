@@ -29,6 +29,8 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.btnNhap = new DevExpress.XtraEditors.SimpleButton();
+            this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MaCS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,18 +38,16 @@
             this.DiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
             this.layoutProcess = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnNhap = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -65,6 +65,25 @@
             this.layoutControl.Size = new System.Drawing.Size(781, 471);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
+            // 
+            // btnNhap
+            // 
+            this.btnNhap.ImageOptions.ImageUri.Uri = "ExportToXLS;Size16x16";
+            this.btnNhap.Location = new System.Drawing.Point(688, 12);
+            this.btnNhap.Name = "btnNhap";
+            this.btnNhap.Size = new System.Drawing.Size(81, 22);
+            this.btnNhap.StyleController = this.layoutControl;
+            this.btnNhap.TabIndex = 6;
+            this.btnNhap.Text = "Nhập excel";
+            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
+            // 
+            // progressBarControl
+            // 
+            this.progressBarControl.Location = new System.Drawing.Point(64, 12);
+            this.progressBarControl.Name = "progressBarControl";
+            this.progressBarControl.Size = new System.Drawing.Size(488, 18);
+            this.progressBarControl.StyleController = this.layoutControl;
+            this.progressBarControl.TabIndex = 5;
             // 
             // gridControl
             // 
@@ -90,30 +109,39 @@
             // 
             // MaCS
             // 
+            this.MaCS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaCS.AppearanceCell.Options.UseFont = true;
             this.MaCS.Caption = "Mã cơ sở";
             this.MaCS.FieldName = "Ma_CS";
             this.MaCS.Name = "MaCS";
             this.MaCS.OptionsColumn.AllowEdit = false;
             this.MaCS.Visible = true;
             this.MaCS.VisibleIndex = 0;
+            this.MaCS.Width = 80;
             // 
             // TenCS
             // 
+            this.TenCS.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenCS.AppearanceCell.Options.UseFont = true;
             this.TenCS.Caption = "Tên cơ sở";
             this.TenCS.FieldName = "Ten_CS";
             this.TenCS.Name = "TenCS";
             this.TenCS.OptionsColumn.AllowEdit = false;
             this.TenCS.Visible = true;
             this.TenCS.VisibleIndex = 1;
+            this.TenCS.Width = 328;
             // 
             // DiaChi
             // 
+            this.DiaChi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiaChi.AppearanceCell.Options.UseFont = true;
             this.DiaChi.Caption = "Địa chỉ";
             this.DiaChi.FieldName = "DiaChi";
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.OptionsColumn.AllowEdit = false;
             this.DiaChi.Visible = true;
             this.DiaChi.VisibleIndex = 2;
+            this.DiaChi.Width = 331;
             // 
             // layoutControlGroup
             // 
@@ -124,7 +152,6 @@
             this.layoutProcess,
             this.layoutControlItem3,
             this.emptySpaceItem1});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(781, 471);
             this.layoutControlGroup.TextVisible = false;
@@ -138,14 +165,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // progressBarControl
-            // 
-            this.progressBarControl.Location = new System.Drawing.Point(64, 12);
-            this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(488, 18);
-            this.progressBarControl.StyleController = this.layoutControl;
-            this.progressBarControl.TabIndex = 5;
-            // 
             // layoutProcess
             // 
             this.layoutProcess.Control = this.progressBarControl;
@@ -154,17 +173,6 @@
             this.layoutProcess.Size = new System.Drawing.Size(544, 26);
             this.layoutProcess.Text = "Tiến trình:";
             this.layoutProcess.TextSize = new System.Drawing.Size(49, 13);
-            // 
-            // btnNhap
-            // 
-            this.btnNhap.ImageUri.Uri = "ExportToXLS;Size16x16";
-            this.btnNhap.Location = new System.Drawing.Point(688, 12);
-            this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(81, 22);
-            this.btnNhap.StyleController = this.layoutControl;
-            this.btnNhap.TabIndex = 6;
-            this.btnNhap.Text = "Nhập excel";
-            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // layoutControlItem3
             // 
@@ -196,11 +204,11 @@
             this.Load += new System.EventHandler(this.UC_CoSoKCB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutProcess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();

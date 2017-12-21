@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent ()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhapKho));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.panelControlPhieu = new DevExpress.XtraEditors.PanelControl();
@@ -357,7 +361,7 @@
             // 
             this.btnTim.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
-            this.btnTim.ImageUri.Uri = "Zoom;Size16x16";
+            this.btnTim.ImageOptions.ImageUri.Uri = "Zoom;Size16x16";
             this.btnTim.Location = new System.Drawing.Point(304, 12);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(24, 22);
@@ -416,7 +420,6 @@
             this.layoutControlItem22,
             this.layoutControlItem23,
             this.layoutControlItem24});
-            this.layoutControlGroupPhieu.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupPhieu.Name = "layoutControlGroupPhieu";
             this.layoutControlGroupPhieu.Size = new System.Drawing.Size(340, 159);
             this.layoutControlGroupPhieu.TextVisible = false;
@@ -513,11 +516,12 @@
             this.lookUpMaVatTu.Properties.Appearance.Options.UseFont = true;
             this.lookUpMaVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpMaVatTu.Properties.View = this.gridView3;
+            this.lookUpMaVatTu.Properties.PopupView = this.gridView3;
             this.lookUpMaVatTu.Size = new System.Drawing.Size(85, 22);
             this.lookUpMaVatTu.StyleController = this.layoutControlDS;
             this.lookUpMaVatTu.TabIndex = 16;
             this.lookUpMaVatTu.EditValueChanged += new System.EventHandler(this.lookUpMaVatTu_EditValueChanged);
+            this.lookUpMaVatTu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpMaVatTu_KeyPress);
             // 
             // gridView3
             // 
@@ -532,16 +536,20 @@
             // 
             // MaBV
             // 
+            this.MaBV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaBV.AppearanceCell.Options.UseFont = true;
             this.MaBV.Caption = "Mã";
             this.MaBV.FieldName = "MaBV";
             this.MaBV.Name = "MaBV";
             this.MaBV.OptionsColumn.AllowEdit = false;
             this.MaBV.Visible = true;
             this.MaBV.VisibleIndex = 0;
-            this.MaBV.Width = 60;
+            this.MaBV.Width = 40;
             // 
             // TenVatTu
             // 
+            this.TenVatTu.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenVatTu.AppearanceCell.Options.UseFont = true;
             this.TenVatTu.Caption = "Tên";
             this.TenVatTu.FieldName = "TenVatTu";
             this.TenVatTu.Name = "TenVatTu";
@@ -549,7 +557,7 @@
             this.TenVatTu.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.TenVatTu.Visible = true;
             this.TenVatTu.VisibleIndex = 1;
-            this.TenVatTu.Width = 60;
+            this.TenVatTu.Width = 344;
             // 
             // txtTyLe
             // 
@@ -563,6 +571,7 @@
             this.txtTyLe.Size = new System.Drawing.Size(66, 22);
             this.txtTyLe.StyleController = this.layoutControlDS;
             this.txtTyLe.TabIndex = 15;
+            this.txtTyLe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTyLe_KeyPress);
             this.txtTyLe.Leave += new System.EventHandler(this.txtTyLe_Leave);
             // 
             // gridControlDS
@@ -621,8 +630,9 @@
             // btnXoaVatu
             // 
             this.btnXoaVatu.AutoHeight = false;
+            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
             this.btnXoaVatu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoaVatu.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnXoaVatu.Name = "btnXoaVatu";
             this.btnXoaVatu.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnXoaVatu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnXoaVatu_ButtonClick);
@@ -806,6 +816,7 @@
             this.dateHetHan.Size = new System.Drawing.Size(69, 22);
             this.dateHetHan.StyleController = this.layoutControlDS;
             this.dateHetHan.TabIndex = 12;
+            this.dateHetHan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateHetHan_KeyPress);
             // 
             // txtSoLo
             // 
@@ -817,6 +828,7 @@
             this.txtSoLo.Size = new System.Drawing.Size(61, 22);
             this.txtSoLo.StyleController = this.layoutControlDS;
             this.txtSoLo.TabIndex = 11;
+            this.txtSoLo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLo_KeyPress);
             // 
             // txtGiaBV
             // 
@@ -830,6 +842,7 @@
             this.txtGiaBV.Size = new System.Drawing.Size(61, 22);
             this.txtGiaBV.StyleController = this.layoutControlDS;
             this.txtGiaBV.TabIndex = 10;
+            this.txtGiaBV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBV_KeyPress);
             this.txtGiaBV.Leave += new System.EventHandler(this.txtGiaBV_Leave);
             // 
             // txtGiaBHYT
@@ -844,6 +857,7 @@
             this.txtGiaBHYT.Size = new System.Drawing.Size(61, 22);
             this.txtGiaBHYT.StyleController = this.layoutControlDS;
             this.txtGiaBHYT.TabIndex = 9;
+            this.txtGiaBHYT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBHYT_KeyPress);
             // 
             // txtSoLuongQD
             // 
@@ -857,6 +871,7 @@
             this.txtSoLuongQD.Size = new System.Drawing.Size(62, 22);
             this.txtSoLuongQD.StyleController = this.layoutControlDS;
             this.txtSoLuongQD.TabIndex = 8;
+            this.txtSoLuongQD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongQD_KeyPress);
             // 
             // txtSoDangKy
             // 
@@ -868,6 +883,7 @@
             this.txtSoDangKy.Size = new System.Drawing.Size(61, 22);
             this.txtSoDangKy.StyleController = this.layoutControlDS;
             this.txtSoDangKy.TabIndex = 7;
+            this.txtSoDangKy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDangKy_KeyPress);
             // 
             // txtSoLuong
             // 
@@ -882,6 +898,7 @@
             this.txtSoLuong.Size = new System.Drawing.Size(67, 22);
             this.txtSoLuong.StyleController = this.layoutControlDS;
             this.txtSoLuong.TabIndex = 6;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtTenVatTu
             // 
@@ -913,7 +930,6 @@
             this.layoutControlItem36,
             this.layoutControlItem37,
             this.layoutControlItem7});
-            this.layoutControlGroupDS.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupDS.Name = "layoutControlGroupDS";
             this.layoutControlGroupDS.Size = new System.Drawing.Size(946, 318);
             this.layoutControlGroupDS.TextVisible = false;
@@ -1095,7 +1111,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(281, 116);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(78, 23);
@@ -1108,7 +1124,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(363, 116);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(68, 23);
@@ -1121,7 +1137,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(435, 116);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(73, 23);
@@ -1134,7 +1150,7 @@
             // 
             this.btnIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.ImageUri.Uri = "Print;Size16x16";
+            this.btnIn.ImageOptions.ImageUri.Uri = "Print;Size16x16";
             this.btnIn.Location = new System.Drawing.Point(512, 116);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(74, 23);
@@ -1153,6 +1169,7 @@
             this.txtNoiDung.Size = new System.Drawing.Size(502, 22);
             this.txtNoiDung.StyleController = this.layoutControl1;
             this.txtNoiDung.TabIndex = 15;
+            this.txtNoiDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoiDung_KeyPress);
             // 
             // txtNguoiGiaoHang
             // 
@@ -1164,6 +1181,7 @@
             this.txtNguoiGiaoHang.Size = new System.Drawing.Size(217, 22);
             this.txtNguoiGiaoHang.StyleController = this.layoutControl1;
             this.txtNguoiGiaoHang.TabIndex = 12;
+            this.txtNguoiGiaoHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNguoiGiaoHang_KeyPress);
             this.txtNguoiGiaoHang.Leave += new System.EventHandler(this.txtNguoiGiaoHang_Leave);
             // 
             // dateNgayNhap
@@ -1197,6 +1215,7 @@
             this.txtSoHoaDon.Size = new System.Drawing.Size(59, 22);
             this.txtSoHoaDon.StyleController = this.layoutControl1;
             this.txtSoHoaDon.TabIndex = 9;
+            this.txtSoHoaDon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoHoaDon_KeyPress);
             // 
             // txtSoPhieu
             // 
@@ -1223,6 +1242,7 @@
             this.txtTKNo.StyleController = this.layoutControl1;
             this.txtTKNo.TabIndex = 6;
             this.txtTKNo.EditValueChanged += new System.EventHandler(this.txtTKNo_EditValueChanged);
+            this.txtTKNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTKNo_KeyPress);
             // 
             // lookUpNhaCungCap
             // 
@@ -1234,10 +1254,11 @@
             this.lookUpNhaCungCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpNhaCungCap.Properties.NullText = "";
-            this.lookUpNhaCungCap.Properties.View = this.searchLookUpEdit1View;
+            this.lookUpNhaCungCap.Properties.PopupView = this.searchLookUpEdit1View;
             this.lookUpNhaCungCap.Size = new System.Drawing.Size(209, 22);
             this.lookUpNhaCungCap.StyleController = this.layoutControl1;
             this.lookUpNhaCungCap.TabIndex = 11;
+            this.lookUpNhaCungCap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpNhaCungCap_KeyPress);
             // 
             // searchLookUpEdit1View
             // 
@@ -1252,6 +1273,8 @@
             // 
             // ID
             // 
+            this.ID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.AppearanceCell.Options.UseFont = true;
             this.ID.Caption = "ID";
             this.ID.FieldName = "ID";
             this.ID.Name = "ID";
@@ -1262,6 +1285,8 @@
             // 
             // Ten
             // 
+            this.Ten.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.AppearanceCell.Options.UseFont = true;
             this.Ten.Caption = "Tên";
             this.Ten.FieldName = "Ten";
             this.Ten.Name = "Ten";
@@ -1281,10 +1306,11 @@
             this.lookUpKhoNhap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpKhoNhap.Properties.NullText = "";
-            this.lookUpKhoNhap.Properties.View = this.gridView1;
+            this.lookUpKhoNhap.Properties.PopupView = this.gridView1;
             this.lookUpKhoNhap.Size = new System.Drawing.Size(209, 22);
             this.lookUpKhoNhap.StyleController = this.layoutControl1;
             this.lookUpKhoNhap.TabIndex = 13;
+            this.lookUpKhoNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpKhoNhap_KeyPress);
             // 
             // gridView1
             // 
@@ -1299,6 +1325,8 @@
             // 
             // MaKhoa
             // 
+            this.MaKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaKhoa.AppearanceCell.Options.UseFont = true;
             this.MaKhoa.Caption = "Mã Khoa";
             this.MaKhoa.FieldName = "MaKhoa";
             this.MaKhoa.Name = "MaKhoa";
@@ -1309,6 +1337,8 @@
             // 
             // TenKhoa
             // 
+            this.TenKhoa.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenKhoa.AppearanceCell.Options.UseFont = true;
             this.TenKhoa.Caption = "Kho Vật Tư";
             this.TenKhoa.FieldName = "TenKhoa";
             this.TenKhoa.Name = "TenKhoa";
@@ -1326,10 +1356,11 @@
             this.lookUpNguoiNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpNguoiNhan.Properties.NullText = "";
-            this.lookUpNguoiNhan.Properties.View = this.gridView2;
+            this.lookUpNguoiNhan.Properties.PopupView = this.gridView2;
             this.lookUpNguoiNhan.Size = new System.Drawing.Size(217, 22);
             this.lookUpNguoiNhan.StyleController = this.layoutControl1;
             this.lookUpNguoiNhan.TabIndex = 14;
+            this.lookUpNguoiNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpNguoiNhan_KeyPress);
             // 
             // gridView2
             // 
@@ -1344,6 +1375,8 @@
             // 
             // MaNV
             // 
+            this.MaNV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaNV.AppearanceCell.Options.UseFont = true;
             this.MaNV.Caption = "Mã NV";
             this.MaNV.FieldName = "Ma_NV";
             this.MaNV.Name = "MaNV";
@@ -1354,6 +1387,8 @@
             // 
             // TenNV
             // 
+            this.TenNV.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenNV.AppearanceCell.Options.UseFont = true;
             this.TenNV.Caption = "Tên NV";
             this.TenNV.FieldName = "Ten_NV";
             this.TenNV.Name = "TenNV";
@@ -1382,7 +1417,6 @@
             this.emptySpaceItem2,
             this.layoutControlItem16,
             this.layoutControlItem8});
-            this.layoutControlGroupNhap.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupNhap.Name = "Root";
             this.layoutControlGroupNhap.Size = new System.Drawing.Size(598, 159);
             this.layoutControlGroupNhap.TextVisible = false;
@@ -1541,7 +1575,6 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.layoutControlGroupMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupMain.Name = "Root";
             this.layoutControlGroupMain.Size = new System.Drawing.Size(974, 513);
             this.layoutControlGroupMain.TextVisible = false;

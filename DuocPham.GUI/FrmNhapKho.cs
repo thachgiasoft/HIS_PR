@@ -538,7 +538,7 @@ namespace DuocPham.GUI
             row = new XRTableRow ();
             cell = new XRTableCell ();
             cell.Text = "Tổng cộng";
-            cell.Font = font;
+            cell.Font = fontB;
             cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             cell.WidthF = 670;
             row.Cells.Add (cell);
@@ -601,6 +601,134 @@ namespace DuocPham.GUI
             if (dtPhieu != null)
             {
                 txtTongTien.Text = (dtPhieu.Compute("SUM(ThanhTien)", "").ToString());
+            }
+        }
+
+        private void lookUpMaVatTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
+            {
+                txtSoDangKy.Focus();
+            }
+        }
+
+        private void txtSoDangKy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtSoLuong.Focus();
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTyLe.Focus();
+            }
+        }
+
+        private void txtTyLe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtSoLuongQD.Focus();
+            }
+        }
+
+        private void txtSoLuongQD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtGiaBHYT.Focus();
+            }
+        }
+
+        private void txtGiaBHYT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtGiaBV.Focus();
+            }
+        }
+
+        private void txtGiaBV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtSoLo.Focus();
+            }
+        }
+
+        private void txtSoLo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                dateHetHan.Focus();
+            }
+        }
+
+        private void dateHetHan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtThanhTien.Focus();
+            }
+        }
+
+        private void txtTKNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtSoHoaDon.Focus();
+            }
+        }
+
+        private void txtSoHoaDon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpNhaCungCap.Focus();
+            }
+        }
+
+        private void lookUpNhaCungCap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNguoiGiaoHang.Focus();
+            }
+        }
+
+        private void txtNguoiGiaoHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpKhoNhap.Focus();
+            }
+        }
+
+        private void lookUpKhoNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpNguoiNhan.Focus();
+            }
+        }
+
+        private void lookUpNguoiNhan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNoiDung.Focus();
+            }
+        }
+
+        private void txtNoiDung_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpMaVatTu.Focus();
             }
         }
     }

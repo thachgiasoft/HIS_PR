@@ -29,19 +29,19 @@
         private void InitializeComponent ()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.MaBenh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenBenh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaNhom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,17 +55,6 @@
             this.layoutControl.Size = new System.Drawing.Size(824, 500);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
-            // 
-            // layoutControlGroup
-            // 
-            this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup.GroupBordersVisible = false;
-            this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup.Name = "layoutControlGroup";
-            this.layoutControlGroup.Size = new System.Drawing.Size(824, 500);
-            this.layoutControlGroup.TextVisible = false;
             // 
             // gridControl
             // 
@@ -91,36 +80,34 @@
             this.gridView.OptionsFind.FindNullPrompt = "Nhập thông tin cần tìm";
             this.gridView.OptionsView.ShowGroupPanel = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gridControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(804, 480);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // MaBenh
             // 
+            this.MaBenh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaBenh.AppearanceCell.Options.UseFont = true;
             this.MaBenh.Caption = "Mã bệnh";
             this.MaBenh.FieldName = "MaBenh";
             this.MaBenh.Name = "MaBenh";
             this.MaBenh.OptionsColumn.AllowEdit = false;
             this.MaBenh.Visible = true;
             this.MaBenh.VisibleIndex = 0;
-            this.MaBenh.Width = 100;
+            this.MaBenh.Width = 81;
             // 
             // TenBenh
             // 
+            this.TenBenh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenBenh.AppearanceCell.Options.UseFont = true;
             this.TenBenh.Caption = "Tên bệnh";
             this.TenBenh.FieldName = "TenBenh";
             this.TenBenh.Name = "TenBenh";
             this.TenBenh.OptionsColumn.AllowEdit = false;
             this.TenBenh.Visible = true;
             this.TenBenh.VisibleIndex = 1;
+            this.TenBenh.Width = 285;
             // 
             // MaLoai
             // 
+            this.MaLoai.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaLoai.AppearanceCell.Options.UseFont = true;
             this.MaLoai.Caption = "Mã loại";
             this.MaLoai.FieldName = "MaLoai";
             this.MaLoai.Name = "MaLoai";
@@ -131,6 +118,8 @@
             // 
             // MaNhom
             // 
+            this.MaNhom.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaNhom.AppearanceCell.Options.UseFont = true;
             this.MaNhom.Caption = "Mã nhóm";
             this.MaNhom.FieldName = "MaNhom";
             this.MaNhom.Name = "MaNhom";
@@ -138,7 +127,26 @@
             this.MaNhom.OptionsColumn.AllowSize = false;
             this.MaNhom.Visible = true;
             this.MaNhom.VisibleIndex = 3;
-            this.MaNhom.Width = 100;
+            this.MaNhom.Width = 80;
+            // 
+            // layoutControlGroup
+            // 
+            this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup.GroupBordersVisible = false;
+            this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup.Name = "layoutControlGroup";
+            this.layoutControlGroup.Size = new System.Drawing.Size(824, 500);
+            this.layoutControlGroup.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(804, 480);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // UC_BenhICDX
             // 
@@ -150,9 +158,9 @@
             this.Load += new System.EventHandler(this.UC_BenhICDX_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
