@@ -37,5 +37,11 @@ namespace BaoCao.DAL
             return db.ExcuteQuery (sql,
                 CommandType.Text, null);
         }
+        public DataTable DSTongHopXuat(int loaiBC, int thang1, int thang2, int thang3 ,int year)
+        {
+            string sql = "EXEC SpTongHopXuatKho " + loaiBC + " ," + thang1 + "," + thang2 + "," + thang3 + "," + year;
+            return db.ExcuteQuery(sql,
+                CommandType.Text, null);
+        }
     }
 }

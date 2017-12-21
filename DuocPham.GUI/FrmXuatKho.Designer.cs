@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent ()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmXuatKho));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.panelControlDanhSach = new DevExpress.XtraEditors.PanelControl();
@@ -277,8 +281,9 @@
             // repositoryItemButtonEdit
             // 
             this.repositoryItemButtonEdit.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.repositoryItemButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit.Name = "repositoryItemButtonEdit";
             this.repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit_ButtonClick);
@@ -349,6 +354,8 @@
             // 
             // DonViTinh
             // 
+            this.DonViTinh.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonViTinh.AppearanceCell.Options.UseFont = true;
             this.DonViTinh.Caption = "Đơn vị tính";
             this.DonViTinh.FieldName = "DonViTinh";
             this.DonViTinh.Name = "DonViTinh";
@@ -453,7 +460,6 @@
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem21});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(951, 289);
             this.layoutControlGroup2.TextVisible = false;
@@ -493,7 +499,7 @@
             // 
             this.btnTim.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
-            this.btnTim.ImageUri.Uri = "Zoom;Size16x16";
+            this.btnTim.ImageOptions.ImageUri.Uri = "Zoom;Size16x16";
             this.btnTim.Location = new System.Drawing.Point(349, 12);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(30, 22);
@@ -604,7 +610,6 @@
             this.layoutControlItem16,
             this.layoutControlItem17,
             this.layoutControlItem18});
-            this.layoutControlGroupPhieu.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupPhieu.Name = "layoutControlGroupPhieu";
             this.layoutControlGroupPhieu.Size = new System.Drawing.Size(391, 188);
             this.layoutControlGroupPhieu.TextVisible = false;
@@ -696,7 +701,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(295, 116);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(79, 23);
@@ -709,7 +714,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(378, 116);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(79, 23);
@@ -722,7 +727,7 @@
             // 
             this.btnIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.ImageUri.Uri = "Print;Size16x16";
+            this.btnIn.ImageOptions.ImageUri.Uri = "Print;Size16x16";
             this.btnIn.Location = new System.Drawing.Point(461, 116);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(79, 23);
@@ -812,7 +817,7 @@
             this.lookUpKhoXuat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpKhoXuat.Properties.NullText = "";
-            this.lookUpKhoXuat.Properties.View = this.searchLookUpEdit1View;
+            this.lookUpKhoXuat.Properties.PopupView = this.searchLookUpEdit1View;
             this.lookUpKhoXuat.Size = new System.Drawing.Size(466, 22);
             this.lookUpKhoXuat.StyleController = this.layoutControl1;
             this.lookUpKhoXuat.TabIndex = 7;
@@ -857,7 +862,7 @@
             this.lookUpKhoNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpKhoNhan.Properties.NullText = "";
-            this.lookUpKhoNhan.Properties.View = this.gridView1;
+            this.lookUpKhoNhan.Properties.PopupView = this.gridView1;
             this.lookUpKhoNhan.Size = new System.Drawing.Size(201, 22);
             this.lookUpKhoNhan.StyleController = this.layoutControl1;
             this.lookUpKhoNhan.TabIndex = 8;
@@ -902,7 +907,7 @@
             this.lookUpMaVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpMaVatTu.Properties.NullText = "";
-            this.lookUpMaVatTu.Properties.View = this.gridView2;
+            this.lookUpMaVatTu.Properties.PopupView = this.gridView2;
             this.lookUpMaVatTu.Size = new System.Drawing.Size(316, 22);
             this.lookUpMaVatTu.StyleController = this.layoutControl1;
             this.lookUpMaVatTu.TabIndex = 15;
@@ -1018,7 +1023,6 @@
             this.emptySpaceItem1,
             this.layoutControlItem19,
             this.layoutControlItem20});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(552, 188);
             this.layoutControlGroup1.TextVisible = false;
@@ -1164,7 +1168,6 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.layoutControlGroupMain.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupMain.Name = "layoutControlGroupMain";
             this.layoutControlGroupMain.Size = new System.Drawing.Size(979, 513);
             this.layoutControlGroupMain.TextVisible = false;

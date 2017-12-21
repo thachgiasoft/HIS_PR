@@ -117,6 +117,8 @@
             // 
             // MaLoai
             // 
+            this.MaLoai.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaLoai.AppearanceCell.Options.UseFont = true;
             this.MaLoai.Caption = "Mã Loại";
             this.MaLoai.FieldName = "MaLoai";
             this.MaLoai.Name = "MaLoai";
@@ -127,6 +129,8 @@
             // 
             // MaNhom
             // 
+            this.MaNhom.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaNhom.AppearanceCell.Options.UseFont = true;
             this.MaNhom.Caption = "Mã Nhóm";
             this.MaNhom.FieldName = "Ma";
             this.MaNhom.Name = "MaNhom";
@@ -137,6 +141,8 @@
             // 
             // Ten
             // 
+            this.Ten.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ten.AppearanceCell.Options.UseFont = true;
             this.Ten.Caption = "Tên Nhóm";
             this.Ten.FieldName = "Ten";
             this.Ten.Name = "Ten";
@@ -165,7 +171,7 @@
             // 
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageUri.Uri = "Save;Size16x16";
+            this.btnLuu.ImageOptions.ImageUri.Uri = "Save;Size16x16";
             this.btnLuu.Location = new System.Drawing.Point(546, 38);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(76, 22);
@@ -178,7 +184,7 @@
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.ImageUri.Uri = "Add;Size16x16";
+            this.btnThem.ImageOptions.ImageUri.Uri = "Add;Size16x16";
             this.btnThem.Location = new System.Drawing.Point(466, 38);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 22);
@@ -191,7 +197,7 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageUri.Uri = "Cancel;Size16x16";
+            this.btnXoa.ImageOptions.ImageUri.Uri = "Cancel;Size16x16";
             this.btnXoa.Location = new System.Drawing.Point(626, 38);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 22);
@@ -227,6 +233,8 @@
             this.lookUpLoaiVT.Name = "lookUpLoaiVT";
             this.lookUpLoaiVT.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpLoaiVT.Properties.Appearance.Options.UseFont = true;
+            this.lookUpLoaiVT.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpLoaiVT.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lookUpLoaiVT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpLoaiVT.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -262,7 +270,6 @@
             this.layoutControlItem3,
             this.layoutControlItem1,
             this.layoutControlItem9});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(714, 362);
             this.layoutControlGroup.TextVisible = false;
