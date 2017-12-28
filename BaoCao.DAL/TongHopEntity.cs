@@ -48,6 +48,17 @@ namespace BaoCao.DAL
                 CommandType.Text, null);
 
         }
+        public DataTable DSSoLuongThuoc(string maKhoa, DateTime tuNgay, DateTime denNgay)
+        {
+            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaThuoc) as STT," +
+                "MaThuoc,TenThuoc,DonViTinh,SUM(SoLuong) as SoLuong " +
+                "from DonThuocChiTiet,(select MaLK from ThongTinBNChiTiet where MaCoSoKCB='" + AppConfig.CoSoKCB + "') as ThongTin " +
+                "where ThongTin.MaLK = DonThuocChiTiet.MaLK and MaKhoa = '" + maKhoa + "' " +
+                "and(convert(date,NgayYLenh) between convert(date,'" + tuNgay + "') and convert(date,'" + denNgay + "')) " +
+                " group by MaThuoc,TenThuoc,DonViTinh",
+                CommandType.Text, null);
+
+        }
         public DataTable DSVatTu(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {
             return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaVT) as STT," +
@@ -66,6 +77,13 @@ namespace BaoCao.DAL
                 "from ThongTinBNChiTiet where TienBNCCT > 0 " +
                 "and MaKhoa = '" + maKhoa + "' "+
                 "and(convert(date,NgayThanhToan) between convert(date,'" + tuNgay + "') and convert(date,'" + denNgay + "'))",
+                CommandType.Text, null);
+        }
+        public DataTable DSVienPhi(string maKhoa, DateTime tuNgay, DateTime denNgay)
+        {
+            string sql = "";
+            sql = "EXEC SpgetVienPhi '"+maKhoa+"','" + AppConfig.CoSoKCB + "','"+tuNgay+"','"+denNgay+"'";
+            return db.ExcuteQuery(sql,
                 CommandType.Text, null);
         }
     }

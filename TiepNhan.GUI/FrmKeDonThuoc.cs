@@ -522,10 +522,11 @@ namespace TiepNhan.GUI
                 }
             }
         }
-        private void TaoDonThuoc()
+        private void TaoDonThuocA5()
         {
             RptDonThuoc rpt = new RptDonThuoc();
             rpt.lblCoSo.Text = this.TenCoSo.ToUpper();
+            rpt.xrlblSoHoSo.Text = "Số hồ sơ:";
             rpt.lblHoTen.Text = this.HoTen;
             rpt.lblNamSinh.Text = this.NgaySinh;
             rpt.lblGioiTinh.Text = this.GioiTinh == "0" ? "Nam" : "Nữ";
@@ -599,7 +600,7 @@ namespace TiepNhan.GUI
         private void btnLuuIn_Click(object sender, EventArgs e)
         {
             LuuKeDon();
-            TaoDonThuoc();
+            TaoDonThuocA5();
         }
 
         private void repbtnXoaThuoc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

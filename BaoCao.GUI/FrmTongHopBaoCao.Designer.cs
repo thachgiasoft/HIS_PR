@@ -88,7 +88,8 @@
             "2. Tổng hợp vật tư y tế",
             "3. Tổng hợp thuốc",
             "4. Tổng hợp dịch vụ kỹ thuật",
-            "5. Tổng hợp viện phí"});
+            "5. Tổng hợp viện phí",
+            "6. Tổng hợp số lượng thuốc"});
             this.cbLoaiBaoCao.Size = new System.Drawing.Size(320, 22);
             this.cbLoaiBaoCao.TabIndex = 0;
             // 

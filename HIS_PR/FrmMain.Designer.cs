@@ -54,6 +54,7 @@
             this.barButtonTonKhoLe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonNguonNhap = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonTongHopBC = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonTHXuatKho = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageTiepNhan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,7 +73,6 @@
             this.ribbonPageGroupKhoLe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupTongHop = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barButtonTHXuatKho = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +107,7 @@
             this.barButtonTongHopBC,
             this.barButtonTHXuatKho});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 34;
+            this.ribbonControlMain.MaxItemId = 37;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.PageHeaderItemLinks.Add(this.barLinkSkin);
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -312,6 +312,14 @@
             this.barButtonTongHopBC.Name = "barButtonTongHopBC";
             this.barButtonTongHopBC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTongHopBC_ItemClick);
             // 
+            // barButtonTHXuatKho
+            // 
+            this.barButtonTHXuatKho.Caption = "Tổng hợp xuất kho";
+            this.barButtonTHXuatKho.Id = 33;
+            this.barButtonTHXuatKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTHXuatKho.ImageOptions.Image")));
+            this.barButtonTHXuatKho.Name = "barButtonTHXuatKho";
+            this.barButtonTHXuatKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTHXuatKho_ItemClick);
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -445,14 +453,6 @@
             this.ribbonStatusBarMain.Name = "ribbonStatusBarMain";
             this.ribbonStatusBarMain.Ribbon = this.ribbonControlMain;
             this.ribbonStatusBarMain.Size = new System.Drawing.Size(1290, 31);
-            // 
-            // barButtonTHXuatKho
-            // 
-            this.barButtonTHXuatKho.Caption = "Tổng hợp xuất kho";
-            this.barButtonTHXuatKho.Id = 33;
-            this.barButtonTHXuatKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTHXuatKho.ImageOptions.Image")));
-            this.barButtonTHXuatKho.Name = "barButtonTHXuatKho";
-            this.barButtonTHXuatKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTHXuatKho_ItemClick);
             // 
             // FrmMain
             // 

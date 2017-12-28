@@ -123,6 +123,12 @@
     <Compile Include="RptNguonNhap.Designer.cs">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="RptSoLuongThuoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptSoLuongThuoc.Designer.cs">
+      <DependentUpon>RptSoLuongThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptTongHopBNTT.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RptNguonNhap.resx">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptSoLuongThuoc.resx">
+      <DependentUpon>RptSoLuongThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RptTongHopBNTT.resx">
       <DependentUpon>RptTongHopBNTT.cs</DependentUpon>

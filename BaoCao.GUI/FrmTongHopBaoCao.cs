@@ -199,11 +199,30 @@ namespace BaoCao.GUI
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
             }
-            else
+            else if(cbLoaiBaoCao.SelectedIndex == 4)
             {
                 // Tổng hợp viện phí
                 RptTongHopVienPhi rpt = new RptTongHopVienPhi();
-
+                dataTongHop = tongHop.DSVienPhi(maKhoa, tuNgay, denNgay);
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                //Tổng hợp thuốc
+                dataTongHop = tongHop.DSSoLuongThuoc(maKhoa, tuNgay, denNgay);
+                RptSoLuongThuoc rpt = new RptSoLuongThuoc();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();

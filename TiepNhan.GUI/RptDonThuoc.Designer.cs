@@ -58,7 +58,7 @@
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblHoTen = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCoSo = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrlblSoHoSo = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
@@ -213,7 +213,7 @@
             this.lblHoTen,
             this.lblCoSo,
             this.xrLabel1,
-            this.xrLabel2,
+            this.xrlblSoHoSo,
             this.xrLabel3,
             this.xrLabel4});
             this.ReportHeader.HeightF = 250F;
@@ -377,17 +377,17 @@
             this.lblCoSo.Text = "BỆNH VIỆN ĐA KHOA CAO SU PHÚ RIỀNG";
             this.lblCoSo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel2
+            // xrlblSoHoSo
             // 
-            this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(383F, 10F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(150F, 23F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "Số hồ sơ: 20171121001";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrlblSoHoSo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrlblSoHoSo.LocationFloat = new DevExpress.Utils.PointFloat(383F, 10F);
+            this.xrlblSoHoSo.Name = "xrlblSoHoSo";
+            this.xrlblSoHoSo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrlblSoHoSo.SizeF = new System.Drawing.SizeF(150F, 23F);
+            this.xrlblSoHoSo.StylePriority.UseFont = false;
+            this.xrlblSoHoSo.StylePriority.UseTextAlignment = false;
+            this.xrlblSoHoSo.Text = "Số hồ sơ: 20171121001";
+            this.xrlblSoHoSo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel3
             // 
@@ -538,7 +538,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         public DevExpress.XtraReports.UI.XRLabel lblHoTen;
         public DevExpress.XtraReports.UI.XRLabel lblCoSo;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
@@ -557,5 +556,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
+        public DevExpress.XtraReports.UI.XRLabel xrlblSoHoSo;
     }
 }

@@ -273,6 +273,8 @@ namespace DanhMuc.GUI
                 txtNhomThau.Text = dr["NhomThau"].ToString();
                 them = false;
 
+                vattu.MaBV = txtMaBV.Text;
+
                 Enabled_Xoa ();
                 Enabled_Luu ();
             }
@@ -292,7 +294,7 @@ namespace DanhMuc.GUI
                         err = "";
                         vattu.LoaiVatTu = dtRow[1].ToString ();
                         vattu.NhomVatTu = dtRow[2].ToString ();
-                        vattu.MaBV = dtRow[21].ToString ();
+                        vattu.MaBV = dtRow[20].ToString ();
                         vattu.MaHoatChat = dtRow[3].ToString ();
                         vattu.HoatChat = dtRow[4].ToString ();
                         vattu.MaDuongDung = dtRow[5].ToString ();
@@ -301,16 +303,20 @@ namespace DanhMuc.GUI
                         vattu.SoDK = dtRow[9].ToString ();
                         vattu.DonViTinh = dtRow[11].ToString ();
                         vattu.QuyCach = dtRow[10].ToString ();
-                        vattu.HangSX = dtRow[16].ToString ();
-                        vattu.NuocSX = dtRow[17].ToString ();
-                        vattu.QuyetDinh = dtRow[19].ToString ();
-                        vattu.CongBo = dtRow[20].ToString ();
-                        vattu.LoaiThuoc = dtRow[22].ToString ();
-                        vattu.GiaBHYT = Utils.ToDecimal( dtRow[12].ToString ());
+                        vattu.HangSX = dtRow[15].ToString ();
+                        vattu.NuocSX = dtRow[16].ToString ();
+                        vattu.QuyetDinh = dtRow[18].ToString ();
+                        vattu.CongBo = dtRow[19].ToString ();
+                        vattu.LoaiThuoc = dtRow[21].ToString ();
+                        vattu.LoaiThau = Utils.ToInt(dtRow[22]);
+                        vattu.NhomThau = dtRow[23].ToString();
+                        vattu.GoiThau = dtRow[24].ToString();
+                        vattu.GiaBHYT = Utils.ToDecimal(dtRow[12]);
                         vattu.TinhTrang = true;
 
                         if(!vattu.SpVatTu(ref err, "INSERT"))
                         {
+                            err = "";
                             vattu.SpVatTu (ref err, "UPDATE");
                         }
 
