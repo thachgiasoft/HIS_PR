@@ -184,6 +184,11 @@ namespace KhamBenh.DAL
             return db.ExcuteQuery("Select * From DonThuocChiTiet Where MaLK ='" + this.MaLK + "' ",
                 CommandType.Text, null);
         }
+        public bool XoaHoSo(ref string err)
+        {
+            return db.BackUpOrRestore("Delete From ThongTinBNChiTiet Where MaLK ='" + this.MaLK + "' ",
+                 ref err);
+        }
         public bool SpDichVuChiTiet(ref string err, string Action)
         {
             return db.MyExecuteNonQuery("SpDichVuChiTiet",

@@ -363,6 +363,7 @@ namespace TiepNhan.GUI
                     frmKeDon.MaThe = dr["MaThe"].ToString();
                     frmKeDon.DiaChi = dr["DiaChi"].ToString();
                     frmKeDon.NgaySinh = dr["NgaySinh"].ToString();
+                    frmKeDon.STTNgay = dr["STTNgay"].ToString();
                     try
                     {
                         frmKeDon.TenCoSo = dataCoSo.Select("Ma_CS = '" + AppConfig.CoSoKCB + "'", "")[0]["Ten_CS"].ToString();

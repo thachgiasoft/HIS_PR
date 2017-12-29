@@ -27,6 +27,7 @@ namespace TiepNhan.GUI
         public string DiaChi { get; set; }
         public string TenCoSo { get; set; }
         public string NoiDangKy { get; set; }
+        public string STTNgay { get; set; }
 
         private KeDonEntity kedon;
         private string maBenhChinh = null;
@@ -526,7 +527,7 @@ namespace TiepNhan.GUI
         {
             RptDonThuoc rpt = new RptDonThuoc();
             rpt.lblCoSo.Text = this.TenCoSo.ToUpper();
-            rpt.xrlblSoHoSo.Text = "Số hồ sơ:";
+            rpt.xrlblSoHoSo.Text = "Số hồ sơ:" + STTNgay ;
             rpt.lblHoTen.Text = this.HoTen;
             rpt.lblNamSinh.Text = this.NgaySinh;
             rpt.lblGioiTinh.Text = this.GioiTinh == "0" ? "Nam" : "Nữ";
@@ -570,7 +571,71 @@ namespace TiepNhan.GUI
             rpt.CreateDocument();
             rpt.ShowPreviewDialog();
         }
+        private void TaoDonThuocA4()
+        {
+            RptDonThuocA4 rpt = new RptDonThuocA4();
+            rpt.lblCoSo.Text = this.TenCoSo.ToUpper();
+            rpt.xrlblSoHoSo.Text = "Số hồ sơ:" + STTNgay;
+            rpt.lblHoTen.Text = this.HoTen;
+            rpt.lblNamSinh.Text = this.NgaySinh;
+            rpt.lblGioiTinh.Text = this.GioiTinh == "0" ? "Nam" : "Nữ";
+            rpt.lblDiaChi.Text = this.DiaChi;
+            //rpt.lblCoSo.Text = this.TenCoSo.ToUpper();
+            rpt.xrlblSoHoSo1.Text = "Số hồ sơ:" + STTNgay;
+            rpt.lblHoTen1.Text = this.HoTen;
+            rpt.lblNamSinh1.Text = this.NgaySinh;
+            rpt.lblGioiTinh1.Text = this.GioiTinh == "0" ? "Nam" : "Nữ";
+            rpt.lblDiaChi1.Text = this.DiaChi;
+            //
+            if (!string.IsNullOrEmpty(this.MaThe))
+            {
+                rpt.lblSoThe.Text = this.MaThe;
+                rpt.lblNoiDangKyKCB.Text = this.NoiDangKy;
+                rpt.lblHanSuDung.Text = Utils.ToDateTime(TheTu).ToString("dd/MM/yyyy") + " - "
+                    + Utils.ToDateTime(TheDen).ToString("dd/MM/yyyy");
+                //
+                rpt.lblSoThe1.Text = this.MaThe;
+                rpt.lblNoiDangKyKCB1.Text = this.NoiDangKy;
+                rpt.lblHanSuDung1.Text = Utils.ToDateTime(TheTu).ToString("dd/MM/yyyy") + " - "
+                    + Utils.ToDateTime(TheDen).ToString("dd/MM/yyyy");
+            }
+            rpt.lblTenBenh.Text = txtTenBenh.Text;
+            rpt.lblBacSi.Text = lookUpBacSi.Properties.GetDisplayValueByKeyValue(lookUpBacSi.EditValue).ToString();
+            rpt.lblNgayKeDon.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+            //
+            rpt.lblTenBenh1.Text = txtTenBenh.Text;
+            rpt.lblBacSi1.Text = lookUpBacSi.Properties.GetDisplayValueByKeyValue(lookUpBacSi.EditValue).ToString();
+            rpt.lblNgayKeDon1.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+            //
+            DataTable dtThuoc = dvThuoc.ToTable();
+            dtThuoc.Columns.Add("STT", typeof(string));
+            int i = 1;
+            foreach (DataRow dr in dtThuoc.Rows)
+            {
+                dr["STT"] = i + ")";
+                i++;
+                string hamLuong = dr["HamLuong"].ToString();
+                int index = 0;
+                int space = hamLuong.Length;
+                while (index > -1 && hamLuong.Length > 15)
+                {
+                    index = hamLuong.IndexOf(' ', index + 1);
+                    if (index > 15 || index == -1)
+                    {
+                        index = -1;
+                    }
+                    else
+                    {
+                        space = index;
+                    }
+                }
+                dr["HamLuong"] = hamLuong.Substring(0, space);
+            }
 
+            rpt.DataSource = dtThuoc;
+            rpt.CreateDocument();
+            rpt.ShowPreviewDialog();
+        }
         private void repbtnXoaVT_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             int index = gridViewVTYT.GetFocusedDataSourceRowIndex();

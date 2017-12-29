@@ -170,6 +170,8 @@
             this.layoutControlItem52 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem53 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).BeginInit();
             this.xtraTabControl.SuspendLayout();
@@ -290,6 +292,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem52)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem53)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -815,6 +818,7 @@
             // 
             // layoutControlTT
             // 
+            this.layoutControlTT.Controls.Add(this.btnXoa);
             this.layoutControlTT.Controls.Add(this.btnLuuIn);
             this.layoutControlTT.Controls.Add(this.btnLuu);
             this.layoutControlTT.Controls.Add(this.btnTruoc);
@@ -1669,7 +1673,8 @@
             this.emptySpaceItem4,
             this.layoutControlItem52,
             this.emptySpaceItem1,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem53});
             this.layoutControlGroupTT.Name = "layoutControlGroupTT";
             this.layoutControlGroupTT.Size = new System.Drawing.Size(986, 441);
             this.layoutControlGroupTT.TextVisible = false;
@@ -2047,7 +2052,7 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(554, 394);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(412, 27);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(346, 27);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem52
@@ -2074,6 +2079,28 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(120, 27);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Appearance.Options.UseFont = true;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnXoa.Location = new System.Drawing.Point(912, 406);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(62, 23);
+            this.btnXoa.StyleController = this.layoutControlTT;
+            this.btnXoa.TabIndex = 45;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // layoutControlItem53
+            // 
+            this.layoutControlItem53.Control = this.btnXoa;
+            this.layoutControlItem53.Location = new System.Drawing.Point(900, 394);
+            this.layoutControlItem53.Name = "layoutControlItem53";
+            this.layoutControlItem53.Size = new System.Drawing.Size(66, 27);
+            this.layoutControlItem53.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem53.TextVisible = false;
             // 
             // FrmThanhToan
             // 
@@ -2208,6 +2235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem52)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem53)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2356,5 +2384,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn DonGia;
         private DevExpress.XtraGrid.Columns.GridColumn ThanhTien;
         private DevExpress.XtraGrid.Columns.GridColumn TenNhom;
+        private DevExpress.XtraEditors.SimpleButton btnXoa;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem53;
     }
 }

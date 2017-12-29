@@ -522,6 +522,26 @@ namespace TiepNhan.GUI
         {
             LuuHoSo(true);
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            //
+            DialogResult traloi;
+            string err = "";
+            // Hiện hộp thoại hỏi đáp 
+            traloi = XtraMessageBox.Show("Chắc chắn bạn muốn xóa hồ sơ này?", "Trả lời",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+            {
+                if (!thanhtoan.XoaThongTinCT(ref err))
+                {
+                    MessageBox.Show(err);
+                    return;
+                }
+                thanhtoan.MaLK = null;
+            }
+        }
+
         private void InHoSo()
         {
             rptChiPhi rpt = new rptChiPhi();
