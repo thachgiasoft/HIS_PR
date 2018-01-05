@@ -46,6 +46,7 @@ namespace KhamBenh.DAL
         public int TinhTrang { get; set; }
         public int Phong { get; set; }
 
+        public string TinhTrangRaVien { get; set; }
         public DataTable DSTaiNan()
         {
             return db.ExcuteQuery("Select * From TaiNan ",
@@ -191,7 +192,7 @@ namespace KhamBenh.DAL
                //new SqlParameter("@NgayRa", NgayRa),
                //new SqlParameter("@SoNgayDieuTri", SoNgayDieuTri),
                //new SqlParameter("@KetQuaDieuTri", KetQuaDieuTri),
-               //new SqlParameter("@TinhTrangRaVien", TinhTrangRaVien),
+               new SqlParameter("@TinhTrangRaVien", TinhTrangRaVien),
                //new SqlParameter("@NgayThanhToan", NgayThanhToan),
                new SqlParameter("@MucHuong", MucHuong),
                //new SqlParameter("@TienThuoc", TienThuoc),

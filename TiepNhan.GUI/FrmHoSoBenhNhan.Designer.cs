@@ -63,6 +63,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlMain)).BeginInit();
             this.layoutControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateDenNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -210,6 +211,7 @@
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.STT,
             this.Chon,
             this.HoTen,
             this.GioiTinh,
@@ -245,7 +247,7 @@
             this.Chon.Name = "Chon";
             this.Chon.OptionsColumn.FixedWidth = true;
             this.Chon.Visible = true;
-            this.Chon.VisibleIndex = 0;
+            this.Chon.VisibleIndex = 1;
             this.Chon.Width = 35;
             // 
             // repCheck
@@ -262,8 +264,8 @@
             this.HoTen.Name = "HoTen";
             this.HoTen.OptionsColumn.AllowEdit = false;
             this.HoTen.Visible = true;
-            this.HoTen.VisibleIndex = 1;
-            this.HoTen.Width = 120;
+            this.HoTen.VisibleIndex = 2;
+            this.HoTen.Width = 113;
             // 
             // GioiTinh
             // 
@@ -275,7 +277,7 @@
             this.GioiTinh.OptionsColumn.AllowEdit = false;
             this.GioiTinh.OptionsColumn.FixedWidth = true;
             this.GioiTinh.Visible = true;
-            this.GioiTinh.VisibleIndex = 2;
+            this.GioiTinh.VisibleIndex = 3;
             this.GioiTinh.Width = 35;
             // 
             // NamSinh
@@ -287,8 +289,8 @@
             this.NamSinh.Name = "NamSinh";
             this.NamSinh.OptionsColumn.AllowEdit = false;
             this.NamSinh.Visible = true;
-            this.NamSinh.VisibleIndex = 3;
-            this.NamSinh.Width = 50;
+            this.NamSinh.VisibleIndex = 4;
+            this.NamSinh.Width = 46;
             // 
             // DiaChi
             // 
@@ -299,8 +301,8 @@
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.OptionsColumn.AllowEdit = false;
             this.DiaChi.Visible = true;
-            this.DiaChi.VisibleIndex = 4;
-            this.DiaChi.Width = 133;
+            this.DiaChi.VisibleIndex = 5;
+            this.DiaChi.Width = 125;
             // 
             // CoThe
             // 
@@ -317,8 +319,8 @@
             this.MaThe.Name = "MaThe";
             this.MaThe.OptionsColumn.AllowEdit = false;
             this.MaThe.Visible = true;
-            this.MaThe.VisibleIndex = 5;
-            this.MaThe.Width = 80;
+            this.MaThe.VisibleIndex = 6;
+            this.MaThe.Width = 74;
             // 
             // TenBenh
             // 
@@ -329,8 +331,8 @@
             this.TenBenh.Name = "TenBenh";
             this.TenBenh.OptionsColumn.AllowEdit = false;
             this.TenBenh.Visible = true;
-            this.TenBenh.VisibleIndex = 6;
-            this.TenBenh.Width = 99;
+            this.TenBenh.VisibleIndex = 7;
+            this.TenBenh.Width = 93;
             // 
             // NgayVao
             // 
@@ -341,8 +343,8 @@
             this.NgayVao.Name = "NgayVao";
             this.NgayVao.OptionsColumn.AllowEdit = false;
             this.NgayVao.Visible = true;
-            this.NgayVao.VisibleIndex = 7;
-            this.NgayVao.Width = 50;
+            this.NgayVao.VisibleIndex = 8;
+            this.NgayVao.Width = 46;
             // 
             // NgayRa
             // 
@@ -353,8 +355,8 @@
             this.NgayRa.Name = "NgayRa";
             this.NgayRa.OptionsColumn.AllowEdit = false;
             this.NgayRa.Visible = true;
-            this.NgayRa.VisibleIndex = 8;
-            this.NgayRa.Width = 50;
+            this.NgayRa.VisibleIndex = 9;
+            this.NgayRa.Width = 46;
             // 
             // NgayThanhToan
             // 
@@ -365,8 +367,8 @@
             this.NgayThanhToan.Name = "NgayThanhToan";
             this.NgayThanhToan.OptionsColumn.AllowEdit = false;
             this.NgayThanhToan.Visible = true;
-            this.NgayThanhToan.VisibleIndex = 9;
-            this.NgayThanhToan.Width = 50;
+            this.NgayThanhToan.VisibleIndex = 10;
+            this.NgayThanhToan.Width = 46;
             // 
             // TienBNCCT
             // 
@@ -377,8 +379,8 @@
             this.TienBNCCT.Name = "TienBNCCT";
             this.TienBNCCT.OptionsColumn.AllowEdit = false;
             this.TienBNCCT.Visible = true;
-            this.TienBNCCT.VisibleIndex = 10;
-            this.TienBNCCT.Width = 50;
+            this.TienBNCCT.VisibleIndex = 11;
+            this.TienBNCCT.Width = 46;
             // 
             // TienBHTT
             // 
@@ -389,8 +391,8 @@
             this.TienBHTT.Name = "TienBHTT";
             this.TienBHTT.OptionsColumn.AllowEdit = false;
             this.TienBHTT.Visible = true;
-            this.TienBHTT.VisibleIndex = 11;
-            this.TienBHTT.Width = 50;
+            this.TienBHTT.VisibleIndex = 12;
+            this.TienBHTT.Width = 46;
             // 
             // TongChi
             // 
@@ -401,8 +403,8 @@
             this.TongChi.Name = "TongChi";
             this.TongChi.OptionsColumn.AllowEdit = false;
             this.TongChi.Visible = true;
-            this.TongChi.VisibleIndex = 12;
-            this.TongChi.Width = 50;
+            this.TongChi.VisibleIndex = 13;
+            this.TongChi.Width = 66;
             // 
             // DaGui
             // 
@@ -414,7 +416,7 @@
             this.DaGui.OptionsColumn.AllowEdit = false;
             this.DaGui.OptionsColumn.FixedWidth = true;
             this.DaGui.Visible = true;
-            this.DaGui.VisibleIndex = 13;
+            this.DaGui.VisibleIndex = 14;
             this.DaGui.Width = 40;
             // 
             // layoutControlGroupMain
@@ -511,6 +513,17 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(10, 27);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // STT
+            // 
+            this.STT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STT.AppearanceCell.Options.UseFont = true;
+            this.STT.Caption = "STT";
+            this.STT.FieldName = "STT";
+            this.STT.Name = "STT";
+            this.STT.Visible = true;
+            this.STT.VisibleIndex = 0;
+            this.STT.Width = 35;
+            // 
             // FrmHoSoBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,5 +597,6 @@
         private DevExpress.XtraEditors.LabelControl lblTinhTrang;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn STT;
     }
 }

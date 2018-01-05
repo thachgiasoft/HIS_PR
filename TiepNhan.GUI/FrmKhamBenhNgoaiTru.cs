@@ -75,8 +75,13 @@ namespace TiepNhan.GUI
         private void LoadData()
         {
             checkChoKham.Checked = false;
-            dataDanhSach = khambenh.DSTiepNhan(DateTime.Now.ToShortDateString(),
-                Utils.ToInt(AppConfig.MaKhoa.Substring(AppConfig.MaKhoa.Length - 2, 2)));
+            int phong = Utils.ToInt(AppConfig.MaKhoa.Substring(AppConfig.MaKhoa.Length - 2, 2));
+            if(phong>10)
+            {
+                phong = 0;
+            }
+            dataDanhSach = khambenh.DSTiepNhan(DateTime.Now.ToShortDateString(),phong
+                );
             checkChoKham.Checked = true;
         }
         private void btnNew_Click(object sender, EventArgs e)
@@ -381,11 +386,11 @@ namespace TiepNhan.GUI
             DataRow dr = gridView.GetFocusedDataRow();
             if (dr != null)
             {
-                if (!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
-                {
-                    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
+                //{
+                //    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 frmCanLamSan.HoTen = dr["HoTen"].ToString();
                 frmCanLamSan.MaLK = dr["MaLK"].ToString();
                 frmCanLamSan.GioiTinh = dr["GioiTinh"].ToString();

@@ -10,6 +10,19 @@ namespace Core.DAL
 {
     public class ConvertXML
     {
+        private static string FixMaBenh(string mabenh)
+        {
+            mabenh = mabenh.Replace(" ", "");
+            try
+            {
+                if(mabenh.LastIndexOf(";") == mabenh.Length - 1)
+                {
+                    mabenh = mabenh.Remove(mabenh.LastIndexOf(";"), 1);
+                }
+            }
+            catch { }
+            return mabenh;
+        }
         public static XmlDocument XML1_4210(DataRow dataRow)
         {
             XmlDocument doc = new XmlDocument();
@@ -79,11 +92,11 @@ namespace Core.DAL
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("MA_BENH");
-            element.AppendChild(doc.CreateTextNode(dataRow["MaBenh"].ToString()));
+            element.AppendChild(doc.CreateTextNode(FixMaBenh(dataRow["MaBenh"].ToString())));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("MA_BENHKHAC");
-            element.AppendChild(doc.CreateTextNode(dataRow["MaBenhKhac"].ToString()));
+            element.AppendChild(doc.CreateTextNode(FixMaBenh(dataRow["MaBenhKhac"].ToString())));
             tonghop.AppendChild(element);
 
             element = doc.CreateElement("MA_LYDO_VVIEN");
@@ -305,7 +318,7 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_BENH");
-                element.AppendChild(doc.CreateTextNode(MaBenh));
+                element.AppendChild(doc.CreateTextNode(FixMaBenh(MaBenh)));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_YL");
@@ -438,7 +451,7 @@ namespace Core.DAL
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("MA_BENH");
-                element.AppendChild(doc.CreateTextNode(MaBenh));
+                element.AppendChild(doc.CreateTextNode(FixMaBenh(MaBenh)));
                 chitiet.AppendChild(element);
 
                 element = doc.CreateElement("NGAY_YL");

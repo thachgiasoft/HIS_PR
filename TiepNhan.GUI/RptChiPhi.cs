@@ -12,13 +12,12 @@ namespace TiepNhan.GUI
     {
         public rptChiPhi ()
         {
-            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
+           
             InitializeComponent ();
         }
 
         private void rptChiPhi_ParametersRequestBeforeShow (object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
         {
-            SplashScreenManager.CloseForm();
         }
     }
 }

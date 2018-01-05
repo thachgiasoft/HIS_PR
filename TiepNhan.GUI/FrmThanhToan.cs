@@ -2,6 +2,7 @@
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraSplashScreen;
 using KhamBenh.DAL;
 using System;
 using System.Collections.Generic;
@@ -468,7 +469,7 @@ namespace TiepNhan.GUI
                     }
                 }
                 if (inHoSo)
-                    InHoSo();
+                    InHoSo(true);
             }
 
         }
@@ -533,7 +534,7 @@ namespace TiepNhan.GUI
             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (traloi == DialogResult.Yes)
             {
-                if (!thanhtoan.XoaThongTinCT(ref err))
+                if (!thanhtoan.XoaHoSo(ref err))
                 {
                     MessageBox.Show(err);
                     return;
@@ -542,8 +543,14 @@ namespace TiepNhan.GUI
             }
         }
 
-        private void InHoSo()
+        private void btnIn_Click(object sender, EventArgs e)
         {
+            InHoSo();
+        }
+
+        private void InHoSo(bool view = false)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitFormLoad));
             rptChiPhi rpt = new rptChiPhi();
             rpt.DataSource = null;
             string mau  = "Mau01";
@@ -577,7 +584,7 @@ namespace TiepNhan.GUI
                 rpt.xrCheckBoxNu.Checked = true;
             }
             rpt.xrCheckBoxNam.Checked = !rpt.xrCheckBoxNu.Checked;
-            rpt.xrCheckBoxCBHYT.Checked = true;
+            rpt.xrCheckBoxCBHYT.Checked = checkCoThe.Checked;
             rpt.xrCheckBoxKBHYT.Checked = !rpt.xrCheckBoxCBHYT.Checked;
             if (rpt.xrCheckBoxCBHYT.Checked)
             {
@@ -858,8 +865,15 @@ namespace TiepNhan.GUI
             rpt.xrLabelChuBNTT.Text = Utils.ChuyenSo(String.Format("{0:0}", tienBNTT));
             //
             rpt.CreateDocument();
-            rpt.ShowPreviewDialog();
-
+            if (view)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                rpt.PrintDialog();
+            }
+            SplashScreenManager.CloseForm();
         }
         private bool KiemTraBenhBacSi()
         {

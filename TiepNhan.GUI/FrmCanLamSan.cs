@@ -83,11 +83,11 @@ namespace TiepNhan.GUI
             DataRow dr = gridView.GetFocusedDataRow();
             if (dr != null)
             {
-                if (!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
-                {
-                    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (!string.IsNullOrEmpty(dr["NgayThanhToan"].ToString()))
+                //{
+                //    XtraMessageBox.Show(Library.BenhNhanDaKhamRaVien, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 frmKQCanLamSan.HoTen = dr["HoTen"].ToString();
                 frmKQCanLamSan.TenCanLamSan = dr["Ten"].ToString();
                 frmKQCanLamSan.YeuCau = dr["YeuCau"].ToString();

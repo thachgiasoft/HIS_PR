@@ -143,6 +143,7 @@ namespace TiepNhan.GUI
             checkChiTra.Checked = false;
             checkUuTien.Checked = false;
             themMoi = true;
+            tiepnhan.TinhTrangRaVien = null;
             // thông tin bệnh nhân
             txtMaQR.Text = null;
             cbKhuVuc.SelectedItem = null;
@@ -227,7 +228,7 @@ namespace TiepNhan.GUI
                 checkCapCuu.Checked = false;
             }
         }
-        private void ChuyenPhong(int phongKham)
+        private void ChuyenPhong(int phongKham, bool chuyenTuyen=true)
         {
             // chuyển phòng
             // chưa có mã bệnh nhân
@@ -287,7 +288,12 @@ namespace TiepNhan.GUI
             tiepnhan.Phong = phongKham;
             tiepnhan.MucHuong = Utils.ToInt(txtTyLe.Text);
             if (phongKham == 0)
-                tiepnhan.MaLoaiKCB = 3;
+            {
+                if(chuyenTuyen == true)
+                    tiepnhan.MaLoaiKCB = 1;
+                else
+                    tiepnhan.MaLoaiKCB = 3;
+            }
             else
                 tiepnhan.MaLoaiKCB = 1;
             tiepnhan.MienCungCT = null;
@@ -939,6 +945,26 @@ namespace TiepNhan.GUI
                 {
                     lookUpMaKhoa.EditValue = frm.MaKhoa;
                     ChuyenPhong(0);
+                }
+            }
+        }
+
+        private void btnChuyenTuyen_Click(object sender, EventArgs e)
+        {
+            if (KiemTraThongTinTiepNhan(true) && themMoi)
+            {
+                // chuyển tuyến : Tình trạng ra viện 2: Chuyển viện
+                DataRow dr = gridView.GetFocusedDataRow();
+                if (dr != null)
+                {
+                    DialogResult traloi;
+                    traloi = XtraMessageBox.Show(Library.ChuyenTuyenBenhNhan, "Trả lời",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (traloi == DialogResult.Yes)
+                    {
+                        tiepnhan.TinhTrangRaVien = "2";
+                        ChuyenPhong(0);
+                    }
                 }
             }
         }

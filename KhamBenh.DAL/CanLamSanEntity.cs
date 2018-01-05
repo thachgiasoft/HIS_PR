@@ -73,11 +73,9 @@ namespace KhamBenh.DAL
         }
         public DataTable DSDichVuChiTiet()
         {
-            return db.ExcuteQuery("Select DichVuChiTiet.MaDichVu,TenDichVu,SoLuong,DonGia, " +
-                "ThanhTien,DichVuChiTiet.NgayKQ,GiaTri,MoTa,KetLuan,NgayYLenh,MaChiSo,MaMay " +
-                "From DichVuChiTiet,HoSoCanLamSan " +
-                "Where DichVuChiTiet.MaLK = HoSoCanLamSan.MaLK And DichVuChiTiet.MaLK = '" + this.MaLK+"' " +
-                "And DichVuChiTiet.MaCLS = '"+this.MaCLS+"' ",
+            return db.ExcuteQuery("Select* from " +
+            "(select* from DichVuChiTiet where MaLK = '" + this.MaLK + "' and MaCLS = '" + this.MaCLS + "') as ThongTin, " +
+            "(select * from HoSoCanLamSan where MaLK = '" + this.MaLK + "' and MaCLS = '" + this.MaCLS + "') as HoSo Where HoSo.MaDichVu = ThongTin.MaDichVu",
                 CommandType.Text, null);
         }
         public bool CapNhatCDCanLamSan(ref string err, int ketQua)

@@ -788,8 +788,6 @@
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThanhTien.Properties.Appearance.Options.UseFont = true;
-            this.txtThanhTien.Properties.Mask.EditMask = "n0";
-            this.txtThanhTien.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtThanhTien.Size = new System.Drawing.Size(65, 22);
             this.txtThanhTien.StyleController = this.layoutControlDS;
             this.txtThanhTien.TabIndex = 13;

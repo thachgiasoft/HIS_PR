@@ -107,7 +107,8 @@ namespace KhamBenh.DAL
         {
             return db.ExcuteQuery("Select DichVuChiTiet.MaDichVu,TenDichVu,GiaTri,MoTa,KetLuan " +
                 "From DichVuChiTiet,HoSoCanLamSan " +
-                "Where DichVuChiTiet.MaLK ='"+MaLK+"' And DichVuChiTiet.MaDichVu = HoSoCanLamSan.MaDichVu",
+                "Where DichVuChiTiet.MaLK ='"+MaLK+"' And DichVuChiTiet.MaDichVu = HoSoCanLamSan.MaDichVu " +
+                "And HoSoCanLamSan.MaLK = '" + MaLK + "'",
                 CommandType.Text, null);
         }
         public bool LayThongTinMaBenh()
