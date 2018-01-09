@@ -123,9 +123,15 @@ namespace TiepNhan.GUI
                 drvNew["MaDuongDung"] = dr["MaDuongDung"];
                 drvNew["SoDK"] = dr["SoDK"];
                 if (cbLoaiThuoc.SelectedIndex == 0)
+                {
+                    drvNew["TyLe"] = 100;
                     drvNew["TTinThau"] = dr["QuyetDinh"] + ";" + dr["GoiThau"] + ";" + dr["NhomThau"];
+                }
                 else
+                {
+                    drvNew["TyLe"] = dr["TyLeTT"];
                     drvNew["TTinThau"] = dr["TTinThau"];
+                }
 
                 lookUpThuoc.Focus();
                 txtSoLuong.ResetText();
@@ -238,7 +244,7 @@ namespace TiepNhan.GUI
                 kedon.PhamVi = 1;
                 kedon.SoLuong = Utils.ToInt(drv["SoLuong"]);
                 kedon.DonGia = Utils.ToDecimal(drv["DonGia"]);
-                kedon.TyLe = 100;
+                kedon.TyLe =Utils.ToInt(drv["TyLe"], 100);
                 kedon.ThanhTien = Utils.ToDecimal(drv["ThanhTien"]);
                 kedon.MaKhoa = this.MaKhoa;
                 kedon.MaBacSi = this.MaBacSi;

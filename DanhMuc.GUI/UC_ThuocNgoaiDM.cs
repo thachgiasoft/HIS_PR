@@ -99,6 +99,7 @@ namespace DanhMuc.GUI
             txtHamLuong.Text = "";
             txtSoDangKy.Text = "";
             txtThongTinThau.Text = "";
+            txtTyLeTT.Text = "100";
             txtMaBV.ReadOnly = false;
             Enabled_Luu();
             btnXoa.Enabled = false;
@@ -130,6 +131,7 @@ namespace DanhMuc.GUI
             thuocNgoaiDM.TTinThau = txtThongTinThau.Text;
             thuocNgoaiDM.DonGia = Utils.ToDecimal(txtDonGia.Text);
             thuocNgoaiDM.MaNhom = 4;
+            thuocNgoaiDM.TyLeTT = Utils.ToInt(txtTyLeTT.Text); 
             string err = "";
             if (them)
             {
@@ -188,7 +190,7 @@ namespace DanhMuc.GUI
                 txtDonGia.Text = dr["DonGia"].ToString();
                 txtSoDangKy.Text = dr["SoDK"].ToString();
                 txtThongTinThau.Text = dr["TTinThau"].ToString();
-
+                txtTyLeTT.Text = dr["TyLeTT"].ToString();
                 thuocNgoaiDM.MaBV = txtMaBV.Text;
                 txtMaBV.ReadOnly = true;
                 them = false;

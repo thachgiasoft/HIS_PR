@@ -378,7 +378,7 @@ namespace DuocPham.GUI
                 row.Cells.Add (cell);
 
                 cell = new XRTableCell ();
-                cell.Text = Utils.ToString (drview["DonGiaBHYT"].ToString ());
+                cell.Text = Utils.ToString (drview["DonGiaBHYT"].ToString (),null, "0,0.00");
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 80;
@@ -386,7 +386,7 @@ namespace DuocPham.GUI
 
                 this.thanhTien += Utils.ToDecimal (drview["ThanhTien"].ToString ());
                 cell = new XRTableCell ();
-                cell.Text = Utils.ToString (drview["ThanhTien"].ToString ());
+                cell.Text = Utils.ToString (drview["ThanhTien"].ToString (), null, "0,0.00");
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 96;
@@ -412,7 +412,7 @@ namespace DuocPham.GUI
             row.Cells.Add (cell);
             rpt.xrTable.Rows.Add (row);
 
-            rpt.lblTongTien.Text = Utils.ChuyenSo (this.thanhTien.ToString ());
+            rpt.lblTongTien.Text = Utils.ChuyenSo (this.thanhTien.ToString ().Split('.')[0]);
             rpt.lblTKCo.Text = "";
             foreach (string loai in dsLoaiVatTu)
             {

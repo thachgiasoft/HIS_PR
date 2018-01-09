@@ -27,6 +27,7 @@ namespace DanhMuc.DAL
         public string TTinThau { get; set; }
         public string Ma_CS { get; set; }
         public int MaNhom { get; set; }
+        public int TyLeTT { get; set; }
         public DataTable DSCoSo()
         {
             return db.ExcuteQuery("Select Ma_CS,Ten_CS From CoSoKCB Where Ma_CS = '70013' OR Ma_CS = '70074' "
@@ -62,7 +63,8 @@ namespace DanhMuc.DAL
                 new SqlParameter("@SoDK", SoDK),
                 new SqlParameter("@TTinThau",TTinThau ),
                 new SqlParameter("@Ma_CS",Ma_CS ),
-                new SqlParameter("@MaNhom", MaNhom));
+                new SqlParameter("@MaNhom", MaNhom),
+                new SqlParameter("@TyLeTT", TyLeTT));
         }
     }
 }

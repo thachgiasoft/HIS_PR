@@ -338,8 +338,8 @@ namespace DuocPham.GUI
                     dr["DonGiaBV"] = txtGiaBV.Text;
                     dr["SoLo"] = txtSoLo.Text;
                     dr["HetHan"] = dateHetHan.DateTime;
-                    dr["ThanhTien"] = txtThanhTien.Text;
-                    dr["LoaiVatTu"] = txtTKNo.Text.Substring (3, 1);
+                    dr["ThanhTien"] =  txtThanhTien.Text;
+                    dr["LoaiVatTu"] = txtTKNo.Text.Length >4 ? txtTKNo.Text.Substring (3, 2): txtTKNo.Text.Substring(3, 1);
 
                     //lookUpMaVatTu.EditValue = null;
                     txtTenVatTu.Text = "";
@@ -371,7 +371,7 @@ namespace DuocPham.GUI
                     soLuong = soLuongDung;
                     gridViewDS.SetFocusedRowCellValue ("SoLuongQuyDoi", soLuong);
                 }
-                var donGia = gridViewDS.GetRowCellValue (e.RowHandle, gridViewDS.Columns["DonGiaBHYT"]);
+                var donGia = gridViewDS.GetRowCellValue (e.RowHandle, gridViewDS.Columns["DonGiaBV"]);
                 gridViewDS.SetFocusedRowCellValue ("ThanhTien",soLuong * Convert.ToDecimal( donGia));
                 this.gridViewDS.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler (this.gridViewDS_CellValueChanged);
             }
@@ -525,7 +525,7 @@ namespace DuocPham.GUI
 
                 this.thanhTien += Utils.ToDecimal (drview["ThanhTien"].ToString ());
                 cell = new XRTableCell ();
-                cell.Text = Utils.ToString (drview["ThanhTien"].ToString ());
+                cell.Text = Utils.ToString (drview["ThanhTien"].ToString (),null, "0,0.00");
                 cell.Font = font;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 96;
@@ -551,7 +551,7 @@ namespace DuocPham.GUI
             row.Cells.Add (cell);
             rpt.xrTable.Rows.Add (row);
 
-            rpt.lblTongTien.Text = Utils.ChuyenSo (this.thanhTien.ToString ());
+            rpt.lblTongTien.Text = Utils.ChuyenSo (this.thanhTien.ToString ().Split('.')[0]);
             rpt.lblTKNo.Text = "";
             foreach(string loai in dsLoaiVatTu)
             {
@@ -577,7 +577,7 @@ namespace DuocPham.GUI
                 if (Utils.ToInt(txtVAT.Text) > 0)
                 {
                     this.txtThanhTien.EditValueChanged -= new System.EventHandler(this.txtThanhTien_EditValueChanged);
-                    txtThanhTien.Text = (Utils.ToDouble(txtThanhTien.Text) * (1 + Utils.ToDouble(txtVAT.Text) / 100)).ToString();
+                    txtThanhTien.Text = (Utils.ToDecimal(txtThanhTien.Text) * (1 + Utils.ToDecimal(txtVAT.Text) / 100)).ToString();
                     txtThanhTien_EditValueChanged(null,null);
                     this.txtThanhTien.EditValueChanged += new System.EventHandler(this.txtThanhTien_EditValueChanged);
                 }

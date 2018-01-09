@@ -83,24 +83,24 @@ namespace KhamBenh.DAL
         public DataTable DSKeDonNgoaiDM()
         {
             return db.ExcuteQuery("Select MaBV as MaVatTu,MaThuoc as MaHoatChat,TenThuoc as TenVatTu," +
-                "DonViTinh,HamLuong,MaDuongDung,DonGia as GiaBHYT,SoDK,TTinThau,MaNhom " +
+                "DonViTinh,HamLuong,MaDuongDung,DonGia as GiaBHYT,SoDK,TTinThau,MaNhom,TyLeTT " +
                 "From ThuocNgoaiDM Where Ma_CS = '"+AppConfig.CoSoKCB+"'",
                 CommandType.Text, null);
         }
         public DataTable DSThuoc()
         {
             return db.ExcuteQuery("Select MaVatTu, MaThuoc, TenThuoc, HamLuong, DonViTinh, DonGia,MaDuongDung, "
-                + "LieuDung, SUM(SoLuong) as SoLuong, SUM(ThanhTien) as ThanhTien,SoDK,TTinThau,NgayYLenh "
+                + "LieuDung, SUM(SoLuong) as SoLuong, SUM(ThanhTien) as ThanhTien,SoDK,TTinThau,NgayYLenh,TyLe "
                 + "From DonThuocChiTiet Where MaLK = '"+MaLK+"' GROUP BY MaVatTu, MaThuoc,MaDuongDung, "
-                + "TenThuoc, HamLuong, DonViTinh, DonGia, LieuDung,SoDK,TTinThau,NgayYLenh",
+                + "TenThuoc, HamLuong, DonViTinh, DonGia, LieuDung,SoDK,TTinThau,NgayYLenh,TyLe",
                 CommandType.Text, null);
         }
         public DataTable DSVatTu()
         {
-            return db.ExcuteQuery("Select MaVatTu,TenVatTu,DonGia,MaKhoa,MaBacSi,NgayYLenh,TTinThau,"
+            return db.ExcuteQuery("Select MaVatTu,TenVatTu,DonGia,MaKhoa,MaBacSi,NgayYLenh,TTinThau,TyLe, "
                                    + "SUM(SoLuong) as SoLuong, SUM(ThanhTien) As ThanhTien,MaVT,DonViTinh "
                                    + "From VatTuChiTiet Where MaLK = '"+MaLK+"' "
-                                   + "Group By MaVatTu,MaVT, TenVatTu, DonGia, MaKhoa, MaBacSi, NgayYLenh, DonViTinh, TTinThau",
+                                   + "Group By MaVatTu,MaVT, TenVatTu, DonGia, MaKhoa, MaBacSi, NgayYLenh, DonViTinh, TTinThau,TyLe",
                 CommandType.Text, null);
         }
         public DataTable DSDichVuKyThuat()
