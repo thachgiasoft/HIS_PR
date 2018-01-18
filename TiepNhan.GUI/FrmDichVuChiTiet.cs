@@ -112,7 +112,7 @@ namespace TiepNhan.GUI
                 drvNew["MaChiSo"] = dr["TT50"];
                 drvNew["MaMay"] = dr["MaMay"];
                 drvNew["MaNhom"] = dr["MaNhom"];
-
+                drvNew.EndEdit();
                 lookUpDichVu.Focus();
                 txtGiaTri.Text = "";
                 txtMoTa.Text = "";

@@ -39,7 +39,7 @@ namespace BaoCao.DAL
         }
         public DataTable DSDonThuoc(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaThuoc) as STT," +
+            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By TenThuoc) as STT," +
                 "MaThuoc,TenThuoc,DonViTinh,DonGia,TyLe,SUM(SoLuong) as SoLuong,SUM(ThanhTien) as ThanhTien " +
                 "from DonThuocChiTiet,(select MaLK from ThongTinBNChiTiet where MaCoSoKCB='" + AppConfig.CoSoKCB + "') as ThongTin " +
                 "where ThongTin.MaLK = DonThuocChiTiet.MaLK and MaKhoa = '" + maKhoa + "' " +
@@ -50,18 +50,18 @@ namespace BaoCao.DAL
         }
         public DataTable DSSoLuongThuoc(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaThuoc) as STT," +
-                "MaThuoc,TenThuoc,DonViTinh,SUM(SoLuong) as SoLuong " +
+            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By TenThuoc) as STT," +
+                "MaVatTu,TenThuoc,DonViTinh,SUM(SoLuong) as SoLuong " +
                 "from DonThuocChiTiet,(select MaLK from ThongTinBNChiTiet where MaCoSoKCB='" + AppConfig.CoSoKCB + "') as ThongTin " +
                 "where ThongTin.MaLK = DonThuocChiTiet.MaLK and MaKhoa = '" + maKhoa + "' " +
                 "and(convert(date,NgayYLenh) between convert(date,'" + tuNgay + "') and convert(date,'" + denNgay + "')) " +
-                " group by MaThuoc,TenThuoc,DonViTinh",
+                " group by MaVatTu,TenThuoc,DonViTinh",
                 CommandType.Text, null);
 
         }
         public DataTable DSVatTu(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By MaVT) as STT," +
+            return db.ExcuteQuery("select ROW_NUMBER() OVER (ORDER By TenVatTu) as STT," +
                 "MaVT,TenVatTu,DonViTinh,DonGia,TyLe,SUM(SoLuong) as SoLuong,SUM(ThanhTien) as ThanhTien " +
                 "from VatTuChiTiet,(select MaLK from ThongTinBNChiTiet where MaCoSoKCB='" + AppConfig.CoSoKCB + "') as ThongTin " +
                 "where ThongTin.MaLK = VatTuChiTiet.MaLK and MaKhoa = '" + maKhoa + "' " +
@@ -69,6 +69,23 @@ namespace BaoCao.DAL
                 " group by MaVT,TenVatTu,DonViTinh,DonGia,TyLe",
                 CommandType.Text, null);
 
+        }
+        public DataTable DSChiTietThuoc(string maKhoa, DateTime tuNgay, DateTime denNgay)
+        {
+            return db.ExcuteQuery("Select STTNgay,HoTen,SUBSTRING(NgaySinh, Len(NgaySinh)-3, 4) as NgaySinh," +
+                                    "MaThe,CONVERT(VARCHAR(10),NgayThanhToan,103) as NgayThanhToan,MaBenh,TenThuoc,SoLuong " +
+                                    "from ThongTinBNChiTiet,DonThuocChiTiet " +
+                                    "where ThongTinBNChiTiet.MaLK = DonThuocChiTiet.MaLK " +
+                                    "And MaCoSoKCB='" + AppConfig.CoSoKCB + "' and ThongTinBNChiTiet.MaKhoa = '" + maKhoa + "' " +
+                                    "And (convert(date,NgayThanhToan) between convert(date,'" + tuNgay + "') and convert(date,'" + denNgay + "')) " +
+                                    "order by STTNgay",
+                CommandType.Text, null);
+
+        }
+        public DataTable DSMauSo7980A(string maKhoa, DateTime tuNgay, DateTime denNgay)
+        {
+            return db.ExcuteQuery("Select * from BaoCaoMau7980A('"+maKhoa+"','"+AppConfig.CoSoKCB+"','"+tuNgay+"','"+denNgay+"')",
+                CommandType.Text, null);
         }
         public DataTable DSBenhNhan(string maKhoa, DateTime tuNgay, DateTime denNgay)
         {

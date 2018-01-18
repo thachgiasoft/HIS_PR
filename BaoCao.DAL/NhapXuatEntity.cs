@@ -28,11 +28,11 @@ namespace BaoCao.DAL
             string sql = "";
             if (LoaiVatTu == null)
             {
-                sql = "Select *,((GTT+GTN)/(SLT + SLN)) AS DonGia,((SLT + SLN) - SLX) AS SoLuongTon, ((GTT+GTN)-GTX) AS GiaTriTon From BaoCaoNhapXuat('" + TuNgay + "','" + DenNgay + "') ORDER BY MaBV ASC";
+                sql = "Select *,((GTT+GTN)/(SLT + SLN)) AS DonGia,((SLT + SLN) - SLX) AS SoLuongTon, ((GTT+GTN)-GTX) AS GiaTriTon From BaoCaoNhapXuat('" + TuNgay.ToString("MM/dd/yyyy") + "','" + DenNgay.ToString("MM/dd/yyyy") + "') ORDER BY MaBV ASC";
             }
             else
             {
-                sql = "Select *,((GTT+GTN)/(SLT + SLN)) AS DonGia,((SLT + SLN) - SLX) AS SoLuongTon, ((GTT+GTN)-GTX) AS GiaTriTon From BaoCaoNhapXuat('" + TuNgay + "','" + DenNgay + "') WHERE LoaiVatTu = '"+LoaiVatTu+"'";
+                sql = "Select *,((GTT+GTN)/(SLT + SLN)) AS DonGia,((SLT + SLN) - SLX) AS SoLuongTon, ((GTT+GTN)-GTX) AS GiaTriTon From BaoCaoNhapXuat('" + TuNgay.ToString("MM/dd/yyyy") + "','" + DenNgay.ToString("MM/dd/yyyy") + "') WHERE LoaiVatTu = '"+LoaiVatTu+"'";
             }
             return db.ExcuteQuery (sql,
                 CommandType.Text, null);

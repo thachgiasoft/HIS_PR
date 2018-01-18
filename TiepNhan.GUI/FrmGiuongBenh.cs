@@ -108,7 +108,7 @@ namespace TiepNhan.GUI
                 drvNew["MaGiuong"] = loaiGiuong[cbLoaiGiuong.SelectedIndex] + txtSoGiuong.Text;
                 drvNew["MaBacSi"] = this.MaBacSi;
                 drvNew["DonViTinh"] = "Ngày";
-
+                drvNew.EndEdit();
                 lookUpGiuong.Focus();
             }
         }

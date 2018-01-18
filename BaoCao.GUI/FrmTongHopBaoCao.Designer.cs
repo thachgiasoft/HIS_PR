@@ -83,13 +83,16 @@
             this.cbLoaiBaoCao.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cbLoaiBaoCao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLoaiBaoCao.Properties.DropDownRows = 10;
             this.cbLoaiBaoCao.Properties.Items.AddRange(new object[] {
             "1. Tổng hợp tiền BNTT",
             "2. Tổng hợp vật tư y tế",
             "3. Tổng hợp thuốc",
             "4. Tổng hợp dịch vụ kỹ thuật",
             "5. Tổng hợp viện phí",
-            "6. Tổng hợp số lượng thuốc"});
+            "6. Tổng hợp số lượng thuốc",
+            "7. Số liệu mẫu 7980A",
+            "8. Tổng hợp chi tiết thuốc"});
             this.cbLoaiBaoCao.Size = new System.Drawing.Size(320, 22);
             this.cbLoaiBaoCao.TabIndex = 0;
             // 

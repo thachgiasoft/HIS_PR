@@ -23,7 +23,7 @@ namespace DuocPham.GUI
         bool them = false;
         string quyen = "";
         DataRow dr;
-        DataTable dtPhieu;
+        DataView dtPhieu;
         SortedSet<string> dsLoaiVatTu = new SortedSet<string> ();
         decimal thanhTien = 0;
         CultureInfo elGR = CultureInfo.CreateSpecificCulture ("el-GR");
@@ -129,7 +129,7 @@ namespace DuocPham.GUI
                 if (gridControlDS.DataSource is DataView && btnLuu.Enabled)
                 {
                     DataRowView drview = (lookUpMaVatTu.GetSelectedDataRow () as DataRowView);
-                    DataRow[] drv = (gridViewDS.DataSource as DataView).Table.Select ("MaVatTu = '" + drview["MaVatTu"].ToString ()
+                    DataRow[] drv = dtPhieu.Table.Select ("MaVatTu = '" + drview["MaVatTu"].ToString ()
                         + "' and SoPhieuNhap = '" + drview["SoPhieu"].ToString () + "'");
                     if (drv.Length != 0)
                     {
@@ -141,21 +141,21 @@ namespace DuocPham.GUI
                         XtraMessageBox.Show ("Số lượng tồn kho không đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    DataRowView dr = (gridControlDS.DataSource as DataView).AddNew ();
+                    DataRowView dr = dtPhieu.AddNew ();
                     dr["SoPhieuNhap"] = drview["SoPhieu"].ToString ();
                     dr["MaVatTu"] = drview["MaVatTu"].ToString ();
                     dr["TenVatTu"] = drview["TenVatTu"].ToString();
                     dr["SoDangKy"] = drview["SoDangKy"].ToString ();
                     dr["SoLuong"] = Utils.ToInt(txtSoLuong.Text);
                     dr["SoLuongDung"] = 0;
-                    dr["DonGiaBHYT"] = drview["DonGiaBHYT"].ToString ();
-                    dr["DonGiaBV"] = drview["DonGiaBV"].ToString ();
+                    dr["DonGiaBHYT"] = Utils.ToDecimal( drview["DonGiaBHYT"]);
+                    dr["DonGiaBV"] =Utils.ToDecimal( drview["DonGiaBV"]);
                     dr["HetHan"] = drview["HetHan"].ToString ();
-                    dr["ThanhTien"] = Utils.ToDecimal (txtSoLuong.Text) * Utils.ToDecimal (drview["DonGiaBV"].ToString ());
+                    dr["ThanhTien"] = Utils.ToDecimal (txtSoLuong.Text) * Utils.ToDecimal (drview["DonGiaBV"]);
                     dr["LoaiVatTu"] = drview["LoaiVatTu"].ToString ();
                     dr["DonViTinh"] = drview["DonViTinh"].ToString ();
-
-                    //lookUpMaVatTu.EditValue = null;
+                    dr.EndEdit();
+                    lookUpMaVatTu.EditValue = null;
                     txtSoLuong.Text = "";
                     lookUpMaVatTu.Focus();
                 }
@@ -174,8 +174,8 @@ namespace DuocPham.GUI
             txtNoiDung.Text = "";
 
             xuatkho.SoPhieu = 0;
-            dtPhieu = xuatkho.DSPhieuVatTu ();
-            gridControlDS.DataSource = dtPhieu.AsDataView ();
+            dtPhieu = xuatkho.DSPhieuVatTu ().AsDataView();
+            gridControlDS.DataSource = dtPhieu;
             //dsVatTu.Clear ();
 
             txtTKCo.Focus ();
@@ -218,6 +218,7 @@ namespace DuocPham.GUI
             {
                 xuatkho.SoPhieu = Utils.ToInt (txtSoPhieu.Text);
                 xuatkho.TKCo = txtTKCo.Text;
+
                 xuatkho.NgayXuat = dateNgayXuat.DateTime;
                 xuatkho.PheDuyet = true;
                 xuatkho.KhoXuat = lookUpKhoXuat.EditValue.ToString ();
@@ -269,7 +270,8 @@ namespace DuocPham.GUI
                 xuatkho.LoaiVatTu = drv["LoaiVatTu"].ToString ();
                 if(them)
                 {
-                    xuatkho.SpThemPhieuNhapChiTiet (ref err);
+                    xuatkho.SpThemPhieuNhapChiTiet (ref err);// insert vào số lô, 
+                    fffgfg;// tạo lỗi để nhớ
                 }
                 if (!string.IsNullOrEmpty (err))
                 {
@@ -314,9 +316,9 @@ namespace DuocPham.GUI
                 // danh sách
                 lookUpMaVatTu.Properties.DataSource = xuatkho.DSVatTu (txtTKCo.Text.Substring (3, 1));
                 xuatkho.SoPhieu = Utils.ToInt (txtSoPhieu.Text);
-                dtPhieu = xuatkho.DSPhieuVatTu ();
+                dtPhieu = xuatkho.DSPhieuVatTu ().AsDataView();
 
-                gridControlDS.DataSource = dtPhieu.AsDataView ();
+                gridControlDS.DataSource = dtPhieu;
             }
         }
         private void inPhieuXuat ()
@@ -441,6 +443,46 @@ namespace DuocPham.GUI
             if(e.KeyChar==13)
             {
                 txtSoLuong.Focus();
+            }
+        }
+
+        private void txtTKCo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpKhoXuat.Focus();
+            }
+        }
+
+        private void lookUpKhoXuat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpKhoNhan.Focus();
+            }
+        }
+
+        private void lookUpKhoNhan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNguoiNhan.Focus();
+            }
+        }
+
+        private void txtNguoiNhan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNoiDung.Focus();
+            }
+        }
+
+        private void txtNoiDung_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                lookUpMaVatTu.Focus();
             }
         }
     }

@@ -94,7 +94,7 @@ namespace DuocPham.DAL
         }
         public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery ("Select * From PhieuXuat Where NgayXuat BETWEEN CAST('" + tuNgay + "' as DATE) AND CAST('" + denNgay + "' as DATE)",
+            return db.ExcuteQuery ("Select * From PhieuXuat Where NgayXuat BETWEEN CAST('" + tuNgay.ToString("MM/dd/yyyy") + "' as DATE) AND CAST('" + denNgay.ToString("MM/dd/yyyy") + "' as DATE)",
                 CommandType.Text, null);
         }
         public DataTable DSPhieu ()
@@ -128,7 +128,7 @@ namespace DuocPham.DAL
                 CommandType.StoredProcedure, ref err,
                 outSoPhieu,
                 new SqlParameter ("@TKCo", TKCo),
-                new SqlParameter ("@NgayXuat", NgayXuat),
+                new SqlParameter ("@NgayXuat", NgayXuat.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@KhoXuat", KhoXuat),
                 new SqlParameter ("@KhoNhan", KhoNhan),
                 new SqlParameter ("@NguoiNhan", NguoiNhan),

@@ -88,6 +88,7 @@
             this.MaDichVu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDichVu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DonViTinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenNhom = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,7 +176,6 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem53 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem54 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.SoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).BeginInit();
             this.xtraTabControl.SuspendLayout();
@@ -894,7 +894,7 @@
             this.btnIn.Size = new System.Drawing.Size(78, 23);
             this.btnIn.StyleController = this.layoutControlTT;
             this.btnIn.TabIndex = 46;
-            this.btnIn.Text = "In";
+            this.btnIn.Text = "Lưu In";
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnXoa
@@ -902,9 +902,9 @@
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Appearance.Options.UseFont = true;
             this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(916, 406);
+            this.btnXoa.Location = new System.Drawing.Point(919, 406);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(58, 23);
+            this.btnXoa.Size = new System.Drawing.Size(55, 23);
             this.btnXoa.StyleController = this.layoutControlTT;
             this.btnXoa.TabIndex = 45;
             this.btnXoa.Text = "Xóa";
@@ -917,10 +917,10 @@
             this.btnLuuIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuIn.ImageOptions.Image")));
             this.btnLuuIn.Location = new System.Drawing.Point(571, 406);
             this.btnLuuIn.Name = "btnLuuIn";
-            this.btnLuuIn.Size = new System.Drawing.Size(64, 23);
+            this.btnLuuIn.Size = new System.Drawing.Size(79, 23);
             this.btnLuuIn.StyleController = this.layoutControlTT;
             this.btnLuuIn.TabIndex = 44;
-            this.btnLuuIn.Text = "Lưu In";
+            this.btnLuuIn.Text = "Lưu Xem";
             this.btnLuuIn.Click += new System.EventHandler(this.btnLuuIn_Click);
             // 
             // btnLuu
@@ -1100,6 +1100,16 @@
             this.DonViTinh.Visible = true;
             this.DonViTinh.VisibleIndex = 2;
             this.DonViTinh.Width = 98;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoLuong.AppearanceCell.Options.UseFont = true;
+            this.SoLuong.Caption = "Số lượng";
+            this.SoLuong.FieldName = "SoLuong";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.Visible = true;
+            this.SoLuong.VisibleIndex = 3;
             // 
             // DonGia
             // 
@@ -2094,9 +2104,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(627, 394);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(642, 394);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(277, 27);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(265, 27);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem52
@@ -2104,7 +2114,7 @@
             this.layoutControlItem52.Control = this.btnLuuIn;
             this.layoutControlItem52.Location = new System.Drawing.Point(559, 394);
             this.layoutControlItem52.Name = "layoutControlItem52";
-            this.layoutControlItem52.Size = new System.Drawing.Size(68, 27);
+            this.layoutControlItem52.Size = new System.Drawing.Size(83, 27);
             this.layoutControlItem52.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem52.TextVisible = false;
             // 
@@ -2127,9 +2137,9 @@
             // layoutControlItem53
             // 
             this.layoutControlItem53.Control = this.btnXoa;
-            this.layoutControlItem53.Location = new System.Drawing.Point(904, 394);
+            this.layoutControlItem53.Location = new System.Drawing.Point(907, 394);
             this.layoutControlItem53.Name = "layoutControlItem53";
-            this.layoutControlItem53.Size = new System.Drawing.Size(62, 27);
+            this.layoutControlItem53.Size = new System.Drawing.Size(59, 27);
             this.layoutControlItem53.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem53.TextVisible = false;
             // 
@@ -2141,16 +2151,6 @@
             this.layoutControlItem54.Size = new System.Drawing.Size(82, 27);
             this.layoutControlItem54.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem54.TextVisible = false;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SoLuong.AppearanceCell.Options.UseFont = true;
-            this.SoLuong.Caption = "Số lượng";
-            this.SoLuong.FieldName = "SoLuong";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Visible = true;
-            this.SoLuong.VisibleIndex = 3;
             // 
             // FrmThanhToan
             // 

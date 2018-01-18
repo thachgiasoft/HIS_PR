@@ -77,7 +77,8 @@ namespace DuocPham.DAL
         }
         public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery ("Select * From PhieuNhap Where (NgayNhap BETWEEN CAST('" +tuNgay + "' as DATE) AND CAST('" +denNgay + "' as DATE))"+
+            return db.ExcuteQuery ("Select * From PhieuNhap Where (NgayNhap BETWEEN CAST('" +tuNgay.ToString("MM/dd/yyyy") + "' as DATE) " +
+                "AND CAST('" +denNgay.ToString("MM/dd/yyyy") + "' as DATE))"+
                 " AND NhaCungCap NOT IN (Select TenKhoa From KhoaBan) ",
                 CommandType.Text, null);
         }
@@ -115,14 +116,14 @@ namespace DuocPham.DAL
                 outSoPhieu,
                 new SqlParameter ("@SoHoaDon", SoHoaDon),
                 new SqlParameter ("@TKNo", TKNo),
-                new SqlParameter ("@NgayNhap", NgayNhap),
+                new SqlParameter ("@NgayNhap", NgayNhap.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@NhaCungCap", NhaCungCap),
                 new SqlParameter ("@NguoiGiaoHang", NguoiGiaoHang),
                 new SqlParameter ("@KhoNhap", KhoNhap),
                 new SqlParameter ("@NguoiNhan", NguoiNhan),
                 new SqlParameter ("@NoiDung", NoiDung),
                 new SqlParameter ("@NguoiTao", NguoiTao),
-                new SqlParameter ("@NgayCapNhat", NgayCapNhat),
+                new SqlParameter ("@NgayCapNhat", NgayCapNhat.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@NguoiCapNhat", NguoiCapNhat));
                 this.SoPhieu = int.Parse (outSoPhieu.Value.ToString ());
             return f;
@@ -149,7 +150,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@DonGiaBHYT", DonGiaBHYT),
                 new SqlParameter ("@DonGiaBV", DonGiaBV),
                 new SqlParameter ("@SoLo", SoLo),
-                new SqlParameter ("@HetHan", HetHan),
+                new SqlParameter ("@HetHan", HetHan.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@ThanhTien", ThanhTien),
                 new SqlParameter ("@LoaiVatTu", LoaiVatTu));
         }

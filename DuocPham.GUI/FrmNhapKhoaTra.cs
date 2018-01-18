@@ -151,7 +151,7 @@ namespace DuocPham.GUI
                         dr["DonViTinh"] = drview["DonViTinh"].ToString ();
                         dr["SoPhieuXuat"] = drview["SoPhieu"].ToString ();
                         dr["SoPhieuNhap"] = drview["SoPhieuNhap"].ToString ();
-
+                        dr.EndEdit();
                         txtSoLuong.Text = "0";
 
                     }

@@ -86,6 +86,7 @@ namespace TiepNhan.GUI
                 drvNew["NgayYLenh"] = dateNgayYLenh.DateTime;
                 drvNew["TTinThau"] = (dr["CongBo"].ToString().Length > 3 ? dr["CongBo"].ToString().Substring(4)
                     : DateTime.Now.ToString("yyyy")) + ".00." + dr["QuyetDinh"];
+                drvNew.EndEdit();
                 lookUpVatTu.Focus();
                 txtSoLuong.ResetText();
             }

@@ -20,6 +20,7 @@ namespace Core.DAL
                 return null;
             }
             string firstSheet = "";
+            // excel 2007->
             var connectionString = string.Format ("Provider= Microsoft.ACE.OLEDB.12.0; data source={0}; Extended Properties=Excel 12.0 Xml;", filePath);
             try
             {
@@ -35,6 +36,7 @@ namespace Core.DAL
             {
                 try
                 {
+                    // excel 2003->
                     connectionString = string.Format ("Provider= Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0 Xml;", filePath);
                     using (OleDbConnection con = new OleDbConnection (connectionString))
                     {
@@ -46,6 +48,7 @@ namespace Core.DAL
                 }
                 catch
                 {
+                    // excel 2016->
                     connectionString = string.Format ("Provider= Microsoft.ACE.OLEDB.14.0; data source={0}; Extended Properties=Excel 14.0 Xml;", filePath);
                     using (OleDbConnection con = new OleDbConnection (connectionString))
                     {

@@ -161,7 +161,7 @@ namespace TiepNhan.GUI
                 drvNew["KetLuan"] = txtKetLuan.Text;
                 drvNew["NgayYLenh"] = DateTime.Now;
                 drvNew["MaChiSo"] = dr["TT50"];
-
+                drvNew.EndEdit();
                 lookUpDichVu.Focus();
                 txtGiaTri.Text = "";
                 txtMoTa.Text = "";

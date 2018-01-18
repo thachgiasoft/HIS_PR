@@ -9,10 +9,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TiepNhan.GUI
 {
@@ -25,7 +27,7 @@ namespace TiepNhan.GUI
         DataTable dataDichVu, dataThuoc, dataCongKham, dataVTYT, dataChiTiet;
         FrmCongKham frmCongKham;
         Dictionary<int, NhomChiPhi> nhomChiPhi = new Dictionary<int, NhomChiPhi>();
-        decimal tienthuoc = 0, tiendichvu = 0, tienvattu = 0;
+        decimal tienthuoc = 0, tiendichvu = 0, tienvattu = 0, tienbntt = 0;
         int mucHuong = 0;
         System.Drawing.Font fontB = new System.Drawing.Font("Times New Roman", 10, System.Drawing.FontStyle.Bold);
         System.Drawing.Font font = new System.Drawing.Font("Times New Roman", 10);
@@ -47,6 +49,7 @@ namespace TiepNhan.GUI
             dataChiTiet.Columns.Add("TenNhom", typeof(string));
             dataChiTiet.Columns.Add("Mau01", typeof(float));
             dataChiTiet.Columns.Add("Mau02", typeof(float));
+            dataChiTiet.Columns.Add("TyLe", typeof(string));
             foreach (DataRow dr in thanhtoan.DSNhom().Rows)
             {
                 nhomChiPhi.Add(Utils.ToInt(dr["MaNhom"]),
@@ -203,12 +206,16 @@ namespace TiepNhan.GUI
             dataChiTiet.Rows.Clear();
             dataCongKham = thanhtoan.DSCongKhamChiTiet();
             tienthuoc = 0; tiendichvu = 0; tienvattu = 0 ;
-            
+            tienbntt = 0;
             DataRow dataRow;
             maBacSi = null;
             
             foreach (DataRow dr in dataVTYT.Rows)
             {
+                if(Utils.ToInt(dr["TyLe"],100) == 0)
+                {
+                    tienbntt+= Utils.ToDecimal(dr["ThanhTien"]);
+                }
                 tienvattu += Utils.ToDecimal(dr["ThanhTien"]);
                 dataRow = dataChiTiet.NewRow();
                 dataRow["MaDichVu"] = dr["MaVT"];
@@ -220,11 +227,16 @@ namespace TiepNhan.GUI
                 dataRow["TenNhom"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Ten;
                 dataRow["Mau01"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau1;
                 dataRow["Mau02"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau2;
+                dataRow["TyLe"] = dr["TyLe"];//
                 maBacSi = dr["MaBacSi"].ToString();
                 dataChiTiet.Rows.Add(dataRow);
             }
             foreach (DataRow dr in dataDichVu.Rows)
             {
+                if (Utils.ToInt(dr["TyLe"], 100) == 0)
+                {
+                    tienbntt += Utils.ToDecimal(dr["ThanhTien"]);
+                }
                 tiendichvu += Utils.ToDecimal(dr["ThanhTien"]);
                 dataRow = dataChiTiet.NewRow();
                 dataRow["MaDichVu"] = dr["MaDichVu"];
@@ -236,11 +248,16 @@ namespace TiepNhan.GUI
                 dataRow["Mau01"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau1;
                 dataRow["Mau02"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau2;
                 dataRow["TenNhom"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Ten;
+                dataRow["TyLe"] = dr["TyLe"];//
                 maBacSi = dr["MaBacSi"].ToString();
                 dataChiTiet.Rows.Add(dataRow);
             }
             foreach (DataRow dr in dataCongKham.Rows)
             {
+                if (Utils.ToInt(dr["TyLe"], 100) == 0)
+                {
+                    tienbntt += Utils.ToDecimal(dr["ThanhTien"]);
+                }
                 tiendichvu += Utils.ToDecimal(dr["ThanhTien"]);
                 dataRow = dataChiTiet.NewRow();
                 dataRow["MaDichVu"] = dr["MaDichVu"];
@@ -252,11 +269,16 @@ namespace TiepNhan.GUI
                 dataRow["Mau01"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau1;
                 dataRow["Mau02"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau2;
                 dataRow["TenNhom"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Ten;
+                dataRow["TyLe"] = dr["TyLe"];//
                 maBacSi = dr["MaBacSi"].ToString();
                 dataChiTiet.Rows.Add(dataRow);
             }
             foreach (DataRow dr in dataThuoc.Rows)
             {
+                if (Utils.ToInt(dr["TyLe"], 100) == 0)
+                {
+                    tienbntt += Utils.ToDecimal(dr["ThanhTien"]);
+                }
                 tienthuoc += Utils.ToDecimal(dr["ThanhTien"]);
                 dataRow = dataChiTiet.NewRow();
                 dataRow["MaDichVu"] = dr["MaThuoc"];
@@ -268,6 +290,7 @@ namespace TiepNhan.GUI
                 dataRow["Mau01"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau1;
                 dataRow["Mau02"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Mau2;
                 dataRow["TenNhom"] = nhomChiPhi[Utils.ToInt(dr["MaNhom"])].Ten;
+                dataRow["TyLe"] = dr["TyLe"];//
                 maBacSi = dr["MaBacSi"].ToString();
                 dataChiTiet.Rows.Add(dataRow);
             }          
@@ -298,8 +321,8 @@ namespace TiepNhan.GUI
             }
             txtMucHuong.Text = mucHuong.ToString();
             txtTongTien.Text = Utils.ToString(tt);
-            txtBHTT.Text = Utils.ToString(tt * (mucHuong / 100m));
-            txtBNCCT.Text = Utils.ToString(tt * (1m - (mucHuong / 100m)));
+            txtBHTT.Text = Utils.ToString((tt-tienbntt) * (mucHuong / 100m));
+            txtBNCCT.Text = Utils.ToString((tt - tienbntt) * (1m - (mucHuong / 100m)) + tienbntt);
         }
         private void checkTatCa_CheckedChanged(object sender, EventArgs e)
         {
@@ -339,7 +362,7 @@ namespace TiepNhan.GUI
         {
             LuuHoSo();
         }
-        private void LuuHoSo(bool inHoSo = false)
+        private void LuuHoSo(bool inHoSo = false,bool xemHoSo = false)
         {
             // lưu 3 bảng, thông tin, vật tư, dịch vụ
             if (KiemTraBenhBacSi())
@@ -362,7 +385,7 @@ namespace TiepNhan.GUI
                     {
                         thanhtoan.MienCungCT = Utils.ToDateTime(txtDu5Nam.Text, "dd/MM/yyyy").ToShortDateString();
                     }
-                    thanhtoan.TyLe = 100;
+                    thanhtoan.TyLe = 100;// chưa chắc là 100
                 }
                 else
                 {
@@ -388,9 +411,9 @@ namespace TiepNhan.GUI
                 thanhtoan.TienThuoc = tienthuoc;
                 thanhtoan.TienVTYT = tienvattu;
                 thanhtoan.TongChi = tienvattu + tienthuoc + tiendichvu;
-                thanhtoan.TienBNTT = 0;
-                thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
-                thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                thanhtoan.TienBNTT = tienbntt;
+                thanhtoan.TienBNCCT = (thanhtoan.TongChi-tienbntt) * (1m - (mucHuong / 100m));
+                thanhtoan.TienBHTT = (thanhtoan.TongChi - tienbntt) * (mucHuong / 100m);
                 thanhtoan.TienNguonKhac = 0;
                 thanhtoan.TienNgoaiDS = 0;
                 thanhtoan.NamQT = DateTime.Now.ToString("yyyy");
@@ -409,9 +432,20 @@ namespace TiepNhan.GUI
                     thanhtoan.SoPhieuNhap = Utils.ToInt(dr["SoPhieuNhap"]);
                     thanhtoan.MaVatTu = dr["MaVatTu"].ToString();
                     thanhtoan.TongChi = Utils.ToDecimal(dr["ThanhTien"]);
-                    thanhtoan.TienBNTT = 0;
-                    thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
-                    thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    if (mucHuong != 0 && Utils.ToInt(dr["TyLe"], 100) == 0)
+                    {
+                        thanhtoan.TyLe = 0;
+                        thanhtoan.TienBNTT = thanhtoan.TongChi;
+                        thanhtoan.TienBNCCT = 0;// thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = 0;// thanhtoan.TongChi * (mucHuong / 100m);
+                    }
+                    else
+                    {
+                        thanhtoan.TyLe = 100;
+                        thanhtoan.TienBNTT = 0;
+                        thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    }
                     thanhtoan.TienNguonKhac = 0;
                     thanhtoan.TienNgoaiDS = 0;
                     if (!thanhtoan.SpThanhToan(ref err, "Update_TH"))
@@ -427,9 +461,20 @@ namespace TiepNhan.GUI
                     thanhtoan.SoPhieuNhap = Utils.ToInt(dr["SoPhieuNhap"]);
                     thanhtoan.MaVatTu = dr["MaVatTu"].ToString();
                     thanhtoan.TongChi = Utils.ToDecimal(dr["ThanhTien"]);
-                    thanhtoan.TienBNTT = 0;
-                    thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
-                    thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    if (mucHuong != 0 && Utils.ToInt(dr["TyLe"], 100) == 0)
+                    {
+                        thanhtoan.TyLe = 0;
+                        thanhtoan.TienBNTT = thanhtoan.TongChi;
+                        thanhtoan.TienBNCCT = 0;// thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = 0;// thanhtoan.TongChi * (mucHuong / 100m);
+                    }
+                    else
+                    {
+                        thanhtoan.TyLe = 100;
+                        thanhtoan.TienBNTT = 0;
+                        thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    }
                     thanhtoan.TienNguonKhac = 0;
                     thanhtoan.TienNgoaiDS = 0;
                     if (!thanhtoan.SpThanhToan(ref err, "Update_VT"))
@@ -437,15 +482,32 @@ namespace TiepNhan.GUI
                         XtraMessageBox.Show(err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                if (checkCoThe.Checked)
+                {
+                    thanhtoan.TyLe = 100;
+                }
+                else
+                {
+                    thanhtoan.TyLe = 0;
+                }
                 // cập nhật dịch vụ
                 foreach (DataRow dr in dataDichVu.Rows)
                 {
                     err = null;
                     thanhtoan.MaVatTu = dr["MaDichVu"].ToString();
                     thanhtoan.TongChi = Utils.ToDecimal(dr["ThanhTien"]);
-                    thanhtoan.TienBNTT = 0;
-                    thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
-                    thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    if (mucHuong != 0 && Utils.ToInt(dr["TyLe"], 100) == 0)
+                    {
+                        thanhtoan.TienBNTT = thanhtoan.TongChi;
+                        thanhtoan.TienBNCCT = 0;// thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = 0;// thanhtoan.TongChi * (mucHuong / 100m);
+                    }
+                    else
+                    {
+                        thanhtoan.TienBNTT = 0;
+                        thanhtoan.TienBNCCT = thanhtoan.TongChi * (1m - (mucHuong / 100m));
+                        thanhtoan.TienBHTT = thanhtoan.TongChi * (mucHuong / 100m);
+                    }
                     thanhtoan.TienNguonKhac = 0;
                     thanhtoan.TienNgoaiDS = 0;
                     if (!thanhtoan.SpThanhToan(ref err, "Update_DV"))
@@ -469,7 +531,7 @@ namespace TiepNhan.GUI
                     }
                 }
                 if (inHoSo)
-                    InHoSo(true);
+                    InHoSo(xemHoSo);
             }
 
         }
@@ -521,7 +583,7 @@ namespace TiepNhan.GUI
 
         private void btnLuuIn_Click(object sender, EventArgs e)
         {
-            LuuHoSo(true);
+            LuuHoSo(true,true);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -545,12 +607,53 @@ namespace TiepNhan.GUI
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            InHoSo();
+            LuuHoSo(true);
         }
-
+        private void TaoFileXML()
+        {
+            try
+            {
+                DanhSachHoSo danhSachHoSo = new DanhSachHoSo();
+                //
+                //dataDichVu = thanhtoan.DSDichVuChiTiet();
+                //dataThuoc = thanhtoan.DSThuocChiTiet();
+                //dataVTYT = thanhtoan.DSVTYTChiTiet();
+                DataTable dataXML3 = thanhtoan.DSDichVu(thanhtoan.MaLK);
+                foreach (DataRow dtrow in thanhtoan.DSVatTu(thanhtoan.MaLK).Rows)
+                {
+                    dataXML3.Rows.Add(dtrow.ItemArray);
+                }
+                //
+                XmlDocument XML1 = ConvertXML.XML1_4210(thanhtoan.ThongTinBN(thanhtoan.MaLK).Rows[0]);// xem lại cd kết quả điều trị
+                XmlDocument XML2 = ConvertXML.XML2_4210(thanhtoan.DSThuoc(thanhtoan.MaLK), maBenh);
+                XmlDocument XML4 = ConvertXML.XML4_4210(thanhtoan.DSHoSoCanLamSan(thanhtoan.MaLK));
+                XmlDocument XML3 = ConvertXML.XML3_4210(dataXML3, maBenh);
+                //
+                HoSo hoSo = new HoSo();
+                hoSo.Add(new FileHoSo { LoaiHoSo = "XML1", NoiDungFile = Convert.ToBase64String(Utils.XmlToByte(XML1)) });
+                if (XML2 != null)
+                    hoSo.Add(new FileHoSo { LoaiHoSo = "XML2", NoiDungFile = Convert.ToBase64String(Utils.XmlToByte(XML2)) });
+                if (XML3 != null)
+                    hoSo.Add(new FileHoSo { LoaiHoSo = "XML3", NoiDungFile = Convert.ToBase64String(Utils.XmlToByte(XML3)) });
+                if (XML4 != null)
+                    hoSo.Add(new FileHoSo { LoaiHoSo = "XML4", NoiDungFile = Convert.ToBase64String(Utils.XmlToByte(XML4)) });
+                danhSachHoSo.Add(hoSo);
+                string filePath = "D:\\BHYT\\BYT_4210\\";
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+                XmlDocument giamDinhHoSo = ConvertXML.GIAMDINH(danhSachHoSo);
+                string name = txtTheBHYT.Text+"_"+ DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                giamDinhHoSo.Save(filePath + "FileHS_" + name + ".xml");
+            }
+            catch
+            { }
+        }
         private void InHoSo(bool view = false)
         {
             SplashScreenManager.ShowForm(typeof(WaitFormLoad));
+            TaoFileXML();
             rptChiPhi rpt = new rptChiPhi();
             rpt.DataSource = null;
             string mau  = "Mau01";
@@ -652,7 +755,7 @@ namespace TiepNhan.GUI
             string tennhom = null;
             XRTableRow row = new XRTableRow();
             XRTableCell cell = new XRTableCell();
-            decimal tongTien = 0, tienBNTT = 0, tienBHTT = 0;
+            decimal tongTien = 0, tienBNTT = 0, tienBHTT = 0, tienNgoaiBH = 0;
             for (int i=0;i<dataRow.Length;i++)
             {
                 if(tennhom != dataRow[i]["TenNhom"].ToString())
@@ -689,7 +792,7 @@ namespace TiepNhan.GUI
                         row.Cells.Add(cell);
 
                         cell = new XRTableCell();
-                        cell.Text = Utils.ToString(tienBNTT);
+                        cell.Text = Utils.ToString(tienBNTT+tienNgoaiBH);
                         cell.Font = fontB;
                         cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                         cell.WidthF = 99;
@@ -702,6 +805,7 @@ namespace TiepNhan.GUI
                     tongTien = 0;
                     tienBHTT = 0;
                     tienBNTT = 0;
+                    tienNgoaiBH = 0;
                     //
                     row = new XRTableRow();
                     cell = new XRTableCell();
@@ -751,9 +855,17 @@ namespace TiepNhan.GUI
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 100;
                 row.Cells.Add(cell);
-
-                t = Utils.ToDecimal(dataRow[i]["ThanhTien"]) * (mucHuong/100m);
-                tienBHTT += t;
+                if (Utils.ToInt(dataRow[i]["TyLe"], 100) == 0)
+                {
+                    t = Utils.ToDecimal(dataRow[i]["ThanhTien"]);
+                    tienNgoaiBH += t;
+                    t = 0;
+                }
+                else
+                {
+                    t = Utils.ToDecimal(dataRow[i]["ThanhTien"]) * (mucHuong / 100m);
+                    tienBHTT += t;
+                }
                 cell = new XRTableCell();
                 cell.Text = Utils.ToString(t);
                 cell.Font = font;
@@ -767,9 +879,15 @@ namespace TiepNhan.GUI
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 90;
                 row.Cells.Add(cell);
-
-                t = Utils.ToDecimal(dataRow[i]["ThanhTien"]) *(1m - (mucHuong / 100m));
-                tienBNTT += t;
+                if (Utils.ToInt(dataRow[i]["TyLe"], 100) == 0)
+                {
+                    t = Utils.ToDecimal(dataRow[i]["ThanhTien"]);
+                }
+                else
+                {
+                    t = Utils.ToDecimal(dataRow[i]["ThanhTien"]) * (1m - (mucHuong / 100m));
+                    tienBNTT += t;
+                }
                 cell = new XRTableCell();
                 cell.Text = Utils.ToString(t);
                 cell.Font = font;
@@ -810,7 +928,7 @@ namespace TiepNhan.GUI
                 row.Cells.Add(cell);
 
                 cell = new XRTableCell();
-                cell.Text = Utils.ToString(tienBNTT);
+                cell.Text = Utils.ToString(tienBNTT+tienNgoaiBH);
                 cell.Font = fontB;
                 cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
                 cell.WidthF = 99;
@@ -820,8 +938,8 @@ namespace TiepNhan.GUI
             }
             //
             tongTien = tiendichvu + tienthuoc + tienvattu;
-            tienBHTT = (tiendichvu + tienthuoc + tienvattu) * (mucHuong / 100m);
-            tienBNTT = (tiendichvu + tienthuoc + tienvattu) * (1m - (mucHuong / 100m));
+            tienBHTT = (tiendichvu + tienthuoc + tienvattu - tienbntt) * (mucHuong / 100m);
+            tienBNTT = (tiendichvu + tienthuoc + tienvattu - tienbntt) * (1m - (mucHuong / 100m))+tienbntt;
             row = new XRTableRow();
             cell = new XRTableCell();
             cell.Text = "Tổng Cộng";
@@ -852,7 +970,7 @@ namespace TiepNhan.GUI
             row.Cells.Add(cell);
 
             cell = new XRTableCell();
-            cell.Text = Utils.ToString(tienBNTT);
+            cell.Text = Utils.ToString(tienBNTT+tienNgoaiBH);
             cell.Font = fontB;
             cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             cell.WidthF = 99;
@@ -862,7 +980,7 @@ namespace TiepNhan.GUI
 
             rpt.xrLabelChuTongTien.Text = Utils.ChuyenSo(String.Format("{0:0}", tongTien));
             rpt.xrLabelChuBHTT.Text = Utils.ChuyenSo(String.Format("{0:0}", tienBHTT));
-            rpt.xrLabelChuBNTT.Text = Utils.ChuyenSo(String.Format("{0:0}", tienBNTT));
+            rpt.xrLabelChuBNTT.Text = Utils.ChuyenSo(String.Format("{0:0}", tienBNTT+tienNgoaiBH));
             //
             rpt.CreateDocument();
             if (view)

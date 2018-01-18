@@ -56,7 +56,7 @@ namespace DuocPham.DAL
         }
         public DataTable DSPhieu (DateTime tuNgay, DateTime denNgay)
         {
-            return db.ExcuteQuery ("Select * From PhieuXuat Where NgayXuat BETWEEN CAST('" + tuNgay + "' as DATE) AND CAST('" + denNgay + "' as DATE)",
+            return db.ExcuteQuery ("Select * From PhieuXuat Where NgayXuat BETWEEN CAST('" + tuNgay.ToString("MM/dd/yyyy") + "' as DATE) AND CAST('" + denNgay.ToString("MM/dd/yyyy") + "' as DATE)",
                 CommandType.Text, null);
         }
         public DataTable DSPhieuVatTu ()
@@ -75,14 +75,14 @@ namespace DuocPham.DAL
                 CommandType.StoredProcedure, ref err,
                 outSoPhieu,
                 new SqlParameter ("@TKCo", TKCo),
-                new SqlParameter ("@NgayXuat", NgayXuat),
+                new SqlParameter ("@NgayXuat", NgayXuat.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@KhoXuat", KhoXuat),
                 new SqlParameter ("@KhoNhan", KhoNhan),
                 new SqlParameter ("@NguoiNhan", NguoiNhan),
                 new SqlParameter ("@NoiDung", NoiDung),
                 new SqlParameter ("@PheDuyet", PheDuyet),
                 new SqlParameter ("@NguoiTao", NguoiTao),
-                new SqlParameter ("@NgayCapNhat", NgayCapNhat),
+                new SqlParameter ("@NgayCapNhat", NgayCapNhat.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@NguoiCapNhat", NguoiCapNhat));
             this.SoPhieu = int.Parse (outSoPhieu.Value.ToString ());
             return f;
@@ -100,7 +100,7 @@ namespace DuocPham.DAL
                 new SqlParameter ("@SoLuongDung", SoLuongDung),
                 new SqlParameter ("@DonGiaBHYT", DonGiaBHYT),
                 new SqlParameter ("@DonGiaBV", DonGiaBV),
-                new SqlParameter ("@HetHan", HetHan),
+                new SqlParameter ("@HetHan", HetHan.ToString("MM/dd/yyyy")),
                 new SqlParameter ("@ThanhTien", ThanhTien),
                 new SqlParameter ("@LoaiVatTu", LoaiVatTu));
         }

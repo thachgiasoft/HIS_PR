@@ -213,7 +213,7 @@ namespace BaoCao.GUI
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
             }
-            else
+            else if(cbLoaiBaoCao.SelectedIndex ==5)
             {
                 //Tổng hợp thuốc
                 dataTongHop = tongHop.DSSoLuongThuoc(maKhoa, tuNgay, denNgay);
@@ -224,6 +224,35 @@ namespace BaoCao.GUI
                 rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
                 rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
                 rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
+            }
+            else if(cbLoaiBaoCao.SelectedIndex == 6)
+            {
+                // số liệu mẫu 7980A
+                dataTongHop = tongHop.DSMauSo7980A(maKhoa,tuNgay,denNgay);
+                RptSoLieuMau7980A rpt = new RptSoLieuMau7980A();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+                rpt.DataSource = dataTongHop;
+                rpt.CreateDocument();
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                // chi tiết thuốc
+                dataTongHop = tongHop.DSChiTietThuoc(maKhoa, tuNgay, denNgay);
+                RptTongHopChiTietThuoc rpt = new RptTongHopChiTietThuoc();
+                rpt.xrlblCoSo.Text = AppConfig.CoSoKCB;
+                rpt.xrlblTuNgayDenNgay.Text = "Từ ngày " + tuNgay.ToString("dd/MM/yyyy") +
+                    " đến ngày " + denNgay.ToString("dd/MM/yyyy");
+                rpt.xrlblKhoa.Text = lookUpKhoa.Properties.GetDisplayValueByKeyValue(lookUpKhoa.EditValue).ToString();
+                //rpt.xrlblNgayLap.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+                //rpt.DataSource = dataTongHop;
+                rpt.xrPivotGrid.DataSource = dataTongHop;
                 rpt.CreateDocument();
                 rpt.ShowPreviewDialog();
             }

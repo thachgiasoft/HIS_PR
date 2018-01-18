@@ -223,7 +223,7 @@ namespace DuocPham.GUI
                     dr["ThanhTien"] = Convert.ToDecimal (txtSoLuong.Text) * Convert.ToDecimal (drview["DonGiaBHYT"].ToString ());
                     dr["LoaiVatTu"] = drview["LoaiVatTu"].ToString ();
                     dr["DonViTinh"] = drview["DonViTinh"].ToString ();
-
+                    dr.EndEdit();
                     txtSoLuong.Text = "";
                 }
             }
@@ -255,7 +255,8 @@ namespace DuocPham.GUI
 
                 btnIn.Enabled = true;
                 // danh sách
-                lookUpMaVatTu.Properties.DataSource = linhthuoc.DSVatTu (linhthuoc.TKCo.Substring (3, 1));
+                lookUpMaVatTu.Properties.DataSource = linhthuoc.DSVatTu (linhthuoc.TKCo.Length>4 ?
+                    linhthuoc.TKCo.Substring (3, 2): linhthuoc.TKCo.Substring(linhthuoc.TKCo.Length-1, 1));
                 gridControlDS.DataSource = linhthuoc.DSPhieuVatTu ().AsDataView ();
             }
         }

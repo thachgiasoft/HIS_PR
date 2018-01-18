@@ -132,7 +132,7 @@ namespace TiepNhan.GUI
                     drvNew["TyLe"] = dr["TyLeTT"];
                     drvNew["TTinThau"] = dr["TTinThau"];
                 }
-
+                drvNew.EndEdit();
                 lookUpThuoc.Focus();
                 txtSoLuong.ResetText();
                 txtLanUong.ResetText();
@@ -264,6 +264,8 @@ namespace TiepNhan.GUI
                     // thêm mới 
                     if (thuocNgoaiDM.Select("MaVatTu = '"+ kedon.MaVatTu + "' and MaHoatChat = '"+kedon.MaThuoc+"'", "").Length > 0)
                     {
+                        if (Utils.ToInt(drv["TyLe"], 100) != 100)
+                            kedon.MaNhom = 6;// Thuốc thanh toán theo tỷ lệ
                         // insert ngoài danh mục
                         if (kedon.SpKeDonThuoc(ref err, "INSERT_NgoaiDM"))
                         {

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <AppConfig>
   <ThemeConfig>
-    <Theme>Pumpkin</Theme>
+    <Theme>Office 2010 Blue</Theme>
   </ThemeConfig>
   <Connection>
-    <ServerName>DANGCAM</ServerName>
+    <ServerName>dangcam</ServerName>
     <Database>HIS_PR</Database>
     <UserName>dangcam.pr</UserName>
     <Password>123456</Password>

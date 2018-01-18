@@ -123,6 +123,12 @@
     <Compile Include="RptNguonNhap.Designer.cs">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="RptSoLieuMau7980A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptSoLieuMau7980A.Designer.cs">
+      <DependentUpon>RptSoLieuMau7980A.cs</DependentUpon>
+    </Compile>
     <Compile Include="RptSoLuongThuoc.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </Compile>
     <Compile Include="RptTongHopBNTT.Designer.cs">
       <DependentUpon>RptTongHopBNTT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RptTongHopChiTietThuoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptTongHopChiTietThuoc.Designer.cs">
+      <DependentUpon>RptTongHopChiTietThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="RptTongHopDichVu.cs">
       <SubType>Component</SubType>
@@ -201,11 +213,17 @@
     <EmbeddedResource Include="RptNguonNhap.resx">
       <DependentUpon>RptNguonNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RptSoLieuMau7980A.resx">
+      <DependentUpon>RptSoLieuMau7980A.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RptSoLuongThuoc.resx">
       <DependentUpon>RptSoLuongThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RptTongHopBNTT.resx">
       <DependentUpon>RptTongHopBNTT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptTongHopChiTietThuoc.resx">
+      <DependentUpon>RptTongHopChiTietThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RptTongHopDichVu.resx">
       <DependentUpon>RptTongHopDichVu.cs</DependentUpon>

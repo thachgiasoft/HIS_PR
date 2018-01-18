@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent ()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmXuatKho));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.layoutControlMain = new DevExpress.XtraLayout.LayoutControl();
             this.panelControlDanhSach = new DevExpress.XtraEditors.PanelControl();
@@ -281,9 +281,9 @@
             // repositoryItemButtonEdit
             // 
             this.repositoryItemButtonEdit.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
             this.repositoryItemButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit.Name = "repositoryItemButtonEdit";
             this.repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit_ButtonClick);
@@ -746,6 +746,7 @@
             this.txtNoiDung.Size = new System.Drawing.Size(466, 22);
             this.txtNoiDung.StyleController = this.layoutControl1;
             this.txtNoiDung.TabIndex = 10;
+            this.txtNoiDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoiDung_KeyPress);
             // 
             // txtNguoiNhan
             // 
@@ -757,6 +758,7 @@
             this.txtNguoiNhan.Size = new System.Drawing.Size(199, 22);
             this.txtNguoiNhan.StyleController = this.layoutControl1;
             this.txtNguoiNhan.TabIndex = 9;
+            this.txtNguoiNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNguoiNhan_KeyPress);
             this.txtNguoiNhan.Leave += new System.EventHandler(this.txtNguoiNhan_Leave);
             // 
             // dateNgayXuat
@@ -806,6 +808,7 @@
             this.txtTKCo.StyleController = this.layoutControl1;
             this.txtTKCo.TabIndex = 4;
             this.txtTKCo.EditValueChanged += new System.EventHandler(this.txtTKCo_EditValueChanged);
+            this.txtTKCo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTKCo_KeyPress);
             // 
             // lookUpKhoXuat
             // 
@@ -821,6 +824,7 @@
             this.lookUpKhoXuat.Size = new System.Drawing.Size(466, 22);
             this.lookUpKhoXuat.StyleController = this.layoutControl1;
             this.lookUpKhoXuat.TabIndex = 7;
+            this.lookUpKhoXuat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpKhoXuat_KeyPress);
             // 
             // searchLookUpEdit1View
             // 
@@ -870,6 +874,7 @@
             this.lookUpKhoNhan.Size = new System.Drawing.Size(201, 22);
             this.lookUpKhoNhan.StyleController = this.layoutControl1;
             this.lookUpKhoNhan.TabIndex = 8;
+            this.lookUpKhoNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpKhoNhan_KeyPress);
             // 
             // gridView1
             // 

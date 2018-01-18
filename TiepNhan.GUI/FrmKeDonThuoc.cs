@@ -363,6 +363,7 @@ namespace TiepNhan.GUI
                         drvNew["TTinThau"] = dr["TTinThau"];
                         drvNew["TyLe"] = dr["TyLeTT"];
                     }
+                    drvNew.EndEdit();
                 }
                 else if (cbLoaiChiPhi.SelectedIndex == 1)
                 {
@@ -392,6 +393,7 @@ namespace TiepNhan.GUI
                     drvNew["TTinThau"] =( dr["CongBo"].ToString().Length>3 ? dr["CongBo"].ToString().Substring(4)
                         : DateTime.Now.ToString("yyyy"))+ ".00." + dr["QuyetDinh"];
                     drvNew["TyLe"] = 100;
+                    drvNew.EndEdit();
                 }
                 else
                 {
@@ -484,6 +486,11 @@ namespace TiepNhan.GUI
                     // thêm mới 
                     if (thuocNgoaiDM.Select("MaVatTu = '" + kedon.MaVatTu + "' and MaHoatChat = '" + kedon.MaThuoc + "'", "").Length > 0)
                     {
+                        if (Utils.ToInt(drv["TyLe"], 100) != 100)
+                        {
+                            kedon.MaNhom = 6;// Thuốc thanh toán theo tỷ lệ
+                            kedon.PhamVi = 2;
+                        }
                         // insert ngoài danh mục
                         if (kedon.SpKeDonThuoc(ref err, "INSERT_NgoaiDM"))
                         {
@@ -496,6 +503,7 @@ namespace TiepNhan.GUI
                     }
                     else
                     {
+                        
                         // thuốc trong kho
                         if (kedon.SpKeDonThuoc(ref err, "INSERT"))
                         {

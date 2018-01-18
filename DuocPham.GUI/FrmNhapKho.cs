@@ -212,19 +212,19 @@ namespace DuocPham.GUI
                 nhapkho.LoaiVatTu = dr["LoaiVatTu"].ToString ();
                 if(them)
                 {
-                    dsVatTu.Add (nhapkho.MaVatTu, false);
+                    dsVatTu.Add(nhapkho.MaVatTu + "|" + nhapkho.SoLo, false);
                     nhapkho.SpPhieuNhapChiTiet (ref err, "INSERT");
                 }
                 else
                 {
-                    if(dsVatTu.ContainsKey(nhapkho.MaVatTu))
+                    if(dsVatTu.ContainsKey(nhapkho.MaVatTu + "|" + nhapkho.SoLo))
                     {
-                        dsVatTu[nhapkho.MaVatTu] = true;
+                        dsVatTu[nhapkho.MaVatTu + "|" + nhapkho.SoLo] = true;
                         nhapkho.SpPhieuNhapChiTiet (ref err, "UPDATE");
                     }
                     else
                     {
-                        dsVatTu.Add (nhapkho.MaVatTu, true);
+                        dsVatTu.Add (nhapkho.MaVatTu + "|" + nhapkho.SoLo, true);
                         nhapkho.SpPhieuNhapChiTiet (ref err, "INSERT");
                     }
                 }
@@ -240,7 +240,8 @@ namespace DuocPham.GUI
                 {
                     if(dsVatTu[key]==false)
                     {
-                        nhapkho.MaVatTu = key;
+                        nhapkho.MaVatTu = key.Split('|')[0];
+                        nhapkho.SoLo = key.Split('|')[1];
                         nhapkho.SpPhieuNhapChiTiet (ref err, "DELETE");
                         dsVatTu.Remove (key);
                     }
@@ -321,7 +322,8 @@ namespace DuocPham.GUI
                 }
                 if (gridControlDS.DataSource is DataView && btnLuu.Enabled)
                 {
-                    DataRow[] drv = (gridViewDS.DataSource as DataView).Table.Select ("MaVatTu = '" + lookUpMaVatTu.EditValue.ToString () + "'");
+                    DataRow[] drv = (gridViewDS.DataSource as DataView).
+                        Table.Select ("MaVatTu = '" + lookUpMaVatTu.EditValue.ToString () + "' And SoLo = '"+txtSoLo.Text+"'");
                     if (drv.Length != 0)
                     {
                         XtraMessageBox.Show ("Vật tư đã được chọn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -334,14 +336,15 @@ namespace DuocPham.GUI
                     dr["SoLuong"] = txtSoLuong.Text;
                     dr["SoLuongQuyDoi"] = txtSoLuongQD.Text;
                     dr["SoLuongDung"] = 0;
-                    dr["DonGiaBHYT"] = txtGiaBHYT.Text;
-                    dr["DonGiaBV"] = txtGiaBV.Text;
+                    dr["DonGiaBHYT"] =Utils.ToDecimal( txtGiaBHYT.Text);
+                    dr["DonGiaBV"] =Utils.ToDecimal( txtGiaBV.Text);
                     dr["SoLo"] = txtSoLo.Text;
                     dr["HetHan"] = dateHetHan.DateTime;
-                    dr["ThanhTien"] =  txtThanhTien.Text;
+                    dr["ThanhTien"] = Utils.ToDecimal( txtThanhTien.Text);
                     dr["LoaiVatTu"] = txtTKNo.Text.Length >4 ? txtTKNo.Text.Substring (3, 2): txtTKNo.Text.Substring(3, 1);
+                    dr.EndEdit();
 
-                    //lookUpMaVatTu.EditValue = null;
+                    lookUpMaVatTu.EditValue = null;
                     txtTenVatTu.Text = "";
                     txtSoDangKy.Text = "";
                     txtSoLuong.Text = "0";
@@ -432,7 +435,7 @@ namespace DuocPham.GUI
                 dsVatTu.Clear ();
                 foreach(DataRow drow in dtPhieu.Rows)
                 {
-                    dsVatTu.Add (drow["MaVatTu"].ToString (), false);
+                    dsVatTu.Add (drow["MaVatTu"].ToString ()+"|"+drow["SoLo"], false);
                     drow["TenVatTu"] = dtVatTu.Select("MaBV = '" + drow["MaVatTu"].ToString() + "'")[0][1];
                     //(lookUpMaVatTu.Properties.GetRowByKeyValue (drow["MaVatTu"].ToString ()) as DataRowView)[1];
                     // lấy tên vật tư từ mã vật tư, từ lookUpMaVatTu (thay bằng data vật tư) dataVatTu.Select
@@ -444,12 +447,16 @@ namespace DuocPham.GUI
 
         }
 
-        private void txtTKNo_EditValueChanged (object sender, EventArgs e)
+        private void txtTKNo_EditValueChanged(object sender, EventArgs e)
         {
             if (txtTKNo.Text.Length > 3)
             {
-                lookUpMaVatTu.Properties.DataSource = dtVatTu.Select("LoaiVatTu = '" + txtTKNo.Text.Substring(3, txtTKNo.Text.Length - 3) + "'").CopyToDataTable(); 
-                //nhapkho.DSVatTu (txtTKNo.Text.Substring (3, txtTKNo.Text.Length-3));// dataVatTu.Select
+                try
+                {
+                    lookUpMaVatTu.Properties.DataSource = dtVatTu.Select("LoaiVatTu = '" + txtTKNo.Text.Substring(3, txtTKNo.Text.Length - 3) + "'").CopyToDataTable();
+                    //nhapkho.DSVatTu (txtTKNo.Text.Substring (3, txtTKNo.Text.Length-3));// dataVatTu.Select
+                }
+                catch { }
             }
         }
 
