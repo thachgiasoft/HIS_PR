@@ -370,7 +370,9 @@ namespace DuocPham.GUI
                 var soLuongDung = Convert.ToDecimal (gridViewDS.GetRowCellValue (e.RowHandle, gridViewDS.Columns["SoLuongDung"]));
                 if(soLuong<soLuongDung)
                 {
-                    XtraMessageBox.Show("Không thể chỉnh sửa số lượng nhập kho < số lượng vật tư đã sử dụng!","Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Không thể chỉnh sửa số lượng nhập kho ("+ soLuong +")  < số lượng vật tư đã sử dụng ("+ soLuongDung + ")!." +
+                        " Được gán bằng số lượng vật tư đã sử dụng.",
+                        "Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     soLuong = soLuongDung;
                     gridViewDS.SetFocusedRowCellValue ("SoLuongQuyDoi", soLuong);
                 }
@@ -584,7 +586,7 @@ namespace DuocPham.GUI
                 if (Utils.ToInt(txtVAT.Text) > 0)
                 {
                     this.txtThanhTien.EditValueChanged -= new System.EventHandler(this.txtThanhTien_EditValueChanged);
-                    txtThanhTien.Text = (Utils.ToDecimal(txtThanhTien.Text) * (1 + Utils.ToDecimal(txtVAT.Text) / 100)).ToString();
+                    txtThanhTien.Text = (Utils.ToDouble(txtThanhTien.Text) * (1 + Utils.ToDouble(txtVAT.Text) / 100)).ToString();
                     txtThanhTien_EditValueChanged(null,null);
                     this.txtThanhTien.EditValueChanged += new System.EventHandler(this.txtThanhTien_EditValueChanged);
                 }

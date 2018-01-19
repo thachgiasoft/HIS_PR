@@ -163,5 +163,13 @@ namespace DuocPham.DAL
                 CommandType.StoredProcedure, ref err,
                 new SqlParameter ("@SoPhieu", SoPhieu));
         }
+        public bool SpXoaPhieuNhapChiTiet(ref string err)
+        {
+            return db.MyExecuteNonQuery("SpXoaPhieuXuatChiTiet",
+                CommandType.StoredProcedure, ref err,
+                new SqlParameter("@SoPhieu", SoPhieu),
+                new SqlParameter("@SoPhieuNhap", SoPhieuNhap),
+                new SqlParameter("@MaVatTu", MaVatTu));
+        }
     }
 }

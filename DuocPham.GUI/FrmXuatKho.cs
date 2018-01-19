@@ -271,7 +271,7 @@ namespace DuocPham.GUI
                 if(them)
                 {
                     xuatkho.SpThemPhieuNhapChiTiet (ref err);// insert vào số lô, 
-                    fffgfg;// tạo lỗi để nhớ
+                    //fffgfg;// tạo lỗi để nhớ
                 }
                 if (!string.IsNullOrEmpty (err))
                 {

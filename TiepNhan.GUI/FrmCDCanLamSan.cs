@@ -127,7 +127,8 @@ namespace TiepNhan.GUI
             rpt.lblYeuCau.Text = khambenh.YeuCau;
             rpt.lblNgayThang.Text = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
             rpt.lblTenPhieu.Text = "PHIẾU " + dr["Ten"].ToString().ToUpper();
-            rpt.lblTenBacSi.Text = "Họ tên: " + lookUpBacSi.Properties.GetDisplayValueByKeyValue(dr["MaBS"]);
+            //rpt.lblTenBacSi.Text = "Họ tên: " + lookUpBacSi.Properties.GetDisplayValueByKeyValue(dr["MaBS"]);
+            rpt.lblTenBacSi.Text = "Họ tên: " + lookUpBacSi.Properties.GetDisplayValueByKeyValue(lookUpBacSi.EditValue);
             rpt.CreateDocument();
             rpt.ShowPreviewDialog();
         }

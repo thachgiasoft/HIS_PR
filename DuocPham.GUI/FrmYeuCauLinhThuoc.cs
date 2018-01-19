@@ -229,11 +229,31 @@ namespace DuocPham.GUI
             }
         }
 
-        private void btnXoa_ButtonClick (object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void btnXoa_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (them)
             {
-                (gridControlDS.DataSource as DataView).Delete (gridViewDS.GetFocusedDataSourceRowIndex ());
+                (gridControlDS.DataSource as DataView).Delete(gridViewDS.GetFocusedDataSourceRowIndex());
+            }
+            else
+            {
+                // tiến hành xóa, cập nhật lại kho nhập
+                DialogResult traloi;
+                string err = "";
+                traloi = XtraMessageBox.Show("Chắc chắn bạn muốn xóa mục này?", "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (traloi == DialogResult.Yes)
+                {
+                    if (linhthuoc.SpXoaPhieuNhapChiTiet(ref err))
+                    {
+                        // cập nhật được mới xóa nha-> ok
+                        (gridControlDS.DataSource as DataView).Delete(gridViewDS.GetFocusedDataSourceRowIndex());
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
